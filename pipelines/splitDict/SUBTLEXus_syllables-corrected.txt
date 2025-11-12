@@ -4366,7 +4366,7 @@ skating: ska-ting
 careless: ca-reless
 reckless: rec-kless
 artistic: ar-tis-tic
-coughing: coug-hing
+coughing: cough-ing
 qualities: qua-li-ties
 Roosevelt: Roo-se-velt
 compromised: com-pro-mised
@@ -7495,7 +7495,7 @@ Cornell: Cor-nell
 Needless: Nee-dless
 pleading: plea-ding
 colleges: col-le-ges
-weighing: weig-hing
+weighing: weigh-ing
 hysteria: hys-te-r-ia
 chaplain: cha-plain
 broccoli: broc-coli
@@ -7964,7 +7964,7 @@ caterer: ca-te-rer
 junkies: jun-kies
 maggots: mag-gots
 runners: run-ners
-sighing: sig-hing
+sighing: sigh-ing
 pioneer: pio-ne-er
 Boulder: Boul-der
 Petunia: Pe-tu-nia
@@ -12594,7 +12594,7 @@ legislation: le-gi-sla-tion
 maneuvering: ma-neu-ve-ring
 firefighter: fi-re-fighter
 impenetrable: im-pe-ne-tra-ble
-laughingstock: laug-hings-tock
+laughingstock: laugh-ing-stock
 extermination: ex-ter-mi-na-tion
 reconciliation: re-con-ci-lia-tion
 Ny: /
@@ -14060,7 +14060,7 @@ doctrine: doc-trine
 quitters: quit-ters
 Comanche: Co-manc-he
 shipyard: shi-pyard
-neighing: neig-hing
+neighing: neigh-ing
 Flounder: Floun-der
 stingers: stin-gers
 Somerset: So-mer-set
@@ -17482,7 +17482,7 @@ ingested: in-ges-ted
 lunching: lunc-hing
 overkill: o-ver-kill
 reliving: re-li-ving
-roughing: roug-hing
+roughing: rough-ing
 shacking: shac-king
 shrunken: shrun-ken
 abundant: a-bun-dant
@@ -33996,7 +33996,7 @@ nonsmoker: non-smo-ker
 oblongata: o-blon-ga-ta
 omelettes: o-melettes
 plaintive: plain-tive
-ploughing: ploug-hing
+ploughing: plough-ing
 polyvinyl: po-ly-vi-nyl
 pratfalls: pra-tfalls
 puffiness: puf-fi-ness
@@ -34185,7 +34185,7 @@ insomniacs: in-som-ni-acs
 intersects: in-ter-sects
 interwoven: in-ter-wo-ven
 lamination: la-mi-nation
-laughingly: laug-hing-ly
+laughingly: laugh-ing-ly
 locksmiths: loc-ksmiths
 measurable: mea-su-ra-ble
 melodramas: me-lo-dra-mas
@@ -36145,7 +36145,7 @@ Sepulcher: Se-pulcher
 skewering: ske-wering
 skilfully: skil-ful-ly
 slavering: sla-vering
-sloughing: sloug-hing
+sloughing: slough-ing
 spiderweb: spi-derweb
 Stalinist: Sta-li-nist
 strollers: strol-lers
@@ -47236,7 +47236,7 @@ skydivers: sky-divers
 slackened: slac-kened
 slackness: slac-kness
 slavishly: sla-vish-ly
-sleighing: sleig-hing
+sleighing: sleigh-ing
 slipcover: slip-cover
 sloganeer: slo-ga-neer
 slugabeds: slu-ga-beds
