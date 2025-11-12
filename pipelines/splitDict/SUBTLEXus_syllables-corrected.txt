@@ -3061,7 +3061,7 @@ bracelet: bra-celet
 flattered: flat-tered
 exclusive: ex-clu-sive
 destroying: des-troy-ing
-thoughtful: though-tful
+thoughtful: thought-ful
 communications: com-mu-ni-ca-tions
 gossip: gos-sip
 sausage: sau-sage
@@ -3888,7 +3888,7 @@ Hugo: Hu-go
 medic: me-dic
 nicest: ni-cest
 Deline: De-li-ne
-handful: han-dful
+handful: hand-ful
 Gabriel: Ga-br-iel
 exposure: ex-po-sure
 feathers: feat-hers
@@ -4085,7 +4085,7 @@ delayed: de-layed
 equally: e-qual-ly
 hideous: hi-deo-us
 employer: em-ploy-er
-thankful: than-kful
+thankful: thank-ful
 Florence: Flo-rence
 Campbell: Camp-bell
 insulting: in-sul-ting
@@ -5622,7 +5622,7 @@ amateurs: a-ma-teurs
 receipts: re-ceipts
 knuckles: knuc-kles
 Singapore: Sin-ga-pore
-meaningful: mea-nin-gful
+meaningful: mea-ning-ful
 Richardson: Ric-har-dson
 schoolteacher: school-teac-her
 Beta: Be-ta
@@ -7341,7 +7341,7 @@ checkbook: check-book
 Pinocchio: Pi-nocc-h-io
 calculated: cal-cu-la-ted
 truthfully: trut-hful-ly
-unfaithful: un-fait-hful
+unfaithful: un-faith-ful
 compatible: com-pa-ti-ble
 ballistics: bal-lis-tics
 sweatshirt: sweat-shirt
@@ -7369,7 +7369,7 @@ graphic: gra-phic
 cobbler: cob-bler
 Macbeth: Mac-beth
 Christy: Chris-ty
-rightful: righ-tful
+rightful: right-ful
 bursting: burs-ting
 mumbling: mum-bling
 beverage: be-verage
@@ -7807,7 +7807,7 @@ Bahamas: Ba-ha-mas
 hamster: hams-ter
 uranium: u-ra-ni-um
 spilling: spil-ling
-truthful: trut-hful
+truthful: truth-ful
 watering: wa-te-ring
 impulses: im-pul-ses
 ambushed: am-bushed
@@ -8042,7 +8042,7 @@ limitations: li-mi-ta-tions
 transported: trans-por-ted
 circumstance: cir-cums-tance
 superstition: su-pers-ti-tion
-disrespectful: di-sres-pec-tful
+disrespectful: di-sres-pect-ful
 Congressional: Con-gres-sio-nal
 bono: bo-no
 vivid: vi-vid
@@ -8449,7 +8449,7 @@ discovers: dis-co-vers
 publicist: pu-bli-cist
 Liverpool: Li-ver-pool
 compelling: com-pel-ling
-respectful: res-pec-tful
+respectful: res-pect-ful
 fundraiser: fun-drai-ser
 pretentious: pre-ten-tious
 photographic: pho-to-gra-phic
@@ -9096,7 +9096,7 @@ Glasgow: Glas-gow
 Sellers: Sel-lers
 foremost: fo-remost
 informal: in-for-mal
-mouthful: mout-hful
+mouthful: mouth-ful
 proceeds: pro-ceeds
 resisted: re-sis-ted
 invading: in-va-ding
@@ -9317,7 +9317,7 @@ tracker: trac-ker
 Bonanza: Bo-nan-za
 planner: plan-ner
 narrowed: nar-rowed
-doubtful: doub-tful
+doubtful: doubt-ful
 escorted: es-cor-ted
 resource: re-source
 Alrighty: Al-righ-ty
@@ -11120,7 +11120,7 @@ induced: in-duced
 saddled: sad-dled
 sketchy: sketc-hy
 turmoil: tur-moil
-bashful: bas-hful
+bashful: bash-ful
 revised: re-vised
 charmer: char-mer
 infants: in-fants
@@ -11595,7 +11595,7 @@ Vietcong: Viet-cong
 unwilling: un-wil-ling
 ballistic: bal-lis-tic
 bleachers: bleac-hers
-frightful: frigh-tful
+frightful: fright-ful
 courtship: courts-hip
 recurring: re-cur-ring
 recipient: re-ci-pi-ent
@@ -11663,7 +11663,7 @@ analogy: a-na-lo-gy
 accents: ac-cents
 assumes: as-sumes
 locally: lo-cal-ly
-hurtful: hur-tful
+hurtful: hurt-ful
 yapping: yap-ping
 blatant: bla-tant
 origins: o-ri-gins
@@ -11679,14 +11679,14 @@ sponges: spon-ges
 Commies: Com-mies
 heiress: hei-ress
 saucers: sau-cers
-empathy: em-pat-hy
+empathy: em-pa-thy
 faction: fac-tion
 methane: met-hane
 roundup: roun-dup
 Raiders: Rai-ders
-pathway: pat-hway
+pathway: path-way
 Winslow: Win-slow
-Voyager: Voy-a-ger
+Voyager: Vo-ya-ger
 hardened: har-dened
 alarming: a-lar-ming
 relating: re-la-ting
@@ -11719,7 +11719,7 @@ journeyed: jour-neyed
 announces: an-noun-ces
 judgments: jud-gments
 clockwork: cloc-kwork
-deceitful: de-cei-tful
+deceitful: de-ceit-ful
 charities: cha-ri-ties
 reconcile: re-con-cile
 civilised: ci-vi-lised
@@ -12233,7 +12233,7 @@ enlarged: en-larged
 motivate: mo-ti-vate
 weaponry: wea-pon-ry
 granting: gran-ting
-wrongful: wron-gful
+wrongful: wrong-ful
 tortures: tor-tures
 commando: com-man-do
 demeanor: de-mea-nor
@@ -12329,7 +12329,7 @@ Gregor: Gre-gor
 Medusa: Me-du-sa
 rampage: ram-page
 shaping: sha-ping
-wishful: wis-hful
+wishful: wish-ful
 implore: im-plore
 booming: boo-ming
 rebirth: re-birth
@@ -12847,7 +12847,7 @@ overworked: o-ver-worked
 unanswered: u-nan-swered
 enormously: e-nor-mou-sly
 insatiable: in-sa-tia-ble
-insightful: in-sigh-tful
+insightful: in-sight-ful
 patrolling: pa-trol-ling
 unofficial: u-nof-fi-cial
 concealing: con-cea-ling
@@ -13280,7 +13280,7 @@ Pollack: Pol-lack
 divorces: di-vor-ces
 wrestled: wres-tled
 barriers: bar-ri-ers
-fruitful: frui-tful
+fruitful: fruit-ful
 adhesive: ad-he-sive
 proclaim: pro-claim
 scarring: scar-ring
@@ -14707,7 +14707,7 @@ illustrate: il-lus-trate
 interferes: in-ter-feres
 unbeatable: un-bea-ta-ble
 sponsoring: spon-so-ring
-uneventful: u-ne-ven-tful
+uneventful: u-ne-vent-ful
 beneficial: be-ne-fi-cial
 immaculate: im-ma-cu-late
 misconduct: mis-con-duct
@@ -15021,7 +15021,7 @@ rougher: roug-her
 hinting: hin-ting
 hothead: hot-head
 picnics: pi-cnics
-restful: res-tful
+restful: rest-ful
 blended: blen-ded
 fabrics: fa-brics
 glacier: gla-cier
@@ -15110,7 +15110,7 @@ decidedly: de-ci-de-dly
 desertion: de-ser-tion
 inanimate: i-na-ni-mate
 Polaroids: Po-la-roids
-forgetful: for-ge-tful
+forgetful: for-get-ful
 vacancies: va-can-cies
 cellulite: cel-lu-lite
 nefarious: ne-fa-rio-us
@@ -17084,7 +17084,7 @@ Durant: Du-rant
 Martel: Mar-tel
 Pollux: Pol-lux
 bribing: bri-bing
-fistful: fis-tful
+fistful: fist-ful
 hogwash: ho-gwash
 orifice: o-ri-fice
 outrank: ou-trank
@@ -17442,7 +17442,7 @@ midwife: mi-dwife
 vittles: vit-tles
 bulimic: bu-li-mic
 gagging: gag-ging
-tactful: tac-tful
+tactful: tact-ful
 ukulele: u-ku-le-le
 anthill: ant-hill
 boarder: boar-der
@@ -17528,7 +17528,7 @@ dividends: di-vi-dends
 intending: in-ten-ding
 leisurely: lei-sure-ly
 millionth: mil-lionth
-resentful: re-sen-tful
+resentful: re-sent-ful
 treatable: trea-ta-ble
 ancestral: an-ces-tral
 freshness: fres-hness
@@ -18781,7 +18781,7 @@ endures: en-dures
 gentler: gen-tler
 jumbled: jum-bled
 labored: la-bored
-mindful: min-dful
+mindful: mind-ful
 renders: ren-ders
 sorrier: sor-rier
 terrify: ter-ri-fy
@@ -19923,7 +19923,7 @@ Draco: Dra-co
 Benes: Be-nes
 Bungo: Bun-go
 earful: ear-ful
-eyeful: ey-eful
+eyeful: eye-ful
 recoil: re-coil
 subtly: sub-t-ly
 tarmac: tar-mac
@@ -20661,7 +20661,7 @@ dreamboat: dream-boat
 embezzler: em-bez-zler
 equalizer: e-qua-li-zer
 inception: in-cep-tion
-pocketful: poc-ke-tful
+pocketful: poc-ket-ful
 stockpile: stock-pile
 womanizer: wo-ma-ni-zer
 absolutes: a-bso-lutes
@@ -20981,7 +20981,7 @@ belches: belc-hes
 fallacy: fal-la-cy
 Fanning: Fan-ning
 holiest: ho-li-est
-lustful: lus-tful
+lustful: lust-ful
 pigskin: pigs-kin
 powders: pow-ders
 Anaheim: A-na-heim
@@ -21047,7 +21047,7 @@ stopover: sto-po-ver
 tutorial: tu-to-ri-al
 unbroken: un-bro-ken
 upheaval: u-phea-val
-watchful: watc-hful
+watchful: watch-ful
 conducts: con-ducts
 contours: con-tours
 dawdling: daw-dling
@@ -22089,7 +22089,7 @@ covertly: co-ver-tly
 dribbles: drib-bles
 drugging: drug-ging
 effected: ef-fec-ted
-eventful: e-ven-tful
+eventful: e-vent-ful
 examines: e-xa-mines
 flippant: flip-pant
 leapfrog: lea-pfrog
@@ -24007,7 +24007,7 @@ matriarch: ma-tri-arch
 misshapen: miss-ha-pen
 pedicures: pe-di-cures
 pirouette: pi-rou-ette
-regretful: re-gre-tful
+regretful: re-gret-ful
 sapphires: sap-phires
 workshops: works-hops
 affiliate: af-fi-lia-te
@@ -24112,7 +24112,7 @@ chequebook: che-quebook
 transverse: trans-verse
 snowmobile: snow-mo-bile
 clothespin: clot-hespin
-neglectful: ne-glec-tful
+neglectful: ne-glect-ful
 tailgating: tail-ga-ting
 deflection: de-flec-tion
 Gethsemane: Get-hse-mane
@@ -27077,7 +27077,7 @@ wagering: wa-ge-ring
 adaptive: a-dap-tive
 arranger: ar-ran-ger
 begotten: be-got-ten
-boastful: boas-tful
+boastful: boast-ful
 bunkmate: bun-kmate
 choirboy: choir-boy
 cleanses: clean-ses
@@ -28289,7 +28289,7 @@ falsehood: fal-sehood
 faltering: fal-te-ring
 farewells: fa-rewells
 handicaps: han-di-caps
-healthful: healt-hful
+healthful: health-ful
 hesitates: he-si-tates
 hibernate: hi-ber-nate
 idealists: i-dea-lists
@@ -28892,7 +28892,7 @@ suckle: suc-kle
 Twiggy: Twig-gy
 unzips: un-zips
 visors: vi-sors
-artful: ar-tful
+artful: art-ful
 behead: be-head
 cachet: cac-het
 denser: den-ser
@@ -29053,7 +29053,7 @@ variant: va-ri-ant
 verging: ver-ging
 wafting: waf-ting
 wattage: wat-tage
-wistful: wis-tful
+wistful: wist-ful
 aerobic: ae-ro-bic
 bounded: boun-ded
 brigand: bri-gand
@@ -29484,7 +29484,7 @@ sprinting: sprin-ting
 thumbtack: thumb-tack
 umpteenth: ump-teenth
 unfailing: un-fai-ling
-unhelpful: un-hel-pful
+unhelpful: un-help-ful
 unsecured: un-se-cured
 uprooting: u-proo-ting
 venturing: ven-tu-ring
@@ -30166,7 +30166,7 @@ forges: for-ges
 gashes: gas-hes
 gluten: glu-ten
 gooney: goo-ney
-hatful: ha-tful
+hatful: hat-ful
 Hoople: Hoo-ple
 inseam: in-seam
 Lucite: Lu-cite
@@ -31840,7 +31840,7 @@ Naphtha: Napht-ha
 outdraw: out-draw
 outflow: ou-tflow
 outtake: out-take
-tankful: tan-kful
+tankful: tank-ful
 Tripper: Trip-per
 Birdmen: Bir-dmen
 cadmium: ca-dm-ium
@@ -31985,7 +31985,7 @@ slipshod: slips-hod
 slopping: slop-ping
 smuggles: smug-gles
 sneering: snee-ring
-snootful: snoo-tful
+snootful: snoot-ful
 Socratic: So-cra-tic
 sparsely: sparse-ly
 spillage: spil-lage
@@ -33439,7 +33439,7 @@ Pompano: Pom-pa-no
 portage: por-tage
 potable: po-ta-ble
 pursing: pur-sing
-sackful: sac-kful
+sackful: sack-ful
 scrubby: scrub-by
 shoring: sho-ring
 spirals: spi-rals
@@ -33815,7 +33815,7 @@ attendees: at-ten-dees
 backbones: back-bones
 bandannas: ban-dan-nas
 baptismal: bap-ti-smal
-basketful: bas-ke-tful
+basketful: bas-ket-ful
 beholding: be-hol-ding
 bizarrely: bi-zarrely
 blundered: blun-dered
@@ -34984,7 +34984,7 @@ arrant: ar-rant
 arrays: ar-rays
 awaked: a-waked
 babied: ba-bied
-bagful: ba-gful
+bagful: bag-ful
 bagmen: ba-gmen
 Boohoo: Boo-hoo
 buttle: but-tle
@@ -35681,7 +35681,7 @@ wittiest: wit-ti-est
 worthier: wort-hi-er
 wracking: wrac-king
 wrangled: wran-gled
-wrathful: wrat-hful
+wrathful: wrath-ful
 zealotry: zea-lo-try
 antitank: an-ti-tank
 aplastic: a-plas-tic
@@ -35786,7 +35786,7 @@ strudels: stru-dels
 tabletop: ta-ble-top
 tapering: ta-pe-ring
 therefor: there-for
-trustful: trus-tful
+trustful: trust-ful
 unspoilt: uns-poilt
 vaqueros: va-que-ros
 warplane: war-plane
@@ -36491,11 +36491,11 @@ unkindness: un-kin-dness
 unproduced: un-pro-duced
 unrivalled: un-ri-valled
 unsolvable: un-sol-va-ble
-untruthful: un-trut-hful
+untruthful: un-truth-ful
 vermicelli: ver-mi-celli
 watercolor: wa-ter-co-lor
 whomsoever: whom-soe-v-er
-worshipful: wors-hi-pful
+worshipful: wors-hip-ful
 appraisals: ap-prai-sals
 asthmatics: ast-hma-tics
 bilocation: bi-lo-ca-tion
@@ -36574,7 +36574,7 @@ detonations: de-to-na-tions
 dishevelled: dis-he-velled
 dispatchers: dis-patc-hers
 dissolution: dis-so-lu-tion
-distrustful: dis-trus-tful
+distrustful: dis-trust-ful
 egregiously: e-gre-gio-usly
 endeavoring: en-dea-voring
 enunciation: e-nun-cia-tion
@@ -37178,10 +37178,10 @@ Bendel: Ben-del
 binges: bin-ges
 bipeds: bi-peds
 bobble: bob-ble
-boxful: bo-xful
+boxful: box-ful
 busily: bu-si-ly
 cadres: ca-dres
-capful: ca-pful
+capful: cap-ful
 careen: ca-reen
 caster: cas-ter
 cesium: ce-si-um
@@ -38367,7 +38367,7 @@ boneheads: bo-neheads
 bookcases: book-ca-ses
 breakouts: brea-kouts
 brutalize: bru-ta-lize
-bucketful: buc-ke-tful
+bucketful: buc-ket-ful
 budgeting: bud-ge-ting
 buffaloed: buf-fa-loed
 bulkheads: bulk-heads
@@ -41318,7 +41318,7 @@ skeeters: skee-ters
 slickest: slic-kest
 slimiest: sli-miest
 sloppily: slop-pi-ly
-slothful: slot-hful
+slothful: sloth-ful
 Slouches: Slouc-hes
 slovenly: slo-ven-ly
 slugfest: slu-gfest
@@ -41752,7 +41752,7 @@ cleansers: clean-sers
 clearings: clea-rings
 clearness: clear-ness
 clinician: cli-ni-cian
-closetful: clo-se-tful
+closetful: clo-set-ful
 clothings: clot-hings
 clumsiest: clum-si-est
 cockiness: coc-ki-ness
@@ -41877,7 +41877,7 @@ idiomatic: i-dio-ma-t-ic
 imbedding: im-bed-ding
 immensity: im-men-si-ty
 immunized: im-mu-nized
-impactful: im-pac-tful
+impactful: im-pact-ful
 imparting: im-par-ting
 imploring: im-plo-ring
 imprisons: im-pri-sons
@@ -43223,7 +43223,7 @@ jabberwocky: jab-ber-wocky
 leaseholder: lea-seholder
 likeability: li-kea-bi-li-ty
 mechanistic: mec-ha-nis-tic
-mistrustful: mis-trus-tful
+mistrustful: mis-trust-ful
 nasturtiums: nas-tur-tiums
 nonreactive: non-reac-ti-ve
 pantheistic: pant-heis-t-ic
@@ -43238,7 +43238,7 @@ rationalist: ra-tio-na-list
 recalculate: re-cal-cu-late
 remortgaged: re-mort-gaged
 repossessor: re-pos-sessor
-reproachful: re-proac-hful
+reproachful: re-proach-ful
 sacrificers: sa-cri-ficers
 skirmishing: skir-mis-hing
 socialistic: so-cia-lis-tic
@@ -44312,7 +44312,7 @@ evilly: e-vil-ly
 faller: fal-ler
 fatals: fa-tals
 fecund: fe-cund
-fitful: fi-tful
+fitful: fit-ful
 floury: flou-ry
 flybys: fly-bys
 foible: foi-ble
@@ -44439,7 +44439,7 @@ plushy: plus-hy
 pluton: plu-ton
 popery: po-pery
 posits: po-sits
-potful: po-tful
+potful: pot-ful
 pouter: pou-ter
 primos: pri-mos
 priori: prio-r-i
@@ -44540,7 +44540,7 @@ Totten: Tot-ten
 totter: tot-ter
 toxify: to-xify
 truism: tru-i-sm
-tubful: tu-bful
+tubful: tub-ful
 tufted: tuf-ted
 turbos: tur-bos
 tweaky: twea-ky
@@ -44964,7 +44964,7 @@ foppery: fop-pery
 formals: for-mals
 Fortier: For-tier
 fraying: fray-ing
-fretful: fre-tful
+fretful: fret-ful
 frijole: fri-jole
 fudging: fud-ging
 fusspot: fuss-pot
@@ -45136,7 +45136,7 @@ mutuals: mu-tuals
 naively: nai-ve-ly
 nauseum: nau-se-um
 nebulae: ne-bu-lae
-needful: nee-dful
+needful: need-ful
 Needham: Need-ham
 Negroid: Ne-groid
 neurone: neu-rone
@@ -46495,7 +46495,7 @@ geomancy: geo-man-cy
 Glabella: Gla-bel-la
 golliwog: gol-li-wog
 Hairtail: Hair-tail
-heartful: hear-tful
+heartful: heart-ful
 heisting: heis-ting
 helminth: hel-minth
 hematite: he-ma-tite
@@ -47406,7 +47406,7 @@ bedlamite: be-dla-mite
 betokened: be-to-kened
 bifurcate: bi-fur-cate
 breakages: brea-kages
-breastful: breas-tful
+breastful: breast-ful
 Butterman: But-terman
 canebrake: ca-nebrake
 canonized: ca-no-nized
