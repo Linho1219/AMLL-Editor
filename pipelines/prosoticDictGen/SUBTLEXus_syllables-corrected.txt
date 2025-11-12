@@ -3004,7 +3004,6 @@ symptoms: symp-toms
 grandson: grand-son
 password: pass-word
 cooperation: co-ope-ra-tion
-# Human examination ends here
 Bp: /
 tricky: tric-ky
 chapel: cha-pel
@@ -3012,7 +3011,7 @@ scaring: sca-ring
 existed: e-xis-ted
 watches: wat-ches
 depression: de-pres-sion
-author: aut-hor
+author: au-thor
 monkeys: mon-keys
 martini: mar-ti-ni
 sickness: sick-ness
@@ -3022,7 +3021,7 @@ forgiveness: for-give-ness
 Whitey: Whi-tey
 decides: de-cides
 sneaking: snea-king
-businessman: bu-si-nessman
+businessman: business-man
 Kathy: Kat-hy
 focused: fo-cused
 whisper: whis-per
@@ -3032,7 +3031,7 @@ finishing: fi-ni-shing
 wandering: wan-de-ring
 connections: con-nec-tions
 duties: du-ties
-method: met-hod
+method: me-thod
 hustle: hus-tle
 largest: lar-gest
 welfare: wel-fare
@@ -3047,9 +3046,9 @@ prosecution: pro-se-cu-tion
 attic: at-tic
 arrow: ar-row
 assist: as-sist
-Cynthia: Cynt-h-ia
+Cynthia: Cynth-i-a
 accurate: ac-cu-rate
-forehead: fo-rehead
+forehead: fore-head
 saddle: sad-dle
 defending: de-fen-ding
 apologise: a-po-lo-gise
@@ -3057,7 +3056,7 @@ shiny: shi-ny
 kisses: kis-ses
 controls: con-trols
 disguise: dis-guise
-bracelet: bra-celet
+bracelet: brace-let
 flattered: flat-tered
 exclusive: ex-clu-sive
 destroying: des-troy-ing
@@ -3073,14 +3072,14 @@ hamburger: ham-bur-ger
 Joel: Jo-el
 vital: vi-tal
 maximum: ma-xi-mum
-creating: crea-ting
+creating: cre-a-ting
 husbands: hus-bands
 institution: ins-ti-tu-tion
 liquid: li-quid
 aspirin: as-pirin
 addition: ad-di-tion
 gratitude: gra-ti-tude
-graduated: gra-dua-t-ed
+graduated: gra-du-a-ted
 principle: prin-ci-ple
 adore: a-dore
 Pierre: Pier-re
@@ -3088,7 +3087,7 @@ Bailey: Bai-ley
 persons: per-sons
 arriving: ar-ri-ving
 poisoned: poi-soned
-blackmail: blac-kmail
+blackmail: black-mail
 risky: ris-ky
 rider: ri-der
 expenses: ex-pen-ses
@@ -3123,6 +3122,7 @@ pointed: poin-ted
 December: De-cem-ber
 forbidden: for-bid-den
 administration: ad-mi-nis-tra-tion
+# Human examination ends here
 karate: ka-ra-te
 Lizzie: Liz-zie
 embrace: em-brace
@@ -9682,7 +9682,7 @@ sympathize: sym-pat-hize
 relentless: re-lent-less
 completion: com-ple-tion
 distraught: dis-traught
-whorehouse: who-rehouse
+whorehouse: whore-house
 behavioral: be-ha-vio-ral
 domination: do-mi-na-tion
 commanders: com-man-ders
@@ -16125,7 +16125,7 @@ concessions: con-ces-sions
 evaluations: e-va-lua-tions
 bullfighter: bull-figh-ter
 Salutations: Sa-lu-ta-tions
-porterhouse: por-terhouse
+porterhouse: por-ter-house
 archdiocese: arch-dio-ce-se
 discontinued: dis-con-ti-nued
 masquerading: mas-que-ra-ding
@@ -20296,7 +20296,7 @@ capitalists: ca-pi-ta-lists
 interviewer: in-ter-vie-wer
 negotiators: ne-go-tia-to-rs
 switchblade: switch-blade
-summerhouse: sum-merhouse
+summerhouse: sum-mer-house
 boysenberry: boy-sen-ber-ry
 searchlight: searc-hlight
 skateboards: ska-teboards
@@ -20678,7 +20678,7 @@ Satanists: Sa-ta-nists
 Machinist: Mac-hi-nist
 pheromone: phe-ro-mone
 caballero: ca-bal-le-ro
-Limehouse: Li-mehouse
+Limehouse: Lime-house
 Gutierrez: Gu-tier-rez
 Snowshoes: Snows-hoes
 ferryboat: fer-ry-boat
@@ -22298,7 +22298,7 @@ stepladder: ste-plad-der
 bestiality: bes-tia-li-ty
 bloodlines: bloo-dlines
 knockwurst: knoc-kwurst
-smokehouse: smo-kehouse
+smokehouse: smoke-house
 subsection: sub-sec-tion
 Botticelli: Bot-ti-celli
 oscillator: os-cil-la-tor
@@ -22748,7 +22748,7 @@ bulletins: bul-le-tins
 crosstown: cross-town
 diagnoses: dia-gno-s-es
 enveloped: en-ve-loped
-flophouse: flo-phouse
+flophouse: flop-house
 greenhorn: green-horn
 regiments: re-gi-ments
 clergyman: cler-gy-man
@@ -23443,7 +23443,7 @@ overnights: o-vernights
 postscript: posts-cript
 psychotics: psyc-ho-tics
 stairwells: stair-wells
-storehouse: sto-rehouse
+storehouse: store-house
 wastepaper: was-te-paper
 accredited: ac-cre-di-ted
 anarchists: a-narc-hists
@@ -29387,7 +29387,7 @@ whooshes: whoos-hes
 airbrush: air-brush
 blueness: blue-ness
 foreword: fo-reword
-icehouse: i-cehouse
+icehouse: ice-house
 impugned: im-pugned
 Khartoum: Khar-toum
 Moonglow: Moon-glow
@@ -30915,7 +30915,7 @@ bacchanal: bacc-ha-nal
 compactor: com-pac-tor
 dreamlike: dream-like
 flagstone: flags-tone
-gatehouse: ga-tehouse
+gatehouse: gate-house
 gigahertz: gi-ga-hertz
 guardsman: guar-dsman
 highchair: highc-hair
@@ -34346,7 +34346,7 @@ saccharine: sacc-ha-rine
 Smithfield: Smit-hfield
 sororities: so-ro-ri-ties
 spellcheck: spellc-heck
-statehouse: sta-tehouse
+statehouse: state-house
 acquitting: ac-quit-ting
 Amphitryon: Am-phi-tr-yon
 ejaculator: e-ja-cu-lator
@@ -38641,7 +38641,7 @@ bumptious: bump-tious
 capsizing: ca-psi-zing
 causative: cau-sa-tive
 charcoals: char-coals
-chophouse: cho-phouse
+chophouse: chop-house
 colorable: co-lo-rable
 comprises: com-pri-ses
 coverings: co-ve-rings
