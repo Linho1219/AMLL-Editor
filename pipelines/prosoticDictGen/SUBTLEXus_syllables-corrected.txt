@@ -3015,7 +3015,7 @@ depression: de-pres-sion
 author: aut-hor
 monkeys: mon-keys
 martini: mar-ti-ni
-sickness: sic-kness
+sickness: sick-ness
 batteries: bat-te-ries
 aggressive: ag-gres-sive
 forgiveness: for-give-ness
@@ -3477,7 +3477,7 @@ enforcement: en-for-cement
 Mississippi: Mis-sis-sip-pi
 Gypsy: Gy-psy
 greedy: gree-dy
-endless: en-dless
+endless: end-less
 element: e-le-ment
 feather: feat-her
 disagree: di-sa-gree
@@ -4223,7 +4223,7 @@ sobbing: sob-bing
 purposes: pur-po-ses
 panicked: pa-nicked
 narcotics: nar-co-tics
-regardless: re-gar-dless
+regardless: re-gard-less
 supposedly: sup-po-sed-ly
 irrelevant: ir-re-le-vant
 instruments: ins-tru-ments
@@ -4364,7 +4364,7 @@ humming: hum-ming
 licence: li-cence
 skating: ska-ting
 careless: ca-reless
-reckless: rec-kless
+reckless: reck-less
 artistic: ar-tis-tic
 coughing: cough-ing
 qualities: qua-li-ties
@@ -4413,7 +4413,7 @@ loading: loa-ding
 faculty: fa-cul-ty
 responding: res-pon-ding
 separation: se-pa-ra-tion
-meaningless: mea-nin-gless
+meaningless: mea-ning-less
 conclusions: con-clu-sions
 decade: de-cade
 awards: a-wards
@@ -4427,7 +4427,7 @@ pension: pen-sion
 hunters: hun-ters
 suitable: sui-ta-ble
 plumbing: plum-bing
-restless: res-tless
+restless: rest-less
 regiment: re-gi-ment
 imagining: i-ma-gi-ning
 essential: es-sen-tial
@@ -4456,7 +4456,7 @@ alter: al-ter
 whining: whi-ning
 showers: sho-wers
 affects: af-fects
-sadness: sa-dness
+sadness: sad-ness
 Rangers: Ran-gers
 pageant: pa-geant
 features: fea-tures
@@ -4948,7 +4948,7 @@ bandits: ban-dits
 combined: com-bined
 devotion: de-vo-tion
 postcard: post-card
-ruthless: rut-hless
+ruthless: ruth-less
 injection: in-jec-tion
 counseling: coun-seling
 cocky: coc-ky
@@ -5482,7 +5482,7 @@ referee: re-fe-ree
 lasagna: la-sa-gna
 numerous: nu-me-rous
 bulletin: bul-le-tin
-pointless: poin-tless
+pointless: point-less
 apologized: a-po-lo-gized
 interviewed: in-ter-viewed
 psychologist: psy-cho-lo-gist
@@ -5560,7 +5560,7 @@ locations: lo-ca-tions
 disregard: di-sre-gard
 obnoxious: o-bno-xious
 eccentric: ec-cen-tric
-heartless: hear-tless
+heartless: heart-less
 complained: com-plained
 unfinished: un-fi-nished
 polo: po-lo
@@ -5809,7 +5809,7 @@ goodwill: goo-dwill
 frontier: fron-tier
 stationed: sta-tioned
 southeast: sout-heast
-sweetness: swee-tness
+sweetness: sweet-ness
 telegraph: te-le-graph
 frequently: fre-quent-ly
 presenting: pre-sen-ting
@@ -7294,7 +7294,7 @@ Buddhist: Budd-hist
 Nebraska: Ne-bras-ka
 gorillas: go-ril-las
 uncertain: un-cer-tain
-countless: coun-tless
+countless: count-less
 adjusting: ad-jus-ting
 stupidest: stu-pi-dest
 willingly: wil-ling-ly
@@ -7492,7 +7492,7 @@ booking: boo-king
 midgets: mi-dgets
 Gangway: Gan-gway
 Cornell: Cor-nell
-Needless: Nee-dless
+Needless: Need-less
 pleading: plea-ding
 colleges: col-le-ges
 weighing: weigh-ing
@@ -8257,7 +8257,7 @@ morally: mo-ral-ly
 winding: win-ding
 hatchet: hatc-het
 forgery: for-ge-ry
-topless: to-pless
+topless: top-less
 Signora: Si-gno-ra
 Galileo: Ga-li-l-eo
 Butters: But-ters
@@ -8677,7 +8677,7 @@ feminist: fe-mi-nist
 buttocks: but-tocks
 cassette: cas-sette
 seizures: sei-zures
-selfless: sel-fless
+selfless: self-less
 handyman: han-dy-man
 stickers: stic-kers
 vacations: va-ca-tions
@@ -8894,7 +8894,7 @@ devious: de-vi-ous
 scoring: sco-ring
 varsity: var-si-ty
 bullies: bul-lies
-fitness: fi-tness
+fitness: fit-ness
 bonfire: bon-fi-re
 coaches: coac-hes
 Whitman: Whi-tman
@@ -8922,11 +8922,11 @@ squeaking: sque-aking
 Riverside: Ri-ver-side
 harmonica: har-mo-ni-ca
 scarecrow: sca-recrow
-speechless: speec-hless
+speechless: speech-less
 identities: i-den-ti-ties
 recordings: re-cor-dings
 painkillers: pain-kil-lers
-righteousness: righ-te-ousness
+righteousness: righ-teous-ness
 bio: b-io
 icon: i-con
 faker: fa-ker
@@ -9018,7 +9018,7 @@ Silicon: Si-li-con
 politely: po-lite-ly
 decipher: de-ci-pher
 momentum: mo-men-tum
-mindless: min-dless
+mindless: mind-less
 assisted: as-sis-ted
 sadistic: sa-dis-tic
 resemble: re-sem-ble
@@ -9679,7 +9679,7 @@ immigrant: im-mi-grant
 hepatitis: he-pa-ti-tis
 crucified: cru-ci-fied
 sympathize: sym-pat-hize
-relentless: re-len-tless
+relentless: re-lent-less
 completion: com-ple-tion
 distraught: dis-traught
 whorehouse: who-rehouse
@@ -10224,7 +10224,7 @@ barbaric: bar-ba-ric
 frosting: fros-ting
 pastures: pas-tures
 masseuse: mas-seuse
-nameless: na-meless
+nameless: name-less
 Crescent: Cres-cent
 heartfelt: hear-tfelt
 lecturing: lec-tu-ring
@@ -10342,7 +10342,7 @@ pedestrian: pe-des-tr-ian
 Laundromat: Laun-dro-mat
 adjustments: ad-jus-tments
 festivities: fes-ti-vi-ties
-thoughtless: though-tless
+thoughtless: thought-less
 endorsement: en-dor-sement
 friendships: friends-hips
 arraignment: ar-rai-gnment
@@ -10502,7 +10502,7 @@ billboard: bill-board
 scripture: scrip-ture
 overthrow: o-vert-hrow
 hereafter: he-reaf-ter
-sleepless: slee-pless
+sleepless: sleep-less
 physicist: phy-si-cist
 bachelors: bac-helors
 entourage: en-tou-rage
@@ -10626,7 +10626,7 @@ anesthetic: a-nest-he-tic
 physicians: phy-si-cians
 fingernail: fin-ger-nail
 defenseless: de-fen-seless
-willingness: wil-lin-gness
+willingness: wil-ling-ness
 earthquakes: earth-quakes
 termination: ter-mi-na-tion
 communities: com-mu-ni-ties
@@ -10696,7 +10696,7 @@ trustees: trus-tees
 pedestal: pe-des-tal
 hypnotic: hy-pno-tic
 Mandarin: Man-da-rin
-headless: hea-dless
+headless: head-less
 banister: ba-nis-ter
 generated: ge-ne-ra-ted
 hesitated: he-si-ta-ted
@@ -10706,7 +10706,7 @@ damnation: dam-na-tion
 loveliest: lo-ve-liest
 smothered: smot-hered
 schoolboy: school-boy
-blindness: blin-dness
+blindness: blind-ness
 Victorian: Vic-to-ri-an
 alignment: a-li-gnment
 accordion: ac-cor-di-on
@@ -11080,7 +11080,7 @@ combustion: com-bus-tion
 ventilator: ven-ti-la-tor
 exaggerated: e-xag-ge-ra-ted
 aspirations: as-pi-ra-tions
-seriousness: se-ri-ou-sness
+seriousness: se-ri-ous-ness
 approximate: ap-pro-xi-mate
 inhabitants: in-ha-bi-tants
 landscaping: lands-ca-ping
@@ -11455,7 +11455,7 @@ showered: sho-wered
 cushions: cus-hions
 downward: down-ward
 bonehead: bo-nehead
-spotless: spo-tless
+spotless: spot-less
 infernal: in-fer-nal
 newfound: new-found
 decadent: de-ca-dent
@@ -12142,7 +12142,7 @@ submission: sub-mis-sion
 somewheres: some-wheres
 aftershave: af-tershave
 carburetor: car-bu-re-tor
-breathless: breat-hless
+breathless: breath-less
 descendant: des-cen-dant
 committees: com-mit-tees
 integrated: in-te-gra-ted
@@ -12341,7 +12341,7 @@ derived: de-rived
 adviser: ad-vi-ser
 concede: con-cede
 elastic: e-las-tic
-gutless: gu-tless
+gutless: gut-less
 margins: mar-gins
 Parkway: Par-kway
 conduit: con-duit
@@ -13159,7 +13159,7 @@ safeguard: sa-feguard
 cultivate: cul-ti-vate
 dictation: dic-ta-tion
 versatile: ver-sa-tile
-weirdness: weir-dness
+weirdness: weird-ness
 nutrition: nu-tri-tion
 crunching: crunc-hing
 reinforce: rein-for-ce
@@ -13681,7 +13681,7 @@ tasteless: tas-teless
 lingering: lin-gering
 quarterly: quar-ter-ly
 squeamish: sque-amish
-blackness: blac-kness
+blackness: black-ness
 bystander: bys-tan-der
 croissant: crois-sant
 diplomats: di-plo-mats
@@ -14076,7 +14076,7 @@ unplugged: un-plugged
 impromptu: im-promp-tu
 packaging: pac-ka-ging
 clobbered: clob-bered
-shortness: shor-tness
+shortness: short-ness
 destinies: des-ti-nies
 trimester: tri-mes-ter
 acquiring: ac-qui-ring
@@ -14121,7 +14121,7 @@ inexcusable: i-nex-cu-sa-ble
 positioning: po-si-tio-ning
 fabrication: fa-bri-ca-tion
 infatuation: in-fa-tua-tion
-nothingness: not-hin-gness
+nothingness: not-hing-ness
 ambassadors: am-bas-sa-dors
 chromosomes: chro-mo-somes
 bombardment: bom-bar-dment
@@ -14207,7 +14207,7 @@ bipolar: bi-po-lar
 oregano: o-re-ga-no
 seltzer: sel-tzer
 sinuses: si-nu-ses
-godless: go-dless
+godless: god-less
 headset: hea-dset
 decimal: de-ci-mal
 monarch: mo-narch
@@ -14502,7 +14502,7 @@ idealistic: i-dea-lis-t-ic
 soundproof: sound-proof
 antisocial: an-ti-so-cial
 converting: con-ver-ting
-loveliness: lo-ve-liness
+loveliness: love-li-ness
 researched: re-searched
 agreements: a-gree-ments
 pertaining: per-tai-ning
@@ -14725,7 +14725,7 @@ southbound: south-bound
 thirteenth: thir-teenth
 toothpicks: tooth-picks
 Exposition: Ex-po-si-tion
-selfishness: sel-fis-hness
+selfishness: sel-fish-ness
 withdrawing: with-dra-wing
 confinement: con-fi-nement
 deprivation: de-pri-va-tion
@@ -14909,7 +14909,7 @@ advisement: ad-vi-sement
 displeased: dis-pleased
 identifies: i-den-ti-fies
 tightening: tigh-tening
-wickedness: wic-ke-dness
+wickedness: wic-ked-ness
 imposition: im-po-si-tion
 sensations: sen-sa-tions
 shattering: shat-te-ring
@@ -15608,7 +15608,7 @@ barometer: ba-ro-me-ter
 contusion: con-tu-sion
 exonerate: e-xo-ne-rate
 humongous: hu-mon-gous
-limitless: li-mi-tless
+limitless: li-mit-less
 mortgages: mort-ga-ges
 registers: re-gis-ters
 sacrilege: sa-cri-lege
@@ -16412,7 +16412,7 @@ overpowering: o-ver-po-wering
 examinations: e-xa-mi-na-tions
 motivational: mo-ti-va-tio-nal
 appendectomy: ap-pen-dec-to-my
-carelessness: ca-re-lessness
+carelessness: care-less-ness
 collectively: col-lec-tive-ly
 acquisitions: ac-qui-si-tions
 rattlesnakes: rat-tle-snakes
@@ -16664,7 +16664,7 @@ ballplayer: ball-play-er
 Nonviolent: Non-vio-le-nt
 Manchurian: Manc-hu-rian
 Hippodrome: Hip-po-drome
-awkwardness: aw-kwar-dness
+awkwardness: aw-kward-ness
 confronting: con-fron-ting
 perpetrated: per-pe-tra-ted
 undermining: un-der-mi-ning
@@ -17204,7 +17204,7 @@ shipshape: ships-hape
 sniffling: snif-fling
 vineyards: vi-neyards
 adoration: a-do-ra-tion
-childless: chil-dless
+childless: child-less
 conquests: con-quests
 Methodist: Met-ho-dist
 pragmatic: pra-gma-tic
@@ -17259,7 +17259,7 @@ chauvinist: chau-vi-nist
 filmmakers: film-ma-kers
 linebacker: li-ne-backer
 amphibious: am-phi-bi-ous
-brightness: brigh-tness
+brightness: bright-ness
 Everglades: E-ver-glades
 telepathic: te-le-pat-hic
 antibodies: an-ti-bo-dies
@@ -17275,7 +17275,7 @@ unscheduled: unsc-he-duled
 decomposing: de-com-po-sing
 Deliverance: De-li-verance
 multiplying: mul-ti-ply-ing
-nervousness: ner-vou-sness
+nervousness: ner-vous-ness
 originality: o-ri-gi-na-li-ty
 stabilizing: sta-bi-li-zing
 symmetrical: sym-me-tri-cal
@@ -17447,7 +17447,7 @@ ukulele: u-ku-le-le
 anthill: ant-hill
 boarder: boar-der
 fathoms: fat-homs
-badness: ba-dness
+badness: bad-ness
 deviled: de-viled
 spatial: spa-tial
 Tillman: Till-man
@@ -17531,7 +17531,7 @@ millionth: mil-lionth
 resentful: re-sent-ful
 treatable: trea-ta-ble
 ancestral: an-ces-tral
-freshness: fres-hness
+freshness: fresh-ness
 newcomers: new-co-mers
 redeeming: re-dee-ming
 selecting: se-lec-ting
@@ -17669,7 +17669,7 @@ reprehensible: re-pre-hen-si-ble
 illustrations: il-lus-tra-tions
 psychosomatic: psyc-ho-so-ma-tic
 skateboarding: ska-te-boarding
-unpleasantness: un-plea-san-tness
+unpleasantness: un-plea-sant-ness
 disorientation: di-so-rien-ta-tion
 assassinations: as-sas-si-na-tions
 whatchamacallit: whatc-ha-ma-cal-lit
@@ -17880,7 +17880,7 @@ longevity: lon-ge-vi-ty
 nightlife: nigh-tlife
 rescinded: res-cin-ded
 stringing: strin-ging
-toothless: toot-hless
+toothless: tooth-less
 battering: bat-te-ring
 nursemaid: nur-semaid
 sketching: sketc-hing
@@ -17938,7 +17938,7 @@ exhaustive: ex-haus-tive
 hydraulics: hy-drau-lics
 synonymous: sy-no-ny-mous
 thumbprint: thumb-print
-usefulness: u-se-fulness
+usefulness: use-ful-ness
 dressmaker: dres-sma-ker
 landscapes: lands-capes
 mozzarella: moz-za-rella
@@ -18233,7 +18233,7 @@ shipwreck: shi-pwreck
 algorithm: al-go-ri-thm
 cellblock: cell-block
 eradicate: e-ra-di-cate
-faithless: fait-hless
+faithless: faith-less
 torpedoed: tor-pe-doed
 speedboat: speed-boat
 erroneous: er-ro-ne-ous
@@ -18329,7 +18329,7 @@ magnification: ma-gni-fi-ca-tion
 superstitions: su-pers-ti-tions
 effectiveness: ef-fec-tive-ness
 handkerchiefs: hand-kerc-hiefs
-forgetfulness: for-ge-tfulness
+forgetfulness: for-get-ful-ness
 understandably: un-ders-tan-dab-ly
 conversational: con-ver-sa-tio-nal
 hyperventilate: hy-per-ventilate
@@ -18479,7 +18479,7 @@ disgusts: dis-gusts
 endorsed: en-dorsed
 finalize: fi-na-lize
 flossing: flos-sing
-fondness: fon-dness
+fondness: fond-ness
 ravenous: ra-ve-nous
 backroom: bac-kroom
 blacking: blac-king
@@ -18550,7 +18550,7 @@ jabbering: jab-bering
 laughable: laug-ha-ble
 scribbled: scrib-bled
 stimulant: sti-mu-lant
-thickness: thic-kness
+thickness: thick-ness
 vigilance: vi-gi-lance
 willfully: will-ful-ly
 audacious: au-da-cious
@@ -18635,7 +18635,7 @@ Persephone: Per-sephone
 religiously: re-li-gious-ly
 unforgiving: un-for-gi-ving
 bureaucracy: bu-rea-u-cracy
-lawlessness: law-les-sness
+lawlessness: law-less-ness
 shorthanded: short-handed
 carnivorous: car-ni-vo-rous
 hypotensive: hy-po-ten-sive
@@ -19159,7 +19159,7 @@ ourself: our-self
 stapled: sta-pled
 tinfoil: tin-foil
 wagging: wag-ging
-witless: wi-tless
+witless: wit-less
 yellows: yel-lows
 busload: bu-sload
 cretins: cre-tins
@@ -19264,7 +19264,7 @@ neckties: neck-ties
 outreach: ou-treach
 outweigh: ou-tweigh
 Paraguay: Pa-ra-guay
-softness: sof-tness
+softness: soft-ness
 Anaconda: A-na-con-da
 knighted: knigh-ted
 likeable: li-kea-ble
@@ -19398,7 +19398,7 @@ calibrated: ca-li-bra-ted
 congestion: con-ges-tion
 embankment: em-ban-kment
 evaporated: e-va-po-ra-ted
-friendless: frien-dless
+friendless: friend-less
 unromantic: un-ro-man-tic
 friendlies: frien-dlies
 houseguest: hou-seguest
@@ -19707,7 +19707,7 @@ cluttered: clut-tered
 conducive: con-du-cive
 debatable: de-ba-ta-ble
 disagrees: di-sa-grees
-fruitless: frui-tless
+fruitless: fruit-less
 incessant: in-ces-sant
 interject: in-ter-ject
 carpentry: car-pen-try
@@ -20619,13 +20619,13 @@ mothering: mot-he-ring
 recalling: re-cal-ling
 rummaging: rum-ma-ging
 selfishly: sel-fish-ly
-thankless: than-kless
+thankless: thank-less
 triangles: trian-gl-es
 admirably: ad-mi-rab-ly
 dissolves: dis-solves
 distracts: dis-tracts
 dominates: do-mi-nates
-doubtless: doub-tless
+doubtless: doubt-less
 estranged: es-tranged
 foolhardy: fool-har-dy
 honorably: ho-no-rab-ly
@@ -20714,7 +20714,7 @@ submitting: sub-mit-ting
 transpired: trans-pi-red
 vindicated: vin-di-ca-ted
 crosshairs: cross-hairs
-effortless: ef-for-tless
+effortless: ef-fort-less
 hesitating: he-si-ta-ting
 historians: his-to-ri-ans
 letterhead: let-ter-head
@@ -20969,7 +20969,7 @@ dunking: dun-king
 fixable: fi-xa-ble
 ginseng: gin-seng
 grander: gran-der
-hapless: ha-pless
+hapless: hap-less
 onwards: on-wards
 reaping: rea-ping
 shrivel: shri-vel
@@ -21084,7 +21084,7 @@ massaged: mas-saged
 normalcy: nor-mal-cy
 showboat: show-boat
 Spiritus: Spi-ri-tus
-cordless: cor-dless
+cordless: cord-less
 doggoned: dog-goned
 fireside: fi-re-side
 hamsters: hams-ters
@@ -21178,9 +21178,9 @@ sunburned: sun-burned
 townsfolk: towns-folk
 armistice: ar-mis-tice
 asthmatic: ast-hma-tic
-lightness: ligh-tness
+lightness: light-ness
 multiplex: mul-ti-plex
-strapless: stra-pless
+strapless: strap-less
 thesaurus: the-sau-rus
 trousseau: trous-seau
 Benjamins: Ben-jamins
@@ -21714,7 +21714,7 @@ speculated: spe-cu-la-ted
 straddling: strad-dling
 subterfuge: sub-ter-fuge
 surrenders: sur-ren-ders
-weightless: weigh-tless
+weightless: weight-less
 amendments: a-men-dments
 blindsided: blin-dsi-ded
 conformity: con-for-mi-ty
@@ -22059,7 +22059,7 @@ footnote: foo-tnote
 immodest: im-mo-dest
 impunity: im-pu-ni-ty
 labelled: la-belled
-neatness: nea-tness
+neatness: neat-ness
 prolific: pro-li-fic
 redskins: reds-kins
 remarked: re-marked
@@ -22074,7 +22074,7 @@ harbored: har-bored
 herewith: he-rewith
 inedible: i-ne-di-ble
 latrines: la-trines
-numbness: num-bness
+numbness: numb-ness
 prodding: prod-ding
 punishes: pu-nis-hes
 purebred: pu-rebred
@@ -22278,7 +22278,7 @@ malevolent: ma-le-vo-lent
 recuperate: re-cu-pe-rate
 subspecies: subs-pe-cies
 unbuttoned: un-but-toned
-uniqueness: u-ni-queness
+uniqueness: u-nique-ness
 internment: in-tern-ment
 invalidate: in-va-li-date
 nineteenth: ni-neteenth
@@ -22543,7 +22543,7 @@ buttock: but-tock
 cutback: cut-back
 decrees: de-crees
 hickeys: hic-keys
-jobless: jo-bless
+jobless: job-less
 rattrap: rat-trap
 seepage: see-page
 Sierras: Sier-r-as
@@ -22598,7 +22598,7 @@ Drumlin: Drum-lin
 alarmist: a-lar-mist
 boosting: boos-ting
 clincher: clinc-her
-coldness: col-dness
+coldness: cold-ness
 debonair: de-bo-nair
 derriere: der-rie-re
 dyslexic: dy-sle-xic
@@ -22708,7 +22708,7 @@ posturing: pos-tu-ring
 resolving: re-sol-ving
 resorting: re-sor-ting
 sharpener: shar-pener
-shiftless: shif-tless
+shiftless: shift-less
 skyrocket: sky-roc-ket
 snatchers: snatc-hers
 sugarcoat: su-garcoat
@@ -23271,7 +23271,7 @@ inbounds: in-bounds
 injector: in-jec-tor
 verboten: ver-bo-ten
 boneyard: bo-neyard
-gladness: gla-dness
+gladness: glad-ness
 Longhorn: Long-horn
 Ridgeway: Rid-geway
 Rosewood: Ro-sewood
@@ -23292,7 +23292,7 @@ darnedest: dar-nedest
 dismember: di-smem-ber
 dramatics: dra-ma-tics
 earphones: ear-phones
-frankness: fran-kness
+frankness: frank-ness
 headfirst: hea-dfirst
 instilled: ins-tilled
 lethargic: let-har-gic
@@ -23538,7 +23538,7 @@ inefficiency: i-nef-fi-cien-cy
 inexperience: i-nex-pe-rien-ce
 pigmentation: pi-gmen-ta-tion
 preconceived: pre-con-ceived
-restlessness: res-tles-sness
+restlessness: res-tless-ness
 unprincipled: un-prin-ci-pled
 anatomically: a-na-to-mi-cally
 immortalized: im-mor-ta-lized
@@ -23844,7 +23844,7 @@ treatise: trea-tise
 unbiased: un-bia-sed
 untangle: un-tan-gle
 advocacy: ad-vo-ca-cy
-backless: bac-kless
+backless: back-less
 besmirch: be-smirch
 chucking: chuc-king
 clerking: cler-king
@@ -23896,7 +23896,7 @@ peddlers: ped-dlers
 planters: plan-ters
 poultice: poul-tice
 presided: pre-si-ded
-richness: ric-hness
+richness: rich-ness
 scooters: scoo-ters
 skinhead: skin-head
 taxation: ta-xa-tion
@@ -23942,7 +23942,7 @@ Redbeard: Red-beard
 Stoneman: Sto-neman
 bluesman: blue-sman
 backsides: bac-ksides
-boundless: boun-dless
+boundless: bound-less
 cartwheel: cartw-heel
 cauterize: cau-te-rize
 conferred: con-ferred
@@ -24184,9 +24184,9 @@ immeasurable: im-mea-su-ra-ble
 inconsolable: in-con-so-la-ble
 mistreatment: mis-trea-tment
 philandering: phi-lan-de-ring
-recklessness: rec-kles-sness
+recklessness: rec-kless-ness
 respectively: res-pec-tive-ly
-thoroughness: tho-roug-hness
+thoroughness: tho-rough-ness
 tranquillity: tran-quil-li-ty
 unfathomable: un-fat-ho-ma-ble
 withstanding: withs-tan-ding
@@ -24204,7 +24204,7 @@ unilaterally: u-ni-la-te-rally
 centerpieces: cen-terpieces
 chauvinistic: chau-vi-nis-tic
 incantations: in-can-ta-tions
-selflessness: sel-fles-sness
+selflessness: sel-fless-ness
 trigonometry: tri-go-no-me-try
 counteroffer: coun-te-rof-fer
 kaleidoscope: ka-lei-dos-cope
@@ -24536,7 +24536,7 @@ sombrero: som-bre-ro
 stagnant: sta-gnant
 striding: stri-ding
 subsided: sub-si-ded
-tactless: tac-tless
+tactless: tact-less
 tenacity: te-na-ci-ty
 thievery: thie-ve-ry
 unveiled: un-veiled
@@ -24583,7 +24583,7 @@ baguette: ba-guette
 brothels: brot-hels
 bulldoze: bull-doze
 cubicles: cu-bi-cles
-deafness: dea-fness
+deafness: deaf-ness
 harpoons: har-poons
 hearties: hear-ties
 insulate: in-su-late
@@ -24699,7 +24699,7 @@ preserver: pre-ser-ver
 retention: re-ten-tion
 roughshod: roughs-hod
 sheepskin: sheeps-kin
-shirtless: shir-tless
+shirtless: shirt-less
 upgrading: up-gra-ding
 vestigial: ves-ti-gi-al
 blaspheme: blas-pheme
@@ -24726,7 +24726,7 @@ propelled: pro-pelled
 retracted: re-trac-ted
 reuniting: reu-ni-ting
 salvaging: sal-va-ging
-toughness: toug-hness
+toughness: tough-ness
 undaunted: un-daun-ted
 watermark: wa-ter-mark
 flowerpot: flo-wer-pot
@@ -25154,7 +25154,7 @@ pulleys: pul-leys
 redskin: reds-kin
 refocus: re-fo-cus
 selects: se-lects
-sexless: se-xless
+sexless: sex-less
 sniffle: snif-fle
 soiling: soi-ling
 solidly: so-lid-ly
@@ -25305,7 +25305,7 @@ flitting: flit-ting
 footstep: foots-tep
 frothing: frot-hing
 Georgian: Geor-gian
-hardness: har-dness
+hardness: hard-ness
 humbling: hum-bling
 linguine: lin-gui-ne
 magnesia: ma-gne-sia
@@ -25742,9 +25742,9 @@ sentimentalist: sen-ti-men-ta-list
 thermodynamics: ther-mo-dy-na-mics
 Naturalization: Na-tu-ra-li-zation
 instantaneously: ins-tan-ta-ne-ous-ly
-resourcefulness: re-sour-ce-fulness
+resourcefulness: re-source-ful-ness
 synchronization: sync-hro-ni-zation
-unconsciousness: un-cons-ci-ousness
+unconsciousness: un-con-scious-ness
 personification: per-so-ni-fi-ca-tion
 disproportionate: dis-pro-por-tio-nate
 environmentalist: en-vi-ron-men-ta-list
@@ -26101,7 +26101,7 @@ unmasked: un-masked
 warhorse: war-horse
 anagrams: a-na-grams
 anemones: a-ne-mo-nes
-baldness: bal-dness
+baldness: bald-ness
 bleating: blea-ting
 bookends: boo-kends
 brownish: brow-nish
@@ -26150,7 +26150,7 @@ splicing: spli-cing
 synapses: sy-na-pses
 tattered: tat-tered
 toddling: tod-dling
-vastness: vas-tness
+vastness: vast-ness
 weaselly: wea-sel-ly
 applauds: ap-plauds
 billfold: bill-fold
@@ -26173,7 +26173,7 @@ squatter: squat-ter
 stoppage: stop-page
 swishing: swis-hing
 whiskeys: whis-keys
-wildness: wil-dness
+wildness: wild-ness
 zirconia: zir-co-nia
 Badlands: Ba-dlands
 bandidos: ban-di-dos
@@ -26232,7 +26232,7 @@ reforming: re-for-ming
 regressed: re-gressed
 revulsion: re-vul-sion
 rewinding: re-win-ding
-sharpness: shar-pness
+sharpness: sharp-ness
 spiraling: spi-ra-ling
 standings: stan-dings
 statesmen: sta-tesmen
@@ -26363,7 +26363,7 @@ charlatans: char-la-tans
 competency: com-pe-ten-cy
 concocting: con-coc-ting
 devilishly: de-vi-lishly
-directness: di-rec-tness
+directness: di-rect-ness
 entomology: en-to-mo-lo-gy
 frolicking: fro-lic-king
 heretofore: he-re-tofore
@@ -26423,7 +26423,7 @@ Compendium: Com-pen-di-um
 conceptual: con-cep-tu-al
 dandelions: dan-de-li-ons
 deflowered: de-flowered
-groundless: groun-dless
+groundless: ground-less
 judgements: jud-gements
 Manhattans: Man-hat-tans
 maraschino: ma-rasc-hi-no
@@ -26550,7 +26550,7 @@ subjugation: sub-ju-ga-tion
 substantive: subs-tan-tive
 theologians: theo-lo-gi-ans
 breastplate: breast-plate
-correctness: cor-rec-tness
+correctness: cor-rect-ness
 Highlanders: Hig-hlan-ders
 inoffensive: i-nof-fen-sive
 instalments: ins-tal-ments
@@ -26601,7 +26601,7 @@ unimpressive: u-nim-pres-sive
 barbiturates: bar-bi-tu-rates
 biographical: bio-gra-phi-c-al
 exasperating: e-xas-pe-ra-ting
-helplessness: hel-ples-sness
+helplessness: hel-pless-ness
 hypertensive: hy-per-ten-sive
 nutritionist: nu-tri-tio-nist
 stomachaches: sto-mac-haches
@@ -27025,7 +27025,7 @@ agitator: a-gi-ta-tor
 analyzes: a-na-ly-zes
 anteater: an-tea-ter
 begonias: be-go-nias
-boldness: bol-dness
+boldness: bold-ness
 brackets: brac-kets
 breakage: brea-kage
 bridging: brid-ging
@@ -27272,7 +27272,7 @@ withstood: withs-tood
 additions: ad-di-tions
 altitudes: al-ti-tudes
 appraiser: ap-prai-ser
-bluntness: blun-tness
+bluntness: blunt-ness
 bypassing: by-pas-sing
 carcinoma: car-ci-no-ma
 cataclysm: ca-ta-cl-ysm
@@ -27650,7 +27650,7 @@ contradicted: con-tra-dic-ted
 disemboweled: di-sem-bo-weled
 encephalitis: en-ce-pha-li-tis
 fibrillation: fi-bril-la-tion
-hopelessness: ho-pe-lessness
+hopelessness: hope-less-ness
 monkeyshines: mon-keys-hines
 overachiever: o-ve-rachiever
 spreadsheets: spreads-heets
@@ -27937,7 +27937,7 @@ proviso: pro-vi-so
 ravages: ra-va-ges
 rearing: rea-ring
 reddish: red-dish
-redness: re-dness
+redness: red-ness
 renamed: re-named
 ribbing: rib-bing
 rotates: ro-tates
@@ -28212,7 +28212,7 @@ padlocks: pa-dlocks
 recycles: re-cy-cles
 riflemen: ri-fle-men
 scavenge: sca-venge
-seedless: see-dless
+seedless: seed-less
 skidding: skid-ding
 spangles: span-gles
 strafing: stra-fing
@@ -28224,7 +28224,7 @@ Croatian: Croa-ti-an
 draftees: draf-tees
 gunboats: gun-boats
 ladybugs: la-dy-bugs
-lewdness: lew-dness
+lewdness: lewd-ness
 morphing: mor-phing
 revolted: re-vol-ted
 slagging: slag-ging
@@ -28536,7 +28536,7 @@ scavenging: sca-ven-ging
 silverback: sil-verback
 sniggering: snig-gering
 subsidized: sub-si-dized
-talentless: ta-len-tless
+talentless: ta-lent-less
 teleported: te-le-ported
 unapproved: u-nap-proved
 unexploded: u-nex-plo-ded
@@ -28696,7 +28696,7 @@ clairvoyance: clair-voy-ance
 commentaries: com-men-ta-ries
 eccentricity: ec-cen-tri-ci-ty
 extortionist: ex-tor-tio-nist
-graciousness: gra-ci-ousness
+graciousness: gra-cious-ness
 incompetents: in-com-pe-tents
 mechanically: mec-ha-ni-cally
 multitasking: mul-ti-tas-king
@@ -28709,7 +28709,7 @@ soundproofed: sound-proofed
 underdressed: un-derdressed
 computations: com-pu-ta-tions
 dispossessed: dis-pos-sessed
-faithfulness: fait-hfulness
+faithfulness: faith-ful-ness
 fraternities: fra-ter-ni-ties
 miniaturized: mi-nia-tu-rized
 misogynistic: mi-so-gy-nis-tic
@@ -28772,7 +28772,7 @@ comprehensible: com-pre-hen-si-ble
 entertainments: en-ter-tain-ments
 questionnaires: ques-tion-naires
 redistribution: re-dis-tri-bu-tion
-weightlessness: weigh-tles-sness
+weightlessness: weigh-tless-ness
 depressurizing: de-pres-su-ri-zing
 fundamentalists: fun-da-men-ta-lists
 instrumentation: ins-tru-men-ta-tion
@@ -29240,7 +29240,7 @@ joyfully: joy-ful-ly
 joyously: joy-ously
 lavished: la-vished
 leathery: leat-he-ry
-listless: lis-tless
+listless: list-less
 Loyalist: Loy-a-list
 mainstay: mains-tay
 meteoric: me-teo-r-ic
@@ -29264,7 +29264,7 @@ sawbones: saw-bones
 sharpens: shar-pens
 skeptics: skep-tics
 slinking: slin-king
-smugness: smu-gness
+smugness: smug-ness
 stapling: sta-pling
 starlets: star-lets
 swatting: swat-ting
@@ -29530,7 +29530,7 @@ racketeer: rac-ke-teer
 rampaging: ram-pa-ging
 relegated: re-le-ga-ted
 repenting: re-pen-ting
-rightness: righ-tness
+rightness: right-ness
 rotations: ro-ta-tions
 saphenous: sa-phe-nous
 satirical: sa-ti-ri-cal
@@ -29541,7 +29541,7 @@ skinflint: skin-flint
 snowdrift: snow-drift
 songbirds: song-birds
 sterility: ste-ri-li-ty
-stiffness: stif-fness
+stiffness: stiff-ness
 throttles: throt-tles
 throwaway: thro-wa-way
 unlikable: un-li-ka-ble
@@ -29584,7 +29584,7 @@ smalltime: small-time
 sugarless: su-garless
 swallower: swal-lower
 tortoises: tor-toi-ses
-trackless: trac-kless
+trackless: track-less
 whetstone: whets-tone
 Achievers: Ac-hie-vers
 Argonauts: Ar-go-nauts
@@ -29945,7 +29945,7 @@ alphabetizing: al-pha-be-ti-zing
 assertiveness: as-ser-tive-ness
 commemorating: com-me-mo-ra-ting
 condescension: con-des-cen-sion
-deliciousness: de-li-ci-ousness
+deliciousness: de-li-cious-ness
 disintegrates: di-sin-te-grates
 entanglements: en-tan-gle-ments
 introspection: in-tros-pec-tion
@@ -30285,7 +30285,7 @@ goldarn: gol-darn
 gratify: gra-ti-fy
 grunted: grun-ted
 guffaws: guf-faws
-hotness: ho-tness
+hotness: hot-ness
 incisor: in-ci-sor
 incited: in-ci-ted
 incubus: in-cu-bus
@@ -30629,7 +30629,7 @@ jokingly: jo-king-ly
 Kabbalah: Kab-ba-lah
 leeching: leec-hing
 lowliest: low-liest
-meatless: mea-tless
+meatless: meat-less
 moveable: mo-vea-ble
 munition: mu-ni-tion
 outmoded: ou-tmo-ded
@@ -30746,7 +30746,7 @@ carousing: ca-rou-sing
 catatonia: ca-ta-to-nia
 catheters: cat-he-ters
 ceaseless: cea-seless
-cloudless: clou-dless
+cloudless: cloud-less
 compliant: com-pli-ant
 cosmonaut: co-smo-naut
 dickering: dic-ke-ring
@@ -30825,7 +30825,7 @@ witticism: wit-ti-ci-sm
 womenfolk: wo-men-folk
 wrangling: wran-gling
 Bacharach: Bac-ha-rach
-beardless: bear-dless
+beardless: beard-less
 beguiling: be-gui-ling
 breakable: brea-ka-ble
 brokering: bro-ke-ring
@@ -31092,7 +31092,7 @@ inimitable: i-ni-mi-ta-ble
 insurgency: in-sur-gen-cy
 interlaced: in-ter-laced
 intertwine: in-ter-twine
-Jewishness: Je-wis-hness
+Jewishness: Je-wish-ness
 legislator: le-gi-sla-tor
 locomotion: lo-co-mo-tion
 longhaired: long-haired
@@ -31188,7 +31188,7 @@ allegorical: al-le-go-ri-cal
 antagonists: an-ta-go-nists
 Benedictine: Be-ne-dic-tine
 bucktoothed: buck-toothed
-callousness: cal-lou-sness
+callousness: cal-lous-ness
 cultivation: cul-ti-va-tion
 disruptions: di-srup-tions
 Embarcadero: Em-bar-ca-de-ro
@@ -31228,7 +31228,7 @@ wrongdoings: wrong-doi-ngs
 badmouthing: ba-dmout-hing
 countersign: coun-tersign
 Haloperidol: Ha-lo-pe-ridol
-hopefulness: ho-pe-fulness
+hopefulness: hope-ful-ness
 inseminated: in-se-mi-nated
 millenniums: mil-len-ni-ums
 paperhanger: pa-perhanger
@@ -31256,7 +31256,7 @@ malnourished: mal-nou-rished
 overreaching: o-ver-reac-hing
 overthrowing: o-vert-hro-wing
 preemptively: preemp-ti-ve-ly
-preparedness: pre-pa-re-dness
+preparedness: pre-pa-red-ness
 prepubescent: pre-pu-bes-cent
 safeguarding: sa-fe-guarding
 spectrometer: spec-tro-me-ter
@@ -31267,7 +31267,7 @@ undercurrent: un-der-cur-rent
 unpardonable: un-par-do-na-ble
 advancements: ad-van-cements
 articulation: ar-ti-cu-la-tion
-childishness: chil-dis-hness
+childishness: chil-dish-ness
 circumvented: cir-cum-ven-ted
 demonstrator: de-mons-tra-tor
 Ecclesiastes: Ec-cle-sias-tes
@@ -31276,7 +31276,7 @@ firefighting: fi-re-fighting
 geologically: geo-lo-gically
 geopolitical: geo-po-li-ti-c-al
 globetrotter: glo-be-trotter
-gorgeousness: gor-geousness
+gorgeousness: gor-geous-ness
 happenstance: hap-pens-tance
 hypochondria: hy-poc-hon-dr-ia
 inoculations: i-no-cu-la-tions
@@ -31340,7 +31340,7 @@ appropriation: ap-pro-pria-tion
 specification: spe-ci-fi-ca-tion
 stationmaster: sta-tion-master
 monochromatic: mo-noc-hro-ma-tic
-steadfastness: stea-dfas-tness
+steadfastness: stea-dfast-ness
 counteractive: coun-te-ractive
 discriminatory: dis-cri-mi-na-to-ry
 embarrassingly: em-bar-ras-sing-ly
@@ -31902,7 +31902,7 @@ creditor: cre-di-tor
 cropping: crop-ping
 curbside: cur-bside
 dampened: dam-pened
-dampness: dam-pness
+dampness: damp-ness
 defusing: de-fu-sing
 deleting: de-le-ting
 deviates: de-via-tes
@@ -31913,7 +31913,7 @@ dizzying: diz-zy-ing
 dribbled: drib-bled
 drooping: droo-ping
 dropouts: dro-pouts
-dumbness: dum-bness
+dumbness: dumb-ness
 easterly: eas-ter-ly
 eastward: eas-tward
 encoding: en-co-ding
@@ -32182,7 +32182,7 @@ corporals: cor-porals
 crossings: cros-sings
 crosswind: cros-swind
 crybabies: cry-ba-bies
-dauntless: daun-tless
+dauntless: daunt-less
 deporting: de-por-ting
 deputized: de-pu-tized
 discloses: dis-clo-ses
@@ -32203,10 +32203,10 @@ etymology: e-ty-mo-lo-gy
 flickered: flic-kered
 fostering: fos-te-ring
 goofballs: goof-balls
-guiltless: guil-tless
+guiltless: guilt-less
 gunfights: gun-fights
 hallmarks: hall-marks
-harshness: hars-hness
+harshness: harsh-ness
 haystacks: hays-tacks
 heightens: heigh-tens
 Herculean: Her-cu-le-an
@@ -32221,7 +32221,7 @@ jerkwater: jer-kwater
 lampposts: lamp-posts
 liberates: li-be-rates
 Lutherans: Lut-herans
-matchless: matc-hless
+matchless: match-less
 microcosm: mi-cro-co-sm
 monograph: mo-no-graph
 mosquitos: mos-qui-tos
@@ -32320,14 +32320,14 @@ pathogens: pat-ho-gens
 pawnshops: pawns-hops
 prodigies: pro-di-gies
 pseudonym: pseu-do-nym
-quickness: quic-kness
+quickness: quick-ness
 refitting: re-fit-ting
 resonated: re-so-na-ted
 restricts: res-tricts
 scampered: scam-pered
 scribbler: scrib-bler
 sequenced: se-quenced
-sightless: sigh-tless
+sightless: sight-less
 snowbound: snow-bound
 sprawling: spraw-ling
 stateless: sta-teless
@@ -32570,7 +32570,7 @@ storybooks: sto-ry-books
 Ukrainians: U-krai-ni-ans
 Cantilever: Can-tilever
 copperhead: cop-per-head
-flightless: fligh-tless
+flightless: flight-less
 gunrunning: gun-run-ning
 immoderate: im-mo-derate
 occidental: oc-ci-den-tal
@@ -32649,7 +32649,7 @@ remodelling: re-mo-del-ling
 repetitious: re-pe-ti-tious
 rhinoplasty: rhi-no-plas-ty
 safecracker: sa-fecracker
-seasickness: sea-sic-kness
+seasickness: sea-sick-ness
 seductively: se-duc-tive-ly
 splattering: splat-tering
 thereabouts: there-a-bouts
@@ -32660,7 +32660,7 @@ undiagnosed: un-dia-gno-sed
 unflinching: un-flinc-hing
 waterlogged: wa-ter-logged
 wherewithal: whe-re-withal
-awesomeness: a-we-someness
+awesomeness: awe-some-ness
 backstabber: backs-tabber
 depressions: de-pres-sions
 descendents: des-cen-dents
@@ -32793,7 +32793,7 @@ nightingales: nigh-tin-gales
 obliteration: o-bli-te-ra-tion
 oceanography: o-cea-no-gra-phy
 pancreatitis: pan-crea-ti-t-is
-peacefulness: pea-ce-fulness
+peacefulness: peace-ful-ness
 shatterproof: shat-ter-proof
 spectrograph: spec-tro-graph
 sportscaster: sports-cas-ter
@@ -32802,7 +32802,7 @@ stipulations: sti-pu-la-tions
 subservience: sub-ser-vien-ce
 unchangeable: unc-han-gea-ble
 wisecracking: wi-se-cracking
-agribusiness: a-gri-bu-siness
+agribusiness: a-gri-bu-si-ness
 boutonnieres: bou-tonnieres
 concurrently: con-cur-rent-ly
 crucifixions: cru-ci-fi-xions
@@ -33342,7 +33342,7 @@ tremens: tre-mens
 vaunted: vaun-ted
 wakeful: wa-keful
 warding: war-ding
-wetness: we-tness
+wetness: wet-ness
 winsome: win-some
 wussies: wus-sies
 yummies: yum-mies
@@ -33357,7 +33357,7 @@ assuage: as-suage
 babying: ba-bying
 banding: ban-ding
 Bearcat: Bear-cat
-bigness: bi-gness
+bigness: big-ness
 Carters: Car-ters
 chloral: chlo-ral
 closeup: clo-seup
@@ -33377,7 +33377,7 @@ jimmies: jim-mies
 jinxing: jin-xing
 keeling: kee-ling
 knishes: knis-hes
-legless: le-gless
+legless: leg-less
 lexicon: le-xi-con
 majeure: ma-jeure
 matures: ma-tures
@@ -33426,7 +33426,7 @@ Cicadas: Ci-ca-das
 cottons: cot-tons
 dingoes: din-goes
 dudgeon: dud-geon
-fatness: fa-tness
+fatness: fat-ness
 forgers: for-gers
 halberd: hal-berd
 islamic: i-sla-mic
@@ -33910,7 +33910,7 @@ phlebitis: phle-bi-tis
 piecemeal: pie-cemeal
 plasterer: plas-te-rer
 procuring: pro-cu-ring
-quietness: qui-e-tness
+quietness: qui-et-ness
 raconteur: ra-con-teur
 reentered: reen-te-red
 regrouped: re-grouped
@@ -33931,13 +33931,13 @@ squalling: squal-ling
 subsystem: sub-sys-tem
 summaries: sum-ma-ries
 theorists: theo-ri-sts
-tightness: tigh-tness
+tightness: tight-ness
 trainload: train-load
 unadorned: u-na-dorned
 unbalance: un-ba-lance
 unchained: unc-hained
 vaccinate: vac-ci-nate
-vagueness: va-gueness
+vagueness: vague-ness
 vertebral: ver-te-bral
 vindicate: vin-di-cate
 watershed: wa-ters-hed
@@ -34089,7 +34089,7 @@ animality: a-ni-ma-li-ty
 cabalists: ca-ba-lists
 circadian: cir-ca-di-an
 effectors: ef-fectors
-fleshless: fles-hless
+fleshless: flesh-less
 headwater: hea-dwa-ter
 isomerism: i-so-me-rism
 neodymium: neo-dy-mi-um
@@ -34207,7 +34207,7 @@ pantywaist: pan-ty-waist
 pepperonis: pep-pe-ro-nis
 perversity: per-ver-si-ty
 preschools: presc-hools
-promptness: promp-tness
+promptness: prompt-ness
 racetracks: ra-cetracks
 racketeers: rac-ke-teers
 reattached: reat-tac-hed
@@ -34227,7 +34227,7 @@ selflessly: sel-fless-ly
 Senegalese: Se-ne-ga-lese
 shrivelled: shri-velled
 skyrockets: sky-roc-ke-ts
-smoothness: smoot-hness
+smoothness: smooth-ness
 soothsayer: soot-hsay-er
 stealthily: stealt-hi-ly
 strikingly: stri-king-ly
@@ -34448,7 +34448,7 @@ undervalued: un-der-va-lued
 unnaturally: un-na-tu-rally
 unregulated: un-re-gu-la-ted
 unwholesome: unw-ho-lesome
-viciousness: vi-ci-ousness
+viciousness: vi-cious-ness
 voyeuristic: voy-e-u-ristic
 wallpapered: wall-pa-pered
 washerwoman: was-her-woman
@@ -34542,7 +34542,7 @@ implantation: im-plan-ta-tion
 insecticides: in-sec-ti-cides
 interpreters: in-ter-pre-ters
 involvements: in-vol-vements
-irregardless: ir-re-gar-dless
+irregardless: ir-re-gard-less
 menstruating: mens-trua-ting
 mountaintops: moun-tain-tops
 multimillion: mul-ti-mil-lion
@@ -34587,7 +34587,7 @@ disenchanted: di-senc-han-ted
 encyclopedic: en-cy-clo-pe-dic
 exploitative: ex-ploi-ta-tive
 friendliness: frien-dli-ness
-homesickness: ho-me-sickness
+homesickness: home-sick-ness
 internalized: in-ter-na-lized
 malformation: mal-for-ma-tion
 Marseillaise: Mar-seil-laise
@@ -34703,7 +34703,7 @@ extemporaneous: ex-tem-po-ra-neous
 intentionality: in-ten-tio-na-li-ty
 irreconcilable: ir-re-con-ci-la-ble
 justifications: jus-ti-fi-ca-tions
-licentiousness: li-cen-ti-ousness
+licentiousness: li-cen-tious-ness
 misconceptions: mis-con-cep-tions
 phosphorescent: phos-pho-rescent
 propositioning: pro-po-si-tio-ning
@@ -35535,7 +35535,7 @@ erecting: e-rec-ting
 escapism: es-ca-pi-sm
 Eurasian: Eu-ra-sian
 exhuming: ex-hu-ming
-feckless: fec-kless
+feckless: feck-less
 fluorine: fluo-rine
 freewill: free-will
 funnyman: fun-ny-man
@@ -35576,7 +35576,7 @@ Macaroon: Ma-ca-roon
 manacles: ma-na-cles
 mandates: man-dates
 maturely: ma-turely
-meekness: mee-kness
+meekness: meek-ness
 militias: mi-li-tias
 miscarry: mis-car-ry
 misogyny: mi-so-gy-ny
@@ -35909,7 +35909,7 @@ begetting: be-get-ting
 benighted: be-nigh-ted
 bilirubin: bi-li-ru-bin
 Bisexuals: Bi-se-xu-als
-blandness: blan-dness
+blandness: bland-ness
 brainwave: brain-wave
 cautioned: cau-tioned
 chastised: chas-tised
@@ -36036,7 +36036,7 @@ signatory: si-gna-to-ry
 slaphappy: sla-phap-py
 sleaziest: slea-zi-est
 sloppiest: slop-pi-est
-smartness: smar-tness
+smartness: smart-ness
 socialise: so-cialise
 soldierly: sol-dierly
 spoonfuls: spoon-fuls
@@ -36059,7 +36059,7 @@ unavenged: u-na-venged
 underarms: un-derarms
 undreamed: un-dreamed
 unexposed: u-nex-posed
-unfitness: un-fi-tness
+unfitness: un-fit-ness
 uninjured: u-nin-jured
 unlovable: un-lo-va-ble
 unreality: un-rea-li-t-y
@@ -36487,7 +36487,7 @@ submerging: sub-mer-ging
 sufferance: suf-ferance
 Testaments: Tes-ta-ments
 ungracious: un-gra-cious
-unkindness: un-kin-dness
+unkindness: un-kind-ness
 unproduced: un-pro-duced
 unrivalled: un-ri-valled
 unsolvable: un-sol-va-ble
@@ -36676,7 +36676,7 @@ dissembling: dis-sem-bling
 empowerment: em-po-wer-ment
 gastrectomy: gas-trec-to-my
 geneticists: ge-ne-ti-cists
-Godlessness: Go-dles-sness
+Godlessness: Go-dless-ness
 gunfighting: gun-figh-ting
 gunslingers: gun-slin-gers
 hallelujahs: hal-le-lu-jahs
@@ -36777,7 +36777,7 @@ regenerative: re-ge-ne-rative
 relinquishes: re-lin-quis-hes
 rendezvoused: ren-dez-voused
 resettlement: re-set-tle-ment
-ruthlessness: rut-hles-sness
+ruthlessness: rut-hless-ness
 safecracking: sa-fe-cracking
 Scheherazade: Sche-he-ra-zade
 scrutinizing: scru-ti-ni-zing
@@ -36979,7 +36979,7 @@ uncommunicative: un-com-mu-ni-ca-tive
 decommissioning: de-com-mis-sio-ning
 microprocessors: mi-cro-pro-ces-sors
 reconfiguration: re-con-fi-gu-ra-tion
-meaninglessness: mea-nin-gles-sness
+meaninglessness: mea-nin-gless-ness
 anaesthesiology: a-naest-he-sio-lo-g-y
 Counterterrorist: Coun-ter-ter-ro-rist
 depressurization: de-pres-su-rization
@@ -37912,7 +37912,7 @@ dockside: doc-kside
 dogfaces: do-gfa-ces
 dopehead: do-pehead
 downturn: down-turn
-ductless: duc-tless
+ductless: duct-less
 echelons: ec-he-lons
 effluent: ef-flu-ent
 empowers: em-po-wers
@@ -37934,7 +37934,7 @@ fiddlers: fid-dlers
 filleted: fil-leted
 firebomb: fi-rebomb
 fiscally: fis-cal-ly
-flatness: fla-tness
+flatness: flat-ness
 flounces: floun-ces
 flouting: flou-ting
 fluffing: fluf-fing
@@ -38282,7 +38282,7 @@ ketchups: ketc-hups
 lamasery: la-ma-sery
 markable: mar-ka-ble
 Mauricio: Mau-ri-c-io
-Milkless: Mil-kless
+Milkless: Milk-less
 moneybag: mo-ney-bag
 monsoons: mon-soons
 Moulding: Moul-ding
@@ -38334,7 +38334,7 @@ activator: ac-ti-va-tor
 addendums: ad-den-dums
 affective: af-fec-tive
 aforesaid: a-fo-resaid
-alertness: a-ler-tness
+alertness: a-lert-ness
 amusingly: a-mu-sing-ly
 anaerobic: a-nae-ro-bic
 analogous: a-na-lo-gous
@@ -38361,7 +38361,7 @@ bitterest: bit-te-rest
 blackhead: black-head
 blindside: blin-dside
 blockades: bloc-kades
-bloodless: bloo-dless
+bloodless: blood-less
 bluecoats: blue-coats
 boneheads: bo-neheads
 bookcases: book-ca-ses
@@ -38379,7 +38379,7 @@ castanets: cas-ta-nets
 cavalcade: ca-val-cade
 chrysalis: chry-sa-lis
 clambered: clam-bered
-classless: clas-sless
+classless: class-less
 clustered: clus-tered
 cofounder: co-foun-der
 comradely: com-rade-ly
@@ -38441,7 +38441,7 @@ ginormous: gi-normous
 giveaways: gi-vea-ways
 glaringly: gla-ring-ly
 Goldwater: Gol-dwa-ter
-grossness: gros-sness
+grossness: gross-ness
 guestroom: gues-troom
 hamstrung: hams-trung
 handrails: han-drails
@@ -38457,7 +38457,7 @@ imminence: im-mi-nence
 importers: im-por-ters
 imposters: im-posters
 incipient: in-ci-pi-ent
-inertness: i-ner-tness
+inertness: i-nert-ness
 inferiors: in-fe-ri-ors
 infringed: in-fringed
 infuriate: in-fu-ria-te
@@ -38554,7 +38554,7 @@ retainers: re-tai-ners
 reverends: re-verends
 reversion: re-ver-sion
 ridicules: ri-di-cules
-roughness: roug-hness
+roughness: rough-ness
 scavenged: sca-venged
 scrapheap: scra-pheap
 scribbles: scrib-bles
@@ -38582,7 +38582,7 @@ sublevels: sub-le-vels
 sublimely: sub-lime-ly
 subverter: sub-verter
 sweatband: sweat-band
-swiftness: swif-tness
+swiftness: swift-ness
 tactfully: tac-tful-ly
 tantalize: tan-ta-lize
 tediously: te-di-ous-ly
@@ -38725,7 +38725,7 @@ unmasking: un-mas-king
 vulgarian: vul-ga-rian
 watchable: watc-ha-ble
 wineglass: wi-neglass
-wrongness: wron-gness
+wrongness: wrong-ness
 anhedonic: an-he-do-nic
 Anschluss: Ansc-hluss
 Bandicoot: Ban-di-coot
@@ -38791,7 +38791,7 @@ remitting: re-mit-ting
 sailorman: sai-lorman
 Saltgrass: Salt-grass
 Strickler: Stric-kler
-abruptness: a-brup-tness
+abruptness: a-brupt-ness
 affability: af-fa-bi-li-ty
 alimentary: a-li-men-ta-ry
 allocating: al-lo-ca-ting
@@ -38936,7 +38936,7 @@ outselling: ou-tsel-ling
 overeating: o-ve-rea-ting
 overpaying: o-ver-pay-ing
 overpowers: o-verpowers
-parentless: pa-ren-tless
+parentless: pa-rent-less
 Parisienne: Pa-ri-sien-ne
 pejorative: pe-jo-ra-tive
 penetrator: pe-ne-trator
@@ -39063,7 +39063,7 @@ fantasises: fan-ta-si-ses
 felicitous: fe-li-ci-tous
 firehouses: fi-re-hou-ses
 flashcards: flash-cards
-garishness: ga-ris-hness
+garishness: ga-rish-ness
 generality: ge-ne-ra-li-ty
 gonorrhoea: go-norr-hoea
 halfcocked: half-cocked
@@ -39239,7 +39239,7 @@ heartedness: hear-tedness
 heartlessly: hear-tless-ly
 herringbone: her-ring-bone
 hesitations: he-si-ta-tions
-hideousness: hi-de-ousness
+hideousness: hi-deous-ness
 hydrophobia: hy-dro-pho-bia
 hypocrisies: hy-po-cri-sies
 hypothesize: hy-pot-he-size
@@ -39661,7 +39661,7 @@ overstatement: o-vers-ta-tement
 pediatricians: pe-dia-tri-ci-ans
 perfectionism: per-fec-tio-ni-sm
 pharmacopoeia: phar-ma-co-poeia
-powerlessness: po-wer-les-sness
+powerlessness: po-wer-less-ness
 preadolescent: prea-do-les-ce-nt
 prefabricated: pre-fa-bri-ca-ted
 proctologists: proc-to-lo-gists
@@ -39675,7 +39675,7 @@ reminiscences: re-mi-nis-cen-ces
 romanticizing: ro-man-ti-ci-zing
 sharpshooting: sharps-hoo-ting
 skateboarders: ska-teboarders
-sleeplessness: slee-ples-sness
+sleeplessness: slee-pless-ness
 streetwalkers: stree-twalkers
 substantiates: subs-tan-tia-tes
 supplications: sup-pli-ca-tions
@@ -39694,7 +39694,7 @@ unenlightened: u-nen-ligh-tened
 ungentlemanly: un-gen-tle-manly
 unobtrusively: u-nob-tru-sive-ly
 unsustainable: un-sus-tai-na-ble
-unwillingness: un-wil-lin-gness
+unwillingness: un-wil-ling-ness
 waterproofing: wa-ter-proo-fing
 admissibility: ad-mis-si-bi-li-ty
 cardiologists: car-dio-lo-gi-sts
@@ -39735,7 +39735,7 @@ knickerbockers: knic-ker-boc-kers
 megalomaniacal: me-ga-lo-ma-nia-cal
 mountaineering: moun-tai-nee-ring
 multinationals: mul-ti-na-tio-nals
-mysteriousness: mys-te-ri-ou-sness
+mysteriousness: mys-te-ri-ous-ness
 neurologically: neu-ro-lo-gically
 orchestrations: orc-hes-tra-tions
 oversimplified: o-ver-sim-pli-fied
@@ -39769,7 +39769,7 @@ miscalculations: mis-cal-cu-la-tions
 overcompensates: o-ver-com-pensates
 overzealousness: o-ver-zea-lousness
 reconsideration: re-con-si-de-ra-tion
-thoughtlessness: though-tles-sness
+thoughtlessness: though-tless-ness
 unpronounceable: un-pro-noun-cea-ble
 astrophysicists: as-tro-phy-si-cists
 conventionality: con-ven-tio-na-li-ty
@@ -40404,7 +40404,7 @@ alibied: a-libied
 animate: a-ni-mate
 anthems: ant-hems
 aquavit: a-qua-vit
-artless: ar-tless
+artless: art-less
 ascends: as-cends
 atomize: a-to-mize
 audibly: au-dib-ly
@@ -40502,7 +40502,7 @@ evoking: e-vo-king
 exempts: e-xempts
 exotica: e-xo-ti-ca
 eyedrop: ey-edrop
-eyeless: ey-eless
+eyeless: eye-less
 eyeshot: ey-eshot
 facades: fa-cades
 factoid: fac-toid
@@ -40831,7 +40831,7 @@ Moselle: Mo-selle
 myeloid: mye-lo-id
 netball: net-ball
 Nougats: Nou-gats
-oddness: od-dness
+oddness: odd-ness
 oxalate: o-xa-late
 pachuco: pac-hu-co
 parotid: pa-ro-tid
@@ -40984,7 +40984,7 @@ blogging: blog-ging
 blowhole: blow-hole
 blubbery: blub-bery
 bonhomie: bon-ho-mie
-bootless: boo-tless
+bootless: boot-less
 boudoirs: bou-doirs
 bouffant: bouf-fant
 breezing: bree-zing
@@ -41119,7 +41119,7 @@ giantess: gian-tess
 girlhood: girl-hood
 glassful: glass-ful
 Glenwood: Glen-wood
-glibness: gli-bness
+glibness: glib-ness
 glinting: glin-ting
 glistens: glis-tens
 goggling: gog-gling
@@ -41139,7 +41139,7 @@ haymaker: hay-ma-ker
 headroom: hea-droom
 hecklers: hec-klers
 hectares: hec-tares
-heedless: hee-dless
+heedless: heed-less
 hellbent: hell-bent
 Hessians: Hes-sians
 Hieratic: Hie-ra-t-ic
@@ -41265,7 +41265,7 @@ quisling: qui-sling
 radioing: ra-dio-ing
 railhead: rail-head
 ransomed: ran-somed
-rashness: ras-hness
+rashness: rash-ness
 realists: rea-lists
 reawaken: rea-wa-k-en
 reclaims: re-claims
@@ -41515,7 +41515,7 @@ lollygag: lol-ly-gag
 marbling: mar-bling
 membered: mem-bered
 midbrain: mid-brain
-mildness: mil-dness
+mildness: mild-ness
 missable: mis-sa-ble
 mooncalf: moon-calf
 moonface: moon-face
@@ -42648,7 +42648,7 @@ Romanesque: Ro-ma-nesque
 romantical: ro-man-ti-cal
 roundtable: round-ta-ble
 rubberneck: rub-berneck
-sacredness: sa-cre-dness
+sacredness: sa-cred-ness
 sandstorms: sands-torms
 sauntering: saun-tering
 scallywags: scal-ly-wags
@@ -42789,7 +42789,7 @@ formulates: for-mu-lates
 fossilised: fos-si-lised
 foxhunting: fox-hun-ting
 goldfields: gol-dfields
-handedness: han-de-dness
+handedness: han-ded-ness
 hauntingly: haun-ting-ly
 headstands: heads-tands
 hiccupping: hic-cup-ping
@@ -42799,7 +42799,7 @@ jackknives: jack-knives
 Liquidator: Li-qui-da-tor
 lumpectomy: lum-pec-to-my
 manometers: ma-no-meters
-mindedness: min-de-dness
+mindedness: min-ded-ness
 modernised: mo-dernised
 Monosodium: Mo-no-so-dium
 necromancy: ne-cro-man-cy
@@ -42967,7 +42967,7 @@ domesticate: do-mes-ti-cate
 downdraught: down-draught
 doxycycline: do-xy-cy-cline
 dressmakers: dres-sma-kers
-earnestness: ear-nes-tness
+earnestness: ear-nest-ness
 emotionless: e-mo-tion-less
 encapsulate: en-ca-psu-late
 engendering: en-gen-dering
@@ -43353,7 +43353,7 @@ hyperacidity: hy-pe-ra-ci-dity
 hypothesized: hy-pot-he-sized
 impersonates: im-per-so-nates
 incinerating: in-ci-ne-ra-ting
-indebtedness: in-deb-te-dness
+indebtedness: in-deb-ted-ness
 indigestible: in-di-ges-ti-ble
 infatuations: in-fa-tua-tions
 infrequently: in-fre-quent-ly
@@ -43482,7 +43482,7 @@ contravening: con-tra-ve-ning
 dismembering: di-smem-be-ring
 exfiltration: e-xfil-tra-tion
 expansionist: ex-pan-sio-nist
-fabulousness: fa-bu-lou-sness
+fabulousness: fa-bu-lous-ness
 fritillaries: fri-til-laries
 genealogical: ge-nea-lo-gical
 habitability: ha-bi-ta-bi-li-ty
@@ -43518,7 +43518,7 @@ nonsectarian: non-sec-ta-ri-an
 Parkinsonian: Par-kin-so-nian
 prepossessed: pre-pos-sessed
 provisioning: pro-vi-sio-ning
-Soothingness: Soot-hin-gness
+Soothingness: Soot-hing-ness
 undersheriff: un-dersheriff
 actualization: ac-tua-li-zation
 adventuresome: ad-ven-tu-resome
@@ -43730,7 +43730,7 @@ astronomically: as-tro-no-mi-cally
 desalinization: de-sa-li-ni-za-tion
 internationals: in-ter-na-tio-nals
 pronunciations: pro-nun-cia-tions
-rebelliousness: re-bel-li-ou-sness
+rebelliousness: re-bel-li-ous-ness
 rehabilitating: re-ha-bi-li-ta-ting
 sledgehammered: sled-gehammered
 Staphylococcus: Sta-phy-lo-coc-cus
@@ -44924,7 +44924,7 @@ earings: ea-rings
 edibles: e-di-bles
 edified: e-dified
 effable: ef-fa-ble
-eggless: eg-gless
+eggless: egg-less
 embarks: em-barks
 emoting: e-mo-ting
 empiric: em-pi-ric
@@ -45004,7 +45004,7 @@ Harpers: Har-pers
 harpist: har-pist
 harrows: har-rows
 hasting: has-ting
-hatless: ha-tless
+hatless: hat-less
 haulage: hau-lage
 Haycock: Hay-cock
 Hebraic: He-br-aic
@@ -45082,7 +45082,7 @@ legging: leg-ging
 levying: le-vy-ing
 libeled: li-beled
 lickety: lic-ke-ty
-lidless: li-dless
+lidless: lid-less
 ligated: li-gated
 locater: lo-cater
 lockets: loc-kets
@@ -45630,7 +45630,7 @@ Tressel: Tres-sel
 tumulus: tu-mu-lus
 tupping: tup-ping
 typists: ty-pists
-unbless: un-bless
+unbless: unb-less
 unifies: u-ni-fies
 untaxed: un-taxed
 uploads: u-ploads
@@ -45701,7 +45701,7 @@ behooved: be-hooved
 belabour: be-labour
 belfries: bel-fries
 bellying: bel-ly-ing
-beltless: bel-tless
+beltless: belt-less
 benignly: be-ni-gnly
 Berliner: Ber-li-ner
 berretta: ber-ret-ta
@@ -45927,7 +45927,7 @@ fleshpot: flesh-pot
 floridly: flo-rid-ly
 foetuses: foe-tu-ses
 fogbound: fog-bound
-foodless: foo-dless
+foodless: food-less
 footfall: foo-tfall
 forelegs: fo-relegs
 forelock: fo-relock
@@ -46052,8 +46052,8 @@ locoweed: lo-coweed
 lollypop: lol-ly-pop
 longship: longs-hip
 lordosis: lor-do-sis
-loudness: lou-dness
-luckless: luc-kless
+loudness: loud-ness
+luckless: luck-less
 lumpiest: lum-pi-est
 lyricism: ly-ri-ci-sm
 Maestros: Maes-tros
@@ -46138,7 +46138,7 @@ parsnips: par-snips
 parvenus: par-ve-nus
 passings: pas-sings
 passkeys: pass-keys
-pathless: pat-hless
+pathless: path-less
 pedalled: pe-dalled
 penology: pe-no-lo-gy
 perianal: pe-ria-n-al
@@ -46223,7 +46223,7 @@ righties: righ-ties
 ripeness: ripe-ness
 riskiest: ris-ki-est
 rivulets: ri-vu-lets
-rootless: roo-tless
+rootless: root-less
 Rosehill: Ro-sehill
 rottener: rot-tener
 roundups: roun-dups
@@ -46273,7 +46273,7 @@ sluggers: slug-gers
 sluicing: slui-cing
 slutting: slut-ting
 smarting: smar-ting
-smogless: smo-gless
+smogless: smog-less
 sneakier: snea-kier
 sniggles: snig-gles
 snowshoe: snows-hoe
@@ -46323,7 +46323,7 @@ tackiest: tac-ki-est
 tallying: tal-ly-ing
 tappings: tap-pings
 tastiest: tas-tiest
-tautness: tau-tness
+tautness: taut-ness
 Tedeschi: Te-desc-hi
 terrazzo: ter-raz-zo
 testator: tes-tator
@@ -46405,11 +46405,11 @@ Westland: Wes-tland
 whiffing: whif-fing
 whittles: whit-tles
 windsurf: win-dsurf
-wingless: win-gless
+wingless: wing-less
 wingtips: wing-tips
 winkling: win-kling
 wobblies: wob-blies
-wordless: wor-dless
+wordless: word-less
 workdays: work-days
 wriggled: wrig-gled
 wriggles: wrig-gles
@@ -46719,7 +46719,7 @@ cauchemar: cauc-hemar
 cauldrons: caul-drons
 cesareans: ce-sa-reans
 chandlery: chan-dle-ry
-cheapness: chea-pness
+cheapness: cheap-ness
 cheeriest: chee-riest
 chilidogs: chi-li-dogs
 chinaware: chi-na-ware
@@ -46763,14 +46763,14 @@ costumers: cos-tu-mers
 costuming: cos-tu-ming
 craftiest: craf-ti-est
 cricketer: cric-keter
-crispness: cris-pness
+crispness: crisp-ness
 croquette: cro-quette
 crossbeam: cross-beam
 croupiers: crou-piers
 crucially: cru-cial-ly
 crudeness: crude-ness
 crunchers: crunc-hers
-crustless: crus-tless
+crustless: crust-less
 cuckolded: cuc-kolded
 culturing: cul-tu-ring
 curricula: cur-ri-cu-la
@@ -46861,7 +46861,7 @@ exponents: ex-po-nents
 extenders: ex-ten-ders
 extremest: ex-tre-mest
 eyestrain: ey-estrain
-faintness: fain-tness
+faintness: faint-ness
 farandole: fa-ran-dole
 farthings: fart-hings
 fasteners: fas-teners
@@ -47189,7 +47189,7 @@ ringtones: ring-tones
 roaringly: roa-ring-ly
 rocketeer: roc-ke-teer
 rosewater: ro-sewater
-roundness: roun-dness
+roundness: round-ness
 royalists: roy-a-lists
 safflower: saf-flo-wer
 sagacious: sa-ga-cious
@@ -47234,7 +47234,7 @@ sissified: sis-sified
 skimpiest: skim-pi-est
 skydivers: sky-divers
 slackened: slac-kened
-slackness: slac-kness
+slackness: slack-ness
 slavishly: sla-vish-ly
 sleighing: sleigh-ing
 slipcover: slip-cover
@@ -47246,7 +47246,7 @@ solitudes: so-li-tudes
 sonically: so-ni-cally
 soubrette: sou-brette
 soulfully: soul-ful-ly
-soundness: soun-dness
+soundness: sound-ness
 sourballs: sour-balls
 spatially: spa-tially
 speediest: spee-di-est
@@ -47303,10 +47303,10 @@ thickener: thic-ke-ner
 thighbone: thigh-bone
 thirstier: thirs-tier
 thumbhole: thumb-hole
-thumbless: thum-bless
+thumbless: thumb-less
 ticketing: tic-ke-ting
 tinderbox: tin-der-box
-tiredness: ti-re-dness
+tiredness: ti-red-ness
 tittering: tit-tering
 toboggans: to-bog-gans
 toilettes: toi-lettes
@@ -47327,7 +47327,7 @@ trichosis: tric-ho-sis
 tricuspid: tri-cus-pid
 Trovatore: Tro-va-tore
 truncated: trun-ca-ted
-trunkless: trun-kless
+trunkless: trunk-less
 twangling: twan-gl-ing
 twilights: twi-lights
 unadvised: u-na-dvised
@@ -47369,7 +47369,7 @@ vibratory: vi-bra-to-ry
 Victorias: Vic-to-ri-as
 vignettes: vi-gnettes
 Vitruvian: Vi-tru-vian
-vividness: vi-vi-dness
+vividness: vi-vid-ness
 vocalists: vo-ca-lists
 voodooism: voo-doo-i-sm
 vulcanise: vul-ca-nise
@@ -48065,7 +48065,7 @@ shirtmaker: shir-tmaker
 shoeshines: shoes-hines
 shortfalls: shor-tfalls
 shotgunned: shot-gunned
-shrewdness: shrew-dness
+shrewdness: shrewd-ness
 sideboards: si-deboards
 sidelining: si-de-lining
 singleness: sin-gle-ness
@@ -48077,7 +48077,7 @@ snottiness: snot-ti-ness
 snowstorms: snows-torms
 socializes: so-cializes
 sociopathy: so-cio-pat-hy
-sordidness: sor-di-dness
+sordidness: sor-did-ness
 spearheads: spear-heads
 speculates: spe-cu-lates
 spiderwebs: spi-derwebs
@@ -48211,7 +48211,7 @@ barometers: ba-ro-me-ters
 beefburger: beef-burger
 Bioscience: Bios-cien-c-e
 Bogtrotter: Bog-trotter
-boringness: bo-rin-gness
+boringness: bo-ring-ness
 borrowings: bor-ro-wings
 bottlenose: bot-tle-nose
 Brahmanism: Bra-hma-ni-sm
@@ -48354,7 +48354,7 @@ aftermarket: af-ter-mar-ket
 aggregating: ag-gre-ga-ting
 aggregation: ag-gre-ga-tion
 airbrushing: air-brus-hing
-airsickness: air-sic-kness
+airsickness: air-sick-ness
 alternators: al-ternators
 ancestrally: an-ces-tral-ly
 animosities: a-ni-mo-si-ties
@@ -48383,7 +48383,7 @@ bisexuality: bi-se-xua-li-t-y
 blasphemies: blas-phe-mies
 blindsiding: blin-dsi-ding
 blueprinted: blue-printed
-boorishness: boo-ris-hness
+boorishness: boo-rish-ness
 botanically: bo-ta-ni-cally
 bottlenecks: bot-tle-necks
 breakfasted: brea-kfasted
@@ -48439,7 +48439,7 @@ countermine: coun-termine
 countersuit: coun-ter-suit
 crapehanger: cra-pehanger
 creationist: crea-tio-ni-st
-crookedness: croo-ke-dness
+crookedness: croo-ked-ness
 crustaceous: crus-ta-ceous
 crystalloid: crys-tal-loid
 cummerbunds: cum-merbunds
@@ -48468,7 +48468,7 @@ deservingly: de-ser-ving-ly
 destitution: des-ti-tu-tion
 detachments: de-tac-hments
 devaluation: de-va-lua-tion
-deviousness: de-vi-ou-sness
+deviousness: de-vi-ous-ness
 diddlysquat: did-dlys-quat
 discernable: dis-cer-na-ble
 discernment: dis-cern-ment
@@ -48807,7 +48807,7 @@ tabulations: ta-bu-la-tions
 tagliatelle: ta-glia-tel-le
 tamperproof: tam-perproof
 tattletales: tat-tle-tales
-tediousness: te-di-ou-sness
+tediousness: te-di-ous-ness
 teenybopper: tee-ny-bopper
 teetotalers: tee-to-talers
 teleporting: te-le-por-ting
@@ -48855,7 +48855,7 @@ variability: va-ria-bi-li-t-y
 vasodilator: va-so-dilator
 verbalizing: ver-ba-li-zing
 Volkswagens: Vol-kswa-gens
-warrantless: war-ran-tless
+warrantless: war-rant-less
 washerwomen: was-her-women
 weathercock: weat-hercock
 westernized: wes-ter-nized
@@ -48865,7 +48865,7 @@ windscreens: winds-creens
 woodburning: wood-bur-ning
 xenogenesis: xe-no-ge-ne-sis
 xylophonist: xy-lo-pho-nist
-zealousness: zea-lou-sness
+zealousness: zea-lous-ness
 Admittances: Ad-mit-tan-ces
 aeroelastic: ae-roe-las-t-ic
 Albatrosses: Al-ba-tros-ses
@@ -49080,7 +49080,7 @@ experimenter: ex-pe-ri-men-ter
 expositional: ex-po-si-tio-nal
 expropriated: ex-pro-pria-t-ed
 fainthearted: faint-hear-ted
-fearlessness: fear-les-sness
+fearlessness: fear-less-ness
 feminization: fe-mi-ni-zation
 flimflamming: flim-flam-ming
 fluorocarbon: fluo-ro-car-bon
@@ -49126,7 +49126,7 @@ labyrinthine: la-by-rint-hine
 laparotomies: la-pa-ro-to-mies
 legitimizing: le-gi-ti-mi-zing
 lightweights: ligh-tweights
-listlessness: lis-tles-sness
+listlessness: lis-tless-ness
 logistically: lo-gis-ti-cally
 magistrature: ma-gis-trature
 maneuverings: ma-neu-ve-rings
@@ -49168,7 +49168,7 @@ overpopulate: o-ver-po-pu-late
 overspending: o-vers-pen-ding
 paralyzation: pa-ra-ly-za-tion
 pasteurizing: pas-teu-ri-zing
-patheticness: pat-he-ti-cness
+patheticness: pat-he-tic-ness
 peacekeeping: pea-ce-keeping
 perpetuation: per-pe-tua-tion
 perspicacity: pers-pi-cacity
@@ -49178,7 +49178,7 @@ photocopying: pho-to-co-py-ing
 pocketknives: poc-ket-knives
 postmeridian: pos-tme-ridian
 praseodymium: pra-seo-dy-mium
-preciousness: pre-ci-ousness
+preciousness: pre-cious-ness
 precognitive: pre-co-gni-tive
 preconscious: pre-cons-cious
 predicaments: pre-di-ca-ments
@@ -49222,7 +49222,7 @@ scapegoating: sca-pe-goating
 scorekeeping: sco-re-keeping
 scriptwriter: scrip-twri-ter
 seminiferous: se-mi-ni-ferous
-sensuousness: sen-su-ou-sness
+sensuousness: sen-su-ous-ness
 shadowboxing: sha-dow-bo-xing
 slenderizing: slen-de-ri-zing
 sophisticate: so-phis-ti-cate
@@ -49395,7 +49395,7 @@ Episcopalians: E-pis-co-pa-lians
 expeditiously: ex-pe-di-tious-ly
 expressionism: ex-pres-sio-ni-sm
 extravaganzas: ex-tra-va-gan-zas
-ferociousness: fe-ro-ci-ousness
+ferociousness: fe-ro-cious-ness
 fertilisation: fer-ti-li-sa-tion
 filibustering: fi-li-bus-te-ring
 functionaries: func-tio-na-ries
@@ -49414,7 +49414,7 @@ hydrocephalus: hy-dro-ce-phalus
 hypercalcemia: hy-per-cal-cemia
 hyperglycemic: hy-per-gly-cemic
 hypothesizing: hy-pot-he-si-zing
-impetuousness: im-pe-tu-ousness
+impetuousness: im-pe-tuous-ness
 incapacitates: in-ca-pa-citates
 incompetently: in-com-pe-tent-ly
 incrementally: in-cre-men-tal-ly
@@ -49431,7 +49431,7 @@ irrelevancies: ir-re-le-vancies
 kaffeeklatsch: kaf-fee-klatsch
 kindergartner: kin-der-gar-tner
 kleptomaniacs: klep-to-ma-niacs
-luxuriousness: lu-xu-ri-ousness
+luxuriousness: lu-xu-rious-ness
 megalomaniacs: me-ga-lo-ma-niacs
 metamorphoses: me-ta-mor-pho-ses
 misidentified: mi-si-den-ti-fied
@@ -49440,8 +49440,8 @@ musicologists: mu-si-co-lo-gists
 nightcrawlers: night-crawlers
 nonconducting: non-con-duc-ting
 nonregulation: non-re-gu-la-tion
-obnoxiousness: o-bno-xi-ousness
-officiousness: of-fi-ci-ousness
+obnoxiousness: o-bno-xious-ness
+officiousness: of-fi-cious-ness
 orthodontists: ort-ho-don-tists
 outstandingly: outs-tan-ding-ly
 overexploited: o-ve-rexploited
@@ -49540,7 +49540,7 @@ unremittingly: un-re-mit-ting-ly
 unrepresented: un-re-pre-sen-ted
 unsupportable: un-sup-por-ta-ble
 vaudevillians: vau-de-vil-lians
-worthlessness: wort-hles-sness
+worthlessness: wort-hless-ness
 actualisation: ac-tua-li-sa-tion
 adrenalectomy: ad-re-na-lec-to-my
 bronchiolitis: bronc-hio-li-t-is
@@ -49579,7 +49579,7 @@ watercolorist: wa-ter-colorist
 yellowbellied: yel-low-bel-lied
 achondroplasia: ac-hon-dro-pla-sia
 blepharoplasty: ble-pha-ro-plas-ty
-breathlessness: breat-hles-sness
+breathlessness: breat-hless-ness
 brobdingnagian: brob-din-gna-gi-an
 bullheadedness: bull-hea-dedness
 businessperson: bu-si-ness-person
@@ -49603,13 +49603,13 @@ disassociating: di-sas-so-cia-ting
 discourteously: dis-cour-teous-ly
 Disembarkation: Di-sem-bar-ka-tion
 disfigurements: dis-fi-gu-rements
-disgustingness: dis-gus-tin-gness
+disgustingness: dis-gus-ting-ness
 disinclination: di-sin-cli-na-tion
 disintegrators: di-sin-te-grators
 echocardiogram: ec-ho-car-dio-gr-am
 editorialising: e-di-to-ria-li-sing
 featherweights: feat-her-weights
-forthrightness: fort-hrigh-tness
+forthrightness: fort-hright-ness
 fortunetellers: for-tunetellers
 fraternisation: fra-ter-ni-sa-tion
 fundamentalism: fun-da-men-ta-li-sm
@@ -49624,7 +49624,7 @@ industrialized: in-dus-tria-li-zed
 insufficiently: in-suf-fi-cient-ly
 intermediaries: in-ter-me-dia-ri-es
 irreproachable: ir-re-proac-ha-ble
-lugubriousness: lu-gu-bri-ou-sness
+lugubriousness: lu-gu-bri-ous-ness
 malnourishment: mal-nou-ris-hment
 Mesdemoiselles: Mes-de-moi-selles
 meteorologists: me-teo-ro-lo-gi-sts
@@ -49660,7 +49660,7 @@ reimbursements: reim-bur-se-ments
 responsiveness: res-pon-sive-ness
 reverberations: re-ver-be-ra-tions
 revolutionised: re-vo-lu-tio-nised
-ridiculousness: ri-di-cu-lou-sness
+ridiculousness: ri-di-cu-lous-ness
 saponification: sa-po-ni-fi-ca-tion
 scandalmongers: scan-dal-mongers
 scholastically: scho-las-ti-cally
@@ -49703,7 +49703,7 @@ relinquishment: re-lin-quis-hment
 reproductively: re-pro-duc-tive-ly
 schoolteaching: school-teac-hing
 semiconductors: se-mi-con-duc-tors
-suspiciousness: sus-pi-ci-ousness
+suspiciousness: sus-pi-cious-ness
 Unpreparedness: Un-pre-pa-redness
 agriculturalist: a-gri-cul-tu-ra-list
 appropriateness: ap-pro-pria-te-ness
@@ -49740,7 +49740,7 @@ pharmacological: phar-ma-co-lo-gi-cal
 pharmacotherapy: phar-ma-cot-he-ra-py
 photojournalism: pho-to-jour-na-li-sm
 plainclothesmen: plain-clot-hesmen
-pretentiousness: pre-ten-ti-ousness
+pretentiousness: pre-ten-tious-ness
 proportionately: pro-por-tio-nate-ly
 reconstructions: re-cons-truc-tions
 sentimentalists: sen-ti-men-ta-lists
@@ -49782,7 +49782,7 @@ Psychopathically: Psyc-ho-pat-hi-cally
 rationalisations: ra-tio-na-li-sa-tions
 representational: re-pre-sen-ta-tio-nal
 sensationalizing: sen-sa-tio-na-li-zing
-shortsightedness: shor-tsigh-te-dness
+shortsightedness: shor-tsigh-ted-ness
 supraventricular: su-pra-ven-tri-cular
 triphenylmethane: tri-phe-nyl-met-hane
 chemotherapeutic: che-mot-he-ra-peu-tic
