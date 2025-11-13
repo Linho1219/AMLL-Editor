@@ -5456,7 +5456,7 @@ stated: sta-ted
 pupils: pu-pils
 napkin: nap-kin
 vitals: vi-tals
-cosmic: co-smic
+cosmic: cos-mic
 reform: re-form
 Dakota: Da-ko-ta
 zombie: zom-bie
@@ -5468,7 +5468,7 @@ relaxing: re-la-xing
 applying: ap-ply-ing
 killings: kil-lings
 Casanova: Ca-sa-no-va
-ignorance: i-gno-rance
+ignorance: ig-no-rance
 assaulted: as-saul-ted
 Commodore: Com-mo-dore
 adventures: ad-ven-tures
