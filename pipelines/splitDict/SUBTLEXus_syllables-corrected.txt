@@ -14121,7 +14121,7 @@ inexcusable: i-nex-cu-sa-ble
 positioning: po-si-tio-ning
 fabrication: fa-bri-ca-tion
 infatuation: in-fa-tua-tion
-nothingness: not-hing-ness
+nothingness: no-thing-ness
 ambassadors: am-bas-sa-dors
 chromosomes: chro-mo-somes
 bombardment: bom-bar-dment
@@ -21090,7 +21090,7 @@ fireside: fi-re-side
 hamsters: hams-ters
 handguns: hand-guns
 mermaids: mer-maids
-nothings: not-hings
+nothings: no-things
 Perfecto: Per-fecto
 primrose: prim-rose
 prologue: pro-logue
