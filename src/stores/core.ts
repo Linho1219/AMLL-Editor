@@ -1,6 +1,7 @@
 import { reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { useRuntimeStore } from './runtime'
+import { nanoid } from 'nanoid'
 
 const newLine = (attrs: Partial<LyricLine> = {}): LyricLine =>
   reactive({
@@ -14,7 +15,7 @@ const newLine = (attrs: Partial<LyricLine> = {}): LyricLine =>
     background: false,
     duet: false,
     ...attrs,
-    id: Math.random().toString(36).slice(2),
+    id: nanoid(),
   })
 const newWord = (attrs: Partial<LyricWord> = {}): LyricWord =>
   reactive({
@@ -26,7 +27,7 @@ const newWord = (attrs: Partial<LyricWord> = {}): LyricWord =>
     bookmarked: false,
     // comments: [],
     ...attrs,
-    id: Math.random().toString(36).slice(2),
+    id: nanoid(),
   })
 
 const line: LyricLine = newLine({
