@@ -2,32 +2,32 @@ import { reactive } from 'vue'
 import { defineStore } from 'pinia'
 import { useRuntimeStore } from './runtime'
 
-//test
-
-const newLine = (attrs: Partial<LyricLine> = {}): LyricLine => ({
-  startTime: 0,
-  endTime: 0,
-  words: [],
-  ignoreInTiming: false,
-  bookmarked: false,
-  translation: '',
-  romanization: '',
-  background: false,
-  duet: false,
-  ...attrs,
-  id: Math.random().toString(36).slice(2),
-})
-const newWord = (attrs: Partial<LyricWord> = {}): LyricWord => ({
-  startTime: 0,
-  endTime: 0,
-  word: '',
-  placeholdingBeat: 0,
-  currentplaceholdingBeat: 0,
-  bookmarked: false,
-  // comments: [],
-  ...attrs,
-  id: Math.random().toString(36).slice(2),
-})
+const newLine = (attrs: Partial<LyricLine> = {}): LyricLine =>
+  reactive({
+    startTime: 0,
+    endTime: 0,
+    words: [],
+    ignoreInTiming: false,
+    bookmarked: false,
+    translation: '',
+    romanization: '',
+    background: false,
+    duet: false,
+    ...attrs,
+    id: Math.random().toString(36).slice(2),
+  })
+const newWord = (attrs: Partial<LyricWord> = {}): LyricWord =>
+  reactive({
+    startTime: 0,
+    endTime: 0,
+    word: '',
+    placeholdingBeat: 0,
+    currentplaceholdingBeat: 0,
+    bookmarked: false,
+    // comments: [],
+    ...attrs,
+    id: Math.random().toString(36).slice(2),
+  })
 
 const line: LyricLine = newLine({
   startTime: 0,
