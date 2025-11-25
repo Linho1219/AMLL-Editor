@@ -37,7 +37,7 @@ export function parseLRC(lrc: string): Persist {
     }
     const timeStamps: number[] = []
     while (true) {
-      const match = lineStr.match(/^\[(\d{1,3}:\d{1,2}\.\d{1,3})\](.*)$/)
+      const match = lineStr.match(/^\[(\d{1,3}:\d{1,2}(?:\.|:)\d{1,3})\](.*)$/)
       if (!match) break
       const [, timeStr, text] = match
       const timeStamp = str2ms(timeStr!)!
