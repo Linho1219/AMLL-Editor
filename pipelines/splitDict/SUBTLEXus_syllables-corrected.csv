@@ -551,7 +551,7 @@ country,coun-try,8254,3298
 Jesus,Je-sus,8220,2273
 needs,needs,8198,4390
 Wow,Wow,8160,3377
-able,a-ble,8155,4285
+able,ab-le,8155,4285
 Frank,Frank,8129,1303
 perfect,per-fect,8091,3915
 shouldn,shoul-dn,8083,4454
@@ -5318,7 +5318,7 @@ pirate,pi-rate,375,163
 efforts,ef-forts,375,336
 bothers,bot-hers,375,325
 freshman,fresh-man,375,233
-Victoria,Vic-to-r-ia,375,172
+Victoria,Vic-to-ri-a,375,172
 Hamilton,Ha-mil-ton,375,108
 owed,owed,374,311
 refer,re-fer,374,333
@@ -5370,7 +5370,7 @@ factor,fac-tor,370,286
 salute,sa-lute,370,258
 jewels,jewels,370,193
 boxing,bo-xing,370,174
-Sylvia,Syl-v-ia,370,101
+Sylvia,Syl-vi-a,370,101
 elected,e-lec-ted,370,280
 whipped,whipped,370,269
 Springs,Springs,370,214
@@ -5378,7 +5378,7 @@ continued,con-ti-nued,370,330
 gathering,gat-he-ring,370,315
 dorm,dorm,369,187
 jewel,jewel,369,180
-liable,lia-b-le,369,296
+liable,li-a-ble,369,296
 ordering,or-de-ring,369,324
 backyard,bac-kyard,369,281
 abortion,a-bor-tion,369,155
@@ -5494,7 +5494,7 @@ Paulie,Pau-lie,358,59
 smashed,smashed,358,301
 guardian,guar-di-an,358,247
 compromise,com-pro-mise,358,279
-experiences,ex-pe-rien-c-es,358,273
+experiences,ex-pe-ri-en-ces,358,273
 congratulate,con-gra-tu-late,358,309
 fax,fax,357,230
 plead,plead,357,249
@@ -5571,7 +5571,7 @@ teenager,tee-na-ger,351,288
 currently,cur-rent-ly,351,324
 chow,chow,350,221
 Nazi,Na-zi,350,202
-Echo,Ec-ho,350,191
+Echo,E-cho,350,191
 cunt,cunt,350,176
 eager,ea-ger,350,307
 messy,mes-sy,350,300
@@ -5666,7 +5666,7 @@ baked,baked,341,268
 lodge,lodge,341,180
 Pedro,Pe-dro,341,99
 Miriam,Mi-ri-am,341,43
-January,Ja-nua-r-y,341,254
+January,Ja-nu-a-ry,341,254
 Holland,Hol-land,341,120
 scissors,scis-sors,341,207
 Covenant,Co-ve-nant,341,53
@@ -5693,7 +5693,7 @@ galaxy,ga-la-xy,339,152
 Baxter,Bax-ter,339,67
 wishing,wi-shing,339,280
 threats,threats,339,274
-humiliated,hu-mi-lia-t-ed,339,302
+humiliated,hu-mi-li-a-ted,339,302
 guaranteed,gua-ran-teed,339,295
 enforcement,en-for-cement,339,258
 Mississippi,Mis-sis-sip-pi,339,173
@@ -5880,7 +5880,7 @@ underwater,un-der-wa-ter,323,214
 Connecticut,Con-nec-ti-cut,323,201
 tasty,tas-ty,322,256
 hairy,hai-ry,322,237
-absence,a-bsence,322,285
+absence,ab-sence,322,285
 stripes,stripes,322,176
 Webster,Webs-ter,322,74
 shipping,ship-ping,322,235
@@ -5915,9 +5915,9 @@ Brace,Brace,319,214
 timer,ti-mer,319,171
 serves,serves,319,297
 bourbon,bour-bon,319,223
-Antonio,An-to-n-io,319,101
+Antonio,An-to-ni-o,319,101
 ignorant,i-gno-rant,319,274
-scenario,sce-na-r-io,319,265
+scenario,sce-na-ri-o,319,265
 compassion,com-pas-sion,319,265
 authorized,aut-ho-rized,319,245
 deliberately,de-li-be-rately,319,269
@@ -6085,7 +6085,7 @@ Sark,Sark,304,39
 shade,shade,304,252
 scent,scent,304,236
 Drake,Drake,304,72
-stereo,ste-r-eo,304,216
+stereo,ste-re-o,304,216
 graves,graves,304,194
 costumes,cos-tumes,304,200
 Buchanan,Bu-cha-nan,304,72
@@ -6132,7 +6132,7 @@ ignored,i-gnored,301,261
 shallow,shal-low,301,246
 regrets,re-grets,301,240
 Randall,Ran-dall,301,77
-reliable,re-lia-b-le,301,272
+reliable,re-li-a-ble,301,272
 mortgage,mort-gage,301,214
 murderers,mur-de-rers,301,231
 groceries,gro-ceries,301,228
@@ -6150,7 +6150,7 @@ Mayday,May-day,300,120
 shorter,shor-ter,300,261
 Newport,New-port,300,109
 additional,ad-di-tional,300,274
-biological,bio-lo-gi-c-al,300,222
+biological,bi-o-lo-gi-cal,300,222
 inspection,ins-pec-tion,300,211
 ammunition,am-mu-ni-tion,300,193
 harassment,ha-ras-sment,300,188
@@ -6257,7 +6257,7 @@ janitor,ja-ni-tor,292,179
 Cadillac,Ca-dil-lac,292,170
 prettiest,pret-ti-est,292,239
 bodyguard,bo-dy-guard,292,160
-appreciated,ap-pre-cia-t-ed,292,273
+appreciated,ap-pre-ci-a-ted,292,273
 era,e-ra,291,209
 cuff,cuff,291,237
 Hugo,Hu-go,291,67
@@ -6310,7 +6310,7 @@ crackers,crac-kers,289,171
 announced,an-nounced,289,247
 collapsed,col-lapsed,289,229
 obsession,o-bses-sion,289,224
-cafeteria,ca-fe-te-r-ia,289,218
+cafeteria,ca-fe-te-ri-a,289,218
 expedition,ex-pe-di-tion,289,143
 spectacular,spec-ta-cu-lar,289,241
 interrogation,in-ter-ro-ga-tion,289,211
@@ -6367,7 +6367,7 @@ Oz,Oz,284,96
 lust,lust,284,211
 vest,vest,284,203
 dove,dove,284,133
-audio,au-d-io,284,188
+audio,au-di-o,284,188
 listed,lis-ted,284,244
 taller,tal-ler,284,242
 framed,framed,284,219
@@ -6383,10 +6383,10 @@ heartbeat,heart-beat,284,235
 Mia,M-ia,283,91
 Vera,Ve-ra,283,76
 Dusty,Dus-ty,283,153
-rodeo,ro-d-eo,283,109
+rodeo,ro-de-o,283,109
 issued,is-sued,283,241
 execute,e-xe-cute,283,215
-foreman,fo-reman,283,166
+foreman,fore-man,283,166
 gorilla,go-ril-la,283,156
 Madonna,Ma-don-na,283,132
 Phyllis,Phyl-lis,283,61
@@ -6446,7 +6446,7 @@ grocery,gro-cery,280,231
 possess,pos-sess,280,226
 Mildred,Mil-dred,280,77
 channels,chan-nels,280,239
-February,Fe-brua-r-y,280,196
+February,Fe-bru-a-ry,280,196
 whispers,whis-pers,280,183
 artillery,ar-til-le-ry,280,167
 confirmation,con-fir-ma-tion,280,219
@@ -6468,7 +6468,7 @@ psychology,psy-cho-lo-gy,279,224
 statements,sta-tements,279,220
 Nazis,Na-zis,278,150
 reader,rea-der,278,205
-Joshua,Jos-h-ua,278,69
+Joshua,Josh-u-a,278,69
 Archer,Ar-cher,278,55
 bananas,ba-na-nas,278,176
 puppies,pup-pies,278,126
@@ -6630,7 +6630,7 @@ devils,de-vils,267,161
 marker,mar-ker,267,160
 carbon,car-bon,267,152
 stamps,stamps,267,149
-Olivia,O-li-v-ia,267,62
+Olivia,O-li-vi-a,267,62
 reaches,rea-ches,267,234
 advised,ad-vised,267,215
 tribute,tri-bute,267,177
@@ -6670,7 +6670,7 @@ bulls,bulls,264,138
 gained,gained,264,238
 slower,slo-wer,264,228
 shifts,shifts,264,223
-Abraham,A-bra-ham,264,140
+Abraham,ab-ra-ham,264,140
 fugitive,fu-gi-tive,264,195
 fracture,frac-ture,264,173
 Boulevard,Bou-le-vard,264,170
@@ -6918,11 +6918,11 @@ Gale,Gale,250,66
 blunt,blunt,250,202
 toxic,to-xic,250,182
 biting,bi-ting,250,213
-abroad,a-broad,250,203
+abroad,ab-road,250,203
 weasel,wea-sel,250,186
 rebels,re-bels,250,106
 tracked,tracked,250,220
-biology,bio-lo-g-y,250,192
+biology,bi-o-lo-gy,250,192
 bridges,bri-dges,250,150
 allowing,al-lo-wing,250,232
 disposal,dis-po-sal,250,212
@@ -6948,7 +6948,7 @@ edition,e-di-tion,249,194
 Wolfram,Wol-fram,249,67
 distract,dis-tract,249,227
 selected,se-lec-ted,249,210
-Columbia,Co-lum-b-ia,249,153
+Columbia,Co-lum-bi-a,249,153
 sincerely,sin-cere-ly,249,212
 sensation,sen-sa-tion,249,205
 goddamned,god-damned,249,180
@@ -6977,7 +6977,7 @@ decade,de-cade,247,215
 awards,a-wards,247,158
 jockey,joc-key,247,119
 lizard,li-zard,247,115
-Vienna,Vien-n-a,247,108
+Vienna,Vi-en-na,247,108
 Judith,Ju-dith,247,38
 resolve,re-solve,247,210
 partial,par-tial,247,207
@@ -7064,7 +7064,7 @@ moms,moms,242,168
 meds,meds,242,158
 relate,re-late,242,205
 burial,bu-ri-al,242,197
-violin,vio-l-in,242,122
+violin,vi-o-lin,242,122
 Chiefs,Chiefs,242,97
 Collier,Col-lier,242,35
 specimen,spe-ci-men,242,175
@@ -7128,7 +7128,7 @@ adopt,a-dopt,238,184
 verse,verse,238,170
 traps,traps,238,168
 realm,realm,238,155
-Mafia,Ma-f-ia,238,150
+Mafia,Ma-fi-a,238,150
 bloke,bloke,238,135
 Lilly,Lil-ly,238,43
 sights,sights,238,204
@@ -7191,7 +7191,7 @@ initials,i-ni-tials,235,182
 sessions,ses-sions,235,181
 commence,com-mence,235,164
 notebook,no-tebook,235,123
-realistic,rea-lis-t-ic,235,201
+realistic,re-a-lis-tic,235,201
 contained,con-tained,235,198
 programme,pro-gramme,235,137
 ungrateful,un-gra-teful,235,205
@@ -7228,7 +7228,7 @@ joker,jo-ker,233,117
 visits,vi-sits,233,215
 talents,ta-lents,233,203
 Alabama,A-la-ba-ma,233,95
-violated,vio-la-t-ed,233,208
+violated,vi-o-la-ted,233,208
 feminine,fe-mi-nine,233,190
 overseas,o-ver-seas,233,173
 briefing,brie-fing,233,166
@@ -7320,7 +7320,7 @@ seeds,seeds,228,168
 yummy,yum-my,228,159
 tapped,tapped,228,197
 Whoops,Whoops,228,191
-Balboa,Bal-b-oa,228,40
+Balboa,Bal-bo-a,228,40
 Barton,Bar-ton,228,40
 Steele,Steele,228,24
 altered,al-tered,228,183
@@ -7369,7 +7369,7 @@ buffet,buf-fet,226,179
 trooper,troo-per,226,90
 payments,pay-ments,226,188
 barracks,bar-racks,226,105
-Louisiana,Lou-i-sia-n-a,226,114
+Louisiana,Lou-i-si-a-na,226,114
 discharged,dis-charged,226,176
 controlling,con-trol-ling,226,194
 inconvenience,in-con-ve-nience,226,198
@@ -7495,7 +7495,7 @@ ballroom,ball-room,220,126
 Hastings,Has-tings,220,37
 collector,col-lector,220,166
 activated,ac-ti-va-ted,220,162
-sanctuary,sanc-tua-r-y,220,123
+sanctuary,sanc-tu-a-ry,220,123
 approached,ap-proached,220,197
 disappearance,di-sap-pea-rance,220,165
 Min,Min,219,60
@@ -7518,7 +7518,7 @@ notified,no-ti-fied,219,194
 achieved,a-chieved,219,189
 contents,con-tents,219,176
 attorneys,at-tor-neys,219,172
-diagnosis,dia-gno-s-is,219,159
+diagnosis,di-ag-no-sis,219,159
 drugstore,drugs-tore,219,158
 container,con-tai-ner,219,144
 Bannister,Ban-nis-ter,219,18
@@ -7540,7 +7540,7 @@ radical,ra-di-cal,218,181
 drawers,drawers,218,168
 confront,con-front,218,190
 paycheck,pay-check,218,171
-triangle,trian-g-le,218,125
+triangle,tri-an-gle,218,125
 Richmond,Rich-mond,218,72
 upsetting,u-pset-ting,218,204
 corruption,cor-rup-tion,218,154
@@ -7917,7 +7917,7 @@ melted,mel-ted,201,177
 buzzer,buz-zer,201,135
 retard,re-tard,201,131
 grapes,grapes,201,129
-fiance,fian-c-e,201,115
+fiance,fi-an-ce,201,115
 rascal,ras-cal,201,112
 decades,de-cades,201,178
 outcome,out-come,201,174
@@ -7931,7 +7931,7 @@ understandable,un-ders-tan-da-ble,201,187
 clam,clam,200,158
 bulb,bulb,200,148
 flirt,flirt,200,170
-Naomi,Nao-m-i,200,33
+Naomi,Na-o-mi,200,33
 bricks,bricks,200,149
 litter,lit-ter,200,146
 erotic,e-ro-tic,200,133
@@ -7946,7 +7946,7 @@ forensic,fo-ren-sic,200,147
 favorites,fa-vorites,200,182
 righteous,righ-teous,200,157
 bookstore,books-tore,200,132
-associated,as-so-cia-t-ed,200,176
+associated,as-so-ci-a-ted,200,176
 distraction,dis-trac-tion,200,160
 strawberries,straw-ber-ries,200,106
 ne,ne,199,125
@@ -7994,7 +7994,7 @@ sewing,se-wing,198,161
 stains,stains,198,159
 cinema,ci-ne-ma,198,135
 rudder,rud-der,198,72
-idiotic,i-dio-t-ic,198,169
+idiotic,i-di-o-tic,198,169
 inspire,ins-pire,198,165
 filming,fil-ming,198,157
 carrots,car-rots,198,134
@@ -8092,7 +8092,7 @@ rigged,rigged,194,172
 enters,en-ters,194,169
 mating,ma-ting,194,122
 Matrix,Ma-trix,194,78
-Lionel,Lio-n-el,194,54
+Lionel,Li-o-nel,194,54
 simpler,sim-pler,194,167
 thanked,thanked,194,163
 Italian,I-ta-lian,194,154
@@ -8455,7 +8455,7 @@ wink,wink,180,119
 peck,peck,180,84
 fling,fling,180,129
 beads,beads,180,106
-Julio,Ju-l-io,180,70
+Julio,Ju-li-o,180,70
 select,se-lect,180,160
 swings,swings,180,142
 meteor,me-te-or,180,68
@@ -8650,7 +8650,7 @@ roam,roam,173,125
 merit,me-rit,173,153
 spank,spank,173,135
 jacks,jacks,173,122
-flyer,fl-yer,173,119
+flyer,fly-er,173,119
 thugs,thugs,173,117
 snacks,snacks,173,140
 charms,charms,173,139
@@ -8674,12 +8674,12 @@ Partridge,Par-tridge,173,50
 optimistic,op-ti-mis-tic,173,155
 dedication,de-di-ca-tion,173,153
 collateral,col-la-te-ral,173,135
-appointments,ap-poin-tments,173,154
+appointments,ap-point-ments,173,154
 Inc,Inc,172,150
 Ivy,I-vy,172,82
 Nay,Nay,172,76
 frogs,frogs,172,95
-Abner,A-bner,172,16
+Abner,Ab-ner,172,16
 rattle,rat-tle,172,142
 Rhodes,Rhodes,172,34
 rebuild,re-build,172,149
@@ -8735,7 +8735,7 @@ toilets,toi-lets,170,146
 volcano,vol-ca-no,170,108
 giggles,gig-gles,170,107
 convent,con-vent,170,94
-karaoke,ka-rao-k-e,170,88
+karaoke,ka-ra-o-ke,170,88
 sweeping,swee-ping,170,157
 initiate,i-ni-tia-te,170,138
 branches,branc-hes,170,137
@@ -8858,10 +8858,10 @@ smallest,smal-lest,166,154
 operated,o-pe-ra-ted,166,148
 detector,de-tec-tor,166,127
 choppers,chop-pers,166,115
-diabetes,dia-be-t-es,166,103
+diabetes,di-a-be-tes,166,103
 macaroni,ma-ca-ro-ni,166,100
 Hawaiian,Ha-wai-ian,166,98
-Santiago,San-tia-g-o,166,40
+Santiago,San-ti-a-go,166,40
 expressed,ex-pressed,166,151
 fractured,frac-tured,166,141
 hypocrite,hy-po-crite,166,137
@@ -8910,7 +8910,7 @@ wacky,wac-ky,164,114
 reset,re-set,164,113
 sails,sails,164,113
 barks,barks,164,108
-ratio,ra-t-io,164,92
+ratio,ra-ti-o,164,92
 Sassy,Sas-sy,164,71
 Isaac,I-saac,164,54
 angles,an-gles,164,137
@@ -8945,7 +8945,7 @@ witty,wit-ty,163,147
 lever,le-ver,163,106
 Buffy,Buf-fy,163,55
 Jimbo,Jim-bo,163,50
-Sofia,So-f-ia,163,47
+Sofia,So-fi-a,163,47
 vanish,va-nish,163,137
 Bobbie,Bob-bie,163,45
 Myrtle,Myr-tle,163,35
@@ -9225,7 +9225,7 @@ deceived,de-ceived,155,129
 churches,churc-hes,155,118
 infrared,in-fra-red,155,108
 peasants,pea-sants,155,107
-bacteria,bac-te-r-ia,155,100
+bacteria,bac-te-ri-a,155,100
 goldfish,gol-dfish,155,99
 firearms,fi-rearms,155,97
 criticism,cri-ti-ci-sm,155,138
@@ -9240,7 +9240,7 @@ trespassing,tres-pas-sing,155,134
 philosopher,phi-lo-so-pher,155,114
 preposterous,pre-pos-terous,155,143
 conventional,con-ven-tio-nal,155,132
-Asap,A-s-ap,154,133
+Asap,A-s-a-p,154,133
 temp,temp,154,116
 Turk,Turk,154,45
 Mara,Ma-ra,154,34
@@ -9259,7 +9259,7 @@ severed,se-vered,154,129
 remorse,re-morse,154,121
 baloney,ba-lo-ney,154,118
 vessels,ves-sels,154,110
-fiancee,fian-c-ee,154,87
+fiancee,fi-an-cee,154,87
 demonic,de-mo-nic,154,86
 Abigail,A-bi-gail,154,43
 tempting,temp-ting,154,147
@@ -9361,7 +9361,7 @@ elite,e-lite,151,131
 fists,fists,151,125
 vocal,vo-cal,151,114
 arise,a-rise,151,111
-Viola,Vio-l-a,151,36
+Viola,Vi-o-la,151,36
 skirts,skirts,151,128
 rhymes,rhymes,151,123
 cuckoo,cuc-koo,151,108
@@ -9484,11 +9484,11 @@ doubles,dou-bles,148,127
 cabbage,cab-bage,148,109
 Doggone,Dog-gone,148,105
 Beckett,Bec-kett,148,23
-abnormal,a-bnor-mal,148,128
+abnormal,ab-nor-mal,148,128
 underway,un-der-way,148,128
 socially,so-cial-ly,148,126
 overlook,o-ver-look,148,125
-suicidal,sui-ci-d-al,148,125
+suicidal,su-i-ci-dal,148,125
 advances,ad-van-ces,148,124
 funniest,fun-ni-est,148,124
 memorize,me-mo-rize,148,124
@@ -9708,7 +9708,7 @@ buckets,buc-kets,142,109
 rebound,re-bound,142,108
 singles,sin-gles,142,107
 sticker,stic-ker,142,105
-creator,crea-t-or,142,95
+creator,cre-a-tor,142,95
 permits,per-mits,142,86
 stealth,stealth,142,78
 focusing,fo-cu-sing,142,126
@@ -9717,7 +9717,7 @@ cruising,crui-sing,142,123
 velocity,ve-lo-ci-ty,142,100
 creaking,crea-king,142,72
 vineyard,vi-neyard,142,61
-Leonardo,Leo-nar-d-o,142,50
+Leonardo,Le-o-nar-do,142,50
 producing,pro-du-cing,142,120
 estimated,es-ti-ma-ted,142,116
 psychopath,psyc-ho-path,142,117
@@ -9725,7 +9725,7 @@ delusional,de-lu-sio-nal,142,105
 rehearsals,re-hear-sals,142,101
 functioning,func-tio-ning,142,119
 respiratory,res-pi-ra-to-ry,142,109
-enthusiastic,ent-hu-sias-t-ic,142,129
+enthusiastic,en-thu-si-as-tic,142,129
 determination,de-ter-mi-na-tion,142,128
 idle,i-dle,141,122
 idol,i-dol,141,102
@@ -9864,7 +9864,7 @@ electronics,e-lec-tro-nics,139,98
 commentator,com-men-ta-tor,139,33
 grin,grin,138,118
 anal,a-nal,138,97
-Hola,Ho-l-a,138,82
+Hola,Ho-la,138,82
 bogus,bo-gus,138,125
 abide,a-bide,138,124
 clams,clams,138,96
@@ -9921,7 +9921,7 @@ beams,beams,137,104
 Grail,Grail,137,48
 Bongo,Bon-go,137,32
 banned,banned,137,122
-poetic,poe-t-ic,137,122
+poetic,po-e-tic,137,122
 lesser,les-ser,137,119
 spaces,spa-ces,137,117
 mingle,min-gle,137,113
@@ -9995,7 +9995,7 @@ contestant,con-tes-tant,136,86
 handicapped,han-di-capped,136,101
 pornography,por-no-gra-phy,136,95
 icy,i-cy,135,113
-etc,e-t-?-c,135,82
+etc,et-c,135,82
 epi,e-pi,135,74
 flap,flap,135,105
 fore,fore,135,96
@@ -10088,7 +10088,7 @@ mend,mend,133,104
 jaws,jaws,133,101
 fills,fills,133,122
 amuse,a-muse,133,115
-patio,pa-t-io,133,108
+patio,pa-ti-o,133,108
 crops,crops,133,100
 satin,sa-tin,133,99
 fleas,fleas,133,95
@@ -10115,7 +10115,7 @@ Sparrow,Spar-row,133,58
 confirms,con-firms,133,126
 stirring,stir-ring,133,121
 reviewed,re-viewed,133,118
-Oriental,O-rien-t-al,133,102
+Oriental,O-ri-en-tal,133,102
 appendix,ap-pen-dix,133,88
 admirable,ad-mi-ra-ble,133,128
 disguised,dis-guised,133,121
@@ -10187,7 +10187,7 @@ ulcer,ul-cer,131,86
 ninja,nin-ja,131,67
 juror,ju-ror,131,44
 sprung,sprung,131,123
-absent,a-bsent,131,111
+absent,ab-sent,131,111
 loudly,loud-ly,131,110
 spleen,spleen,131,91
 teller,tel-ler,131,90
@@ -10205,7 +10205,7 @@ dungeon,dun-geon,131,100
 jogging,jog-ging,131,96
 tenants,te-nants,131,95
 cubicle,cu-bi-cle,131,62
-echoing,ec-ho-ing,131,62
+echoing,e-cho-ing,131,62
 Emerald,E-merald,131,62
 Panther,Pant-her,131,46
 Matilda,Ma-til-da,131,24
@@ -10345,10 +10345,10 @@ newborn,new-born,128,99
 Titanic,Ti-ta-nic,128,96
 symbols,sym-bols,128,87
 Robbins,Rob-bins,128,70
-postman,pos-tman,128,66
+postman,post-man,128,66
 Stifler,Stifler,128,4
 agitated,a-gi-ta-ted,128,110
-foreplay,fo-replay,128,108
+foreplay,fore-play,128,108
 lectures,lec-tures,128,108
 fortunes,for-tunes,128,106
 carriers,car-ri-ers,128,55
@@ -10361,7 +10361,7 @@ synthetic,synt-he-tic,128,101
 lovebirds,lo-vebirds,128,85
 sovereign,so-vereign,128,74
 graduating,gra-dua-ting,128,109
-theatrical,thea-tri-c-al,128,108
+theatrical,the-a-tri-cal,128,108
 endangered,en-dan-gered,128,107
 executives,e-xe-cu-tives,128,90
 Casablanca,Ca-sa-blan-ca,128,44
@@ -10650,7 +10650,7 @@ Wichita,Wic-hi-ta,122,53
 supplied,sup-plied,122,111
 reflexes,re-fle-xes,122,103
 humility,hu-mi-li-ty,122,97
-diarrhea,diarr-h-e-a,122,89
+diarrhea,di-arr-he-a,122,89
 monstrous,mons-trous,122,99
 launching,launc-hing,122,87
 collective,col-lec-tive,122,96
@@ -10677,25 +10677,25 @@ Kenya,Ke-nya,121,34
 ordeal,or-deal,121,115
 retain,re-tain,121,115
 weaker,wea-ker,121,109
-viable,via-b-le,121,100
+viable,vi-a-ble,121,100
 purity,pu-ri-ty,121,99
 vermin,ver-min,121,97
 buyers,buy-ers,121,95
 flyers,fly-ers,121,88
 filmed,filmed,121,86
 fishes,fi-shes,121,85
-omelet,o-melet,121,84
-Muslim,Mu-slim,121,68
+omelet,ome-let,121,84
+Muslim,Mus-lim,121,68
 Frosty,Fros-ty,121,64
 Jaguar,Ja-guar,121,63
 squeak,squeak,121,62
 skilled,skilled,121,110
 hopping,hop-ping,121,108
 condemn,con-demn,121,99
-gypsies,gy-psies,121,62
+gypsies,gyp-sies,121,62
 balanced,ba-lanced,121,107
 exterior,ex-te-ri-or,121,104
-outsider,ou-tsi-der,121,97
+outsider,out-si-der,121,97
 incision,in-ci-sion,121,95
 barefoot,ba-refoot,121,88
 Buddhist,Budd-hist,121,83
@@ -10757,10 +10757,10 @@ senators,se-na-tors,120,67
 Jeremiah,Je-re-mi-ah,120,37
 obstacles,obs-ta-cles,120,103
 testament,tes-ta-ment,120,100
-patriotic,pa-trio-t-ic,120,99
+patriotic,pa-tri-o-tic,120,99
 passports,pass-ports,120,89
 checkbook,check-book,120,87
-Pinocchio,Pi-nocc-h-io,120,31
+Pinocchio,Pi-noc-chi-o,120,31
 calculated,cal-cu-la-ted,120,110
 truthfully,trut-hful-ly,120,110
 unfaithful,un-faith-ful,120,104
@@ -10878,7 +10878,7 @@ sweethearts,sweet-hearts,118,90
 unauthorized,u-naut-ho-rized,118,93
 mow,mow,117,83
 Csi,C-s-i,117,63
-Awol,A-w-ol,117,85
+Awol,A-wol,117,85
 kite,kite,117,76
 doth,doth,117,57
 sera,se-ra,117,46
@@ -10967,7 +10967,7 @@ Needless,Need-less,116,109
 pleading,plea-ding,116,102
 colleges,col-le-ges,116,98
 weighing,weigh-ing,116,92
-hysteria,hys-te-r-ia,116,90
+hysteria,hys-te-ri-a,116,90
 chaplain,cha-plain,116,75
 broccoli,broc-coli,116,68
 concealed,con-cealed,116,106
@@ -10975,7 +10975,7 @@ schedules,sche-dules,116,105
 horseshit,hor-seshit,116,97
 ownership,ow-ner-ship,116,95
 practices,prac-ti-ces,116,93
-Cleopatra,Cleo-pa-t-ra,116,66
+Cleopatra,Cle-o-pa-tra,116,66
 Paramount,Pa-ra-mount,116,47
 repeatedly,re-pea-ted-ly,116,115
 effectively,ef-fec-tive-ly,116,107
@@ -11117,7 +11117,7 @@ shrapnel,shra-pnel,113,90
 blinking,blin-king,113,87
 subpoena,sub-poe-na,113,87
 minority,mi-no-ri-ty,113,84
-diabetic,dia-be-t-ic,113,80
+diabetic,di-a-be-tic,113,80
 Sterling,Ster-ling,113,72
 scanners,scan-ners,113,65
 Billings,Bil-lings,113,28
@@ -11149,7 +11149,7 @@ rating,ra-ting,112,86
 seller,sel-ler,112,85
 fungus,fun-gus,112,77
 rabies,ra-bies,112,64
-Sierra,Sier-r-a,112,62
+Sierra,Si-er-ra,112,62
 plugged,plugged,112,104
 lurking,lur-king,112,101
 charade,cha-rade,112,100
@@ -11273,7 +11273,7 @@ pickin,pic-kin,110,102
 oppose,op-pose,110,95
 cloudy,clou-dy,110,94
 roster,ros-ter,110,91
-nausea,nau-s-ea,110,89
+nausea,nau-se-a,110,89
 cuddle,cud-dle,110,88
 unseen,un-seen,110,88
 storms,storms,110,87
@@ -11456,7 +11456,7 @@ Fielding,Fiel-ding,108,23
 enlighten,en-ligh-ten,108,104
 seemingly,see-ming-ly,108,99
 ingenious,in-ge-nious,108,98
-initiated,i-ni-tia-t-ed,108,94
+initiated,i-ni-ti-a-ted,108,94
 freelance,free-lance,108,93
 mentality,men-ta-li-ty,108,92
 delusions,de-lu-sions,108,89
@@ -11522,7 +11522,7 @@ unanimous,u-na-ni-mous,107,95
 threatens,threa-tens,107,94
 decorator,de-co-ra-tor,107,85
 paramedic,pa-ra-me-dic,107,75
-evacuated,e-va-cua-t-ed,107,73
+evacuated,e-va-cu-at-ed,107,73
 communism,com-mu-ni-sm,107,57
 miraculous,mi-ra-cu-lous,107,102
 admiration,ad-mi-ra-tion,107,99
@@ -11531,7 +11531,7 @@ influenced,in-fluen-ced,107,98
 addressing,ad-dres-sing,107,96
 prosperity,pros-pe-ri-ty,107,85
 projection,pro-jec-tion,107,78
-psychiatry,psyc-hia-t-ry,107,77
+psychiatry,psy-chi-a-try,107,77
 blacksmith,blac-ksmith,107,50
 coronation,co-ro-na-tion,107,45
 weatherman,weat-her-man,107,42
@@ -11723,7 +11723,7 @@ lavender,la-ven-der,104,64
 Thatcher,Thatc-her,104,29
 Starling,Star-ling,104,8
 assurance,as-su-rance,104,87
-portfolio,por-tfo-l-io,104,82
+portfolio,port-fo-li-o,104,82
 unmarried,un-mar-ried,104,82
 fishermen,fi-sher-men,104,75
 hillbilly,hill-bil-ly,104,66
@@ -11737,7 +11737,7 @@ Ka,Ka,103,26
 aide,aide,103,81
 cosy,co-sy,103,72
 Taft,Taft,103,24
-fiery,fie-r-y,103,86
+fiery,fi-e-ry,103,86
 plugs,plugs,103,82
 crock,crock,103,80
 Guild,Guild,103,53
@@ -11770,7 +11770,7 @@ wrinkles,wrin-kles,103,89
 cerebral,ce-re-bral,103,88
 hovering,ho-vering,103,78
 meltdown,melt-down,103,70
-radiator,ra-dia-t-or,103,69
+radiator,ra-di-a-tor,103,69
 graffiti,graf-fi-ti,103,57
 Salvador,Sal-va-dor,103,45
 Cornwall,Corn-wall,103,25
@@ -11785,7 +11785,7 @@ voluntary,vo-lun-ta-ry,103,89
 repulsive,re-pul-sive,103,88
 distorted,dis-tor-ted,103,80
 mainframe,main-frame,103,67
-Radiology,Ra-dio-lo-g-y,103,65
+Radiology,Ra-di-o-lo-gy,103,65
 Madeleine,Ma-de-leine,103,27
 dishwasher,dish-wa-sher,103,76
 vibrations,vi-bra-tions,103,76
@@ -11818,7 +11818,7 @@ hateful,ha-teful,102,84
 smuggle,smug-gle,102,83
 arsenal,ar-se-nal,102,82
 pretzel,pre-tzel,102,75
-Riviera,Ri-vie-r-a,102,71
+Riviera,Ri-vi-e-ra,102,71
 roaches,roac-hes,102,64
 Genesis,Ge-ne-sis,102,41
 polished,po-lished,102,93
@@ -11862,7 +11862,7 @@ moor,moor,101,23
 Buick,Bu-ick,101,69
 nerds,nerds,101,61
 Emory,E-mo-ry,101,24
-absorb,a-bsorb,101,92
+absorb,ab-sorb,101,92
 floats,floats,101,92
 messin,mes-sin,101,77
 boxers,bo-xers,101,70
@@ -11945,7 +11945,7 @@ hatchet,hatc-het,100,71
 forgery,for-ge-ry,100,67
 topless,top-less,100,66
 Signora,Si-gno-ra,100,30
-Galileo,Ga-li-l-eo,100,21
+Galileo,Ga-li-le-o,100,21
 Butters,But-ters,100,17
 ridicule,ri-di-cule,100,84
 modified,mo-di-fied,100,83
@@ -11956,7 +11956,7 @@ obedient,o-be-di-ent,100,77
 banished,ba-nished,100,74
 stakeout,sta-keout,100,61
 baptized,bap-tized,100,54
-Colombia,Co-lom-b-ia,100,51
+Colombia,Co-lom-bi-a,100,51
 bloodshed,bloods-hed,100,94
 expanding,ex-pan-ding,100,94
 gradually,gra-dual-ly,100,94
@@ -12020,7 +12020,7 @@ statues,sta-tues,99,73
 serpent,ser-pent,99,66
 bologna,bo-lo-gna,99,65
 octopus,oc-to-pus,99,64
-Indiana,In-dia-n-a,99,62
+Indiana,In-di-a-na,99,62
 deprived,de-prived,99,89
 eyesight,ey-esight,99,87
 painless,pain-less,99,85
@@ -12067,7 +12067,7 @@ lanes,lanes,98,77
 latch,latch,98,73
 looky,loo-ky,98,72
 tents,tents,98,72
-oasis,oa-s-is,98,66
+oasis,o-a-sis,98,66
 Vinny,Vin-ny,98,35
 Purdy,Pur-dy,98,25
 bribed,bribed,98,84
@@ -12166,7 +12166,7 @@ equality,e-qua-li-ty,97,75
 sponsors,spon-sors,97,68
 cremated,cre-ma-ted,97,66
 explorer,ex-plo-rer,97,63
-leukemia,leu-ke-m-ia,97,52
+leukemia,leu-ke-mi-a,97,52
 scrubbing,scrub-bing,97,91
 preserved,pre-served,97,88
 travelled,tra-velled,97,87
@@ -12238,7 +12238,7 @@ gestures,ges-tures,96,78
 conquest,con-quest,96,77
 traction,trac-tion,96,77
 checkers,chec-kers,96,76
-forecast,fo-recast,96,74
+forecast,fore-cast,96,74
 pyramids,py-ra-mids,96,69
 intubate,in-tu-bate,96,66
 painters,pain-ters,96,66
@@ -12339,7 +12339,7 @@ horseback,hor-seback,95,79
 gibberish,gib-be-rish,95,76
 predators,pre-da-tors,95,74
 violently,vio-lent-ly,95,72
-audiences,au-dien-c-es,95,68
+audiences,au-di-en-ces,95,68
 waterfall,wa-ter-fall,95,67
 reservoir,re-ser-voir,95,64
 surrogate,sur-ro-gate,95,56
@@ -12352,7 +12352,7 @@ progressive,pro-gres-sive,95,86
 unspeakable,uns-pea-ka-ble,95,86
 indigestion,in-di-ges-tion,95,79
 frequencies,fre-quen-cies,95,76
-theoretical,theo-re-ti-c-al,95,74
+theoretical,the-o-re-ti-cal,95,74
 cholesterol,cho-les-te-rol,95,73
 Confederate,Con-fe-de-rate,95,46
 humanitarian,hu-ma-ni-ta-ri-an,95,75
@@ -12396,9 +12396,9 @@ exposing,ex-po-sing,94,92
 casually,ca-sual-ly,94,84
 clueless,clue-less,94,83
 breathes,breathes,94,82
-geometry,geo-me-t-ry,94,64
+geometry,ge-o-me-try,94,64
 Delaware,De-la-ware,94,61
-mortuary,mor-tua-r-y,94,61
+mortuary,mor-tu-a-ry,94,61
 Brussels,Brus-sels,94,53
 Marcello,Mar-cel-lo,94,13
 intruding,in-tru-ding,94,89
@@ -12578,14 +12578,14 @@ bitty,bit-ty,91,67
 piles,piles,91,66
 giddy,gid-dy,91,65
 fangs,fangs,91,63
-tiara,tia-r-a,91,45
+tiara,ti-a-ra,91,45
 Leary,Lea-ry,91,38
 Hogan,Ho-gan,91,30
 Janus,Ja-nus,91,5
 talker,tal-ker,91,86
 ethnic,et-hnic,91,74
 guides,guides,91,74
-hernia,her-n-ia,91,72
+hernia,her-ni-a,91,72
 adores,a-dores,91,70
 spiral,spi-ral,91,69
 Gramps,Gramps,91,45
@@ -12603,14 +12603,14 @@ Addison,Ad-di-son,91,24
 Whipper,Whipper,91,24
 Congrats,Con-grats,91,83
 demented,de-men-ted,91,81
-reunited,reu-ni-t-ed,91,81
+reunited,re-u-ni-ted,91,81
 passages,pas-sa-ges,91,74
 indecent,in-de-cent,91,73
 juggling,jug-gling,91,70
 overload,o-ver-load,91,70
 disperse,dis-perse,91,66
 journals,jour-nals,91,66
-criteria,cri-te-r-ia,91,64
+criteria,cri-te-ri-a,91,64
 lollipop,lol-li-pop,91,61
 serenity,se-re-ni-ty,91,60
 suicides,sui-ci-des,91,58
@@ -12840,7 +12840,7 @@ disposed,dis-posed,88,82
 deployed,de-ployed,88,80
 riddance,rid-dance,88,80
 disclose,dis-close,88,74
-insomnia,in-som-n-ia,88,73
+insomnia,in-som-ni-a,88,73
 evaluate,e-va-lua-te,88,71
 slapping,slap-ping,88,71
 embedded,em-bed-ded,88,70
@@ -12921,13 +12921,13 @@ assisted,as-sis-ted,87,70
 sadistic,sa-dis-tic,87,70
 resemble,re-sem-ble,87,64
 atropine,a-tro-pine,87,60
-Wisteria,Wis-te-r-ia,87,47
+Wisteria,Wis-te-ri-a,87,47
 nicotine,ni-co-tine,87,46
 sorcerer,sor-ce-rer,87,39
 warlocks,war-locks,87,36
 degrading,de-gra-ding,87,82
 maneuvers,ma-neu-vers,87,73
-outsiders,ou-tsi-ders,87,73
+outsiders,out-si-ders,87,73
 obedience,o-be-dien-ce,87,72
 deduction,de-duc-tion,87,68
 espionage,es-pi-o-nage,87,65
@@ -13011,7 +13011,7 @@ pianist,pia-ni-st,86,61
 Sabbath,Sab-bath,86,54
 Glasgow,Glas-gow,86,29
 Sellers,Sel-lers,86,23
-foremost,fo-remost,86,84
+foremost,fore-most,86,84
 informal,in-for-mal,86,81
 mouthful,mouth-ful,86,80
 proceeds,pro-ceeds,86,80
@@ -13063,7 +13063,7 @@ comp,comp,85,66
 perv,perv,85,65
 Liza,Li-za,85,48
 Gump,Gump,85,7
-Zira,Zi-r-a,85,6
+Zira,Zi-ra,85,6
 doses,do-ses,85,77
 tasks,tasks,85,73
 Ditto,Dit-to,85,66
@@ -13150,7 +13150,7 @@ disastrous,di-sas-trous,85,81
 dependable,de-pen-da-ble,85,78
 infiltrate,in-fil-trate,85,77
 rightfully,righ-tful-ly,85,76
-unreliable,un-re-lia-b-le,85,74
+unreliable,un-re-li-a-ble,85,74
 articulate,ar-ti-cu-late,85,73
 presumably,pre-su-mab-ly,85,73
 clattering,clat-tering,85,67
@@ -13196,7 +13196,7 @@ weirder,weir-der,84,68
 eminent,e-mi-nent,84,62
 cannons,can-nons,84,60
 sutures,su-tures,84,58
-Cheerio,Chee-r-io,84,57
+Cheerio,Chee-ri-o,84,57
 burrito,bur-ri-to,84,50
 Trapper,Trapper,84,47
 Strauss,Strauss,84,28
@@ -13223,12 +13223,12 @@ Greenwich,Green-wich,84,52
 encounters,en-coun-ters,84,75
 exercising,e-xer-ci-sing,84,75
 fingertips,fin-ger-tips,84,73
-patriotism,pa-trio-ti-s-m,84,71
+patriotism,pa-tri-o-ti-sm,84,71
 waitresses,wai-tres-ses,84,70
 components,com-po-nents,84,65
 meditation,me-di-ta-tion,84,61
 departments,de-par-tments,84,80
-overreacted,o-ver-reac-t-ed,84,73
+overreacted,o-ver-re-ac-ted,84,73
 entertainer,en-ter-tai-ner,84,66
 administrator,ad-mi-nis-tra-tor,84,68
 os,os,83,47
@@ -13260,7 +13260,7 @@ Moira,Moi-ra,83,12
 assess,as-sess,83,79
 redeem,re-deem,83,72
 faulty,faul-ty,83,70
-fiasco,fias-c-o,83,70
+fiasco,fi-as-co,83,70
 warped,warped,83,70
 evolve,e-volve,83,68
 wretch,wretch,83,68
@@ -13461,7 +13461,7 @@ pillar,pil-lar,81,71
 raping,ra-ping,81,70
 famine,fa-mine,81,69
 maggot,mag-got,81,65
-reopen,reo-p-en,81,61
+reopen,re-o-pen,81,61
 sundae,sun-dae,81,55
 hearse,hearse,81,53
 divers,di-vers,81,51
@@ -13531,10 +13531,10 @@ discouraged,dis-cou-raged,81,79
 momentarily,mo-men-ta-ri-ly,81,76
 proportions,pro-por-tions,81,73
 influential,in-fluen-ti-al,81,70
-coordinator,coor-di-na-t-or,81,63
+coordinator,co-or-di-na-tor,81,63
 recommending,re-com-men-ding,81,74
 mathematical,mat-he-ma-ti-cal,81,67
-encyclopedia,en-cy-clo-pe-d-ia,81,60
+encyclopedia,en-cy-clo-pe-di-a,81,60
 philosophical,phi-lo-so-phi-cal,81,70
 accomplishments,ac-com-plis-hments,81,75
 Cy,Cy,80,30
@@ -13672,7 +13672,7 @@ hitter,hit-ter,79,55
 thorns,thorns,79,53
 eggnog,eg-gnog,79,51
 hijack,hi-jack,79,42
-biopsy,bio-p-sy,79,41
+biopsy,bi-o-psy,79,41
 python,pyt-hon,79,41
 Quahog,Qua-hog,79,28
 Banzai,Ban-zai,79,23
@@ -13757,7 +13757,7 @@ stung,stung,78,66
 trays,trays,78,64
 hoods,hoods,78,61
 scuba,scu-ba,78,55
-aorta,aor-t-a,78,50
+aorta,a-or-ta,78,50
 Leeds,Leeds,78,18
 Norse,Norse,78,13
 sesame,se-sa-me,78,70
@@ -13794,7 +13794,7 @@ Hamburg,Ham-burg,78,32
 Ballard,Bal-lard,78,25
 reflects,re-flects,78,75
 optimist,op-ti-mist,78,73
-absorbed,a-bsorbed,78,71
+absorbed,ab-sorbed,78,71
 hellhole,hell-hole,78,71
 restrain,res-train,78,69
 grownups,grow-nups,78,68
@@ -13905,7 +13905,7 @@ whimpers,whimpers,77,56
 cashmere,cas-hmere,77,49
 dopamine,do-pa-mine,77,46
 graphics,gra-phics,77,45
-dialysis,dia-ly-s-is,77,32
+dialysis,di-a-ly-sis,77,32
 Savannah,Sa-van-nah,77,31
 remainder,re-main-der,77,71
 conflicts,con-flicts,77,70
@@ -13923,7 +13923,7 @@ organised,or-ga-nised,77,54
 electrons,e-lec-trons,77,36
 Edinburgh,E-din-bu-rgh,77,33
 continuum,con-ti-nu-um,77,32
-Pistachio,Pis-tac-h-io,77,23
+Pistachio,Pis-ta-chi-o,77,23
 horizontal,ho-ri-zon-tal,77,72
 restraints,res-traints,77,69
 downloaded,down-loa-ded,77,66
@@ -13965,9 +13965,9 @@ blazes,bla-zes,76,62
 astray,as-tray,76,60
 joyful,joy-ful,76,60
 duffel,duf-fel,76,53
-Arabia,A-ra-b-ia,76,48
+Arabia,A-ra-bi-a,76,48
 vortex,vor-tex,76,48
-tablet,ta-blet,76,40
+tablet,tab-let,76,40
 cipher,ci-pher,76,35
 Grammy,Gram-my,76,35
 Tartar,Tar-tar,76,30
@@ -14024,7 +14024,7 @@ accessories,ac-ces-so-ries,76,71
 conditioned,con-di-tioned,76,63
 electrician,e-lec-tri-cian,76,59
 conventions,con-ven-tions,76,50
-Minneapolis,Min-nea-po-l-is,76,48
+Minneapolis,Min-ne-a-po-lis,76,48
 conveniently,con-ve-nient-ly,76,74
 administered,ad-mi-nis-tered,76,69
 occupational,oc-cu-pa-tio-nal,76,68
@@ -14285,7 +14285,7 @@ quitter,quit-ter,73,62
 hissing,his-sing,73,59
 penance,pe-nance,73,59
 petting,pet-ting,73,58
-Siberia,Si-be-r-ia,73,55
+Siberia,Si-be-ri-a,73,55
 rematch,re-match,73,52
 Gazette,Ga-zette,73,51
 Burbank,Bur-bank,73,50
@@ -14355,11 +14355,11 @@ busts,busts,72,56
 fluff,fluff,72,54
 enema,e-ne-ma,72,52
 eject,e-ject,72,48
-India,In-d-ia,72,45
+India,In-di-a,72,45
 Brits,Brits,72,42
 hippo,hip-po,72,39
 Dover,Do-ver,72,38
-hyena,hye-n-a,72,37
+hyena,hy-e-na,72,37
 llama,lla-ma,72,27
 Orion,O-ri-on,72,27
 piling,pi-ling,72,70
@@ -14421,8 +14421,8 @@ bitterness,bit-ter-ness,72,68
 reassuring,reas-su-ring,72,67
 believable,be-lie-va-ble,72,64
 parameters,pa-ra-me-ters,72,64
-diagnostic,dia-gnos-t-ic,72,63
-reassigned,reas-si-gned,72,60
+diagnostic,di-ag-nos-tic,72,63
+reassigned,re-as-signed,72,60
 substances,subs-tan-ces,72,56
 chandelier,chan-de-lier,72,54
 playwright,playw-right,72,43
@@ -14516,7 +14516,7 @@ pointers,poin-ters,71,66
 delicacy,de-li-ca-cy,71,65
 forwards,for-wards,71,65
 breathed,breathed,71,64
-mediocre,me-dio-c-re,71,63
+mediocre,me-di-o-cre,71,63
 explicit,ex-pli-cit,71,62
 snowball,snow-ball,71,54
 lifeboat,li-feboat,71,45
@@ -14626,7 +14626,7 @@ Majestic,Ma-jes-tic,70,51
 prestige,pres-tige,70,51
 marshals,mars-hals,70,49
 hostiles,hos-tiles,70,45
-Cambodia,Cam-bo-d-ia,70,35
+Cambodia,Cam-bo-di-a,70,35
 Syracuse,Sy-ra-cuse,70,31
 Ebenezer,E-be-ne-zer,70,8
 bickering,bic-ke-ring,70,67
@@ -14768,12 +14768,12 @@ overlooking,o-ver-loo-king,69,65
 intolerable,in-to-le-ra-ble,69,61
 uncertainty,un-cer-tain-ty,69,61
 collections,col-lec-tions,69,58
-Neanderthal,Nean-dert-h-al,69,57
+Neanderthal,Ne-an-der-thal,69,57
 executioner,e-xe-cu-tio-ner,69,53
 hitchhiking,hitch-hi-king,69,53
 Productions,Pro-duc-tions,69,48
 accelerator,ac-ce-le-ra-tor,69,47
-beneficiary,be-ne-fi-cia-r-y,69,42
+beneficiary,be-ne-fi-ci-a-ry,69,42
 Springfield,Sprin-gfield,69,34
 presumptuous,pre-sump-tu-ous,69,64
 manipulation,ma-ni-pu-la-tion,69,63
@@ -14782,7 +14782,7 @@ intermission,in-ter-mis-sion,69,57
 conservatory,con-ser-va-to-ry,69,36
 contemplating,con-tem-pla-ting,69,64
 documentation,do-cu-men-ta-tion,69,64
-schizophrenia,schi-zo-phre-n-ia,69,53
+schizophrenia,schi-zo-phre-ni-a,69,53
 Dar,Dar,68,34
 Bai,Bai,68,13
 Lao,Lao,68,13
@@ -14867,7 +14867,7 @@ aversion,a-ver-sion,68,54
 brethren,bret-hren,68,52
 stampede,stam-pede,68,47
 halftime,half-time,68,45
-obituary,o-bi-tua-r-y,68,44
+obituary,o-bi-tu-a-ry,68,44
 Portugal,Por-tu-gal,68,43
 kamikaze,ka-mi-ka-ze,68,42
 rehearsed,re-hearsed,68,64
@@ -15013,15 +15013,15 @@ inhibitor,in-hi-bi-tor,67,27
 microfilm,mi-cro-film,67,26
 telephones,te-le-phones,67,65
 sympathies,sym-pat-hies,67,62
-postmortem,pos-tmor-tem,67,60
+postmortem,post-mor-tem,67,60
 prohibited,pro-hi-bi-ted,67,60
 Geographic,Ge-o-gra-ph-ic,67,59
-negotiated,ne-go-tia-t-ed,67,59
+negotiated,ne-go-ti-a-ted,67,59
 margaritas,mar-ga-ri-tas,67,58
 rebuilding,re-buil-ding,67,56
 infidelity,in-fi-de-li-ty,67,49
 paranormal,pa-ra-nor-mal,67,48
-negotiator,ne-go-tia-t-or,67,44
+negotiator,ne-go-ti-a-tor,67,44
 Terminator,Ter-mi-na-tor,67,39
 Copenhagen,Co-pen-ha-gen,67,21
 criticizing,cri-ti-ci-zing,67,64
@@ -15079,7 +15079,7 @@ herpes,her-pes,66,54
 longed,longed,66,54
 cycles,cy-cles,66,53
 medics,me-dics,66,53
-echoes,ec-hoes,66,52
+echoes,e-choes,66,52
 sewers,se-wers,66,50
 ration,ra-tion,66,49
 hooves,hooves,66,45
@@ -15425,7 +15425,7 @@ retaliate,re-ta-lia-te,64,53
 petroleum,pe-tro-le-um,64,52
 crackhead,crack-head,64,51
 vibrating,vi-bra-ting,64,51
-biologist,bio-lo-gi-st,64,50
+biologist,bi-o-lo-gist,64,50
 negatives,ne-ga-tives,64,48
 Letterman,Let-ter-man,64,42
 swordsman,swor-dsman,64,32
@@ -16134,7 +16134,7 @@ Danke,Danke,58,29
 Sutra,Su-tra,58,27
 joust,joust,58,23
 horde,horde,58,21
-abrupt,a-brupt,58,56
+abrupt,ab-rupt,58,56
 rustle,rus-tle,58,56
 bursts,bursts,58,53
 primal,pri-mal,58,53
@@ -16564,7 +16564,7 @@ momentary,mo-men-ta-ry,56,54
 offending,of-fen-ding,56,54
 severance,se-verance,56,52
 vanishing,va-nis-hing,56,51
-abrasions,a-bra-sions,56,50
+abrasions,ab-ra-sions,56,50
 scapegoat,sca-pegoat,56,49
 implicate,im-pli-cate,56,48
 populated,po-pu-la-ted,56,48
@@ -17103,7 +17103,7 @@ trafficking,traf-fic-king,53,45
 Revelations,Re-ve-la-tions,53,40
 holographic,ho-lo-gra-phic,53,38
 Bakersfield,Ba-kers-field,53,35
-Abracadabra,A-bra-ca-da-bra,53,26
+Abracadabra,ab-ra-ca-da-bra,53,26
 anticipating,an-ti-ci-pa-ting,53,51
 tremendously,tre-men-dous-ly,53,50
 interrogated,in-ter-ro-ga-ted,53,49
@@ -17154,7 +17154,7 @@ optic,op-tic,52,38
 clasp,clasp,52,37
 Czech,Czech,52,37
 Atlas,A-tlas,52,35
-mania,ma-n-ia,52,35
+mania,ma-ni-a,52,35
 mural,mu-ral,52,34
 dinky,din-ky,52,33
 ghoul,ghoul,52,30
@@ -17301,7 +17301,7 @@ laughingstock,laugh-ing-stock,52,51
 extermination,ex-ter-mi-na-tion,52,38
 reconciliation,re-con-ci-lia-tion,52,41
 pus,pus,51,42
-mph,m-p-?-h,51,31
+mph,m-p-h,51,31
 Unc,Unc,51,17
 toil,toil,51,48
 docs,docs,51,42
@@ -17513,14 +17513,14 @@ loafers,loa-fers,50,47
 reeling,ree-ling,50,47
 tallest,tal-lest,50,47
 workmen,wor-kmen,50,47
-foresee,fo-resee,50,46
+foresee,fore-see,50,46
 broaden,broa-den,50,45
 Barkeep,Bar-keep,50,44
 plunged,plunged,50,44
 thereof,there-of,50,44
 dissect,dis-sect,50,42
 adamant,a-da-mant,50,41
-forearm,fo-rearm,50,41
+forearm,fore-arm,50,41
 vomited,vo-mited,50,41
 diffuse,dif-fuse,50,40
 ghostly,ghost-ly,50,39
@@ -17788,7 +17788,7 @@ physiology,phy-sio-lo-g-y,49,41
 splattered,splat-tered,49,41
 intubation,in-tu-ba-tion,49,39
 videotapes,vi-deo-ta-pes,49,38
-undeniable,un-de-nia-b-le,49,37
+undeniable,un-de-ni-a-ble,49,37
 stuttering,stut-te-ring,49,29
 Antichrist,An-tic-hrist,49,28
 Marseilles,Mar-seilles,49,28
@@ -17835,7 +17835,7 @@ suns,suns,48,31
 Wali,Wa-li,48,31
 fats,fats,48,28
 Pelt,Pelt,48,17
-Cmdr,Cm-d-?-r,48,12
+Cmdr,C-m-dr,48,12
 Nene,Nene,48,3
 dries,dries,48,47
 savor,sa-vor,48,46
@@ -17988,7 +17988,7 @@ infinitely,in-fi-nite-ly,48,46
 succession,suc-ces-sion,48,46
 demolished,de-mo-lished,48,44
 variations,va-ria-tions,48,44
-absolution,a-bso-lu-tion,48,43
+absolution,ab-so-lu-tion,48,43
 contraband,con-tra-band,48,42
 correspond,cor-res-pond,48,42
 astonished,as-to-nished,48,41
@@ -18067,7 +18067,7 @@ Heman,He-man,47,2
 fronts,fronts,47,47
 curled,curled,47,45
 wither,wit-her,47,44
-doable,doa-b-le,47,43
+doable,do-a-ble,47,43
 enigma,e-ni-gma,47,43
 lucked,lucked,47,42
 oozing,oo-zing,47,42
@@ -18547,7 +18547,7 @@ Spinner,Spin-ner,45,18
 Iceland,I-celand,45,12
 scepter,scepter,45,10
 Signior,Si-gnior,45,2
-abruptly,a-brupt-ly,45,43
+abruptly,ab-rupt-ly,45,43
 cramping,cram-ping,45,43
 scrounge,scrounge,45,43
 cleverly,cle-ver-ly,45,42
@@ -18870,7 +18870,7 @@ Yam,Yam,43,15
 Vil,Vil,43,4
 skim,skim,43,41
 Ergo,Er-go,43,40
-Mmmm,Mm-m-?-m,43,35
+Mmmm,Mmmm,43,35
 plop,plop,43,34
 Keno,Ke-no,43,33
 Guam,Guam,43,31
@@ -19356,7 +19356,7 @@ coax,coax,41,36
 blip,blip,41,34
 lode,lode,41,32
 clog,clog,41,28
-Rsvp,Rs-v-?-p,41,27
+Rsvp,R-s-v-p,41,27
 Bard,Bard,41,25
 Ahab,A-hab,41,24
 Noir,Noir,41,24
@@ -19717,7 +19717,7 @@ invoices,in-voi-ces,40,33
 pancreas,pan-cr-eas,40,33
 plumbers,plum-bers,40,33
 silicone,si-li-cone,40,33
-foretold,fo-retold,40,32
+foretold,fore-told,40,32
 powering,po-we-ring,40,32
 thoracic,tho-ra-cic,40,32
 wheezing,whee-zing,40,32
@@ -19800,7 +19800,7 @@ deprivation,de-pri-va-tion,40,38
 descendants,des-cen-dants,40,38
 compensated,com-pen-sa-ted,40,36
 undertaking,un-der-ta-king,40,36
-certifiable,cer-ti-fia-b-le,40,35
+certifiable,cer-ti-fi-a-ble,40,35
 commonplace,com-mon-place,40,35
 depositions,de-po-si-tions,40,35
 liposuction,li-po-suc-tion,40,34
@@ -19946,7 +19946,7 @@ swapping,swap-ping,39,38
 confines,con-fines,39,37
 diverted,di-ver-ted,39,37
 fingered,fin-gered,39,37
-outsmart,ou-tsmart,39,37
+outsmart,out-smart,39,37
 roasting,roas-ting,39,37
 slacking,slac-king,39,37
 uncalled,un-called,39,37
@@ -19960,7 +19960,7 @@ luminous,lu-mi-nous,39,35
 pristine,pris-tine,39,35
 reactive,re-acti-ve,39,35
 unsavory,un-sa-vo-ry,39,35
-variable,va-ria-b-le,39,35
+variable,va-ri-a-ble,39,35
 wheeling,whee-ling,39,35
 depleted,de-ple-ted,39,34
 heartily,hear-ti-ly,39,34
@@ -20246,7 +20246,7 @@ outskirts,outs-kirts,38,37
 satisfies,sa-tis-fies,38,37
 seductive,se-duc-tive,38,37
 utilities,u-ti-li-ties,38,37
-foresight,fo-resight,38,36
+foresight,fore-sight,38,36
 heartburn,heart-burn,38,36
 justifies,jus-ti-fies,38,36
 daylights,day-lights,38,35
@@ -20290,7 +20290,7 @@ handsomest,hand-som-est,38,35
 postponing,post-po-ning,38,35
 prioritize,prio-ri-ti-ze,38,34
 chromosome,chro-mo-some,38,33
-outsmarted,ou-tsmarted,38,33
+outsmarted,out-smarted,38,33
 researcher,re-searc-her,38,33
 scoundrels,scoun-drels,38,31
 triplicate,tri-pli-cate,38,31
@@ -20320,7 +20320,7 @@ pleasurable,plea-su-ra-ble,38,32
 suffocation,suf-fo-ca-tion,38,32
 presumption,pre-sump-tion,38,29
 temptations,temp-ta-tions,38,29
-biochemical,bioc-he-mi-c-al,38,27
+biochemical,bi-o-che-mi-cal,38,27
 crucifixion,cru-ci-fi-xion,38,27
 incinerator,in-ci-ne-ra-tor,38,27
 vaccination,vac-ci-na-tion,38,22
@@ -20338,7 +20338,7 @@ circumference,cir-cum-ference,38,24
 metaphorically,me-ta-pho-ri-cally,38,37
 respectability,res-pec-ta-bi-li-ty,38,35
 malfunctioning,mal-func-tio-ning,38,33
-Czechoslovakia,Czec-ho-slo-va-k-ia,38,24
+Czechoslovakia,Cze-cho-slo-va-ki-a,38,24
 disappointments,di-sap-poin-tments,38,37
 jot,jot,37,35
 ifs,ifs,37,32
@@ -21312,7 +21312,7 @@ hospice,hos-pice,34,21
 Puccini,Puc-ci-ni,34,18
 Oddball,Odd-ball,34,15
 entrees,en-trees,34,14
-Albania,Al-ba-n-ia,34,13
+Albania,Al-ba-ni-a,34,13
 Stamper,Stam-per,34,3
 declares,de-clares,34,34
 overcame,o-ver-came,34,34
@@ -21381,7 +21381,7 @@ faculties,fa-cul-ties,34,29
 mothballs,moth-balls,34,29
 reopening,reo-pe-ning,34,29
 calendars,ca-len-dars,34,28
-foreclose,fo-reclose,34,28
+foreclose,fore-close,34,28
 runaround,ru-na-round,34,28
 citations,ci-ta-tions,34,26
 elemental,e-le-men-tal,34,26
@@ -21445,7 +21445,7 @@ archdiocese,arch-dio-ce-se,34,10
 discontinued,dis-con-ti-nued,34,33
 masquerading,mas-que-ra-ding,34,33
 competitions,com-pe-ti-tions,34,31
-biologically,bio-lo-gi-cal-ly,34,30
+biologically,bi-o-lo-gi-cal-ly,34,30
 supermarkets,su-per-mar-kets,34,29
 inadmissible,i-na-dmis-si-ble,34,28
 newspapermen,news-pa-per-men,34,28
@@ -21991,7 +21991,7 @@ castaway,cas-ta-way,32,9
 exceeding,ex-cee-ding,32,32
 inscribed,ins-cribed,32,32
 radically,ra-di-cally,32,32
-absurdity,a-bsur-di-ty,32,31
+absurdity,ab-sur-di-ty,32,31
 combining,com-bi-ning,32,31
 offerings,of-ferings,32,31
 massaging,mas-sa-ging,32,30
@@ -22555,7 +22555,7 @@ lesion,le-sion,30,22
 reboot,re-boot,30,22
 Speedo,Spee-do,30,22
 Baltic,Bal-tic,30,21
-bionic,bio-n-ic,30,20
+bionic,bi-o-nic,30,20
 cobalt,co-balt,30,20
 froggy,frog-gy,30,20
 prelim,pre-lim,30,20
@@ -22603,7 +22603,7 @@ dissent,dis-sent,30,25
 quibble,quib-ble,30,25
 restart,res-tart,30,25
 sawdust,saw-dust,30,25
-amiable,a-mia-b-le,30,24
+amiable,a-mi-a-ble,30,24
 boogers,boogers,30,24
 granola,gra-no-la,30,24
 lactose,lac-tose,30,24
@@ -22656,7 +22656,7 @@ resuming,re-su-ming,30,26
 squander,squan-der,30,26
 adoptive,a-dop-tive,30,25
 builders,buil-ders,30,25
-foreseen,fo-reseen,30,25
+foreseen,fore-seen,30,25
 hairball,hair-ball,30,25
 hairless,hair-less,30,25
 jiggling,jig-gling,30,25
@@ -22891,7 +22891,7 @@ grubby,grub-by,29,29
 tosses,tos-ses,29,29
 dabble,dab-ble,29,28
 entail,en-tail,29,28
-forego,fo-rego,29,28
+forego,fore-go,29,28
 hugely,huge-ly,29,28
 oddest,od-dest,29,28
 orgies,or-gies,29,28
@@ -22975,7 +22975,7 @@ mastery,mas-te-ry,29,26
 overlap,o-ver-lap,29,26
 saloons,sa-loons,29,26
 sissies,sis-sies,29,26
-absolve,a-bsolve,29,25
+absolve,ab-solve,29,25
 attends,at-tends,29,25
 ejected,e-jec-ted,29,25
 fasting,fas-ting,29,25
@@ -23015,7 +23015,7 @@ Stunner,Stunner,29,15
 Hayward,Hay-ward,29,14
 Ephraim,E-phraim,29,7
 Denning,Den-ning,29,6
-Abraxas,A-bra-xas,29,3
+Abraxas,ab-ra-xas,29,3
 Diavolo,Dia-vo-l-o,29,3
 bannock,ban-nock,29,2
 Tsurugi,Tsu-ru-gi,29,1
@@ -23210,7 +23210,7 @@ fraternizing,fra-ter-ni-zing,29,27
 slaughtering,slaugh-te-ring,29,27
 undetectable,un-de-tec-ta-ble,29,27
 impoverished,im-po-verished,29,26
-biochemistry,bioc-he-mis-t-ry,29,25
+biochemistry,bi-o-che-mis-try,29,25
 togetherness,to-get-her-ness,29,25
 unscrupulous,uns-cru-pu-lous,29,25
 prophylactic,pro-phy-lac-tic,29,24
@@ -23456,7 +23456,7 @@ Mongolia,Mon-go-lia,28,17
 saboteur,sa-bo-teur,28,17
 spritzer,spritzer,28,16
 syllabus,syl-la-bus,28,16
-absinthe,a-bsinthe,28,15
+absinthe,ab-sinthe,28,15
 Firebird,Fi-re-bird,28,14
 tadpoles,tad-poles,28,14
 Nigerian,Ni-ge-ri-an,28,12
@@ -23960,7 +23960,7 @@ Chartreuse,Char-treuse,27,13
 degenerates,de-ge-ne-rates,27,27
 deteriorate,de-te-rio-ra-te,27,27
 dignitaries,di-gni-ta-ries,27,27
-justifiable,jus-ti-fia-b-le,27,27
+justifiable,jus-ti-fi-a-ble,27,27
 storyteller,sto-ry-tel-ler,27,27
 associating,as-so-cia-ting,27,26
 affirmation,af-fir-ma-tion,27,25
@@ -23976,7 +23976,7 @@ shareholder,sha-re-holder,27,23
 superpowers,su-per-po-wers,27,23
 prejudicial,pre-ju-di-cial,27,22
 understated,un-ders-ta-ted,27,22
-forevermore,fo-revermore,27,20
+forevermore,for-e-ver-more,27,20
 insecticide,in-sec-ti-cide,27,20
 emancipated,e-man-ci-pa-ted,27,19
 transformer,trans-for-mer,27,19
@@ -24140,7 +24140,7 @@ Callan,Cal-lan,26,3
 employs,em-ploys,26,26
 royally,roy-al-ly,26,26
 sizable,si-za-ble,26,26
-abreast,a-breast,26,25
+abreast,ab-reast,26,25
 admires,ad-mires,26,25
 beefing,bee-fing,26,25
 hitters,hit-ters,26,25
@@ -24386,7 +24386,7 @@ concealment,con-ceal-ment,26,22
 hillbillies,hill-bil-lies,26,22
 reconfigure,re-con-fi-gure,26,22
 restriction,res-tric-tion,26,21
-abnormality,a-bnor-ma-li-ty,26,20
+abnormality,ab-nor-ma-li-ty,26,20
 antiquities,an-ti-qui-ties,26,20
 imperialist,im-pe-ria-li-st,26,20
 foreclosure,fo-re-closure,26,19
@@ -24414,7 +24414,7 @@ acknowledgment,ac-know-led-gment,26,26
 fundamentalist,fun-da-men-ta-list,26,21
 anthropological,ant-hro-po-lo-gi-cal,26,17
 telecommunications,te-le-com-mu-ni-ca-tions,26,19
-Aaa,Aa-?-a,25,23
+Aaa,Aaa,25,23
 bib,bib,25,23
 Sao,Sao,25,16
 fey,fey,25,12
@@ -24545,7 +24545,7 @@ Linder,Lin-der,25,8
 Zander,Zan-der,25,5
 Cygnus,Cy-gnus,25,4
 Alexia,A-le-x-ia,25,3
-absorbs,a-bsorbs,25,25
+absorbs,ab-sorbs,25,25
 battled,bat-tled,25,25
 cleanly,clean-ly,25,25
 erupted,e-rup-ted,25,25
@@ -24846,7 +24846,7 @@ businesswoman,bu-si-nes-swoman,25,25
 realistically,rea-lis-ti-cal-ly,25,25
 indescribable,in-des-cri-ba-ble,25,24
 refrigerators,re-fri-ge-ra-tors,25,24
-abnormalities,a-bnor-ma-li-ties,25,23
+abnormalities,ab-nor-ma-li-ties,25,23
 probabilities,pro-ba-bi-li-ties,25,21
 thunderstorms,thun-ders-torms,25,20
 transgression,trans-gres-sion,25,17
@@ -25109,7 +25109,7 @@ artistry,ar-tis-try,24,22
 backdrop,back-drop,24,22
 embarked,em-barked,24,22
 fatigued,fa-tigued,24,22
-forearms,fo-rearms,24,22
+forearms,fore-arms,24,22
 gumption,gump-tion,24,22
 peephole,pee-phole,24,22
 placenta,pla-cen-ta,24,22
@@ -25574,7 +25574,7 @@ hurtling,hur-tling,23,23
 replaces,re-pla-ces,23,23
 seething,seet-hing,23,23
 warlords,war-lords,23,23
-abrasive,a-bra-sive,23,22
+abrasive,ab-ra-sive,23,22
 astonish,as-to-nish,23,22
 bareback,ba-reback,23,22
 conveyed,con-veyed,23,22
@@ -25660,7 +25660,7 @@ reassured,reas-su-red,23,22
 recession,re-ces-sion,23,22
 signifies,si-gni-fies,23,22
 softening,sof-tening,23,22
-absorbing,a-bsor-bing,23,21
+absorbing,ab-sor-bing,23,21
 appraised,ap-praised,23,21
 dreamland,dream-land,23,21
 economies,e-co-no-mies,23,21
@@ -25696,7 +25696,7 @@ acetylene,a-ce-ty-lene,23,14
 altimeter,al-ti-me-ter,23,14
 lettering,let-te-ring,23,14
 waistline,wais-tline,23,14
-Britannia,Bri-tan-n-ia,23,13
+Britannia,Bri-tan-ni-a,23,13
 dishonour,dis-honour,23,13
 Boatswain,Boa-tswain,23,11
 broadside,broa-dside,23,11
@@ -26120,7 +26120,7 @@ demerits,de-me-rits,22,16
 headsets,hea-dsets,22,16
 Krispies,Kris-pies,22,16
 linguini,lin-gui-ni,22,16
-Sardinia,Sar-di-n-ia,22,16
+Sardinia,Sar-di-ni-a,22,16
 woodshed,woods-hed,22,16
 chariots,cha-ri-ots,22,15
 lobbyist,lob-by-ist,22,15
@@ -26253,7 +26253,7 @@ janitorial,ja-ni-to-ri-al,22,19
 receptacle,re-cep-ta-cle,22,19
 directives,di-rec-tives,22,18
 exonerated,e-xo-ne-ra-ted,22,18
-foreground,fo-reground,22,18
+foreground,fore-ground,22,18
 stragglers,strag-glers,22,18
 unrequited,un-re-qui-ted,22,18
 bulldozers,bull-do-zers,22,17
@@ -26263,7 +26263,7 @@ minefields,mi-nefields,22,17
 strychnine,stryc-hnine,22,17
 inhibition,in-hi-bi-tion,22,16
 kilometres,ki-lo-metres,22,16
-biographer,bio-gra-ph-er,22,15
+biographer,bi-o-gra-pher,22,15
 wildebeest,wil-de-beest,22,15
 kickboxing,kick-bo-xing,22,14
 exhumation,ex-hu-ma-tion,22,13
@@ -26413,7 +26413,7 @@ Argus,Ar-gus,21,7
 Walla,Wal-la,21,7
 Cuddy,Cud-dy,21,6
 Dipsy,Di-psy,21,5
-Xenia,Xe-n-ia,21,4
+Xenia,Xe-ni-a,21,4
 Batts,Batts,21,3
 Lidia,Li-d-ia,21,3
 Taber,Ta-ber,21,2
@@ -26430,7 +26430,7 @@ nuance,nuan-ce,21,20
 orally,o-ral-ly,21,20
 outbid,out-bid,21,20
 untidy,un-ti-dy,21,20
-ablaze,a-blaze,21,19
+ablaze,ab-laze,21,19
 baggie,bag-gie,21,19
 catnip,ca-tnip,21,19
 depose,de-pose,21,19
@@ -26604,7 +26604,7 @@ consults,con-sults,21,20
 decently,de-cent-ly,21,20
 depicted,de-pic-ted,21,20
 enriched,en-riched,21,20
-foregone,fo-regone,21,20
+foregone,fore-gone,21,20
 grandest,gran-dest,21,20
 invoking,in-vo-king,21,20
 palpable,pal-pa-ble,21,20
@@ -26739,7 +26739,7 @@ inception,in-cep-tion,21,17
 pocketful,poc-ket-ful,21,17
 stockpile,stock-pile,21,17
 womanizer,wo-ma-ni-zer,21,17
-absolutes,a-bso-lutes,21,16
+absolutes,ab-so-lutes,21,16
 discounts,dis-counts,21,16
 genealogy,ge-nea-lo-g-y,21,16
 resenting,re-sen-ting,21,16
@@ -26820,7 +26820,7 @@ prototypes,pro-to-types,21,15
 strategist,stra-te-gist,21,15
 subscriber,subs-cri-ber,21,15
 addictions,ad-dic-tions,21,14
-biochemist,bioc-he-mi-st,21,14
+biochemist,bi-o-che-mist,21,14
 dispensary,dis-pen-sa-ry,21,14
 liverwurst,li-verwurst,21,13
 publicists,pu-bli-cists,21,12
@@ -27107,7 +27107,7 @@ stifled,sti-fled,20,20
 tidying,ti-dying,20,20
 distort,dis-tort,20,19
 feelers,fee-lers,20,19
-foresaw,fo-resaw,20,19
+foresaw,fore-saw,20,19
 loathed,loathed,20,19
 modicum,mo-di-cum,20,19
 nipping,nip-ping,20,19
@@ -27288,7 +27288,7 @@ benefited,be-ne-fi-ted,20,19
 crossover,cros-so-ver,20,19
 custodial,cus-to-di-al,20,19
 desecrate,de-se-crate,20,19
-forefront,fo-refront,20,19
+forefront,fore-front,20,19
 framework,fra-mework,20,19
 kilometer,ki-lo-me-ter,20,19
 makeshift,ma-keshift,20,19
@@ -27307,7 +27307,7 @@ disinfect,di-sin-fect,20,18
 freshener,fres-hener,20,18
 gangplank,gang-plank,20,18
 lollipops,lol-li-pops,20,18
-millennia,mil-len-n-ia,20,18
+millennia,mil-len-ni-a,20,18
 overcomes,o-ver-comes,20,18
 overdosed,o-ver-dosed,20,18
 patrolmen,pa-trol-men,20,18
@@ -27373,7 +27373,7 @@ pretenders,pre-ten-ders,20,20
 resurfaced,re-sur-faced,20,20
 selections,se-lec-tions,20,20
 suspending,sus-pen-ding,20,20
-abnormally,a-bnor-mal-ly,20,19
+abnormally,ab-nor-mal-ly,20,19
 cautiously,cau-tious-ly,20,19
 diminutive,di-mi-nu-tive,20,19
 escalation,es-ca-la-tion,20,19
@@ -27802,7 +27802,7 @@ excelled,ex-celled,19,18
 flicking,flic-king,19,18
 inherits,in-he-rits,19,18
 liquored,liquored,19,18
-postmark,pos-tmark,19,18
+postmark,post-mark,19,18
 racially,ra-cial-ly,19,18
 rebelled,re-belled,19,18
 retreats,re-treats,19,18
@@ -27913,7 +27913,7 @@ unclaimed,un-claimed,19,17
 carnivals,car-ni-vals,19,16
 citizenry,ci-ti-zen-ry,19,16
 Cordially,Cor-dial-ly,19,16
-diarrhoea,diarr-hoe-?-a,19,16
+diarrhoea,di-ar-rhoe-a,19,16
 landowner,lan-dow-ner,19,16
 miniskirt,mi-nis-kirt,19,16
 ramblings,ram-blings,19,16
@@ -28372,7 +28372,7 @@ sunbeam,sun-beam,18,7
 Liberia,Li-be-r-ia,18,5
 Shriver,Shri-ver,18,5
 Bluejay,Blue-jay,18,2
-absentee,a-bsen-tee,18,18
+absentee,ab-sen-tee,18,18
 alerting,a-ler-ting,18,18
 escapade,es-ca-pade,18,18
 facedown,fa-cedown,18,18
@@ -28421,12 +28421,12 @@ snacking,snac-king,18,16
 telltale,tell-tale,18,16
 unleaded,un-lea-ded,18,16
 untoward,un-to-ward,18,16
-abrasion,a-bra-sion,18,15
+abrasion,ab-ra-sion,18,15
 bassinet,bas-si-net,18,15
 buckling,buc-kling,18,15
 coolness,cool-ness,18,15
 decoding,de-co-ding,18,15
-foreskin,fo-reskin,18,15
+foreskin,fore-skin,18,15
 infusion,in-fu-sion,18,15
 marksmen,mar-ksmen,18,15
 nativity,na-ti-vi-ty,18,15
@@ -28468,13 +28468,13 @@ lifespan,li-fespan,18,8
 embalmer,em-balmer,18,7
 Polonius,Po-lo-nius,18,4
 Poisoner,Poi-soner,18,3
-Harmonia,Har-mo-n-ia,18,2
+Harmonia,Har-mo-ni-a,18,2
 Chiltern,Chiltern,18,1
 advocated,ad-vo-ca-ted,18,18
 blossomed,blos-somed,18,18
 bordering,bor-de-ring,18,18
 compiling,com-pi-ling,18,18
-foreheads,fo-reheads,18,18
+foreheads,fore-heads,18,18
 incidence,in-ci-dence,18,18
 landmarks,lan-dmarks,18,18
 loosening,loo-se-ning,18,18
@@ -28578,7 +28578,7 @@ gratuitous,gra-tui-t-ous,18,18
 liquidated,li-qui-da-ted,18,18
 ruthlessly,rut-hless-ly,18,18
 ultimatums,ul-ti-ma-tums,18,18
-absorption,a-bsorp-tion,18,17
+absorption,ab-sorp-tion,18,17
 cathedrals,cat-he-drals,18,17
 cautionary,cau-tio-na-ry,18,17
 elasticity,e-las-ti-ci-ty,18,17
@@ -29284,7 +29284,7 @@ adulterous,a-dul-te-rous,17,12
 columnists,co-lum-nists,17,12
 cybernetic,cy-ber-netic,17,12
 equatorial,e-qua-to-ri-al,17,12
-postmaster,pos-tmas-ter,17,12
+postmaster,post-mas-ter,17,12
 Prometheus,Pro-met-heus,17,12
 sequencing,se-quen-cing,17,12
 solicitors,so-li-ci-tors,17,12
@@ -29375,7 +29375,7 @@ interrogations,in-ter-ro-ga-tions,17,16
 paleontologist,pa-leon-to-lo-gi-st,17,12
 preconceptions,pre-con-cep-tions,17,9
 physiologically,phy-sio-lo-gi-cal-ly,17,16
-Czechoslovakian,Czec-ho-slo-va-ki-an,17,12
+Czechoslovakian,Cze-cho-slo-va-ki-an,17,12
 cinematographer,ci-ne-ma-to-gra-pher,17,11
 procrastination,pro-cras-ti-na-tion,17,7
 multimillionaire,mul-ti-mil-lio-naire,17,17
@@ -29412,7 +29412,7 @@ Alfa,Al-fa,16,10
 gyro,gy-ro,16,10
 fete,fete,16,9
 Graf,Graf,16,9
-Ussr,Us-s-?-r,16,9
+Ussr,U-s-s-r,16,9
 Weve,Weve,16,8
 Serb,Serb,16,7
 Loma,Lo-ma,16,5
@@ -29501,7 +29501,7 @@ frilly,fril-ly,16,16
 hotbed,hot-bed,16,16
 jumble,jum-ble,16,16
 offing,of-fing,16,16
-outset,ou-tset,16,16
+outset,out-set,16,16
 somber,som-ber,16,16
 spines,spines,16,16
 boasts,boasts,16,15
@@ -29662,7 +29662,7 @@ Titrate,Ti-trate,16,14
 vacuous,va-cu-ous,16,14
 arising,a-ri-sing,16,13
 Baroque,Ba-roque,16,13
-biotech,bio-te-ch,16,13
+biotech,bi-o-tech,16,13
 carfare,car-fare,16,13
 Formica,For-mi-ca,16,13
 furtive,fur-tive,16,13
@@ -29778,7 +29778,7 @@ carvings,car-vings,16,14
 circuses,cir-cu-ses,16,14
 darndest,darn-dest,16,14
 demotion,de-mo-tion,16,14
-foretell,fo-retell,16,14
+foretell,fore-tell,16,14
 hothouse,hot-house,16,14
 interned,in-terned,16,14
 motoring,mo-to-ring,16,14
@@ -29880,7 +29880,7 @@ reclusive,re-clu-sive,16,15
 sodomized,so-do-mized,16,15
 therapies,the-ra-pies,16,15
 whittling,whit-tling,16,15
-biometric,bio-me-tr-ic,16,14
+biometric,bi-o-me-tric,16,14
 blackened,blac-kened,16,14
 carjacked,car-jacked,16,14
 doorknobs,door-knobs,16,14
@@ -30387,7 +30387,7 @@ phallic,phal-lic,15,13
 phrased,phrased,15,13
 pigment,pi-gment,15,13
 polecat,po-lecat,15,13
-postwar,pos-twar,15,13
+postwar,post-war,15,13
 ratting,rat-ting,15,13
 rioters,rio-te-rs,15,13
 snicker,snic-ker,15,13
@@ -30455,8 +30455,8 @@ Consarn,Con-sarn,15,2
 Vermeil,Ver-meil,15,2
 Octonal,Oc-to-nal,15,1
 Shippen,Ship-pen,15,1
-absolved,a-bsolved,15,15
-absurdly,a-bsurd-ly,15,15
+absolved,ab-solved,15,15
+absurdly,ab-surd-ly,15,15
 baffling,baf-fling,15,15
 beholder,be-hol-der,15,15
 chugging,chug-ging,15,15
@@ -30820,7 +30820,7 @@ backcountry,back-coun-try,15,5
 astrological,as-tro-lo-gi-cal,15,15
 convertibles,con-ver-ti-bles,15,15
 disgustingly,dis-gus-ting-ly,15,15
-identifiable,i-den-ti-fia-b-le,15,15
+identifiable,i-den-ti-fi-a-ble,15,15
 immeasurable,im-mea-su-ra-ble,15,15
 inconsolable,in-con-so-la-ble,15,15
 mistreatment,mis-trea-tment,15,15
@@ -31213,7 +31213,7 @@ Bangles,Ban-gles,14,9
 Boswell,Bo-swell,14,9
 Caritas,Ca-ri-tas,14,9
 dreidel,drei-del,14,9
-Estonia,Es-to-n-ia,14,9
+Estonia,Es-to-ni-a,14,9
 mediate,me-dia-te,14,9
 moocher,moocher,14,9
 scalper,scal-per,14,9
@@ -31323,7 +31323,7 @@ synopsis,sy-no-psis,14,13
 treetops,tree-tops,14,13
 trembles,trem-bles,14,13
 wingding,wing-ding,14,13
-absences,a-bsen-ces,14,12
+absences,ab-sen-ces,14,12
 amniotic,am-nio-t-ic,14,12
 baguette,ba-guette,14,12
 brothels,brot-hels,14,12
@@ -31581,7 +31581,7 @@ infliction,in-flic-tion,14,12
 manoeuvres,ma-noeuvres,14,12
 moratorium,mo-ra-to-ri-um,14,12
 overflowed,o-ver-flowed,14,12
-postmodern,pos-tmo-dern,14,12
+postmodern,post-mo-dern,14,12
 recipients,re-ci-pie-nts,14,12
 refineries,re-fi-ne-ries,14,12
 regrouping,re-grou-ping,14,12
@@ -31940,7 +31940,7 @@ rhinos,rhi-nos,13,11
 roasts,roasts,13,11
 Texaco,Te-xa-co,13,11
 witchy,witc-hy,13,11
-echoed,ec-hoed,13,10
+echoed,e-choed,13,10
 fatale,fa-tale,13,10
 fatted,fatted,13,10
 Loring,Lo-ring,13,10
@@ -32038,7 +32038,7 @@ wayside,way-side,13,13
 workday,work-day,13,13
 accrued,ac-crued,13,12
 airtime,air-time,13,12
-Armenia,Ar-me-n-ia,13,12
+Armenia,Ar-me-ni-a,13,12
 asserts,as-serts,13,12
 blotted,blotted,13,12
 carting,car-ting,13,12
@@ -32424,7 +32424,7 @@ contesting,con-tes-ting,13,12
 delicacies,de-li-ca-cies,13,12
 derivation,de-ri-va-tion,13,12
 Dominicans,Do-mi-ni-cans,13,12
-foreclosed,fo-reclosed,13,12
+foreclosed,fore-closed,13,12
 gloriously,glo-ri-ous-ly,13,12
 handshakes,hands-hakes,13,12
 inducement,in-du-cement,13,12
@@ -32500,7 +32500,7 @@ telekinetic,te-le-ki-ne-tic,13,13
 unsupported,un-sup-por-ted,13,13
 behavioural,be-ha-vi-oural,13,12
 benediction,be-ne-dic-tion,13,12
-biographies,bio-gra-phi-es,13,12
+biographies,bi-o-gra-phies,13,12
 concussions,con-cus-sions,13,12
 dereliction,de-re-lic-tion,13,12
 disapproves,di-sap-proves,13,12
@@ -33219,7 +33219,7 @@ fluoride,fluo-ride,12,8
 phonetic,pho-ne-tic,12,8
 Rockaway,Roc-ka-way,12,8
 swabbing,swab-bing,12,8
-Tanzania,Tan-za-n-ia,12,8
+Tanzania,Tan-za-ni-a,12,8
 textiles,tex-tiles,12,8
 methanol,met-ha-nol,12,7
 neutrino,neu-tri-no,12,7
@@ -33412,7 +33412,7 @@ infighting,in-figh-ting,12,12
 paperbacks,pa-per-backs,12,12
 paraphrase,pa-ra-phrase,12,12
 personable,per-so-na-ble,12,12
-postmarked,pos-tmarked,12,12
+postmarked,post-marked,12,12
 reclaiming,re-clai-ming,12,12
 redirected,re-di-rec-ted,12,12
 slanderous,slan-de-rous,12,12
@@ -33639,7 +33639,7 @@ structurally,struc-tu-ral-ly,12,12
 thoughtfully,though-tful-ly,12,12
 unimpressive,u-nim-pres-sive,12,12
 barbiturates,bar-bi-tu-rates,12,11
-biographical,bio-gra-phi-c-al,12,11
+biographical,bi-o-gra-phi-cal,12,11
 exasperating,e-xas-pe-ra-ting,12,11
 helplessness,hel-pless-ness,12,11
 hypertensive,hy-per-ten-sive,12,11
@@ -34263,7 +34263,7 @@ curative,cu-ra-tive,11,10
 damndest,damn-dest,11,10
 dejected,de-jec-ted,11,10
 denizens,de-ni-zens,11,10
-enviable,en-via-b-le,11,10
+enviable,en-vi-a-ble,11,10
 explores,ex-plores,11,10
 feedings,fee-dings,11,10
 Forestry,Fo-res-try,11,10
@@ -34417,7 +34417,7 @@ euthanize,eut-ha-nize,11,11
 expedited,ex-pe-di-ted,11,11
 flatulent,fla-tu-lent,11,11
 footballs,foot-balls,11,11
-forecasts,fo-recasts,11,11
+forecasts,fore-casts,11,11
 gearshift,gears-hift,11,11
 hyperbole,hy-per-bo-le,11,11
 inundated,i-nun-da-ted,11,11
@@ -35592,7 +35592,7 @@ Chasuble,Cha-su-ble,10,1
 Plimsoll,Plim-soll,10,1
 aggregate,ag-gre-gate,10,10
 bandaging,ban-da-ging,10,10
-biohazard,bio-ha-za-rd,10,10
+biohazard,bi-o-ha-zard,10,10
 cherishes,che-ris-hes,10,10
 coincided,coin-ci-d-ed,10,10
 combatant,com-ba-tant,10,10
@@ -36057,7 +36057,7 @@ tetracycline,te-tra-cy-cline,10,6
 affirmations,af-fir-ma-tions,10,5
 hydrothermal,hy-drot-her-mal,10,2
 authoritative,aut-ho-ri-ta-tive,10,10
-biodegradable,bio-de-gra-da-b-le,10,10
+biodegradable,bi-o-de-gra-da-ble,10,10
 consolidation,con-so-li-da-tion,10,10
 contractually,con-trac-tual-ly,10,10
 denominations,de-no-mi-na-tions,10,10
@@ -36774,7 +36774,7 @@ uplinked,u-plinked,9,9
 visceral,vis-ce-ral,9,9
 vitreous,vi-tre-ous,9,9
 worsened,wor-sened,9,9
-absentia,a-bsen-tia,9,8
+absentia,ab-sen-tia,9,8
 apoplexy,a-po-ple-xy,9,8
 appeased,ap-peased,9,8
 awarding,a-war-ding,9,8
@@ -36867,7 +36867,7 @@ typeface,ty-peface,9,7
 unburned,un-burned,9,7
 walleyed,wal-leyed,9,7
 watchmen,watc-hmen,9,7
-abridged,a-bridged,9,6
+abridged,ab-ridged,9,6
 baptisms,bap-ti-sms,9,6
 basilica,ba-si-li-ca,9,6
 canoeing,ca-noe-ing,9,6
@@ -36885,7 +36885,7 @@ whooshes,whoos-hes,9,6
 airbrush,air-brush,9,5
 bloggers,bloggers,9,5
 blueness,blue-ness,9,5
-foreword,fo-reword,9,5
+foreword,fore-word,9,5
 icehouse,ice-house,9,5
 impugned,im-pugned,9,5
 Khartoum,Khar-toum,9,5
@@ -37007,7 +37007,7 @@ coveralls,co-ve-ralls,9,8
 crossroad,cros-sroad,9,8
 diastolic,dias-to-l-ic,9,8
 disliking,di-sli-king,9,8
-forebears,fo-rebears,9,8
+forebears,fore-bears,9,8
 genocidal,ge-no-ci-dal,9,8
 goldbrick,gold-brick,9,8
 handbrake,hand-brake,9,8
@@ -37303,7 +37303,7 @@ exacerbated,e-xa-cer-ba-ted,9,9
 exemplified,e-xem-pli-fied,9,9
 extractions,ex-trac-tions,9,9
 fellowships,fel-lows-hips,9,9
-forethought,fo-rethought,9,9
+forethought,fore-thought,9,9
 indentation,in-den-ta-tion,9,9
 instituting,ins-ti-tu-ting,9,9
 inventories,in-ven-to-ries,9,9
@@ -37441,7 +37441,7 @@ glockenspiel,gloc-kens-piel,9,6
 homesteaders,ho-mes-teaders,9,6
 fireproofing,fi-re-proo-fing,9,4
 Anchorperson,Anchorperson,9,3
-biosynthesis,bio-synt-he-sis,9,1
+biosynthesis,bi-o-syn-the-sis,9,1
 triglyceride,tri-gly-ce-ride,9,1
 alphabetizing,al-pha-be-ti-zing,9,9
 assertiveness,as-ser-tive-ness,9,9
@@ -38334,7 +38334,7 @@ meatless,meat-less,8,7
 moveable,mo-vea-ble,8,7
 munition,mu-ni-tion,8,7
 outmoded,ou-tmo-ded,8,7
-outsides,ou-tsides,8,7
+outsides,out-sides,8,7
 passerby,pas-ser-by,8,7
 penknife,pen-knife,8,7
 pianists,pia-ni-sts,8,7
@@ -38359,7 +38359,7 @@ bankable,ban-ka-ble,8,6
 Catskill,Cats-kill,8,6
 caulking,caul-king,8,6
 cheetahs,chee-tahs,8,6
-deniable,de-nia-b-le,8,6
+deniable,de-ni-a-ble,8,6
 Deutsche,Deutsche,8,6
 distally,dis-tal-ly,8,6
 droplets,dro-plets,8,6
@@ -38370,7 +38370,7 @@ lathered,lathered,8,6
 Marigold,Ma-ri-gold,8,6
 minimise,mi-ni-mise,8,6
 nonhuman,non-hu-man,8,6
-outsells,ou-tsells,8,6
+outsells,out-sells,8,6
 paramour,pa-ra-mour,8,6
 peignoir,pei-gnoir,8,6
 prompter,prompter,8,6
@@ -38439,7 +38439,7 @@ shakiest,sha-ki-est,8,1
 Shoveler,Sho-veler,8,1
 Spindler,Spin-dler,8,1
 Virgilia,Vir-gi-lia,8,1
-absorbent,a-bsor-bent,8,8
+absorbent,ab-sor-bent,8,8
 acclimate,ac-cli-mate,8,8
 affording,af-for-ding,8,8
 alleyways,al-ley-ways,8,8
@@ -38462,7 +38462,7 @@ enshrined,ens-hrined,8,8
 eroticism,e-ro-ti-ci-sm,8,8
 fervently,fer-vent-ly,8,8
 footstool,foots-tool,8,8
-forestall,fo-restall,8,8
+forestall,fore-stall,8,8
 frailties,frail-ties,8,8
 freakiest,frea-ki-est,8,8
 gainfully,gain-ful-ly,8,8
@@ -38586,7 +38586,7 @@ trombones,trom-bones,8,7
 Unitarian,U-ni-ta-ri-an,8,7
 visualise,vi-sua-li-se,8,7
 worshiper,wors-hi-per,8,7
-absorbers,a-bsor-bers,8,6
+absorbers,ab-sor-bers,8,6
 Airstream,Airs-tream,8,6
 Britisher,Bri-tisher,8,6
 Byzantium,By-zan-ti-um,8,6
@@ -38664,7 +38664,7 @@ airbrushed,air-brushed,8,8
 appendages,ap-pen-da-ges,8,8
 asphyxiate,as-phy-xia-te,8,8
 bankrupted,ban-krup-ted,8,8
-biologists,bio-lo-gi-sts,8,8
+biologists,bi-o-lo-gists,8,8
 bootlegged,boo-tleg-ged,8,8
 boulevards,bou-le-vards,8,8
 brainpower,brain-po-wer,8,8
@@ -38685,7 +38685,7 @@ Easterners,Eas-ter-ners,8,8
 emasculate,e-mas-cu-late,8,8
 Fauntleroy,Faun-tle-roy,8,8
 fearlessly,fear-less-ly,8,8
-forewarned,fo-rewarned,8,8
+forewarned,fore-warned,8,8
 fracturing,frac-tu-ring,8,8
 freeloader,free-loa-der,8,8
 harbouring,har-bouring,8,8
@@ -38926,7 +38926,7 @@ gentlewoman,gen-tle-wo-man,8,6
 handicapper,han-di-cap-per,8,6
 imprisoning,im-pri-so-ning,8,6
 mountainous,moun-tai-nous,8,6
-outsourcing,ou-tsour-cing,8,6
+outsourcing,out-sour-cing,8,6
 parishioner,pa-ris-hio-ner,8,6
 perforation,per-fo-ra-tion,8,6
 prohibiting,pro-hi-bi-ting,8,6
@@ -39042,7 +39042,7 @@ infallibility,in-fal-li-bi-li-ty,8,7
 Presbyterians,Pres-by-te-ri-ans,8,7
 proportionate,pro-por-tio-nate,8,7
 regurgitating,re-gur-gi-tating,8,7
-biotechnology,bio-tec-hno-lo-g-y,8,6
+biotechnology,bi-o-tech-no-lo-gy,8,6
 confirmations,con-fir-ma-tions,8,6
 idiosyncratic,i-dio-syn-cra-t-ic,8,6
 improbability,im-pro-ba-bi-li-ty,8,6
@@ -39564,7 +39564,7 @@ fatuous,fa-tu-ous,7,7
 fetuses,fe-tu-ses,7,7
 fiddles,fid-dles,7,7
 fidgets,fid-gets,7,7
-foremen,fo-remen,7,7
+foremen,fore-men,7,7
 funnest,fun-nest,7,7
 gluteus,glu-te-us,7,7
 grocers,gro-cers,7,7
@@ -39601,7 +39601,7 @@ obliges,o-bli-ges,7,7
 opulent,o-pu-lent,7,7
 orbited,or-bi-ted,7,7
 phalanx,pha-lanx,7,7
-pliable,plia-b-le,7,7
+pliable,pli-a-ble,7,7
 possums,pos-sums,7,7
 precept,pre-cept,7,7
 Prussia,Prus-sia,7,7
@@ -39881,7 +39881,7 @@ overplay,o-ver-play,7,7
 parlayed,par-layed,7,7
 penciled,pen-ciled,7,7
 perusing,pe-ru-sing,7,7
-pitiable,pi-tia-b-le,7,7
+pitiable,pi-ti-a-ble,7,7
 plunders,plunders,7,7
 pocketed,poc-ke-ted,7,7
 polishes,po-lis-hes,7,7
@@ -39925,7 +39925,7 @@ alfresco,al-fres-co,7,6
 artfully,ar-tful-ly,7,6
 artistes,ar-tistes,7,6
 Belgrade,Bel-grade,7,6
-biologic,bio-lo-g-ic,7,6
+biologic,bi-o-lo-gic,7,6
 buckskin,bucks-kin,7,6
 Canberra,Can-ber-ra,7,6
 catwalks,ca-twalks,7,6
@@ -40886,7 +40886,6 @@ Cay,Cay,6,2
 Dak,Dak,6,2
 Fod,Fod,6,2
 Rud,Rud,6,2
-Wpm,W-p-?-m,6,1
 agog,a-gog,6,6
 awed,awed,6,6
 bods,bods,6,6
@@ -41991,7 +41990,7 @@ Strutter,Strutter,6,3
 Abalones,A-ba-lones,6,2
 Alouette,A-lou-ette,6,2
 beriberi,be-ri-be-ri,6,2
-biotoxin,bio-to-xin,6,2
+biotoxin,bi-o-to-xin,6,2
 bottlers,bot-tlers,6,2
 caissons,cais-sons,6,2
 cortisol,cor-ti-sol,6,2
@@ -42142,7 +42141,7 @@ squalling,squal-ling,6,6
 sticklers,sticklers,6,6
 subsystem,sub-sys-tem,6,6
 summaries,sum-ma-ries,6,6
-theorists,theo-ri-sts,6,6
+theorists,the-o-rists,6,6
 tightness,tight-ness,6,6
 trainload,train-load,6,6
 unadorned,u-na-dorned,6,6
@@ -42158,7 +42157,7 @@ windswept,win-dswept,6,6
 wordsmith,wor-dsmith,6,6
 wrappings,wrap-pings,6,6
 Zeitgeist,Zeit-geist,6,6
-abruption,a-brup-tion,6,5
+abruption,ab-rup-tion,6,5
 Acropolis,A-cro-po-lis,6,5
 archetype,arc-he-type,6,5
 avuncular,a-vun-cu-lar,6,5
@@ -42414,7 +42413,7 @@ morphology,mor-pho-lo-gy,6,6
 mousetraps,mou-setraps,6,6
 multifocal,mul-ti-fo-cal,6,6
 outrunning,ou-trun-ning,6,6
-outsourced,ou-tsourced,6,6
+outsourced,out-sourced,6,6
 overplayed,o-ver-played,6,6
 overtaking,o-ver-ta-king,6,6
 pantywaist,pan-ty-waist,6,6
@@ -42523,7 +42522,7 @@ twittering,twit-tering,6,5
 unplugging,un-plug-ging,6,5
 unreadable,un-rea-da-ble,6,5
 unsociable,un-so-cia-ble,6,5
-verifiable,ve-ri-fia-b-le,6,5
+verifiable,ve-ri-fi-a-ble,6,5
 whereabout,whe-rea-bout,6,5
 whitewalls,whi-tewalls,6,5
 accomodate,ac-co-mo-date,6,4
@@ -42542,7 +42541,7 @@ dismounted,di-smounted,6,4
 exemptions,e-xemp-tions,6,4
 farsighted,far-sigh-ted,6,4
 fermenting,fer-men-ting,6,4
-foreshadow,fo-res-hadow,6,4
+foreshadow,fore-sha-dow,6,4
 gunrunners,gun-runners,6,4
 hijackings,hi-jac-kings,6,4
 hydrophone,hy-dro-phone,6,4
@@ -42585,7 +42584,7 @@ superduper,su-perduper,6,2
 Chocaholic,Cho-ca-ho-lic,6,1
 Lachrymose,Lac-hry-mose,6,1
 spermaceti,sper-ma-ce-ti,6,1
-absurdities,a-bsur-di-ties,6,6
+absurdities,ab-sur-di-ties,6,6
 acupressure,a-cu-pressure,6,6
 administers,ad-mi-nis-ters,6,6
 Amalgamated,A-mal-ga-ma-ted,6,6
@@ -42942,7 +42941,7 @@ disorganization,di-sor-ga-ni-za-tion,6,6
 misrepresenting,mi-sre-pre-sen-ting,6,6
 superconducting,su-per-con-duc-ting,6,6
 maneuverability,ma-neu-ve-ra-bi-lity,6,5
-paleontologists,pa-leon-to-lo-gi-sts,6,5
+paleontologists,pa-le-on-to-lo-gists,6,5
 phosphorescence,phos-pho-res-cence,6,5
 unsportsmanlike,uns-por-tsman-like,6,5
 intussusception,in-tus-sus-cep-tion,6,4
@@ -43583,7 +43582,7 @@ Skeets,Skeets,5,2
 Skelly,Skel-ly,5,2
 Strack,Strack,5,2
 sunray,sun-ray,5,2
-taenia,tae-n-ia,5,2
+taenia,tae-ni-a,5,2
 thanes,thanes,5,2
 Vesper,Ves-per,5,2
 womans,wo-mans,5,2
@@ -43613,7 +43612,7 @@ Skyman,Sky-man,5,1
 Thetis,The-tis,5,1
 Tricon,Tri-con,5,1
 Vining,Vi-ning,5,1
-abraded,a-braded,5,5
+abraded,ab-raded,5,5
 abscond,abs-cond,5,5
 adjoins,ad-joins,5,5
 adverbs,ad-verbs,5,5
@@ -43689,7 +43688,7 @@ fiercer,fier-cer,5,5
 fillets,fil-lets,5,5
 fizzled,fiz-zled,5,5
 flanker,flanker,5,5
-friable,fria-b-le,5,5
+friable,fri-a-ble,5,5
 gauging,gau-ging,5,5
 glazing,gla-zing,5,5
 grayish,gray-ish,5,5
@@ -43755,7 +43754,7 @@ phonics,pho-nics,5,5
 pigging,pig-ging,5,5
 Pitocin,Pi-to-cin,5,5
 poseurs,po-seurs,5,5
-postmen,pos-tmen,5,5
+postmen,post-men,5,5
 powdery,pow-de-ry,5,5
 prelims,pre-lims,5,5
 psyches,psyc-hes,5,5
@@ -43928,7 +43927,7 @@ dominos,do-mi-nos,5,3
 durians,du-rians,5,3
 elevens,e-le-vens,5,3
 flatcar,flat-car,5,3
-forepaw,fo-repaw,5,3
+forepaw,fore-paw,5,3
 Fortran,For-tran,5,3
 Fourier,Fou-rier,5,3
 Fraiser,Frai-ser,5,3
@@ -44274,7 +44273,7 @@ finalise,fi-na-lise,5,4
 fleabags,flea-bags,5,4
 folktale,folk-tale,5,4
 Foothill,Foot-hill,5,4
-forehand,fo-rehand,5,4
+forehand,fore-hand,5,4
 freebase,free-base,5,4
 freeborn,free-born,5,4
 frescoes,fres-coes,5,4
@@ -44438,7 +44437,7 @@ tinplate,tin-plate,5,1
 viatical,via-ti-c-al,5,1
 wigglers,wigglers,5,1
 absconded,abs-conded,5,5
-absolving,a-bsol-ving,5,5
+absolving,ab-sol-ving,5,5
 advisedly,ad-vi-sed-ly,5,5
 aftercare,af-tercare,5,5
 allowable,al-lo-wa-ble,5,5
@@ -44524,7 +44523,7 @@ levitated,le-vi-ta-ted,5,5
 litigants,li-ti-gants,5,5
 maelstrom,maels-trom,5,5
 Maharishi,Ma-ha-ris-hi,5,5
-malleable,mal-lea-b-le,5,5
+malleable,mal-le-a-ble,5,5
 manhandle,man-han-dle,5,5
 marshland,mars-hland,5,5
 methylene,met-hy-lene,5,5
@@ -44548,7 +44547,7 @@ permeates,per-mea-tes,5,5
 petulance,pe-tu-lance,5,5
 pillboxes,pill-bo-xes,5,5
 pleasured,pleasured,5,5
-postmarks,pos-tmarks,5,5
+postmarks,post-marks,5,5
 preempted,preemp-t-ed,5,5
 preflight,pre-flight,5,5
 privation,pri-va-tion,5,5
@@ -44638,7 +44637,7 @@ annuities,an-nui-ti-es,5,4
 babblings,bab-blings,5,4
 balalaika,ba-la-lai-ka,5,4
 billowing,bil-lo-wing,5,4
-biosphere,bios-phe-re,5,4
+biosphere,bi-o-sphere,5,4
 Brasserie,Bras-se-rie,5,4
 breakneck,brea-kneck,5,4
 bristling,bris-tling,5,4
@@ -45095,7 +45094,7 @@ maintainer,main-tainer,5,1
 proselyted,pro-selyted,5,1
 Turtleback,Tur-tle-back,5,1
 yardmaster,yar-dmaster,5,1
-absenteeism,a-bsen-tee-i-sm,5,5
+absenteeism,ab-sen-tee-i-sm,5,5
 accelerates,ac-ce-le-rates,5,5
 aficionados,a-fi-cio-na-dos,5,5
 alphabetize,al-pha-be-tize,5,5
@@ -45105,7 +45104,7 @@ antecedents,an-te-ce-dents,5,5
 Appalachian,Ap-pa-lac-hian,5,5
 assiduously,as-si-duous-ly,5,5
 Babylonians,Ba-by-lo-ni-ans,5,5
-biofeedback,bio-feed-ba-ck,5,5
+biofeedback,bi-o-feed-back,5,5
 blackboards,black-boards,5,5
 Bodhisattva,Bod-hi-sat-tva,5,5
 carbonation,car-bo-na-tion,5,5
@@ -45162,7 +45161,7 @@ intuitively,in-tui-ti-ve-ly,5,5
 judiciously,ju-di-cious-ly,5,5
 locomotives,lo-co-mo-tives,5,5
 manoeuvring,ma-noe-uvring,5,5
-megalomania,me-ga-lo-ma-n-ia,5,5
+megalomania,me-ga-lo-ma-ni-a,5,5
 melancholic,me-lanc-ho-lic,5,5
 milliliters,mil-li-li-ters,5,5
 miniaturize,mi-nia-tu-rize,5,5
@@ -45275,7 +45274,7 @@ mesomorphic,me-so-mor-phic,5,3
 metabolites,me-ta-bo-lites,5,3
 microsecond,mi-cro-se-cond,5,3
 oscillation,os-cil-la-tion,5,3
-outsmarting,ou-tsmarting,5,3
+outsmarting,out-smarting,5,3
 Plantagenet,Plan-ta-genet,5,3
 repudiation,re-pu-dia-tion,5,3
 tobacconist,to-bac-co-nist,5,3
@@ -45372,7 +45371,7 @@ decommission,de-com-mis-sion,5,4
 demonstrable,de-mons-tra-ble,5,4
 deteriorates,de-te-rio-ra-tes,5,4
 disembarking,di-sem-bar-king,5,4
-echolocation,ec-ho-lo-ca-tion,5,4
+echolocation,e-cho-lo-ca-tion,5,4
 eviscerating,e-vis-ce-ra-ting,5,4
 facilitators,fa-ci-li-ta-tors,5,4
 fibrillating,fi-bril-la-ting,5,4
@@ -45418,7 +45417,7 @@ Concentrator,Con-cen-trator,5,2
 hydrofluoric,hy-dro-fluoric,5,2
 hypochlorite,hy-poc-hlorite,5,2
 hypothalamic,hy-pot-ha-la-mic,5,2
-neurasthenia,neu-rast-he-n-ia,5,2
+neurasthenia,neu-rast-he-ni-a,5,2
 rededication,re-de-di-ca-tion,5,2
 alternatively,al-ter-na-tive-ly,5,5
 antipersonnel,an-ti-per-son-nel,5,5
@@ -45466,7 +45465,7 @@ triangulating,trian-gu-la-ting,5,5
 underwhelming,un-derw-helming,5,5
 wholesomeness,who-le-someness,5,5
 acetaminophen,a-ce-ta-mi-no-phen,5,4
-biomechanical,bio-mec-ha-ni-cal,5,4
+biomechanical,bi-o-me-cha-ni-cal,5,4
 confabulation,con-fa-bu-la-tion,5,4
 electromagnet,e-lec-tro-ma-gnet,5,4
 excommunicate,ex-com-mu-ni-cate,5,4
@@ -45524,7 +45523,7 @@ conventioneers,con-ven-tio-neers,5,4
 dehumanization,de-hu-ma-ni-za-tion,5,4
 editorializing,e-di-to-ria-li-zing,5,4
 existentialist,e-xis-ten-tia-li-st,5,4
-individualists,in-di-vi-dua-li-sts,5,4
+individualists,in-di-vi-du-a-lists,5,4
 predictability,pre-dic-ta-bi-li-ty,5,4
 understandings,un-ders-tan-dings,5,4
 conservatories,con-ser-va-to-ries,5,3
@@ -45847,7 +45846,7 @@ dogie,do-gie,4,3
 dovey,do-vey,4,3
 dross,dross,4,3
 ducat,du-cat,4,3
-echos,ec-hos,4,3
+echos,e-chos,4,3
 Ecole,E-cole,4,3
 evert,e-vert,4,3
 fazes,fa-zes,4,3
@@ -46694,7 +46693,7 @@ diarist,dia-rist,4,2
 Diviner,Di-viner,4,2
 dustman,dus-tman,4,2
 footpad,foot-pad,4,2
-foretop,fo-retop,4,2
+foretop,fore-top,4,2
 fruiter,fruiter,4,2
 Galilei,Ga-li-lei,4,2
 Giggler,Giggler,4,2
@@ -47076,7 +47075,7 @@ whatsits,wha-tsits,4,4
 whittler,whittler,4,4
 wintered,win-tered,4,4
 woodcock,wood-cock,4,4
-absolves,a-bsolves,4,3
+absolves,ab-solves,4,3
 acidotic,a-ci-do-tic,4,3
 adrenals,ad-re-nals,4,3
 aflutter,a-flut-ter,4,3
@@ -47093,7 +47092,7 @@ automate,au-to-mate,4,3
 badasses,ba-das-ses,4,3
 Bahamian,Ba-ha-mi-an,4,3
 beaching,beac-hing,4,3
-biopsied,bio-ps-ied,4,3
+biopsied,bi-o-psied,4,3
 Blackies,Blac-kies,4,3
 blowpipe,blow-pipe,4,3
 bodysurf,bo-dy-surf,4,3
@@ -47228,7 +47227,7 @@ embolize,em-bo-lize,4,2
 Endymion,En-dy-mion,4,2
 flatcars,flat-cars,4,2
 Foragers,Fo-ragers,4,2
-foredeck,fo-redeck,4,2
+foredeck,fore-deck,4,2
 garrotte,gar-rotte,4,2
 Haricots,Ha-ri-cots,4,2
 hayseeds,hay-seeds,4,2
@@ -47260,7 +47259,7 @@ Terriers,Ter-ri-ers,4,2
 Thracian,Thra-cian,4,2
 turnoffs,tur-noffs,4,2
 verandah,ve-ran-dah,4,2
-Absolver,A-bsolver,4,1
+Absolver,ab-solver,4,1
 Bedivere,Be-divere,4,1
 Berryman,Ber-ry-man,4,1
 cabstand,cabs-tand,4,1
@@ -47289,7 +47288,7 @@ surnamed,sur-named,4,1
 toilsome,toil-some,4,1
 topcoats,top-coats,4,1
 aborigine,a-bo-ri-gi-ne,4,4
-absentees,a-bsen-tees,4,4
+absentees,ab-sen-tees,4,4
 abstained,abs-tained,4,4
 accosting,ac-cos-ting,4,4
 activator,ac-ti-va-tor,4,4
@@ -47465,14 +47464,14 @@ orneriest,or-ne-ri-est,4,4
 orthodoxy,ort-ho-do-xy,4,4
 outermost,ou-ter-most,4,4
 outranked,ou-tranked,4,4
-outsource,ou-tsource,4,4
+outsource,out-source,4,4
 outstayed,outs-tayed,4,4
 overloads,o-ver-loads,4,4
 overstate,o-vers-tate,4,4
 overusing,o-ve-ru-sing,4,4
 oxygenate,o-xy-ge-nate,4,4
 partaking,par-ta-king,4,4
-Patagonia,Pa-ta-go-n-ia,4,4
+Patagonia,Pa-ta-go-ni-a,4,4
 patroness,pa-tro-ness,4,4
 Pavlovian,Pa-vlo-vi-an,4,4
 pencilled,pen-cilled,4,4
@@ -47590,7 +47589,7 @@ wheelbase,wheel-base,4,4
 whimpered,whimpered,4,4
 widowhood,wi-dow-hood,4,4
 womaniser,wo-ma-niser,4,4
-ablutions,a-blu-tions,4,3
+ablutions,ab-lu-tions,4,3
 abounding,a-boun-ding,4,3
 adornment,a-dorn-ment,4,3
 Aeschylus,Aesc-hy-lus,4,3
@@ -47744,7 +47743,7 @@ varyingly,va-ryin-g-ly,4,2
 warplanes,war-planes,4,2
 Yarmulkes,Yar-mul-kes,4,2
 Yohimbine,Yo-him-bine,4,2
-abrasives,a-bra-sives,4,1
+abrasives,ab-ra-sives,4,1
 Awikiwiki,A-wi-ki-wi-ki,4,1
 boatyards,boa-tyards,4,1
 Bonderman,Bon-der-man,4,1
@@ -47760,7 +47759,7 @@ remitting,re-mit-ting,4,1
 sailorman,sai-lorman,4,1
 Saltgrass,Salt-grass,4,1
 Strickler,Stric-kler,4,1
-abruptness,a-brupt-ness,4,4
+abruptness,ab-rupt-ness,4,4
 affability,af-fa-bi-li-ty,4,4
 alimentary,a-li-men-ta-ry,4,4
 allocating,al-lo-ca-ting,4,4
@@ -47865,7 +47864,7 @@ inseminate,in-se-mi-nate,4,4
 insensible,in-sen-si-ble,4,4
 interfaced,in-terfaced,4,4
 intramural,in-tra-mu-ral,4,4
-invariable,in-va-ria-b-le,4,4
+invariable,in-va-ri-a-ble,4,4
 jackanapes,jac-ka-napes,4,4
 knickknack,knick-knack,4,4
 lampshades,lamps-hades,4,4
@@ -47901,7 +47900,7 @@ nightdress,night-dress,4,4
 nightlight,nigh-tlight,4,4
 observable,o-bser-va-ble,4,4
 outmatched,ou-tmatched,4,4
-outselling,ou-tsel-ling,4,4
+outselling,out-sel-ling,4,4
 overeating,o-ve-rea-ting,4,4
 overpaying,o-ver-pay-ing,4,4
 overpowers,o-verpowers,4,4
@@ -47995,7 +47994,7 @@ untroubled,un-trou-bled,4,4
 unverified,un-ve-ri-fied,4,4
 viewership,vie-wers-hip,4,4
 viewfinder,view-fin-der,4,4
-violinists,vio-li-ni-sts,4,4
+violinists,vi-o-li-nists,4,4
 volatility,vo-la-ti-li-ty,4,4
 wanderlust,wan-der-lust,4,4
 watercress,wa-ter-cress,4,4
@@ -48009,7 +48008,7 @@ admonished,ad-mo-nished,4,3
 Alexanders,A-le-xan-ders,4,3
 autopsying,au-to-psy-ing,4,3
 bandoleers,ban-do-leers,4,3
-biogenetic,bio-ge-ne-tic,4,3
+biogenetic,bi-o-ge-ne-tic,4,3
 cablegrams,ca-ble-grams,4,3
 cardholder,card-hol-der,4,3
 Castellano,Cas-tel-la-no,4,3
@@ -48149,7 +48148,7 @@ antechamber,an-tec-hamber,4,4
 attribution,at-tri-bu-tion,4,4
 backsliding,bac-ksli-ding,4,4
 battlefront,bat-tle-front,4,4
-biochemists,bioc-he-mists,4,4
+biochemists,bi-o-che-mists,4,4
 blasphemers,blas-phemers,4,4
 blaspheming,blas-phe-ming,4,4
 blessedness,bles-sedness,4,4
@@ -48366,7 +48365,7 @@ watchtowers,watch-towers,4,3
 watercolour,wa-tercolour,4,3
 woodcarving,wood-car-ving,4,3
 adjudicator,ad-ju-dicator,4,2
-biogenetics,bio-ge-ne-tics,4,2
+biogenetics,bi-o-ge-ne-tics,4,2
 californium,ca-li-for-nium,4,2
 embolectomy,em-bo-lec-to-my,4,2
 fingerboard,fin-ger-board,4,2
@@ -48480,7 +48479,7 @@ praiseworthy,prai-se-worthy,4,4
 processional,pro-ces-sio-nal,4,4
 profiteroles,pro-fi-te-roles,4,4
 progesterone,pro-ges-te-rone,4,4
-quantifiable,quan-ti-fia-b-le,4,4
+quantifiable,quan-ti-fi-a-ble,4,4
 quintessence,quin-tes-sence,4,4
 reassembling,reas-sem-bl-ing,4,4
 recalibrated,re-ca-li-brated,4,4
@@ -48941,7 +48940,7 @@ zigs,zigs,3,3
 Amar,A-mar,3,2
 Baal,Baal,3,2
 blat,blat,3,2
-Bldg,Bl-d-?-g,3,2
+Bldg,Bl-dg,3,2
 Blub,Blub,3,2
 Brin,Brin,3,2
 Buda,Bu-da,3,2
@@ -49672,8 +49671,8 @@ Willer,Wil-ler,3,2
 yapped,yapped,3,2
 yawing,ya-wing,3,2
 Youngs,Youngs,3,2
-Zinnia,Zin-n-ia,3,2
-abloom,a-bloom,3,1
+Zinnia,Zin-ni-a,3,2
+abloom,ab-loom,3,1
 alders,alders,3,1
 Aliyah,A-liy-ah,3,1
 Argand,Ar-gand,3,1
@@ -49778,7 +49777,7 @@ bemused,be-mused,3,3
 bespoke,bes-poke,3,3
 beveled,be-veled,3,3
 biliary,bi-lia-ry,3,3
-biotics,bio-ti-cs,3,3
+biotics,bi-o-tics,3,3
 blackly,black-ly,3,3
 blading,bla-ding,3,3
 blights,blights,3,3
@@ -49898,9 +49897,9 @@ flexure,fle-xure,3,3
 flitter,flitter,3,3
 flouted,flou-ted,3,3
 fluster,flus-ter,3,3
-flyable,flya-b-le,3,3
+flyable,fly-a-ble,3,3
 foppish,fop-pish,3,3
-foreleg,fo-releg,3,3
+foreleg,fore-leg,3,3
 fowling,fow-ling,3,3
 foxhunt,fox-hunt,3,3
 foxiest,fo-xi-est,3,3
@@ -50020,7 +50019,7 @@ offsets,off-sets,3,3
 osmotic,o-smo-tic,3,3
 outages,ou-ta-ges,3,3
 outdrew,out-drew,3,3
-outsold,ou-tsold,3,3
+outsold,out-sold,3,3
 outtalk,out-talk,3,3
 pabulum,pa-bu-lum,3,3
 palling,pal-ling,3,3
@@ -50074,7 +50073,7 @@ roiling,roi-ling,3,3
 rompers,rompers,3,3
 Royster,Roys-ter,3,3
 rudders,rudders,3,3
-Rumania,Ru-ma-n-ia,3,3
+Rumania,Ru-ma-ni-a,3,3
 rustles,rus-tles,3,3
 sachets,sac-hets,3,3
 Samoans,Sa-moans,3,3
@@ -50392,7 +50391,7 @@ Willers,Wil-lers,3,1
 abdomens,ab-do-mens,3,3
 abjectly,ab-ject-ly,3,3
 abounded,a-boun-ded,3,3
-absorber,a-bsor-ber,3,3
+absorber,ab-sor-ber,3,3
 abstruse,abs-truse,3,3
 acrylics,a-cry-lics,3,3
 actuated,ac-tuated,3,3
@@ -50551,7 +50550,7 @@ farmhand,farm-hand,3,3
 fattened,fat-tened,3,3
 Faustian,Faus-tian,3,3
 finagled,fi-na-gled,3,3
-fireable,fi-rea-b-le,3,3
+fireable,fi-re-a-ble,3,3
 Firebase,Fi-rebase,3,3
 firmware,firm-ware,3,3
 fishpond,fish-pond,3,3
@@ -50564,7 +50563,7 @@ flyovers,flyo-vers,3,3
 focussed,fo-cussed,3,3
 footpads,foot-pads,3,3
 footrace,foo-trace,3,3
-forebear,fo-rebear,3,3
+forebear,fore-bear,3,3
 Forester,Fo-res-ter,3,3
 forsakes,for-sakes,3,3
 forsooth,for-sooth,3,3
@@ -50685,7 +50684,7 @@ Nouvelle,Nou-velle,3,3
 nurturer,nur-tu-rer,3,3
 obsidian,o-bsi-di-an,3,3
 outfight,ou-tfight,3,3
-outsized,ou-tsized,3,3
+outsized,out-sized,3,3
 overages,o-ve-rages,3,3
 overlaps,o-ver-laps,3,3
 overripe,o-ver-ripe,3,3
@@ -50910,7 +50909,7 @@ wrestles,wres-tles,3,3
 Xeroxing,Xe-ro-xing,3,3
 yarmulka,yar-mul-ka,3,3
 zippered,zip-pered,3,3
-ablution,a-blu-tion,3,2
+ablution,ab-lu-tion,3,2
 allergen,al-ler-gen,3,2
 amygdala,a-myg-da-la,3,2
 anaphase,a-na-phase,3,2
@@ -50967,7 +50966,7 @@ fictions,fic-tions,3,2
 fielders,fiel-ders,3,2
 fluorite,fluo-rite,3,2
 footling,foo-tling,3,2
-foreyard,fo-rey-ard,3,2
+foreyard,fore-yard,3,2
 fragging,frag-ging,3,2
 Ganymede,Ga-ny-mede,3,2
 geodesic,geo-de-s-ic,3,2
@@ -51336,7 +51335,7 @@ Fletchers,Fletchers,3,3
 flounders,floun-ders,3,3
 fluttered,flut-tered,3,3
 flyweight,fly-wei-ght,3,3
-forebrain,fo-rebrain,3,3
+forebrain,fore-brain,3,3
 foresters,fo-res-ters,3,3
 fortifies,for-tifies,3,3
 frigidity,fri-gi-di-ty,3,3
@@ -51488,7 +51487,7 @@ pendulous,pen-du-lous,3,3
 penitence,pe-ni-tence,3,3
 pensioned,pen-sioned,3,3
 perjurers,per-jurers,3,3
-permeable,per-mea-b-le,3,3
+permeable,per-me-a-ble,3,3
 pilchards,pilchards,3,3
 pinecones,pi-necones,3,3
 pinpricks,pin-pricks,3,3
@@ -51496,7 +51495,7 @@ poisoners,poi-soners,3,3
 politicos,po-li-ti-cos,3,3
 Polonaise,Po-lo-naise,3,3
 popularly,po-pu-lar-ly,3,3
-postnatal,pos-tna-tal,3,3
+postnatal,post-na-tal,3,3
 postulate,pos-tu-late,3,3
 poundcake,pound-cake,3,3
 precocity,pre-co-ci-ty,3,3
@@ -51788,7 +51787,7 @@ Upsadaisy,U-psa-dai-sy,3,2
 winningly,win-ning-ly,3,2
 yachtsman,yach-tsman,3,2
 zillionth,zil-lionth,3,2
-absinthes,a-bsinthes,3,1
+absinthes,ab-sinthes,3,1
 Afrikaans,A-fri-kaans,3,1
 Aldebaran,Al-de-ba-ran,3,1
 allograft,al-lo-graft,3,1
@@ -52254,13 +52253,13 @@ worshiping,wors-hi-ping,3,3
 xenophobic,xe-no-pho-bic,3,3
 zabaglione,za-ba-glio-ne,3,3
 zigzagging,zi-gzag-ging,3,3
-zoologists,zoo-lo-gi-sts,3,3
+zoologists,zo-o-lo-gists,3,3
 accordions,ac-cor-di-ons,3,2
 agapanthus,a-ga-pant-hus,3,2
 Appaloosas,Ap-pa-loo-sas,3,2
 appointees,ap-poin-tees,3,2
 biannually,bian-nual-ly,3,2
-biometrics,bio-me-tr-ics,3,2
+biometrics,bi-o-me-trics,3,2
 blasphemes,blas-phemes,3,2
 boneshaker,bo-neshaker,3,2
 bootlicker,boo-tlicker,3,2
@@ -52351,7 +52350,7 @@ wholegrain,who-legrain,3,2
 Xenophobia,Xe-no-pho-b-ia,3,2
 Yellowbird,Yel-low-bird,3,2
 Abiogenist,A-bio-ge-nist,3,1
-Absorbtion,A-bsorb-tion,3,1
+Absorbtion,ab-sorb-tion,3,1
 Boatwright,Boa-twright,3,1
 Bolsheviki,Bols-he-vi-ki,3,1
 Catastasis,Ca-tas-ta-sis,3,1
@@ -52689,7 +52688,7 @@ angelically,an-ge-li-cally,3,2
 angiography,an-gio-gra-ph-y,3,2
 antiseptics,an-ti-sep-tics,3,2
 appreciator,ap-pre-cia-tor,3,2
-biographers,bio-gra-phe-rs,3,2
+biographers,bi-o-gra-phers,3,2
 bookkeepers,book-kee-pers,3,2
 bumbershoot,bum-bershoot,3,2
 carabinieri,ca-ra-bi-nie-ri,3,2
@@ -52972,7 +52971,7 @@ vainglorious,vain-glo-rious,3,3
 wastebaskets,was-te-baskets,3,3
 wheelbarrows,wheel-bar-rows,3,3
 whitewashing,whi-te-washing,3,3
-absentminded,a-bsen-tminded,3,2
+absentminded,ab-sen-tminded,3,2
 accumulative,ac-cu-mu-la-tive,3,2
 anaesthetist,a-naest-he-tist,3,2
 belligerency,bel-li-ge-rency,3,2
@@ -52983,7 +52982,7 @@ chloroformed,chlo-ro-formed,3,2
 Chrestomathy,Chres-to-mat-hy,3,2
 chronometric,chro-no-me-tric,3,2
 coelenterata,coe-len-te-rata,3,2
-colonialists,co-lo-nia-li-sts,3,2
+colonialists,co-lo-ni-a-lists,3,2
 commissariat,com-mis-sa-ri-at,3,2
 conciliatory,con-ci-lia-to-ry,3,2
 constriction,cons-tric-tion,3,2
@@ -53006,7 +53005,7 @@ quarterstaff,quar-terstaff,3,2
 recognizably,re-co-gni-zab-ly,3,2
 reintegrated,rein-te-gra-t-ed,3,2
 screwdrivers,screw-dri-vers,3,2
-Sociologists,So-cio-lo-gi-sts,3,2
+Sociologists,So-ci-o-lo-gists,3,2
 spectrometry,spec-tro-me-try,3,2
 thoracostomy,tho-ra-cos-to-my,3,2
 thunderously,thun-de-rously,3,2
@@ -53183,7 +53182,7 @@ spellchecking,spellc-hec-king,3,1
 Streetfighter,Stree-tfighter,3,1
 subordination,sub-or-di-na-tion,3,1
 ambassadorship,am-bas-sa-dors-hip,3,3
-bioengineering,bio-en-gi-nee-ring,3,3
+bioengineering,bi-o-en-gi-nee-ring,3,3
 Bioluminescent,Bio-lu-mi-nes-cent,3,3
 characterizing,cha-rac-te-ri-zing,3,3
 conceptualized,con-cep-tua-lized,3,3
@@ -53329,10 +53328,9 @@ Apr,A-pr,2,2
 ary,a-ry,2,2
 awl,awl,2,2
 blo,blo,2,2
-Ccw,C-c-?-?-w,2,2
 cit,cit,2,2
-Clk,C-l-k,2,2
-Cpd,C-p-d,2,2
+Clk,C-lk,2,2
+Cpd,C-pd,2,2
 dap,dap,2,2
 div,div,2,2
 doz,doz,2,2
@@ -53345,16 +53343,14 @@ Heo,H-eo,2,2
 Hts,H-ts,2,2
 Hye,Hye,2,2
 iba,i-ba,2,2
-iii,ii-?-i,2,2
 imu,i-mu,2,2
 int,int,2,2
 inv,inv,2,2
-Iou,Io-?-u,2,2
+Iou,I-o-u,2,2
 ise,ise,2,2
 iwa,i-wa,2,2
 Kon,Kon,2,2
 lav,lav,2,2
-Lbw,L-b-?-?-w,2,2
 lim,lim,2,2
 lut,lut,2,2
 mcg,m-c-g,2,2
@@ -54108,7 +54104,7 @@ zloty,zlo-ty,2,1
 aahing,aa-hing,2,2
 abates,a-bates,2,2
 abbess,ab-bess,2,2
-ablest,a-blest,2,2
+ablest,ab-lest,2,2
 Acetyl,A-ce-tyl,2,2
 Adders,Adders,2,2
 adepts,a-depts,2,2
@@ -54144,7 +54140,7 @@ Bilder,Bilder,2,2
 bilged,bilged,2,2
 binged,binged,2,2
 binocs,bi-nocs,2,2
-biopic,bio-pic,2,2
+biopic,bi-o-pic,2,2
 bisect,bi-sect,2,2
 bleary,blea-ry,2,2
 blooey,bloo-ey,2,2
@@ -54214,7 +54210,7 @@ debits,de-bits,2,2
 delate,de-late,2,2
 demote,de-mote,2,2
 dexies,de-xies,2,2
-Diable,Dia-b-le,2,2
+Diable,Di-a-ble,2,2
 dialer,dialer,2,2
 didoes,di-does,2,2
 dingly,ding-ly,2,2
@@ -54995,7 +54991,7 @@ denizen,de-ni-zen,2,2
 denuded,de-nu-ded,2,2
 deplane,de-plane,2,2
 deploys,de-ploys,2,2
-derecho,de-rec-ho,2,2
+derecho,de-re-cho,2,2
 Despert,Des-pert,2,2
 despoil,des-poil,2,2
 detoxed,de-toxed,2,2
@@ -55038,7 +55034,7 @@ eschews,esc-hews,2,2
 escuela,es-cue-la,2,2
 espouse,es-pouse,2,2
 esteems,es-teems,2,2
-Eugenia,Eu-ge-n-ia,2,2
+Eugenia,Eu-ge-ni-a,2,2
 evilest,e-vi-lest,2,2
 excrete,ex-crete,2,2
 exhaled,ex-haled,2,2
@@ -55309,9 +55305,9 @@ orotund,o-ro-tund,2,2
 osseous,os-seous,2,2
 outlays,ou-tlays,2,2
 outruns,ou-truns,2,2
-outsell,ou-tsell,2,2
+outsell,out-sell,2,2
 outstay,outs-tay,2,2
-outswim,ou-tswim,2,2
+outswim,out-swim,2,2
 outwork,ou-twork,2,2
 overate,o-verate,2,2
 overbid,o-verbid,2,2
@@ -56180,9 +56176,9 @@ foetuses,foe-tu-ses,2,2
 fogbound,fog-bound,2,2
 foodless,food-less,2,2
 footfall,foo-tfall,2,2
-forelegs,fo-relegs,2,2
-forelock,fo-relock,2,2
-foresail,fo-resail,2,2
+forelegs,fore-legs,2,2
+forelock,fore-lock,2,2
+foresail,fore-sail,2,2
 forested,fo-res-ted,2,2
 forgiver,for-giver,2,2
 formalin,for-ma-lin,2,2
@@ -56651,7 +56647,7 @@ unbought,un-bought,2,2
 uncashed,un-cashed,2,2
 uncaught,un-caught,2,2
 unchaste,unc-haste,2,2
-undoable,un-doa-b-le,2,2
+undoable,un-do-a-ble,2,2
 unemploy,u-nem-ploy,2,2
 unerring,u-ner-ring,2,2
 unevenly,u-ne-ven-ly,2,2
@@ -56731,7 +56727,7 @@ benzenes,ben-zenes,2,1
 Bhandari,Bhan-da-ri,2,1
 bibelots,bi-be-lots,2,1
 Bioassay,Bio-assay,2,1
-biogenic,bio-ge-nic,2,1
+biogenic,bi-o-ge-nic,2,1
 bluffers,bluffers,2,1
 Boodlers,Boodlers,2,1
 brushers,brushers,2,1
@@ -56772,7 +56768,7 @@ dragoman,dra-go-man,2,1
 drowsier,drow-sier,2,1
 duellist,duel-li-st,2,1
 Dutching,Dutc-hing,2,1
-echogram,ec-ho-gram,2,1
+echogram,e-cho-gram,2,1
 Empyrean,Em-py-rean,2,1
 enounced,e-nounced,2,1
 eohippus,eo-hip-p-us,2,1
@@ -56785,7 +56781,7 @@ Farouche,Fa-rouche,2,1
 Ferreiro,Fer-rei-ro,2,1
 flection,flec-tion,2,1
 floorman,floor-man,2,1
-forestay,fo-res-tay,2,1
+forestay,fore-stay,2,1
 franking,fran-king,2,1
 frogfish,fro-gfish,2,1
 Furriers,Fur-ri-ers,2,1
@@ -56919,10 +56915,10 @@ whoopers,whoopers,2,1
 whoreson,who-reson,2,1
 wipeouts,wi-peouts,2,1
 wirehair,wi-rehair,2,1
-Zionists,Zio-ni-sts,2,1
-abridging,a-brid-ging,2,2
-abrogated,a-bro-ga-ted,2,2
-absenting,a-bsen-ting,2,2
+Zionists,Zi-o-nists,2,1
+abridging,ab-rid-ging,2,2
+abrogated,ab-ro-ga-ted,2,2
+absenting,ab-sen-ting,2,2
 accoutred,ac-cou-tred,2,2
 actualize,ac-tua-li-ze,2,2
 adamantly,a-da-mant-ly,2,2
@@ -56982,7 +56978,7 @@ bemoaning,be-moa-ning,2,2
 bestrides,bes-trides,2,2
 bewilders,be-wil-ders,2,2
 bigotries,bi-go-tries,2,2
-biorhythm,bior-hy-thm,2,2
+biorhythm,bi-o-rhy-thm,2,2
 blindworm,blin-dworm,2,2
 blowflies,blow-flies,2,2
 blubbered,blubbered,2,2
@@ -57202,9 +57198,9 @@ followeth,fol-lo-weth,2,2
 fomenting,fo-men-ting,2,2
 foodstuff,foods-tuff,2,2
 forasmuch,fo-ra-smuch,2,2
-forearmed,fo-rearmed,2,2
-forecourt,fo-recourt,2,2
-foretells,fo-retells,2,2
+forearmed,fore-armed,2,2
+forecourt,fore-court,2,2
+foretells,fore-tells,2,2
 formulary,for-mu-la-ry,2,2
 foundered,foun-dered,2,2
 Freudians,Freu-dians,2,2
@@ -57401,7 +57397,7 @@ outfitter,ou-tfit-ter,2,2
 outgrowth,out-growth,2,2
 outpacing,out-pa-cing,2,2
 outscored,outs-cored,2,2
-outsmarts,ou-tsmarts,2,2
+outsmarts,out-smarts,2,2
 outstrips,outs-trips,2,2
 overbuilt,o-ver-built,2,2
 overflown,o-verflown,2,2
@@ -57450,7 +57446,7 @@ polarised,po-larised,2,2
 polluters,pol-lu-ters,2,2
 popinjays,po-pin-jays,2,2
 postdated,post-dated,2,2
-postnasal,pos-tna-sal,2,2
+postnasal,post-na-sal,2,2
 postpones,post-pones,2,2
 potations,po-ta-tions,2,2
 predigest,pre-di-gest,2,2
@@ -57490,7 +57486,7 @@ recontact,re-con-tact,2,2
 redefines,re-de-fines,2,2
 redlining,re-dli-ning,2,2
 reductive,re-duc-tive,2,2
-reenlists,reen-li-sts,2,2
+reenlists,re-en-lists,2,2
 reformist,re-for-mist,2,2
 refunding,re-fun-ding,2,2
 reinstall,reins-ta-ll,2,2
@@ -57852,7 +57848,7 @@ pikestaff,pi-kestaff,2,1
 plenitude,ple-ni-tude,2,1
 pluralise,plu-ra-lise,2,1
 polygonal,po-ly-go-nal,2,1
-postrider,pos-trider,2,1
+postrider,post-rider,2,1
 prewashed,pre-washed,2,1
 Ptolemaic,Pto-le-ma-ic,2,1
 putterers,put-terers,2,1
@@ -57962,8 +57958,8 @@ bemusement,be-mu-sement,2,2
 beseeching,be-seec-hing,2,2
 besmirched,be-smirched,2,2
 bifurcated,bi-fur-ca-ted,2,2
-biophysics,bio-phy-si-cs,2,2
-bioplasmic,bio-pla-sm-ic,2,2
+biophysics,bi-o-phy-sics,2,2
+bioplasmic,bi-o-plas-mic,2,2
 birdbrains,bird-brains,2,2
 blacksnake,blac-ksnake,2,2
 Blanquette,Blan-quette,2,2
@@ -58112,7 +58108,7 @@ Floridians,Flo-ri-di-ans,2,2
 fluoresces,fluo-res-ces,2,2
 flyswatter,fly-swatter,2,2
 forecloses,fo-re-closes,2,2
-foredoomed,fo-redoomed,2,2
+foredoomed,fore-doomed,2,2
 fortissimo,for-tis-si-mo,2,2
 freelanced,free-lanced,2,2
 freelances,free-lan-ces,2,2
@@ -58188,7 +58184,7 @@ intrastate,in-tras-tate,2,2
 intrepidly,in-tre-pid-ly,2,2
 invariance,in-va-rian-ce,2,2
 inveterate,in-ve-te-rate,2,2
-inviolable,in-vio-la-b-le,2,2
+inviolable,in-vio-l-a-ble,2,2
 isocyanate,i-so-cya-na-te,2,2
 iterations,i-te-ra-tions,2,2
 jackstraws,jacks-traws,2,2
@@ -58327,7 +58323,7 @@ populating,po-pu-la-ting,2,2
 portrayals,por-tray-als,2,2
 possessory,pos-ses-sory,2,2
 postcoital,post-coi-tal,2,2
-posteriori,pos-te-rio-r-?-i,2,2
+posteriori,pos-te-ri-o-ri,2,2
 poulterers,poul-terers,2,2
 prearrange,prear-ran-ge,2,2
 preferment,pre-fer-ment,2,2
@@ -58608,7 +58604,7 @@ felicitate,fe-li-citate,2,1
 floodplain,flood-plain,2,1
 floribunda,flo-ri-bun-da,2,1
 flycatcher,fly-catc-her,2,1
-foresheets,fo-resheets,2,1
+foresheets,fore-sheets,2,1
 formatting,for-mat-ting,2,1
 Fourierism,Fou-rie-ri-sm,2,1
 frangipani,fran-gi-pa-ni,2,1
@@ -58727,8 +58723,8 @@ barbiturate,bar-bi-tu-rate,2,2
 beauticians,bea-u-ticians,2,2
 benefactory,be-ne-fac-tory,2,2
 bewitchment,be-witc-hment,2,2
-biophysical,bio-phy-si-cal,2,2
-bisexuality,bi-se-xua-li-t-y,2,2
+biophysical,bi-o-phy-si-cal,2,2
+bisexuality,bi-se-xu-a-li-ty,2,2
 blasphemies,blas-phe-mies,2,2
 blindsiding,blin-dsi-ding,2,2
 blueprinted,blue-printed,2,2
@@ -58870,7 +58866,7 @@ fluorescein,fluo-res-cein,2,2
 footslogger,foo-tslogger,2,2
 forecasters,fo-re-casters,2,2
 forefingers,fo-re-fingers,2,2
-forestalled,fo-restalled,2,2
+forestalled,fore-stalled,2,2
 fortnightly,for-tnight-ly,2,2
 fragmentary,fra-gmen-ta-ry,2,2
 fragmenting,fra-gmen-ting,2,2
@@ -59054,7 +59050,7 @@ pontificate,pon-ti-fi-cate,2,2
 popularised,po-pu-la-rised,2,2
 popularized,po-pu-la-rized,2,2
 portmanteau,por-tman-teau,2,2
-postmortems,pos-tmortems,2,2
+postmortems,post-mortems,2,2
 powermonger,po-wermonger,2,2
 preassigned,preas-si-gned,2,2
 predication,pre-di-ca-tion,2,2
@@ -59224,7 +59220,7 @@ Albatrosses,Al-ba-tros-ses,2,1
 alternation,al-ter-na-tion,2,1
 amyloidosis,a-my-loi-do-sis,2,1
 antiquarian,an-ti-qua-rian,2,1
-assimilable,as-si-mi-la-b-le,2,1
+assimilable,as-si-mi-l-a-ble,2,1
 Attenuation,At-te-nua-tion,2,1
 autogenesis,au-to-ge-ne-sis,2,1
 backhanding,back-han-ding,2,1
@@ -59270,7 +59266,7 @@ lithosphere,lit-hos-phere,2,1
 malignantly,ma-li-gnant-ly,2,1
 malrotation,mal-ro-ta-tion,2,1
 marchioness,marc-hio-ness,2,1
-mediastinum,me-dias-ti-n-um,2,1
+mediastinum,me-di-as-ti-num,2,1
 Megatherium,Me-gat-he-ri-um,2,1
 miserliness,mi-ser-liness,2,1
 modernistic,mo-der-nistic,2,1
@@ -59336,7 +59332,7 @@ barnstormers,barns-tormers,2,2
 beachcombers,beach-combers,2,2
 behaviorally,be-ha-vio-ral-ly,2,2
 beneficially,be-ne-fi-cial-ly,2,2
-biodiversity,bio-di-ver-si-t-y,2,2
+biodiversity,bi-o-di-ver-si-ty,2,2
 blindfolding,blin-dfol-ding,2,2
 boisterously,bois-te-rously,2,2
 boulevardier,bou-levardier,2,2
@@ -59359,7 +59355,7 @@ clotheshorse,clot-heshorse,2,2
 clotheslines,clot-heslines,2,2
 codependency,co-de-pen-den-cy,2,2
 cohabitation,co-ha-bi-ta-tion,2,2
-coincidently,coin-ci-den-t-ly,2,2
+coincidently,co-in-ci-dent-ly,2,2
 collaborates,col-la-bo-rates,2,2
 collywobbles,col-ly-wob-bles,2,2
 commemorates,com-me-mo-rates,2,2
@@ -59430,7 +59426,7 @@ exhaustively,ex-haus-tive-ly,2,2
 Expansionism,Ex-pan-sio-ni-sm,2,2
 experimenter,ex-pe-ri-men-ter,2,2
 expositional,ex-po-si-tio-nal,2,2
-expropriated,ex-pro-pria-t-ed,2,2
+expropriated,ex-pro-pri-a-ted,2,2
 fainthearted,faint-hear-ted,2,2
 fearlessness,fear-less-ness,2,2
 feminization,fe-mi-ni-zation,2,2
@@ -59492,8 +59488,8 @@ Microsystems,Mi-cro-sys-tems,2,2
 midafternoon,mi-daf-ter-noon,2,2
 miniaturised,mi-nia-turised,2,2
 miscalculate,mis-cal-cu-late,2,2
-misdiagnoses,mis-dia-gno-s-es,2,2
-misdiagnosis,mis-dia-gno-s-is,2,2
+misdiagnoses,mis-di-ag-no-ses,2,2
+misdiagnosis,mis-di-ag-no-sis,2,2
 misdirecting,mis-di-recting,2,2
 mitochondria,mi-toc-hon-dria,2,2
 monofilament,mo-no-fi-la-ment,2,2
@@ -59510,7 +59506,7 @@ obliterating,o-bli-te-ra-ting,2,2
 orchestrates,orc-hes-trates,2,2
 orthodontics,ort-ho-don-tics,2,2
 orthopedists,ort-ho-pe-dists,2,2
-osteosarcoma,os-teo-sar-co-m-a,2,2
+osteosarcoma,os-te-o-sar-co-ma,2,2
 otosclerosis,o-tos-cle-ro-sis,2,2
 outcroppings,out-crop-pings,2,2
 outstandings,outs-tan-dings,2,2
@@ -59528,7 +59524,7 @@ perturbation,per-tur-ba-tion,2,2
 philanderers,phi-lan-derers,2,2
 photocopying,pho-to-co-py-ing,2,2
 pocketknives,poc-ket-knives,2,2
-postmeridian,pos-tme-ridian,2,2
+postmeridian,post-me-ridian,2,2
 praseodymium,pra-seo-dy-mium,2,2
 preciousness,pre-cious-ness,2,2
 precognitive,pre-co-gni-tive,2,2
@@ -59555,9 +59551,9 @@ reconfigures,re-con-fi-gures,2,2
 reconversion,re-con-ver-sion,2,2
 redefinition,re-de-fi-ni-tion,2,2
 reductionist,re-duc-tio-nist,2,2
-reexperience,reex-pe-rien-c-e,2,2
+reexperience,re-ex-pe-ri-ence,2,2
 refashioning,re-fas-hio-ning,2,2
-reintroduces,rein-tro-du-c-es,2,2
+reintroduces,re-in-tro-du-ces,2,2
 relativistic,re-la-ti-vis-tic,2,2
 remembrancer,re-mem-brancer,2,2
 remembrances,re-mem-bran-ces,2,2
@@ -59637,7 +59633,7 @@ unstructured,uns-truc-tured,2,2
 unthreatened,unt-hrea-tened,2,2
 weatherproof,weat-her-proof,2,2
 wretchedness,wretc-hedness,2,2
-abrasiveness,a-bra-sive-ness,2,1
+abrasiveness,ab-ra-sive-ness,2,1
 Agoraphobiac,A-go-ra-pho-biac,2,1
 anesthetists,a-nest-he-tists,2,1
 backwoodsmen,bac-kwoo-dsmen,2,1
@@ -59806,11 +59802,11 @@ paterfamilias,pa-ter-fa-milias,2,2
 patriotically,pa-trio-ti-cally,2,2
 pentobarbital,pen-to-bar-bi-tal,2,2
 periumbilical,pe-rium-bi-li-c-al,2,2
-physiologists,phy-sio-lo-gi-sts,2,2
-physiotherapy,phy-siot-he-ra-p-y,2,2
-picturesquely,pic-tu-resquely,2,2
+physiologists,phy-si-o-lo-gists,2,2
+physiotherapy,phy-si-o-the-ra-py,2,2
+picturesquely,pic-tures-quely,2,2
 postdoctorate,post-doc-torate,2,2
-postmodernist,pos-tmo-dernist,2,2
+postmodernist,post-mo-dernist,2,2
 prehistorical,pre-his-to-ri-cal,2,2
 preindustrial,prein-dus-tr-i-al,2,2
 preperitoneal,pre-pe-ri-to-neal,2,2
@@ -59958,7 +59954,7 @@ disfigurements,dis-fi-gu-rements,2,2
 disgustingness,dis-gus-ting-ness,2,2
 disinclination,di-sin-cli-na-tion,2,2
 disintegrators,di-sin-te-grators,2,2
-echocardiogram,ec-ho-car-dio-gr-am,2,2
+echocardiogram,e-cho-car-di-o-gram,2,2
 editorialising,e-di-to-ria-li-sing,2,2
 featherweights,feat-her-weights,2,2
 forthrightness,fort-hright-ness,2,2
@@ -59997,7 +59993,7 @@ persuasiveness,per-sua-sive-ness,2,2
 philosophizing,phi-lo-so-phi-zing,2,2
 photogrammetry,pho-to-gram-me-t-ry,2,2
 photosensitive,pho-to-sen-si-tive,2,2
-Postmodernists,Pos-tmo-dernists,2,2
+Postmodernists,Post-mo-dernists,2,2
 prearrangement,prear-ran-ge-ment,2,2
 predestination,pre-des-ti-na-tion,2,2
 preferentially,pre-fe-ren-tial-ly,2,2
