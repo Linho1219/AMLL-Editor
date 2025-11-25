@@ -1,5 +1,6 @@
 import { useAudioCtrl } from '@/utils/audio'
 import type { LyricLine, LyricWord } from './core'
+import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 
 const staticStore = {
   lineHooks: new Map<string, LineComponentActions>(),
@@ -11,6 +12,7 @@ const staticStore = {
   touchLineWord,
   touchLineOnly,
   touchClear,
+  scrollToHook: null as null | ScrollTo,
 }
 
 export const useStaticStore = () => staticStore
@@ -37,3 +39,5 @@ function touchClear() {
   staticStore.lastTouchedLine = null
   staticStore.lastTouchedWord = null
 }
+
+type ScrollTo = (index: number, options?: ScrollToIndexOpts) => void

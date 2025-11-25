@@ -28,11 +28,12 @@ import { useCoreStore, type LyricLine, type LyricWord } from '@/stores/core'
 import { VList } from 'virtua/vue'
 import Line from './TimingLine.vue'
 import Word from './TimingWord.vue'
-import { onMounted, useTemplateRef } from 'vue'
+import { onMounted, onUnmounted, useTemplateRef } from 'vue'
 import { useRuntimeStore } from '@/stores/runtime'
 import { useGlobalKeyboard } from '@/utils/hotkey'
 import { useStaticStore } from '@/stores/static'
 import { usePreferenceStore } from '@/stores/preference'
+import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()
@@ -49,6 +50,15 @@ onMounted(() => {
     const lineIndex = coreStore.lyricLines.indexOf(firstLine)
     if (lineIndex !== -1) handleScrollTo(lineIndex)
   }
+})
+onMounted(() => {
+  const scrollToHook = (index: number, options?: ScrollToIndexOpts) => {
+    vscroll.value?.scrollToIndex(index, options)
+  }
+  staticStore.scrollToHook = scrollToHook
+  onUnmounted(() => {
+    if (staticStore.scrollToHook === scrollToHook) staticStore.scrollToHook = null
+  })
 })
 
 const shouldIgnore = (line: LyricLine) =>

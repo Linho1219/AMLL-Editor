@@ -12,6 +12,8 @@ import 'primeicons/primeicons.css'
 import '@/styles/common.scss'
 import '@/styles/fonts/index.scss'
 
+import FocusTrap from 'primevue/focustrap'
+
 const app = createApp(App)
 
 app.use(createPinia())
@@ -42,5 +44,7 @@ app.use(FloatingVue, {
     },
   },
 })
+
+app.directive('focustrap', FocusTrap)
 
 app.mount('#app')

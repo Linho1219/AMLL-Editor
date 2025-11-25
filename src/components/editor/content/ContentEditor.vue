@@ -54,7 +54,7 @@ import Line from './ContentLine.vue'
 import { useRuntimeStore } from '@/stores/runtime'
 import Word from './ContentWord.vue'
 import { Button, ContextMenu } from 'primevue'
-import { computed, nextTick, onMounted, onUnmounted, ref, shallowRef, useTemplateRef } from 'vue'
+import { nextTick, onMounted, onUnmounted, shallowRef, useTemplateRef } from 'vue'
 import { forceOutsideBlur } from '@/utils/selection'
 import WordInsertIndicator from './WordInsertIndicator.vue'
 import LineInsertIndicator from './LineInsertIndicator.vue'
@@ -63,6 +63,7 @@ import type { MenuItem } from 'primevue/menuitem'
 import { useStaticStore } from '@/stores/static'
 import { VList } from 'virtua/vue'
 import { useGlobalKeyboard } from '@/utils/hotkey'
+import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()
@@ -287,6 +288,15 @@ onMounted(() => {
   const firstLine = runtimeStore.getFirstSelectedLine()!
   const lineIndex = coreStore.lyricLines.indexOf(firstLine)
   if (lineIndex !== -1) handleScrollTo(lineIndex)
+})
+onMounted(() => {
+  const scrollToHook = (index: number, options?: ScrollToIndexOpts) => {
+    vscroll.value?.scrollToIndex(index, options)
+  }
+  staticStore.scrollToHook = scrollToHook
+  onUnmounted(() => {
+    if (staticStore.scrollToHook === scrollToHook) staticStore.scrollToHook = null
+  })
 })
 </script>
 

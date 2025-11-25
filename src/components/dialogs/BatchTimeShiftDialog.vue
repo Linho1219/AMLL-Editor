@@ -1,6 +1,6 @@
 <template>
   <Dialog class="thin-padding" v-model:visible="visible" header="批量时移">
-    <div class="timeshift-content">
+    <div class="timeshift-content" v-focustrap>
       <div class="timeshift-description">推迟为正，提前为负</div>
       <InputNumber
         v-model="shiftMs"
