@@ -173,7 +173,7 @@ feeling: fee-ling
 wonderful: won-der-ful
 country: coun-try
 Jesus: Je-sus
-able: a-ble
+able: ab-le
 perfect: per-fect
 shouldn: shoul-dn
 running: run-ning
@@ -3384,7 +3384,7 @@ domestic: do-mes-tic
 teenager: tee-na-ger
 currently: cur-rent-ly
 Nazi: Na-zi
-Echo: Ec-ho
+Echo: E-cho
 eager: ea-ger
 messy: mes-sy
 sorrow: sor-row
@@ -3607,7 +3607,7 @@ underwater: un-der-wa-ter
 Connecticut: Con-nec-ti-cut
 tasty: tas-ty
 hairy: hai-ry
-absence: a-bsence
+absence: ab-sence
 Webster: Webs-ter
 shipping: ship-ping
 shipment: shi-pment
@@ -4187,7 +4187,7 @@ Ana: A-na
 buyer: buy-er
 untie: un-tie
 slower: slo-wer
-Abraham: A-bra-ham
+Abraham: ab-ra-ham
 fugitive: fu-gi-tive
 fracture: frac-ture
 Boulevard: Bou-le-vard
@@ -4374,7 +4374,7 @@ overwhelming: o-verw-hel-ming
 Utah: U-tah
 toxic: to-xic
 biting: bi-ting
-abroad: a-broad
+abroad: ab-road
 weasel: wea-sel
 rebels: re-bels
 biology: bio-lo-g-y
@@ -5673,7 +5673,7 @@ abdominal: ab-do-mi-nal
 precaution: pre-cau-tion
 negotiations: ne-go-ti-a-tions
 merit: me-rit
-flyer: fl-yer
+flyer: fly-er
 savior: sa-vior
 arrows: ar-rows
 opener: o-pe-ner
@@ -5694,9 +5694,9 @@ Partridge: Par-tridge
 optimistic: op-ti-mis-tic
 dedication: de-di-ca-tion
 collateral: col-la-te-ral
-appointments: ap-poin-tments
+appointments: ap-point-ments
 Ivy: I-vy
-Abner: A-bner
+Abner: Ab-ner
 rattle: rat-tle
 rebuild: re-build
 dripping: drip-ping
@@ -6338,7 +6338,7 @@ doubles: dou-bles
 cabbage: cab-bage
 Doggone: Dog-gone
 Beckett: Bec-kett
-abnormal: a-bnor-mal
+abnormal: ab-nor-mal
 underway: un-der-way
 socially: so-cial-ly
 overlook: o-ver-look
@@ -6887,7 +6887,7 @@ aging: a-ging
 ulcer: ul-cer
 ninja: nin-ja
 juror: ju-ror
-absent: a-bsent
+absent: ab-sent
 loudly: loud-ly
 teller: tel-ler
 gaming: ga-ming
@@ -6904,7 +6904,7 @@ dungeon: dun-geon
 jogging: jog-ging
 tenants: te-nants
 cubicle: cu-bi-cle
-echoing: ec-ho-ing
+echoing: e-cho-ing
 Emerald: E-merald
 Panther: Pant-her
 Matilda: Ma-til-da
@@ -8188,7 +8188,7 @@ loco: lo-co
 Paco: Pa-co
 Buick: Bu-ick
 Emory: E-mo-ry
-absorb: a-bsorb
+absorb: ab-sorb
 messin: mes-sin
 boxers: bo-xers
 periods: pe-ri-ods
@@ -9729,7 +9729,7 @@ Hamburg: Ham-burg
 Ballard: Bal-lard
 reflects: re-flects
 optimist: op-ti-mist
-absorbed: a-bsorbed
+absorbed: ab-sorbed
 hellhole: hell-hole
 restrain: res-train
 grownups: grow-nups
@@ -10764,7 +10764,7 @@ uncool: un-cool
 herpes: her-pes
 cycles: cy-cles
 medics: me-dics
-echoes: ec-hoes
+echoes: e-choes
 sewers: se-wers
 ration: ra-tion
 turban: tur-ban
@@ -11639,7 +11639,7 @@ regal: re-gal
 Chile: Chi-le
 Salud: Sa-lud
 Sutra: Su-tra
-abrupt: a-brupt
+abrupt: ab-rupt
 rustle: rus-tle
 primal: pri-mal
 alleys: al-leys
@@ -11994,7 +11994,7 @@ momentary: mo-men-ta-ry
 offending: of-fen-ding
 severance: se-verance
 vanishing: va-nis-hing
-abrasions: a-bra-sions
+abrasions: ab-ra-sions
 scapegoat: sca-pegoat
 implicate: im-pli-cate
 populated: po-pu-la-ted
@@ -12436,7 +12436,7 @@ trafficking: traf-fic-king
 Revelations: Re-ve-la-tions
 holographic: ho-lo-gra-phic
 Bakersfield: Ba-kers-field
-Abracadabra: A-bra-ca-da-bra
+Abracadabra: ab-ra-ca-da-bra
 anticipating: an-ti-ci-pa-ting
 tremendously: tre-men-dous-ly
 interrogated: in-ter-ro-ga-ted
@@ -13176,7 +13176,7 @@ infinitely: in-fi-nite-ly
 succession: suc-ces-sion
 demolished: de-mo-lished
 variations: va-ria-tions
-absolution: a-bso-lu-tion
+absolution: ab-so-lu-tion
 contraband: con-tra-band
 correspond: cor-res-pond
 astonished: as-to-nished
@@ -13632,7 +13632,7 @@ Odyssey: O-dys-sey
 Spinner: Spin-ner
 Iceland: I-celand
 Signior: Si-gnior
-abruptly: a-brupt-ly
+abruptly: ab-rupt-ly
 cramping: cram-ping
 cleverly: cle-ver-ly
 dictated: dic-ta-ted
@@ -15188,7 +15188,7 @@ circumference: cir-cum-ference
 metaphorically: me-ta-pho-ri-cally
 respectability: res-pec-ta-bi-li-ty
 malfunctioning: mal-func-tio-ning
-Czechoslovakia: Czec-ho-slo-va-k-ia
+Czechoslovakia: Cze-cho-slo-va-ki-a
 disappointments: di-sap-poin-tments
 Cl: /
 rt: /
@@ -16591,7 +16591,7 @@ castaway: cas-ta-way
 exceeding: ex-cee-ding
 inscribed: ins-cribed
 radically: ra-di-cally
-absurdity: a-bsur-di-ty
+absurdity: ab-sur-di-ty
 combining: com-bi-ning
 offerings: of-ferings
 massaging: mas-sa-ging
@@ -17424,7 +17424,7 @@ mastery: mas-te-ry
 overlap: o-ver-lap
 saloons: sa-loons
 sissies: sis-sies
-absolve: a-bsolve
+absolve: ab-solve
 attends: at-tends
 ejected: e-jec-ted
 fasting: fas-ting
@@ -17461,7 +17461,7 @@ Ophelia: O-phe-lia
 Hayward: Hay-ward
 Ephraim: E-phraim
 Denning: Den-ning
-Abraxas: A-bra-xas
+Abraxas: ab-ra-xas
 Diavolo: Dia-vo-l-o
 bannock: ban-nock
 Tsurugi: Tsu-ru-gi
@@ -17848,7 +17848,7 @@ vouchers: vouc-hers
 Mongolia: Mon-go-lia
 saboteur: sa-bo-teur
 syllabus: syl-la-bus
-absinthe: a-bsinthe
+absinthe: ab-sinthe
 Firebird: Fi-re-bird
 tadpoles: tad-poles
 Nigerian: Ni-ge-ri-an
@@ -18409,7 +18409,7 @@ Callan: Cal-lan
 employs: em-ploys
 royally: roy-al-ly
 sizable: si-za-ble
-abreast: a-breast
+abreast: ab-reast
 admires: ad-mires
 beefing: bee-fing
 hitters: hit-ters
@@ -18647,7 +18647,7 @@ concealment: con-ceal-ment
 hillbillies: hill-bil-lies
 reconfigure: re-con-fi-gure
 restriction: res-tric-tion
-abnormality: a-bnor-ma-li-ty
+abnormality: ab-nor-ma-li-ty
 antiquities: an-ti-qui-ties
 imperialist: im-pe-ria-li-st
 foreclosure: fo-re-closure
@@ -18754,7 +18754,7 @@ Linder: Lin-der
 Zander: Zan-der
 Cygnus: Cy-gnus
 Alexia: A-le-x-ia
-absorbs: a-bsorbs
+absorbs: ab-sorbs
 battled: bat-tled
 cleanly: clean-ly
 erupted: e-rup-ted
@@ -19049,7 +19049,7 @@ businesswoman: bu-si-nes-swoman
 realistically: rea-lis-ti-cal-ly
 indescribable: in-des-cri-ba-ble
 refrigerators: re-fri-ge-ra-tors
-abnormalities: a-bnor-ma-li-ties
+abnormalities: ab-nor-ma-li-ties
 probabilities: pro-ba-bi-li-ties
 thunderstorms: thun-ders-torms
 transgression: trans-gres-sion
@@ -19636,7 +19636,7 @@ hurtling: hur-tling
 replaces: re-pla-ces
 seething: seet-hing
 warlords: war-lords
-abrasive: a-bra-sive
+abrasive: ab-ra-sive
 astonish: as-to-nish
 bareback: ba-reback
 conveyed: con-veyed
@@ -19720,7 +19720,7 @@ reassured: reas-su-red
 recession: re-ces-sion
 signifies: si-gni-fies
 softening: sof-tening
-absorbing: a-bsor-bing
+absorbing: ab-sor-bing
 appraised: ap-praised
 dreamland: dream-land
 economies: e-co-no-mies
@@ -20373,7 +20373,7 @@ nuance: nuan-ce
 orally: o-ral-ly
 outbid: out-bid
 untidy: un-ti-dy
-ablaze: a-blaze
+ablaze: ab-laze
 baggie: bag-gie
 catnip: ca-tnip
 depose: de-pose
@@ -20664,7 +20664,7 @@ inception: in-cep-tion
 pocketful: poc-ket-ful
 stockpile: stock-pile
 womanizer: wo-ma-ni-zer
-absolutes: a-bso-lutes
+absolutes: ab-so-lutes
 discounts: dis-counts
 genealogy: ge-nea-lo-g-y
 resenting: re-sen-ting
@@ -21219,7 +21219,7 @@ pretenders: pre-ten-ders
 resurfaced: re-sur-faced
 selections: se-lec-tions
 suspending: sus-pen-ding
-abnormally: a-bnor-mal-ly
+abnormally: ab-nor-mal-ly
 cautiously: cau-tious-ly
 diminutive: di-mi-nu-tive
 escalation: es-ca-la-tion
@@ -22051,7 +22051,7 @@ sunbeam: sun-beam
 Liberia: Li-be-r-ia
 Shriver: Shri-ver
 Bluejay: Blue-jay
-absentee: a-bsen-tee
+absentee: ab-sen-tee
 alerting: a-ler-ting
 escapade: es-ca-pade
 facedown: fa-cedown
@@ -22100,7 +22100,7 @@ snacking: snac-king
 telltale: tell-tale
 unleaded: un-lea-ded
 untoward: un-to-ward
-abrasion: a-bra-sion
+abrasion: ab-ra-sion
 bassinet: bas-si-net
 buckling: buc-kling
 coolness: cool-ness
@@ -22256,7 +22256,7 @@ gratuitous: gra-tui-t-ous
 liquidated: li-qui-da-ted
 ruthlessly: rut-hless-ly
 ultimatums: ul-ti-ma-tums
-absorption: a-bsorp-tion
+absorption: ab-sorp-tion
 cathedrals: cat-he-drals
 cautionary: cau-tio-na-ry
 elasticity: e-las-ti-ci-ty
@@ -22937,7 +22937,7 @@ interrogations: in-ter-ro-ga-tions
 paleontologist: pa-leon-to-lo-gi-st
 preconceptions: pre-con-cep-tions
 physiologically: phy-sio-lo-gi-cal-ly
-Czechoslovakian: Czec-ho-slo-va-ki-an
+Czechoslovakian: Cze-cho-slo-va-ki-an
 cinematographer: ci-ne-ma-to-gra-pher
 procrastination: pro-cras-ti-na-tion
 multimillionaire: mul-ti-mil-lio-naire
@@ -23816,8 +23816,8 @@ Consarn: Con-sarn
 Vermeil: Ver-meil
 Octonal: Oc-to-nal
 Shippen: Ship-pen
-absolved: a-bsolved
-absurdly: a-bsurd-ly
+absolved: ab-solved
+absurdly: ab-surd-ly
 baffling: baf-fling
 beholder: be-hol-der
 chugging: chug-ging
@@ -24577,7 +24577,7 @@ synopsis: sy-no-psis
 treetops: tree-tops
 trembles: trem-bles
 wingding: wing-ding
-absences: a-bsen-ces
+absences: ab-sen-ces
 amniotic: am-nio-t-ic
 baguette: ba-guette
 brothels: brot-hels
@@ -25088,7 +25088,7 @@ Pueblo: Pue-blo
 rhinos: rhi-nos
 Texaco: Te-xa-co
 witchy: witc-hy
-echoed: ec-hoed
+echoed: e-choed
 fatale: fa-tale
 Loring: Lo-ring
 Masons: Ma-sons
@@ -29279,7 +29279,7 @@ uplinked: u-plinked
 visceral: vis-ce-ral
 vitreous: vi-tre-ous
 worsened: wor-sened
-absentia: a-bsen-tia
+absentia: ab-sen-tia
 apoplexy: a-po-ple-xy
 appeased: ap-peased
 awarding: a-war-ding
@@ -29369,7 +29369,7 @@ typeface: ty-peface
 unburned: un-burned
 walleyed: wal-leyed
 watchmen: watc-hmen
-abridged: a-bridged
+abridged: ab-ridged
 baptisms: bap-ti-sms
 basilica: ba-si-li-ca
 canoeing: ca-noe-ing
@@ -30732,7 +30732,7 @@ shakiest: sha-ki-est
 Shoveler: Sho-veler
 Spindler: Spin-dler
 Virgilia: Vir-gi-lia
-absorbent: a-bsor-bent
+absorbent: ab-sor-bent
 acclimate: ac-cli-mate
 affording: af-for-ding
 alleyways: al-ley-ways
@@ -30877,7 +30877,7 @@ trombones: trom-bones
 Unitarian: U-ni-ta-ri-an
 visualise: vi-sua-li-se
 worshiper: wors-hi-per
-absorbers: a-bsor-bers
+absorbers: ab-sor-bers
 Airstream: Airs-tream
 Britisher: Bri-tisher
 Byzantium: By-zan-ti-um
@@ -33946,7 +33946,7 @@ windswept: win-dswept
 wordsmith: wor-dsmith
 wrappings: wrap-pings
 Zeitgeist: Zeit-geist
-abruption: a-brup-tion
+abruption: ab-rup-tion
 Acropolis: A-cro-po-lis
 archetype: arc-he-type
 avuncular: a-vun-cu-lar
@@ -34371,7 +34371,7 @@ superduper: su-perduper
 Chocaholic: Cho-ca-ho-lic
 Lachrymose: Lac-hry-mose
 spermaceti: sper-ma-ce-ti
-absurdities: a-bsur-di-ties
+absurdities: ab-sur-di-ties
 acupressure: a-cu-pressure
 administers: ad-mi-nis-ters
 Amalgamated: A-mal-ga-ma-ted
@@ -35129,7 +35129,7 @@ Skyman: Sky-man
 Thetis: The-tis
 Tricon: Tri-con
 Vining: Vi-ning
-abraded: a-braded
+abraded: ab-raded
 abscond: abs-cond
 adjoins: ad-joins
 adverbs: ad-verbs
@@ -35886,7 +35886,7 @@ Smelters: Smel-ters
 tinplate: tin-plate
 viatical: via-ti-c-al
 absconded: abs-conded
-absolving: a-bsol-ving
+absolving: ab-sol-ving
 advisedly: ad-vi-sed-ly
 aftercare: af-tercare
 allowable: al-lo-wa-ble
@@ -36538,7 +36538,7 @@ maintainer: main-tainer
 proselyted: pro-selyted
 Turtleback: Tur-tle-back
 yardmaster: yar-dmaster
-absenteeism: a-bsen-tee-i-sm
+absenteeism: ab-sen-tee-i-sm
 accelerates: ac-ce-le-rates
 aficionados: a-fi-cio-na-dos
 alphabetize: al-pha-be-tize
@@ -36814,7 +36814,7 @@ decommission: de-com-mis-sion
 demonstrable: de-mons-tra-ble
 deteriorates: de-te-rio-ra-tes
 disembarking: di-sem-bar-king
-echolocation: ec-ho-lo-ca-tion
+echolocation: e-cho-lo-ca-tion
 eviscerating: e-vis-ce-ra-ting
 facilitators: fa-ci-li-ta-tors
 fibrillating: fi-bril-la-ting
@@ -37114,7 +37114,7 @@ cotta: cot-ta
 dogie: do-gie
 dovey: do-vey
 ducat: du-cat
-echos: ec-hos
+echos: e-chos
 Ecole: E-cole
 evert: e-vert
 fazes: fa-zes
@@ -38134,7 +38134,7 @@ whatnots: wha-tnots
 whatsits: wha-tsits
 wintered: win-tered
 woodcock: wood-cock
-absolves: a-bsolves
+absolves: ab-solves
 acidotic: a-ci-do-tic
 adrenals: ad-re-nals
 aflutter: a-flut-ter
@@ -38301,7 +38301,7 @@ Terriers: Ter-ri-ers
 Thracian: Thra-cian
 turnoffs: tur-noffs
 verandah: ve-ran-dah
-Absolver: A-bsolver
+Absolver: ab-solver
 Bedivere: Be-divere
 Berryman: Ber-ry-man
 cabstand: cabs-tand
@@ -38327,7 +38327,7 @@ surnamed: sur-named
 toilsome: toil-some
 topcoats: top-coats
 aborigine: a-bo-ri-gi-ne
-absentees: a-bsen-tees
+absentees: ab-sen-tees
 abstained: abs-tained
 accosting: ac-cos-ting
 activator: ac-ti-va-tor
@@ -38624,7 +38624,7 @@ waterline: wa-terline
 wheelbase: wheel-base
 widowhood: wi-dow-hood
 womaniser: wo-ma-niser
-ablutions: a-blu-tions
+ablutions: ab-lu-tions
 abounding: a-boun-ding
 adornment: a-dorn-ment
 Aeschylus: Aesc-hy-lus
@@ -38775,7 +38775,7 @@ varyingly: va-ryin-g-ly
 warplanes: war-planes
 Yarmulkes: Yar-mul-kes
 Yohimbine: Yo-him-bine
-abrasives: a-bra-sives
+abrasives: ab-ra-sives
 Awikiwiki: A-wi-ki-wi-ki
 boatyards: boa-tyards
 Bonderman: Bon-der-man
@@ -38791,7 +38791,7 @@ remitting: re-mit-ting
 sailorman: sai-lorman
 Saltgrass: Salt-grass
 Strickler: Stric-kler
-abruptness: a-brupt-ness
+abruptness: ab-rupt-ness
 affability: af-fa-bi-li-ty
 alimentary: a-li-men-ta-ry
 allocating: al-lo-ca-ting
@@ -40336,7 +40336,7 @@ vilely: vile-ly
 Willer: Wil-ler
 yawing: ya-wing
 Zinnia: Zin-n-ia
-abloom: a-bloom
+abloom: ab-loom
 Aliyah: A-liy-ah
 Argand: Ar-gand
 audace: au-dace
@@ -40931,7 +40931,7 @@ Willers: Wil-lers
 abdomens: ab-do-mens
 abjectly: ab-ject-ly
 abounded: a-boun-ded
-absorber: a-bsor-ber
+absorber: ab-sor-ber
 abstruse: abs-truse
 acrylics: a-cry-lics
 actuated: ac-tuated
@@ -41426,7 +41426,7 @@ wrestles: wres-tles
 Xeroxing: Xe-ro-xing
 yarmulka: yar-mul-ka
 zippered: zip-pered
-ablution: a-blu-tion
+ablution: ab-lu-tion
 allergen: al-ler-gen
 amygdala: a-myg-da-la
 anaphase: a-na-phase
@@ -42283,7 +42283,7 @@ Upsadaisy: U-psa-dai-sy
 winningly: win-ning-ly
 yachtsman: yach-tsman
 zillionth: zil-lionth
-absinthes: a-bsinthes
+absinthes: ab-sinthes
 Afrikaans: A-fri-kaans
 Aldebaran: Al-de-ba-ran
 allograft: al-lo-graft
@@ -42844,7 +42844,7 @@ wholegrain: who-legrain
 Xenophobia: Xe-no-pho-b-ia
 Yellowbird: Yel-low-bird
 Abiogenist: A-bio-ge-nist
-Absorbtion: A-bsorb-tion
+Absorbtion: ab-sorb-tion
 Boatwright: Boa-twright
 Bolsheviki: Bols-he-vi-ki
 Catastasis: Ca-tas-ta-sis
@@ -43463,7 +43463,7 @@ vainglorious: vain-glo-rious
 wastebaskets: was-te-baskets
 wheelbarrows: wheel-bar-rows
 whitewashing: whi-te-washing
-absentminded: a-bsen-tminded
+absentminded: ab-sen-tminded
 accumulative: ac-cu-mu-la-tive
 anaesthetist: a-naest-he-tist
 belligerency: bel-li-ge-rency
@@ -44204,7 +44204,7 @@ zloty: zlo-ty
 aahing: aa-hing
 abates: a-bates
 abbess: ab-bess
-ablest: a-blest
+ablest: ab-lest
 Acetyl: A-ce-tyl
 adepts: a-depts
 allele: al-le-le
@@ -44896,7 +44896,7 @@ denizen: de-ni-zen
 denuded: de-nu-ded
 deplane: de-plane
 deploys: de-ploys
-derecho: de-rec-ho
+derecho: de-re-cho
 Despert: Des-pert
 despoil: des-poil
 detoxed: de-toxed
@@ -46470,7 +46470,7 @@ dragoman: dra-go-man
 drowsier: drow-sier
 duellist: duel-li-st
 Dutching: Dutc-hing
-echogram: ec-ho-gram
+echogram: e-cho-gram
 Empyrean: Em-py-rean
 enounced: e-nounced
 eohippus: eo-hip-p-us
@@ -46609,9 +46609,9 @@ whoreson: who-reson
 wipeouts: wi-peouts
 wirehair: wi-rehair
 Zionists: Zio-ni-sts
-abridging: a-brid-ging
-abrogated: a-bro-ga-ted
-absenting: a-bsen-ting
+abridging: ab-rid-ging
+abrogated: ab-ro-ga-ted
+absenting: ab-sen-ting
 accoutred: ac-cou-tred
 actualize: ac-tua-li-ze
 adamantly: a-da-mant-ly
@@ -49285,7 +49285,7 @@ unstructured: uns-truc-tured
 unthreatened: unt-hrea-tened
 weatherproof: weat-her-proof
 wretchedness: wretc-hedness
-abrasiveness: a-bra-sive-ness
+abrasiveness: ab-ra-sive-ness
 Agoraphobiac: A-go-ra-pho-biac
 anesthetists: a-nest-he-tists
 backwoodsmen: bac-kwoo-dsmen
@@ -49606,7 +49606,7 @@ disfigurements: dis-fi-gu-rements
 disgustingness: dis-gus-ting-ness
 disinclination: di-sin-cli-na-tion
 disintegrators: di-sin-te-grators
-echocardiogram: ec-ho-car-dio-gr-am
+echocardiogram: e-cho-car-di-o-gram
 editorialising: e-di-to-ria-li-sing
 featherweights: feat-her-weights
 forthrightness: fort-hright-ness
