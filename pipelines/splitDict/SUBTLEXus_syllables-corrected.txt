@@ -12598,7 +12598,7 @@ laughingstock: laugh-ing-stock
 extermination: ex-ter-mi-na-tion
 reconciliation: re-con-ci-lia-tion
 Ny: /
-mph: m-p-?-h
+mph: m-p-h
 dodo: do-do
 Nike: Ni-ke
 Veta: Ve-ta
@@ -13045,7 +13045,7 @@ sophistication: so-phis-ti-ca-tion
 Adm: Ad-m
 silo: si-lo
 Wali: Wa-li
-Cmdr: Cm-d-?-r
+Cmdr: C-m-dr
 savor: sa-vor
 baggy: bag-gy
 pious: pi-ous
@@ -13920,7 +13920,7 @@ unconventional: un-con-ven-tio-nal
 considerations: con-si-de-ra-tions
 Dl: /
 Ergo: Er-go
-Mmmm: Mm-m-?-m
+Mmmm: Mmmm
 Keno: Ke-no
 Amor: A-mor
 Apex: A-pex
@@ -14342,7 +14342,7 @@ institutionalized: ins-ti-tu-tio-na-lized
 Ch: /
 Tb: /
 hazy: ha-zy
-Rsvp: Rs-v-?-p
+Rsvp: R-s-v-p
 Ahab: A-hab
 Bene: Be-ne
 Omer: O-mer
@@ -18675,7 +18675,7 @@ acknowledgment: ac-know-led-gment
 fundamentalist: fun-da-men-ta-list
 anthropological: ant-hro-po-lo-gi-cal
 telecommunications: te-le-com-mu-ni-ca-tions
-Aaa: Aa-?-a
+Aaa: Aaa
 avid: a-vid
 Dept: De-p-t
 Tory: To-ry
@@ -21667,7 +21667,7 @@ unclaimed: un-claimed
 carnivals: car-ni-vals
 citizenry: ci-ti-zen-ry
 Cordially: Cor-dial-ly
-diarrhoea: diarr-hoe-?-a
+diarrhoea: di-ar-rhoe-a
 landowner: lan-dow-ner
 miniskirt: mi-nis-kirt
 ramblings: ram-blings
@@ -22950,7 +22950,7 @@ cava: ca-va
 pyro: py-ro
 Alfa: Al-fa
 gyro: gy-ro
-Ussr: Us-s-?-r
+Ussr: U-s-s-r
 Loma: Lo-ma
 Riga: Ri-ga
 Nori: No-ri
@@ -32931,7 +32931,7 @@ Pps: P-p-s
 Pst: P-s-t
 Qrs: Q-r-s
 tty: t-t-y
-Wpm: W-p-?-m
+Wpm: /
 agog: a-gog
 eval: e-val
 obit: o-bit
@@ -39852,7 +39852,7 @@ Tana: Ta-na
 Ulla: Ul-la
 Wadi: Wa-di
 Amar: A-mar
-Bldg: Bl-d-?-g
+Bldg: Bl-dg
 Buda: Bu-da
 Dhow: Dh-ow
 filo: fi-lo
@@ -43823,17 +43823,17 @@ Fg: /
 Gd: /
 Apr: A-pr
 ary: a-ry
-Ccw: C-c-?-?-w
-Clk: C-l-k
-Cpd: C-p-d
+Ccw: /
+Clk: C-lk
+Cpd: C-pd
 Heo: H-eo
 Hts: H-ts
 iba: i-ba
-iii: ii-?-i
+iii: /
 imu: i-mu
-Iou: Io-?-u
+Iou: I-o-u
 iwa: i-wa
-Lbw: L-b-?-?-w
+Lbw: /
 mcg: m-c-g
 Mfd: M-f-d
 Prn: P-r-n
@@ -47982,7 +47982,7 @@ populating: po-pu-la-ting
 portrayals: por-tray-als
 possessory: pos-ses-sory
 postcoital: post-coi-tal
-posteriori: pos-te-rio-r-?-i
+posteriori: pos-te-ri-o-ri
 poulterers: poul-terers
 prearrange: prear-ran-ge
 preferment: pre-fer-ment
