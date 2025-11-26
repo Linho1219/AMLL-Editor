@@ -117,4 +117,7 @@ function handleTextDbClick() {
   text-align: center;
   font-size: 1.5rem;
 }
+.tword-text {
+  white-space: pre;
+}
 </style>
