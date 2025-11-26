@@ -36,13 +36,17 @@ const runtimeStore = useRuntimeStore()
 
 const modalDialogActivated = () => !!document.querySelector('.p-dialog-mask.p-overlay-mask')
 const handleRootKeydown = (e: KeyboardEvent) => {
-  if (e.target !== document.body)
-    if (
-      e.target instanceof HTMLElement &&
-      e.target.closest('input[type="text"], textarea, [contenteditable="true"]')
-    ) {
+  if (e.target !== document.body && e.target instanceof HTMLInputElement) {
+    if (e.target.closest('input[type="text"], textarea, [contenteditable="true"]')) {
       return
     }
+    if (e.target.closest('input[type="checkbox"]') && e.code === 'Enter') {
+      const checkbox = e.target as HTMLInputElement
+      checkbox.click()
+      e.preventDefault()
+      return
+    }
+  }
   if (modalDialogActivated()) return
   const hotkey = parseKeyEvent(e)
   if (!hotkey) return
