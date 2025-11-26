@@ -9,6 +9,7 @@
           size="small"
           :disabled="wordSelectedEmpty"
           v-model.lazy="wordStartTime"
+          v-keyfilter="/[0-9:.]/"
         />
         <span>结束时间</span>
         <InputText
@@ -17,6 +18,7 @@
           size="small"
           :disabled="wordSelectedEmpty"
           v-model.lazy="wordEndTime"
+          v-keyfilter="/[0-9:.]/"
         />
         <span>持续时长</span>
         <InputNumber

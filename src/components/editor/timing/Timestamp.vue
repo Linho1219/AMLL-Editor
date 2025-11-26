@@ -10,6 +10,7 @@
       @blur="showInput = false"
       ref="input"
       size="small"
+      v-keyfilter="/[0-9:.]/"
     />
   </div>
 </template>

@@ -46,6 +46,7 @@
           :disabled="lineSelectedEmpty"
           v-model.lazy="lineStartTime"
           autoselect
+          v-keyfilter="/[0-9:.]/"
         />
         <span>结束时间</span>
         <InputText
@@ -55,6 +56,7 @@
           :disabled="lineSelectedEmpty"
           v-model.lazy="lineEndTime"
           autoselect
+          v-keyfilter="/[0-9:.]/"
         />
         <span>持续时长</span>
         <InputNumber
