@@ -36,14 +36,20 @@
       <div class="findreplace-inputs">
         <div
           class="findreplace-find-input findreplace-input"
-          :class="{ showformatbtn: showOptions }"
+          :class="{ showformatbtn: showOptions, regex: useRegex }"
+          @dragenter="handleDragEnter"
+          @dragleave="handleDragLeave"
+          @dragover="handleDragOver"
+          @drop="handleDrop"
         >
           <IftaLabel>
             <InputText
               id="findInput"
               v-model="findInput"
               fluid
-              :placeholder="showOptions ? '留空仅匹配格式' : undefined"
+              :placeholder="showOptions ? '留空仅匹配属性' : undefined"
+              :invalid="findInputInvalid"
+              ref="findInputComponent"
             />
             <label for="findInput">查找内容</label>
           </IftaLabel>
@@ -52,13 +58,13 @@
             icon="pi pi-hammer"
             size="small"
             severity="secondary"
-            v-tooltip="'设置查找目标格式'"
+            v-tooltip="'设置查找目标属性'"
             class="findreplace-format-btn"
           />
         </div>
         <div
           class="findreplace-replace-input findreplace-input"
-          :class="{ showformatbtn: showOptions }"
+          :class="{ showformatbtn: showOptions, regex: useRegex }"
           v-if="showReplace"
         >
           <IftaLabel>
@@ -66,7 +72,7 @@
               id="replaceInput"
               v-model="replaceInput"
               fluid
-              :placeholder="showOptions ? '留空仅替换格式' : undefined"
+              :placeholder="showOptions ? '留空仅替换属性' : undefined"
             />
             <label for="replaceInput">替换为</label>
           </IftaLabel>
@@ -75,7 +81,7 @@
             icon="pi pi-hammer"
             size="small"
             severity="secondary"
-            v-tooltip="'设置替换格式'"
+            v-tooltip="'设置替换属性'"
             class="findreplace-format-btn"
           />
         </div>
@@ -109,8 +115,8 @@
             <label for="matchWholeWord" class="findreplace-option-label">全字匹配</label>
           </div>
           <div class="findreplace-option-item">
-            <Checkbox v-model="matchFullHalfWidth" inputId="matchFullHalfWidth" binary />
-            <label for="matchFullHalfWidth" class="findreplace-option-label">区分全半角</label>
+            <Checkbox v-model="matchFullField" inputId="matchFullField" binary />
+            <label for="matchFullField" class="findreplace-option-label">整字段匹配</label>
           </div>
           <div class="findreplace-option-item">
             <Checkbox v-model="useRegex" inputId="useRegex" binary />
@@ -128,30 +134,30 @@
             icon="pi pi-reply"
             label="替换"
             severity="secondary"
-            :disabled="findRangeEmpty"
+            :disabled="actionDisabled"
             @click="handleReplace"
           />
           <Button
             icon="pi pi-angle-double-right"
             v-tooltip="'全部替换'"
             severity="secondary"
-            :disabled="findRangeEmpty"
+            :disabled="actionDisabled"
             @click="handleReplaceAll"
           />
           <div style="flex: 1"></div>
         </template>
         <Button
           icon="pi pi-arrow-up"
-          v-tooltip="'查找上一个'"
+          v-tooltip="'查找上一项'"
           severity="secondary"
-          :disabled="findRangeEmpty"
+          :disabled="actionDisabled"
           @click="handleFindPrev"
         />
         <Button
-          label="查找下一个"
+          label="查找下一项"
           icon="pi pi-arrow-down"
           severity="secondary"
-          :disabled="findRangeEmpty"
+          :disabled="actionDisabled"
           @click="handleFindNext"
         />
       </div>
@@ -172,7 +178,7 @@ import {
   RadioButton,
   ToggleSwitch,
 } from 'primevue'
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 import InputText from '../repack/InputText.vue'
 import { useGlobalKeyboard } from '@/utils/hotkey'
 
@@ -194,12 +200,23 @@ const findInRoman = ref(false)
 const findRangeEmpty = computed(
   () => !findInWords.value && !findInTranslations.value && !findInRoman.value,
 )
+const actionDisabled = computed(() => findRangeEmpty.value || !compiledPattern.value)
 
 const matchCase = ref(false)
 const matchWholeWord = ref(false)
-const matchFullHalfWidth = ref(false)
 const useRegex = ref(false)
+const matchFullField = ref(false)
 const wrapSearch = ref(true)
+
+watch(showOptions, (newVal) => {
+  if (!newVal) {
+    matchCase.value = false
+    matchWholeWord.value = false
+    useRegex.value = false
+    wrapSearch.value = true
+    matchFullField.value = false
+  }
+})
 
 function handleFindNext() {}
 function handleFindPrev() {}
@@ -222,6 +239,50 @@ useGlobalKeyboard('replace', () => {
     showReplace.value = true
   }
 })
+
+const findInputComponent = useTemplateRef('findInputComponent')
+let dragCounter = 0
+function handleDragEnter() {
+  dragCounter++
+}
+function handleDragOver(e: DragEvent) {
+  if (!runtimeStore.isDraggingWord || runtimeStore.selectedWords.size !== 1) return
+  e.preventDefault()
+  runtimeStore.canDrop = true
+  runtimeStore.isDraggingCopy = true
+}
+function handleDragLeave() {
+  dragCounter--
+  if (dragCounter > 0) return
+  runtimeStore.canDrop = false
+  runtimeStore.isDraggingCopy = false
+}
+function handleDrop() {
+  dragCounter = 0
+  runtimeStore.canDrop = false
+  runtimeStore.isDraggingCopy = false
+  const text = (runtimeStore.getFirstSelectedWord()?.word || '').trim()
+  if (!text.length) return
+  if (useRegex.value) {
+    findInput.value = escapeRegex(text)
+  } else {
+    findInput.value = text
+  }
+  requestAnimationFrame(() => {
+    const inputEl = findInputComponent.value?.input
+    if (!inputEl) return
+    inputEl.focus()
+    inputEl.setSelectionRange(0, text.length)
+  })
+}
+
+interface MatchResult {
+  lineIndex: number
+  translationMatch?: boolean
+  romanMatch?: boolean
+  wordIndex?: number
+}
+
 </script>
 
 <style lang="scss">
@@ -270,6 +331,12 @@ useGlobalKeyboard('replace', () => {
   position: relative;
   &.showformatbtn {
     --p-inputtext-padding-x: 0.75rem 3rem;
+  }
+  &.regex .p-inputtext {
+    font-family: var(--font-monospace);
+    &::placeholder {
+      font-family: var(--font-main);
+    }
   }
 }
 .findreplace-format-btn {
