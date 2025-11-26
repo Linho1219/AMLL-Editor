@@ -10,35 +10,37 @@
 // [193459,4198]What's(193459,412) (0,0)past(193871,574) (0,0)is(194445,506) (0,0)past(194951,2706)
 
 import { coreCreate, type LyricLine } from '@/stores/core'
-import { importPersist, type Persist } from '.'
+import { type Persist } from '.'
 
 export function parseQRC(qrc: string) {
   const lines = qrc
     .split(/\r?\n/)
     .map((l) => l.trim())
     .filter((l) => l.length > 0)
-  const lyricLines: LyricLine[] = lines.map((lineStr) => {
-    const lineMatch = lineStr.match(/^\[(\d+),(\d+)\]/)
-    if (!lineMatch) throw new Error(`Invalid line format: ${lineStr}`)
-    const [lMatchStr, lStartStr, lDurStr] = lineMatch
+  const lyricLines: LyricLine[] = lines
+    .map((lineStr) => {
+      const lineMatch = lineStr.match(/^\[(\d+),(\d+)\]/)
+      if (!lineMatch) return null
+      const [lMatchStr, lStartStr, lDurStr] = lineMatch
 
-    const wordPattern = /([^\(]*)\((\d+),(\d+)\)/g
-    const wordMatches = lineStr.slice(lMatchStr.length).matchAll(wordPattern)
-    const words = [...wordMatches].map((match) => {
-      const [, wText, wStartStr, wDurStr] = match
-      return coreCreate.newWord({
-        word: wText,
-        startTime: Number(wStartStr),
-        endTime: Number(wStartStr) + Number(wDurStr),
+      const wordPattern = /([^\(]*)\((\d+),(\d+)\)/g
+      const wordMatches = lineStr.slice(lMatchStr.length).matchAll(wordPattern)
+      const words = [...wordMatches].map((match) => {
+        const [, wText, wStartStr, wDurStr] = match
+        return coreCreate.newWord({
+          word: wText,
+          startTime: Number(wStartStr),
+          endTime: Number(wStartStr) + Number(wDurStr),
+        })
+      })
+
+      return coreCreate.newLine({
+        startTime: Number(lStartStr),
+        endTime: Number(lStartStr) + Number(lDurStr),
+        words,
       })
     })
-
-    return coreCreate.newLine({
-      startTime: Number(lStartStr),
-      endTime: Number(lStartStr) + Number(lDurStr),
-      words,
-    })
-  })
+    .filter((line): line is LyricLine => line !== null)
   return {
     metadata: {},
     lyricLines,

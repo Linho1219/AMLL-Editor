@@ -17,28 +17,30 @@ export function parseYRC(yrc: string): Persist {
     .split(/\r?\n/)
     .map((l) => l.trim())
     .filter((l) => l.length > 0)
-  const lyricLines: LyricLine[] = lines.map((lineStr) => {
-    const lineMatch = lineStr.match(/^\[(\d+),(\d+)\]/)
-    if (!lineMatch) throw new Error(`Invalid line format: ${lineStr}`)
-    const [lMatchStr, lStartStr, lDurStr] = lineMatch
+  const lyricLines: LyricLine[] = lines
+    .map((lineStr) => {
+      const lineMatch = lineStr.match(/^\[(\d+),(\d+)\]/)
+      if (!lineMatch) return null
+      const [lMatchStr, lStartStr, lDurStr] = lineMatch
 
-    const wordPattern = /\((\d+),(\d+),0\)([^\(]*)/g
-    const wordMatches = lineStr.slice(lMatchStr.length).matchAll(wordPattern)
-    const words = [...wordMatches].map((match) => {
-      const [, wStartStr, wDurStr, wText] = match
-      return coreCreate.newWord({
-        word: wText,
-        startTime: Number(wStartStr),
-        endTime: Number(wStartStr) + Number(wDurStr),
+      const wordPattern = /\((\d+),(\d+),0\)([^\(]*)/g
+      const wordMatches = lineStr.slice(lMatchStr.length).matchAll(wordPattern)
+      const words = [...wordMatches].map((match) => {
+        const [, wStartStr, wDurStr, wText] = match
+        return coreCreate.newWord({
+          word: wText,
+          startTime: Number(wStartStr),
+          endTime: Number(wStartStr) + Number(wDurStr),
+        })
+      })
+
+      return coreCreate.newLine({
+        startTime: Number(lStartStr),
+        endTime: Number(lStartStr) + Number(lDurStr),
+        words,
       })
     })
-
-    return coreCreate.newLine({
-      startTime: Number(lStartStr),
-      endTime: Number(lStartStr) + Number(lDurStr),
-      words,
-    })
-  })
+    .filter((line): line is LyricLine => line !== null)
   return {
     metadata: {},
     lyricLines,
