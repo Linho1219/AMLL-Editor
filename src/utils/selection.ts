@@ -1,15 +1,11 @@
-import { useRuntimeStore } from '../stores/runtime'
 import { useCoreStore, type LyricLine, type LyricWord } from '../stores/core'
-
-// Don't useRuntimeStore now: Pinia isn't ready yet
 
 export function forceOutsideBlur() {
   const focusedInput = document.activeElement
   const isInputElement = (el: Element | null): el is HTMLInputElement =>
     el !== null && el.tagName === 'INPUT'
   if (!isInputElement(focusedInput)) return
-  const selectionRoot = document.querySelector('[selection-root]')
-  if (selectionRoot?.contains(focusedInput)) return
+  if (focusedInput.closest('[data-escape-auto-blur]')) return
   focusedInput.blur()
 }
 

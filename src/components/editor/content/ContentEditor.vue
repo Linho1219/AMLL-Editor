@@ -4,7 +4,7 @@
     @mousedown="handleMouseDown"
     @dragover="handleDragOver"
     @contextmenu="handleBlankContext"
-    selection-root
+    data-escape-auto-blur
     spellcheck="false"
   >
     <VList

@@ -1,5 +1,5 @@
 <template>
-  <div class="editor timing" selection-root @mousedown="handleMouseDown">
+  <div class="editor timing" data-escape-auto-blur @mousedown="handleMouseDown">
     <VList
       :data="coreStore.lyricLines"
       class="editor-scroller"

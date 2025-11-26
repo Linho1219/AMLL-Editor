@@ -37,10 +37,11 @@ const runtimeStore = useRuntimeStore()
 const modalDialogActivated = () => !!document.querySelector('.p-dialog-mask.p-overlay-mask')
 const handleRootKeydown = (e: KeyboardEvent) => {
   if (e.target !== document.body)
-    if (e.target instanceof HTMLElement) {
-      const tagName = e.target.tagName.toLowerCase()
-      if (tagName === 'textarea' || e.target.isContentEditable) return
-      if (tagName === 'input' && (<HTMLInputElement>e.target).type === 'text') return
+    if (
+      e.target instanceof HTMLElement &&
+      e.target.closest('input[type="text"], textarea, [contenteditable="true"]')
+    ) {
+      return
     }
   if (modalDialogActivated()) return
   const hotkey = parseKeyEvent(e)
