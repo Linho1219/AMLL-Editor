@@ -473,7 +473,7 @@ function focusPosInEditor(pos: DocPos) {
   if (!runtimeStore.isContentView) runtimeStore.currentView = View.Content
   tryRaf(() => {
     if (!staticStore.editorHook || staticStore.editorHook.view !== View.Content) return
-    staticStore.editorHook.scrollTo(pos.lineIndex, { align: 'center' })
+    staticStore.editorHook.scrollTo(pos.lineIndex, { align: 'nearest' })
     return true
   })
   if (pos.field === 'word') {

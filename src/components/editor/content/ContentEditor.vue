@@ -289,7 +289,7 @@ useGlobalKeyboard('delete', () => {
 
 const vscroll = useTemplateRef('vscroll')
 function handleScrollTo(lineIndex: number) {
-  vscroll.value?.scrollToIndex(lineIndex, { align: 'center' })
+  vscroll.value?.scrollToIndex(lineIndex, { align: 'nearest' })
 }
 onMounted(() => {
   if (!runtimeStore.selectedLines.size) return
