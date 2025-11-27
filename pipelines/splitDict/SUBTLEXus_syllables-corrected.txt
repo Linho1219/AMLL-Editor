@@ -1823,7 +1823,7 @@ Diane: Di-ane
 counsel: coun-sel
 international: in-ter-na-tio-nal
 testify: tes-ti-fy
-traveling: trave-ling
+traveling: tra-ve-ling
 roses: ro-ses
 cotton: cot-ton
 tragedy: tra-ge-dy
@@ -5200,7 +5200,7 @@ observed: o-bserved
 metaphor: me-ta-phor
 altitude: al-ti-tude
 privately: pri-vate-ly
-travelling: tra-velling
+travelling: tra-vel-ling
 improvement: im-pro-vement
 photography: pho-to-gra-phy
 grandchildren: grand-chil-dren
@@ -6165,7 +6165,7 @@ tempting: temp-ting
 thanking: than-king
 severely: se-vere-ly
 monitors: mo-ni-tors
-traveler: tra-veler
+traveler: tra-ve-ler
 mainland: main-land
 sketches: sketc-hes
 reminding: re-min-ding
@@ -8623,7 +8623,7 @@ foolproof: fool-proof
 liberated: li-be-ra-ted
 repressed: re-pressed
 hazardous: ha-zar-dous
-travelers: tra-velers
+travelers: tra-ve-lers
 boardwalk: boar-dwalk
 pretender: pre-ten-der
 decoration: de-co-ra-tion
