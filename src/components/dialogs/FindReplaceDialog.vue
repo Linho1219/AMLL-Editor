@@ -1,5 +1,10 @@
 <template>
-  <Dialog class="thin-padding" v-model:visible="visible" header="查找替换">
+  <Dialog
+    class="thin-padding"
+    v-model:visible="visible"
+    header="查找替换"
+    @focusin="handleTopFocus"
+  >
     <div class="findreplace-content" v-focustrap>
       <div class="findreplace-mode">
         <div class="findreplace-radios">
@@ -47,21 +52,20 @@
               id="findInput"
               v-model.escapeEnter="findInput"
               fluid
-              :placeholder="showOptions ? '留空仅匹配属性' : undefined"
               :invalid="findInputInvalid"
               ref="findInputComponent"
               @keydown="handleFindInputKeydown"
             />
             <label for="findInput">查找内容</label>
           </IftaLabel>
-          <Button
+          <!-- <Button
             v-if="showOptions"
             icon="pi pi-hammer"
             size="small"
             severity="secondary"
             v-tooltip="'设置查找目标属性'"
             class="findreplace-format-btn"
-          />
+          /> -->
         </div>
         <div
           class="findreplace-replace-input findreplace-input"
@@ -73,19 +77,18 @@
               id="replaceInput"
               v-model.escapeEnter="replaceInput"
               fluid
-              :placeholder="showOptions ? '留空仅替换属性' : undefined"
               @keydown="handleReplaceInputKeydown"
             />
             <label for="replaceInput">替换为</label>
           </IftaLabel>
-          <Button
+          <!-- <Button
             v-if="showOptions"
             icon="pi pi-hammer"
             size="small"
             severity="secondary"
             v-tooltip="'设置替换属性'"
             class="findreplace-format-btn"
-          />
+          /> -->
         </div>
       </div>
       <div class="findreplace-range">
@@ -188,6 +191,36 @@ import { tryRaf } from '@/utils/tryRaf'
 import { useToast } from 'primevue/usetoast'
 
 const [visible] = defineModel<boolean>({ required: true })
+const focusFindInput = () => {
+  tryRaf(() => {
+    const inputEl = findInputComponent.value?.input
+    if (!inputEl) return
+    inputEl.focus()
+    inputEl.select()
+    return true
+  })
+}
+// PrimeVue automatically focus close button after open animation ends
+// So wait after that to focus our input
+// Ideal waiting time should be 200ms
+const openingPendingMaxTimeout = 1000
+let openingPending: undefined | number = undefined
+watch(visible, (newVal) => {
+  if (newVal)
+    openingPending = setTimeout(() => {
+      openingPending = undefined
+      console.warn('FindReplaceDialog opening pending timeout reached')
+      focusFindInput()
+    }, openingPendingMaxTimeout)
+})
+function handleTopFocus(e: FocusEvent) {
+  if (!openingPending) return
+  clearTimeout(openingPending)
+  openingPending = undefined
+  if ((e.target as HTMLElement).classList.contains('p-dialog-close-button')) {
+    focusFindInput()
+  }
+}
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()
@@ -228,7 +261,8 @@ useGlobalKeyboard('find', () => {
   if (visible.value && !showReplace.value) {
     visible.value = false
   } else {
-    visible.value = true
+    if (!visible.value) visible.value = true
+    else focusFindInput()
     showReplace.value = false
   }
 })
@@ -236,7 +270,8 @@ useGlobalKeyboard('replace', () => {
   if (visible.value && showReplace.value) {
     visible.value = false
   } else {
-    visible.value = true
+    if (!visible.value) visible.value = true
+    else focusFindInput()
     showReplace.value = true
   }
 })
