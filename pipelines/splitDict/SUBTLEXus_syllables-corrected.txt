@@ -44,7 +44,7 @@ remember: re-mem-ber
 coming: co-ming
 baby: ba-by
 another: a-no-ther
-Ok: /
+Ok: O-k
 gotta: got-ta
 wanna: wan-na
 wanted: wan-ted
