@@ -171,19 +171,11 @@
 </template>
 
 <script setup lang="ts">
-import { useCoreStore, type LyricLine, type LyricWord } from '@/stores/core'
+import { useCoreStore } from '@/stores/core'
 import { useRuntimeStore, View } from '@/stores/runtime'
 import { useStaticStore } from '@/stores/static'
-import {
-  Button,
-  Checkbox,
-  Dialog,
-  IftaLabel,
-  InputNumber,
-  RadioButton,
-  ToggleSwitch,
-} from 'primevue'
-import { computed, nextTick, ref, shallowRef, useTemplateRef, watch } from 'vue'
+import { Button, Checkbox, Dialog, IftaLabel, RadioButton, ToggleSwitch } from 'primevue'
+import { computed, ref, shallowRef, useTemplateRef, watch } from 'vue'
 import InputText from '../repack/InputText.vue'
 import { useGlobalKeyboard } from '@/utils/hotkey'
 import { usePreferenceStore } from '@/stores/preference'
@@ -545,9 +537,7 @@ function isPosMatch(pos: DocPos, pattern: RegExp): boolean {
   } else if (pos.field === 'roman') {
     textToMatch = line.romanization
   }
-  console.log('Matching text:', textToMatch, 'with pattern:', pattern)
   const result = textToMatch.search(pattern) !== -1
-  console.log('Match result:', result)
   return result
 }
 function replacePosText(pos: DocPos, pattern: RegExp, replaceText: string) {
@@ -571,7 +561,6 @@ function arePosEqual(a: DocPos | null, b: DocPos | null): boolean {
 }
 function handleFind(jumper: Jumper, noAlert = false) {
   const startingPos = currPos.value ? rangedJumpPos(currPos.value, jumper) : getFirstPos()
-  console.log('Starting Pos:', startingPos)
   const pattern = compiledPattern.value
   let firstFlag = true
   if (!pattern) return
@@ -587,7 +576,6 @@ function handleFind(jumper: Jumper, noAlert = false) {
     return
   }
   runtimeStore.clearSelection()
-  console.log('No match found')
   if (!noAlert)
     toast.add({
       severity: 'warn',
@@ -605,12 +593,10 @@ function handleFindPrev() {
   handleFind(getPrevPos)
 }
 function handleReplace() {
-  console.log('Current Pos:', currPos.value)
   const pattern = compiledPattern.value
   const replacement = replaceInput.value
   if (!pattern) return
   if (currPos.value && isPosMatch(currPos.value, pattern)) {
-    console.log('Replacing at current position')
     replacePosText(currPos.value, pattern, replacement)
     handleFind(getNextPos, true)
   } else handleFind(getNextPos)
