@@ -16,6 +16,7 @@
 import { useCoreStore, type LyricLine } from '@/stores/core'
 import { useRuntimeStore } from '@/stores/runtime'
 import { useStaticStore } from '@/stores/static'
+import { alignLineTime } from '@/utils/alignLineTime'
 import { sortLines, sortWords } from '@/utils/selection'
 import { ref, watch } from 'vue'
 const runtimeStore = useRuntimeStore()
@@ -62,18 +63,18 @@ function handleDrop(e: DragEvent) {
           // Dropping into itself, do nothing
           return
       }
-      const placeholder = coreStore.newLine()
+      const placeholder = coreStore.newLine({ bookmarked: true, translation: '#PLACEHOLDER#' })
       coreStore.lyricLines.splice(props.index, 0, placeholder)
       coreStore.deleteLine(...pendingLines)
       const insertIndex = coreStore.lyricLines.indexOf(placeholder)
       coreStore.lyricLines.splice(insertIndex, 1, ...pendingLines)
       runtimeStore.selectLine(...pendingLines)
     }
-  }
-  if (runtimeStore.isDraggingWord) {
+  } else if (runtimeStore.isDraggingWord) {
     const pendingWords = sortWords(...runtimeStore.selectedWords)
     const isCopy = e.ctrlKey || e.metaKey
     const newLine = coreStore.newLine({ words: pendingWords })
+    alignLineTime(newLine)
     if (isCopy) newLine.words = pendingWords.map(coreStore.newWord)
     else coreStore.deleteWord(...pendingWords)
     coreStore.lyricLines.splice(props.index, 0, newLine)

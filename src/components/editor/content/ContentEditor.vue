@@ -66,6 +66,7 @@ import { useStaticStore, type EditorComponentActions } from '@/stores/static'
 import { VList } from 'virtua/vue'
 import { useGlobalKeyboard } from '@/utils/hotkey'
 import type { ScrollToIndexOpts } from 'virtua/unstable_core'
+import { alignLineEndTime, alignLineTime } from '@/utils/alignLineTime'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()
@@ -239,6 +240,8 @@ const wordMenuItems: MenuItem[] = [
       const wordsToMove = parent.words.splice(contextWordIndex)
       if (wordsToMove.length === 0) return
       const newLine = coreStore.newLine({ ...parent, words: wordsToMove })
+      alignLineEndTime(parent)
+      alignLineTime(newLine)
       coreStore.lyricLines.splice(contextLineIndex + 1, 0, newLine)
       runtimeStore.selectLineWord(newLine, wordsToMove[0]!)
     },

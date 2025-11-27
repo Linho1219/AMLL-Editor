@@ -47,7 +47,7 @@ export function useAudioCtrl() {
     const target = Math.min(Math.max(0, audio.currentTime + delta), audio.duration)
     audio.currentTime = target
   }
-  const getProgress = () => audio.currentTime * 1000
+  const getProgress = () => Math.round(audio.currentTime * 1000)
   const progressRef = ref(0)
   const maintainProgressRef = () => {
     progressRef.value = getProgress()

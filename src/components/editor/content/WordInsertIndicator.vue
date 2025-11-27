@@ -17,6 +17,7 @@
 import { useCoreStore, type LyricLine, type LyricWord } from '@/stores/core'
 import { useRuntimeStore } from '@/stores/runtime'
 import { useStaticStore } from '@/stores/static'
+import { alignLineEndTime, alignLineStartTime } from '@/utils/alignLineTime'
 import { sortWords } from '@/utils/selection'
 import { ref, watch } from 'vue'
 const runtimeStore = useRuntimeStore()
@@ -48,7 +49,11 @@ function handleDrop(e: DragEvent) {
   const pendingWords = sortWords(...runtimeStore.selectedWords)
   if (e.ctrlKey || e.metaKey) {
     const duplicatedWords = pendingWords.map(coreStore.newWord)
+    const isBegin = props.index === 0
+    const isEnd = props.index === props.parent.words.length
     props.parent.words.splice(props.index, 0, ...duplicatedWords)
+    if (isBegin) alignLineStartTime(props.parent)
+    if (isEnd) alignLineEndTime(props.parent)
     runtimeStore.selectLineWord(props.parent, ...duplicatedWords)
     staticStore.touchLineWord(props.parent, duplicatedWords.at(-1)!)
   } else {
@@ -59,11 +64,15 @@ function handleDrop(e: DragEvent) {
         // Dropping into itself, do nothing
         return
     }
-    const placeholder = coreStore.newWord(props.parent)
+    const isBegin = props.index === 0
+    const isEnd = props.index === props.parent.words.length
+    const placeholder = coreStore.newWord({ word: '#PLACEHOLDER#', bookmarked: true })
     props.parent.words.splice(props.index, 0, placeholder)
     coreStore.deleteWord(...pendingWords)
     const insertIndex = props.parent.words.indexOf(placeholder)
     props.parent.words.splice(insertIndex, 1, ...pendingWords)
+    if (isBegin) alignLineStartTime(props.parent)
+    if (isEnd) alignLineEndTime(props.parent)
     runtimeStore.selectLineWord(props.parent, ...pendingWords)
   }
 }
