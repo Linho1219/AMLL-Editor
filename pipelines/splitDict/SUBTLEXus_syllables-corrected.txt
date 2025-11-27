@@ -132,6 +132,7 @@ making: ma-king
 story: sto-ry
 funny: fun-ny
 lady: la-dy
+fire: fi-re
 person: per-son
 inside: in-side
 waiting: wai-ting
