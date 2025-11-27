@@ -553,14 +553,22 @@ function isPosMatch(pos: DocPos, pattern: RegExp): boolean {
 }
 function replacePosText(pos: DocPos, pattern: RegExp, replaceText: string) {
   const line = coreStore.lyricLines[pos.lineIndex]!
+  let changed = false
   if (pos.field === 'word' && findInWords.value) {
     const word = line.words[pos.wordIndex]!
-    word.word = word.word.replace(pattern, replaceText)
+    const replaced = word.word.replace(pattern, replaceText)
+    changed = word.word !== replaced
+    word.word = replaced
   } else if (pos.field === 'translation' && findInTranslations.value) {
-    line.translation = line.translation.replace(pattern, replaceText)
+    const replaced = line.translation.replace(pattern, replaceText)
+    changed = line.translation !== replaced
+    line.translation = replaced
   } else if (pos.field === 'roman' && findInRoman.value) {
-    line.romanization = line.romanization.replace(pattern, replaceText)
+    const replaced = line.romanization.replace(pattern, replaceText)
+    changed = line.romanization !== replaced
+    line.romanization = replaced
   }
+  return changed
 }
 function arePosEqual(a: DocPos | null, b: DocPos | null): boolean {
   if (a === b) return true
@@ -614,11 +622,26 @@ function handleReplace() {
 }
 function handleReplaceAll() {
   const pattern = compiledPattern.value
+  let counter = 0
   if (!pattern) return
   for (let pos = getFirstPos(); pos; pos = rangedJumpPos(pos, getNextPos, true)) {
     if (!isPosMatch(pos, pattern)) continue
-    replacePosText(pos, pattern, replaceInput.value)
+    counter += replacePosText(pos, pattern, replaceInput.value) ? 1 : 0
   }
+  if (counter)
+    toast.add({
+      severity: 'info',
+      summary: '全部替换完成',
+      detail: `共替换了 ${counter} 个匹配项。`,
+      life: 3000,
+    })
+  else
+    toast.add({
+      severity: 'warn',
+      summary: '找不到结果',
+      detail: '全文搜索完毕，未找到匹配项。',
+      life: 3000,
+    })
 }
 function handleFindInputKeydown(e: KeyboardEvent) {
   if (e.key === 'Enter' && !e.shiftKey) {
