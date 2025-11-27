@@ -25,10 +25,12 @@
       </div>
     </div>
     <div class="group" style="height: 0; flex: 1">
-      <div class="subtitle">自定义规则</div>
-      <div class="kvgrid" style="width: fit-content">
-        <Checkbox v-model="caseSensitive" binary inputId="caseSensitive" size="small" />
-        <label for="caseSensitive">区分大小写</label>
+      <div class="subtitle">
+        <div class="subtitle-text">自定义规则</div>
+        <div class="kvgrid" style="width: fit-content">
+          <Checkbox v-model="caseSensitive" binary inputId="caseSensitive" size="small" />
+          <label for="caseSensitive">区分大小写</label>
+        </div>
       </div>
       <div
         class="rewrite-field"
@@ -62,7 +64,7 @@
       </div>
     </div>
     <div class="action">
-      <div class="warn">现有词属性将丢失，时间戳将按实义字符线性插值。</div>
+      <div class="warn">现有词属性将丢失，时长按实义字符线性插值</div>
       <Button
         label="应用到选定行"
         icon="pi pi-angle-right"
@@ -308,9 +310,15 @@ function handleDrop() {
 .splittext-panel {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 0.8rem;
   .subtitle {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .subtitle-text {
     font-size: 1.1rem;
+    font-weight: bold;
   }
   .description {
     font-size: 0.9rem;
@@ -346,7 +354,7 @@ function handleDrop() {
   .action {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
   .warn {
     color: var(--p-button-text-warn-color);
