@@ -31,6 +31,7 @@ import { useRuntimeStore, View } from '@/stores/runtime'
 import { computed, nextTick, watch } from 'vue'
 import { useStaticStore } from '@/stores/static'
 import { usePreferenceStore } from '@/stores/preference'
+import { tryRaf } from '@/utils/tryRaf'
 
 const props = defineProps<{
   word: LyricWord
@@ -67,15 +68,14 @@ watch([isActive, () => configStore.scrollWithPlayback], () => {
 
 function handleTextDbClick() {
   runtimeStore.currentView = View.Content
-  let attemptCount = 20
   const id = props.word.id
-  const focusTarget = () => {
+  tryRaf(() => {
     const hooks = useStaticStore().wordHooks.get(id)
-    if (hooks) requestAnimationFrame(() => hooks.focusInput())
-    else if (attemptCount-- > 0) requestAnimationFrame(() => focusTarget())
-    else console.warn(`Failed to focus word input for word id ${id}: max attempts reached`)
-  }
-  requestAnimationFrame(() => focusTarget())
+    if (hooks) {
+      hooks.focusInput()
+      return true
+    }
+  })
 }
 </script>
 

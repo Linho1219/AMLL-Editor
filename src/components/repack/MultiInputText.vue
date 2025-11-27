@@ -65,6 +65,7 @@
 import { nanoid } from 'nanoid'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 import InputText from './InputText.vue'
+import { tryRaf } from '@/utils/tryRaf'
 
 const [modelList] = defineModel<string[]>({ required: true })
 interface InternalListItem {
@@ -148,8 +149,7 @@ function handleParentMouseDown(event: MouseEvent) {
   }
 }
 function focusItemInput(index: number) {
-  let maxAttempts = 10
-  const action = () => {
+  tryRaf(() => {
     const itemInput = document.querySelector(
       `.r-multiinputtext-item .iteminput[data-item-index="${index}"]`,
     ) as HTMLInputElement | null
@@ -157,9 +157,8 @@ function focusItemInput(index: number) {
       itemInput.focus()
       itemInput.setSelectionRange(0, itemInput.value.length)
       return true
-    } else if (maxAttempts--) requestAnimationFrame(action)
-  }
-  nextTick(() => action())
+    }
+  })
 }
 </script>
 
