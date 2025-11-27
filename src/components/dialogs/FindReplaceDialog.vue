@@ -181,6 +181,7 @@ import {
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 import InputText from '../repack/InputText.vue'
 import { useGlobalKeyboard } from '@/utils/hotkey'
+import { usePreferenceStore } from '@/stores/preference'
 
 const [visible] = defineModel<boolean>({ required: true })
 
@@ -276,13 +277,6 @@ function handleDrop() {
   })
 }
 
-interface MatchResult {
-  lineIndex: number
-  translationMatch?: boolean
-  romanMatch?: boolean
-  wordIndex?: number
-}
-
 const escapeRegex = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 function compileRegexPattern(input: string): RegExp | null {
   let pattern = useRegex.value ? input : escapeRegex(input)
@@ -304,9 +298,161 @@ const findInputInvalid = computed(() => {
   return false
 })
 
-function checkMatch(candidate: LyricLine | LyricWord) {
-  if ('words' in candidate) {
-    // LyricLine
+type DocPos = {
+  lineIndex: number
+} & (
+  | {
+      field: 'translation' | 'roman'
+    }
+  | {
+      field: 'word'
+      wordIndex: number
+    }
+)
+function getCurrPos(): DocPos | null {
+  const currLine = runtimeStore.getFirstSelectedLine()
+  if (!currLine) return null
+  const lineIndex = coreStore.lyricLines.indexOf(currLine)
+  const currWord = runtimeStore.getFirstSelectedWord()
+  if (currWord) {
+    const wordIndex = currLine.words.indexOf(currWord)
+    return {
+      lineIndex,
+      field: 'word',
+      wordIndex,
+    }
+  }
+  const focusedEl = document.activeElement as HTMLElement | null
+  if (!focusedEl) return null
+  const lineFieldKey = focusedEl.dataset.lineFieldKey as 'translation' | 'roman' | undefined
+  if (!lineFieldKey) return null
+  return {
+    lineIndex,
+    field: lineFieldKey,
+  }
+}
+const preferenceStore = usePreferenceStore()
+const getFirstPos = () => getNextPos({ lineIndex: 0, field: 'word', wordIndex: -1 })
+function getNextPos(nullablePos: DocPos | null): DocPos | null {
+  if (!nullablePos) return getFirstPos()
+  const pos = nullablePos
+  if (!coreStore.lyricLines.length) return null
+  const { swapTranslateRoman } = preferenceStore
+  // true:  word -> translation -> roman
+  // false: word -> roman -> translation
+  const firstField = swapTranslateRoman ? 'roman' : 'translation'
+  function nextField(field: 'translation' | 'roman'): 'translation' | 'roman' | undefined {
+    if (!swapTranslateRoman && field === 'roman') return 'translation'
+    else if (swapTranslateRoman && field === 'translation') return 'roman'
+  }
+  const currLine = coreStore.lyricLines[pos.lineIndex]!
+  if (pos.field === 'word') {
+    const nextWordIndex = pos.wordIndex + 1
+    if (nextWordIndex < currLine.words.length)
+      return {
+        lineIndex: pos.lineIndex,
+        field: 'word',
+        wordIndex: nextWordIndex,
+      }
+    else
+      return {
+        lineIndex: pos.lineIndex,
+        field: firstField,
+      }
+  }
+  const nextFieldKey = nextField(pos.field)
+  if (nextFieldKey)
+    return {
+      lineIndex: pos.lineIndex,
+      field: nextFieldKey,
+    }
+  const nextLineIndex = pos.lineIndex + 1
+  if (nextLineIndex < coreStore.lyricLines.length) return null
+  if (coreStore.lyricLines[nextLineIndex]!.words.length)
+    return {
+      lineIndex: nextLineIndex,
+      field: 'word',
+      wordIndex: 0,
+    }
+  return {
+    lineIndex: nextLineIndex,
+    field: firstField,
+  }
+}
+function getPrevPos(nullablePos: DocPos | null): DocPos | null {
+  if (!nullablePos) return getLastPos()
+  const pos = nullablePos
+  if (!coreStore.lyricLines.length) return null
+  const { swapTranslateRoman } = preferenceStore
+  // true:  word -> translation -> roman
+  // false: word -> roman -> translation
+  const lastField = swapTranslateRoman ? 'translation' : 'roman'
+  function prevField(field: 'translation' | 'roman'): 'translation' | 'roman' | undefined {
+    if (!swapTranslateRoman && field === 'translation') return 'roman'
+    else if (swapTranslateRoman && field === 'roman') return 'translation'
+  }
+  if (pos.field === 'word') {
+    const prevWordIndex = pos.wordIndex - 1
+    if (prevWordIndex >= 0)
+      return {
+        lineIndex: pos.lineIndex,
+        field: 'word',
+        wordIndex: prevWordIndex,
+      }
+    else {
+      const lastLineIndex = pos.lineIndex - 1
+      if (lastLineIndex < 0) return null
+      return {
+        lineIndex: lastLineIndex,
+        field: lastField,
+      }
+    }
+  }
+  const prevFieldKey = prevField(pos.field)
+  if (prevFieldKey)
+    return {
+      lineIndex: pos.lineIndex,
+      field: prevFieldKey,
+    }
+  const prevLineIndex = pos.lineIndex - 1
+  if (prevLineIndex < 0) return null
+  const prevLine = coreStore.lyricLines[prevLineIndex]!
+  if (prevLine.words.length)
+    return {
+      lineIndex: prevLineIndex,
+      field: 'word',
+      wordIndex: prevLine.words.length - 1,
+    }
+  return {
+    lineIndex: prevLineIndex,
+    field: lastField,
+  }
+}
+function getLastPos(): DocPos | null {
+  if (!coreStore.lyricLines.length) return null
+  const lastLineIndex = coreStore.lyricLines.length - 1
+  return {
+    lineIndex: lastLineIndex,
+    field: preferenceStore.swapTranslateRoman ? 'translation' : 'roman',
+  }
+}
+function checkPosInRange(pos: DocPos): boolean {
+  if (pos.field === 'word' && !findInWords.value) return false
+  if (pos.field === 'translation' && !findInTranslations.value) return false
+  if (pos.field === 'roman' && !findInRoman.value) return false
+  return true
+}
+function rangedJumpPos(fromPos: DocPos | null, jumper: (pos: DocPos | null) => DocPos | null) {
+  if (!fromPos) return jumper(null)
+  let pos: DocPos | null = fromPos
+  while (true) {
+    const nextPos = jumper(pos)
+    if (!nextPos) {
+      if (wrapSearch.value) return jumper(null)
+      return null
+    }
+    if (checkPosInRange(nextPos)) return nextPos
+    pos = nextPos
   }
 }
 </script>
