@@ -28,7 +28,12 @@ import editHistory from './stores/editHistory'
 import { onMounted, onUnmounted } from 'vue'
 import Sidebar from './components/sidebar/Sidebar.vue'
 import { usePreferenceStore } from './stores/preference'
-import { emitGlobalKeyboard, matchHotkeyInMap, parseKeyEvent } from './utils/hotkey'
+import {
+  emitGlobalKeyboard,
+  matchHotkeyInMap,
+  parseKeyEvent,
+  shouldEscapeInInput,
+} from './utils/hotkey'
 import { useCoreStore } from './stores/core'
 import { Toast } from 'primevue'
 editHistory.init()
@@ -38,20 +43,22 @@ const runtimeStore = useRuntimeStore()
 
 const modalDialogActivated = () => !!document.querySelector('.p-dialog-mask.p-overlay-mask')
 const handleRootKeydown = (e: KeyboardEvent) => {
-  if (e.target !== document.body && e.target instanceof HTMLInputElement) {
-    if (e.target.closest('input[type="text"], textarea, [contenteditable="true"]')) {
-      return
-    }
-    if (e.target.closest('input[type="checkbox"]') && e.code === 'Enter') {
-      const checkbox = e.target as HTMLInputElement
-      checkbox.click()
-      e.preventDefault()
-      return
+  const hotkey = parseKeyEvent(e)
+  if (!hotkey) return
+  if (shouldEscapeInInput(hotkey)) {
+    if (e.target !== document.body && e.target instanceof HTMLInputElement) {
+      if (e.target.closest('input[type="text"], textarea, [contenteditable="true"]')) return
+      // Special handling for checkbox: Enter to toggle,
+      // since space is taken by audio play/pause
+      if (e.target.closest('input[type="checkbox"]') && e.code === 'Enter') {
+        const checkbox = e.target as HTMLInputElement
+        checkbox.click()
+        e.preventDefault()
+        return
+      }
     }
   }
   if (modalDialogActivated()) return
-  const hotkey = parseKeyEvent(e)
-  if (!hotkey) return
   const command = matchHotkeyInMap(hotkey, preferenceStore.hotkeyMap)
   if (!command) return
   e.preventDefault()

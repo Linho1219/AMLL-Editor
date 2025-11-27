@@ -38,7 +38,6 @@ export type HotkeyCmd =
   | 'backspace'
   | 'bookmark'
   | 'preferences'
-  | 'splitText'
   | 'batchSplitText'
   | 'metadata'
   | 'chooseMedia'
@@ -73,6 +72,13 @@ function hkey(...args: (symbol | string)[]) {
   return { code, ctrl, alt, shift }
 }
 
+const inputBlockList = [hkey(Ctrl, 'z'), hkey(Ctrl, Shift, 'z'), hkey(Ctrl, 'y'), hkey(Ctrl, 'a')]
+export const shouldEscapeInInput = (hotKey: HotKey) => {
+  if (!hotKey.ctrl && !hotKey.alt) return true
+  if (inputBlockList.some((hk) => isHotkeyMatch(hk, hotKey))) return true
+  return false
+}
+
 export const getDefaultHotkeyMap = (): HotkeyMap => ({
   switchToContent: [hkey(Shift, '1')],
   switchToTiming: [hkey(Shift, '2')],
@@ -81,7 +87,6 @@ export const getDefaultHotkeyMap = (): HotkeyMap => ({
   goNextLine: [hkey('s')],
   goPrevWord: [hkey('a')],
   goNextWord: [hkey('d')],
-  splitText: [hkey('Backquote')],
   batchSplitText: [hkey(Ctrl, 'Backquote')],
   goPrevWordnPlay: [hkey('r')],
   playCurrWord: [hkey('t')],
