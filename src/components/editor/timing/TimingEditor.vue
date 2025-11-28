@@ -13,7 +13,7 @@
               :word="word"
               :parent="line"
               :parent-index="lineIndex"
-              v-if="word.word.trim()"
+              v-if="word.text.trim()"
               @need-scroll="handleScrollTo"
             />
           </template>
