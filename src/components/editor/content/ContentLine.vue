@@ -84,6 +84,7 @@ import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
 import InputText from '@/components/repack/InputText.vue'
 import { useStaticStore, type LineComponentActions } from '@/stores/static'
 import { usePreferenceStore } from '@/stores/preference'
+import type { TimeoutHandle } from '@/utils/types'
 
 const props = defineProps<{
   line: LyricLine
@@ -199,7 +200,7 @@ function handleSecondaryInputFocus(fieldKey: string, position?: number) {
     inputEl.setSelectionRange(cursor, cursor)
   } else inputEl.setSelectionRange(position, position)
 }
-const elementTimeouts = new WeakMap<HTMLElement, number>()
+const elementTimeouts = new WeakMap<HTMLElement, TimeoutHandle>()
 function handleSecondaryInputHighlight(fieldKey: string) {
   document.querySelectorAll('.p-inputtext[data-highlight]').forEach((el) => {
     delete (el as HTMLInputElement).dataset.highlight

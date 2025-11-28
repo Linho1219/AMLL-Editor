@@ -65,6 +65,7 @@ import { useRuntimeStore } from '@/stores/runtime'
 import { forceOutsideBlur, sortIndex } from '@/utils/selection'
 import { digit2Sup } from '@/utils/toSupSub'
 import { useStaticStore, type WordComponentActions } from '@/stores/static'
+import type { TimeoutHandle } from '@/utils/types'
 const runtimeStore = useRuntimeStore()
 const coreStore = useCoreStore()
 const staticStore = useStaticStore()
@@ -256,7 +257,7 @@ function handleCompositionEnd(_e: CompositionEvent) {
 }
 
 // Register hooks
-let highlightTimeout: number | undefined = undefined
+let highlightTimeout: TimeoutHandle | undefined = undefined
 const hooks: WordComponentActions = {
   focusInput: (position = undefined) => {
     focused.value = true
