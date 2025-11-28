@@ -291,14 +291,11 @@ useGlobalKeyboard('delete', () => {
 })
 
 const vscroll = useTemplateRef('vscroll')
-function handleScrollTo(lineIndex: number) {
-  vscroll.value?.scrollToIndex(lineIndex, { align: 'nearest' })
-}
 onMounted(() => {
   if (!runtimeStore.selectedLines.size) return
   const firstLine = runtimeStore.getFirstSelectedLine()!
   const lineIndex = coreStore.lyricLines.indexOf(firstLine)
-  if (lineIndex !== -1) handleScrollTo(lineIndex)
+  if (lineIndex !== -1) vscroll.value?.scrollToIndex(lineIndex, { align: 'center' })
 })
 onMounted(() => {
   const scrollToHook = (index: number, options?: ScrollToIndexOpts) => {

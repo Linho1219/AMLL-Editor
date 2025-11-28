@@ -41,14 +41,18 @@ const staticStore = useStaticStore()
 
 const vscroll = useTemplateRef('vscroll')
 function handleScrollTo(lineIndex: number) {
-  vscroll.value?.scrollToIndex(lineIndex, { align: 'center' })
+  vscroll.value?.scrollToIndex(lineIndex, { align: 'center', smooth: true })
+  // smooth:true can have negative performance impact
+  // but here handleScrollTo is triggered by components in view
+  // so a short distance scroll is expected
+  // besides, smooth scrolling in a table-like editor can help users track the movement
 }
 onMounted(() => {
   if (runtimeStore.selectedWords.size > 1) runtimeStore.clearWordSelection()
   if (runtimeStore.selectedLines.size) {
     const firstLine = runtimeStore.getFirstSelectedLine()!
     const lineIndex = coreStore.lyricLines.indexOf(firstLine)
-    if (lineIndex !== -1) handleScrollTo(lineIndex)
+    if (lineIndex !== -1) vscroll.value?.scrollToIndex(lineIndex, { align: 'center' })
   }
 })
 onMounted(() => {
