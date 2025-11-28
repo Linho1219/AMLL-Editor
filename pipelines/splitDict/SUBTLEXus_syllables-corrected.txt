@@ -3938,7 +3938,7 @@ essence: es-sence
 farther: far-ther
 suction: suc-tion
 preserve: pre-serve
-fireworks: fi-reworks
+fireworks: fire-works
 chauffeur: chauf-feur
 intent: in-tent
 satisfy: sa-tis-fy
@@ -6131,7 +6131,7 @@ infrared: in-fra-red
 peasants: pea-sants
 bacteria: bac-te-ri-a
 goldfish: gol-dfish
-firearms: fi-rearms
+firearms: fire-arms
 criticism: cri-ti-ci-sm
 handshake: hand-shake
 conductor: con-duc-tor
@@ -6308,7 +6308,7 @@ platter: plat-ter
 catalog: ca-ta-log
 ribbons: rib-bons
 breakup: brea-kup
-fireman: fi-reman
+fireman: fire-man
 latrine: la-trine
 Trinity: Tri-ni-ty
 eyeballs: ey-eballs
@@ -7800,7 +7800,7 @@ closets: clo-sets
 exhaust: ex-haust
 implant: im-plant
 oneself: o-neself
-firemen: fi-remen
+firemen: fire-men
 cheater: chea-ter
 Persian: Per-sian
 Bahamas: Ba-ha-mas
@@ -8386,7 +8386,7 @@ supervise: su-per-vise
 monitored: mo-ni-tored
 revolting: re-vol-ting
 genuinely: ge-nui-ne-ly
-firepower: fi-re-power
+firepower: fire-po-wer
 sponsored: spon-sored
 mercenary: mer-ce-na-ry
 placement: pla-cement
@@ -9807,7 +9807,7 @@ hurrying: hur-ry-ing
 unharmed: un-harmed
 forsaken: for-sa-ken
 honorary: ho-no-ra-ry
-firewood: fi-rewood
+firewood: fire-wood
 cockeyed: coc-keyed
 gamblers: gam-blers
 cashmere: cas-hmere
@@ -9891,7 +9891,7 @@ accuracy: ac-cu-ra-cy
 clowning: clow-ning
 swimmers: swim-mers
 cupcakes: cup-cakes
-fireball: fi-reball
+fireball: fire-ball
 Deadwood: Dea-dwood
 stabilize: sta-bi-lize
 advancing: ad-van-cing
@@ -11032,7 +11032,7 @@ residual: re-si-du-al
 showdown: show-down
 checkout: chec-kout
 gullible: gul-li-ble
-campfire: cam-pfi-re
+campfire: camp-fi-re
 despised: des-pised
 lifeless: life-less
 downfall: down-fall
@@ -12109,7 +12109,7 @@ lobotomy: lo-bo-to-my
 parakeet: pa-ra-keet
 catheter: ca-the-ter
 clanking: clan-king
-firewall: fi-rewall
+firewall: fire-wall
 chainsaw: chain-saw
 tribunal: tri-bu-nal
 processes: pro-ces-ses
@@ -12283,7 +12283,7 @@ confounded: con-foun-ded
 alcoholics: al-co-ho-lics
 subversive: sub-ver-sive
 censorship: cen-sor-ship
-firecracker: fi-re-crac-ker
+firecracker: fi-re-cra-cker
 realization: rea-li-za-tion
 Blockbuster: Block-bus-ter
 discoveries: dis-co-ve-ries
@@ -12398,7 +12398,7 @@ Beaufort: Bea-ufort
 aftermath: af-ter-math
 comforted: com-for-ted
 reconnect: re-con-nect
-backfired: bac-kfi-red
+backfired: back-fi-red
 inflation: in-fla-tion
 sheltered: shel-tered
 injecting: in-jec-ting
@@ -12592,7 +12592,7 @@ instability: ins-ta-bi-li-ty
 promiscuous: pro-mis-cuous
 legislation: le-gi-sla-tion
 maneuvering: ma-neu-ve-ring
-firefighter: fi-re-fighter
+firefighter: fire-figh-ter
 impenetrable: im-pe-ne-tra-ble
 laughingstock: laugh-ing-stock
 extermination: ex-ter-mi-na-tion
@@ -12815,7 +12815,7 @@ vermouth: ver-mouth
 antelope: an-te-lope
 profiler: pro-filer
 Seasonal: Sea-so-nal
-Wildfire: Wil-dfi-re
+Wildfire: Wild-fi-re
 Albanian: Al-ba-ni-an
 veritable: ve-ri-ta-ble
 harboring: har-bo-ring
@@ -13830,7 +13830,7 @@ approves: ap-proves
 gloating: gloa-ting
 lifeline: li-feline
 tricking: tric-king
-backfire: bac-kfire
+backfire: back-fire
 Emporium: Em-po-ri-um
 licorice: li-co-rice
 punitive: pu-ni-tive
@@ -15664,7 +15664,7 @@ contaminate: con-ta-mi-nate
 appreciating: ap-pre-cia-ting
 asphyxiation: as-phy-xia-tion
 extravaganza: ex-tra-va-gan-za
-firecrackers: fi-re-crac-kers
+firecrackers: fi-re-cra-ckers
 artificially: ar-ti-fi-cial-ly
 cardiologist: car-dio-lo-gi-st
 communicator: com-mu-ni-ca-tor
@@ -15842,7 +15842,7 @@ quarreled: quar-reled
 urinating: u-ri-na-ting
 abortions: a-bor-tions
 pitchfork: pitc-hfork
-firefight: fi-refight
+firefight: fire-fight
 lubricant: lu-bri-cant
 recruiter: re-crui-ter
 barracuda: bar-ra-cu-da
@@ -17184,7 +17184,7 @@ coachman: coac-hman
 mandible: man-di-ble
 Mariners: Ma-ri-ners
 campsite: cam-psite
-Spitfire: Spi-tfire
+Spitfire: Spit-fire
 Rosalind: Ro-sa-lind
 Voltaire: Vol-taire
 compounds: com-pounds
@@ -18957,7 +18957,7 @@ cattlemen: cat-tle-men
 firmament: fir-ma-ment
 stowaways: sto-wa-ways
 Comanches: Co-manc-hes
-firelight: fi-relight
+firelight: fire-light
 Bucharest: Buc-ha-rest
 Reykjavik: Reyk-ja-vik
 beryllium: be-ryl-li-um
@@ -21192,7 +21192,7 @@ perturbed: per-turbed
 petitions: pe-ti-tions
 soldering: sol-de-ring
 supernova: su-per-no-va
-fireballs: fi-reballs
+fireballs: fire-balls
 honeycomb: ho-ney-comb
 numerical: nu-me-ri-cal
 refueling: re-fue-ling
@@ -21645,7 +21645,7 @@ crusaders: cru-sa-ders
 deference: de-ference
 depicting: de-pic-ting
 extremist: ex-tre-mist
-firewater: fi-re-water
+firewater: fire-wa-ter
 handsomer: hand-somer
 orderlies: or-derlies
 pampering: pam-pe-ring
@@ -21695,7 +21695,7 @@ dentistry: den-tis-try
 hairpiece: hair-piece
 turnstile: turns-tile
 screamers: screa-mers
-Firestone: Fi-restone
+Firestone: Fire-stone
 Roquefort: Ro-que-fort
 Hotchkiss: Hotch-kiss
 Jamaicans: Ja-mai-cans
@@ -22290,7 +22290,7 @@ lubricated: lu-bri-ca-ted
 recruiters: re-crui-ters
 alternator: al-ter-na-tor
 crucifixes: cru-ci-fi-xes
-fireplaces: fi-re-places
+fireplaces: fire-pla-ces
 plagiarism: pla-gia-ri-sm
 accentuate: ac-cen-tua-te
 bronchitis: bronc-hi-tis
@@ -23309,7 +23309,7 @@ alliances: al-lian-c-es
 amplified: am-pli-fied
 amplifier: am-pli-fi-er
 beckoning: bec-ko-ning
-campfires: cam-pfi-res
+campfires: camp-fi-res
 clarified: cla-ri-fied
 coattails: coat-tails
 comebacks: co-mebacks
@@ -24013,7 +24013,7 @@ workshops: works-hops
 affiliate: af-fi-lia-te
 branching: branc-hing
 bullfight: bull-fight
-ceasefire: cea-se-fire
+ceasefire: cease-fi-re
 dandelion: dan-de-li-on
 Hillcrest: Hill-crest
 lobbyists: lob-byi-sts
@@ -24682,7 +24682,7 @@ ambiguity: am-bi-gui-t-y
 antiquity: an-ti-qui-ty
 asserting: as-ser-ting
 averaging: a-ve-raging
-backfires: bac-kfi-res
+backfires: back-fi-res
 Brunswick: Brun-swick
 Bulgarian: Bul-ga-ri-an
 buttering: but-tering
@@ -25285,7 +25285,7 @@ sciatica: scia-ti-c-a
 slitting: slit-ting
 spenders: spen-ders
 sprouted: sprou-ted
-surefire: su-refire
+surefire: sure-fire
 tentacle: ten-ta-cle
 tightens: tigh-tens
 toasters: toas-ters
@@ -28236,7 +28236,7 @@ tectonic: tec-to-nic
 vagrants: va-grants
 carolers: ca-rolers
 convents: con-vents
-fireplug: fi-replug
+fireplug: fire-plug
 protease: pro-tea-se
 codebook: co-debook
 deadhead: dead-head
@@ -29294,7 +29294,7 @@ crabbing: crab-bing
 crooning: croo-ning
 dewdrops: dew-drops
 eclipsed: e-clipsed
-firetrap: fi-retrap
+firetrap: fire-trap
 fishbowl: fish-bowl
 fishnets: fis-hnets
 fluttery: flut-tery
@@ -30527,7 +30527,7 @@ emeritus: e-me-ri-tus
 entryway: en-try-way
 eyeteeth: eye-teeth
 fancying: fan-cy-ing
-firework: fi-rework
+firework: fire-work
 flutters: flut-ters
 footsies: foo-tsies
 forcible: for-ci-ble
@@ -31272,7 +31272,7 @@ circumvented: cir-cum-ven-ted
 demonstrator: de-mons-tra-tor
 Ecclesiastes: Ec-cle-sias-tes
 electrolysis: e-lec-tro-ly-sis
-firefighting: fi-re-fighting
+firefighting: fire-figh-ting
 geologically: geo-lo-gically
 geopolitical: geo-po-li-ti-c-al
 globetrotter: glo-be-trotter
@@ -33856,7 +33856,7 @@ excretion: ex-cre-tion
 facetious: fa-ce-tious
 fastening: fas-tening
 filaments: fi-la-ments
-firestorm: fi-restorm
+firestorm: fire-storm
 foregoing: fo-re-going
 formalize: for-ma-lize
 funneling: fun-neling
@@ -36299,7 +36299,7 @@ ethnically: eth-ni-cally
 expandable: ex-pan-da-ble
 exploitive: ex-ploi-tive
 fantasizes: fan-ta-si-zes
-firebombed: fi-rebombed
+firebombed: fire-bombed
 flatfooted: fla-tfooted
 floatation: floa-ta-tion
 floodlight: floo-dlight
@@ -37932,7 +37932,7 @@ exporter: ex-por-ter
 falconer: fal-co-ner
 fiddlers: fid-dlers
 filleted: fil-leted
-firebomb: fi-rebomb
+firebomb: fire-bomb
 fiscally: fis-cal-ly
 flatness: flat-ness
 flounces: floun-ces
@@ -41089,7 +41089,7 @@ fattened: fat-tened
 Faustian: Faus-tian
 finagled: fi-na-gled
 fireable: fi-re-a-ble
-Firebase: Fi-rebase
+Firebase: Fire-base
 firmware: firm-ware
 fishpond: fish-pond
 fistfuls: fis-tfuls
@@ -41829,9 +41829,9 @@ fatheaded: fa-theaded
 fatiguing: fa-ti-guing
 filleting: fil-le-ting
 finishers: fi-nis-hers
-firebombs: fi-rebombs
-firesides: fi-resides
-firetraps: fi-retraps
+firebombs: fire-bombs
+firesides: fire-sides
+firetraps: fire-traps
 fittingly: fit-ting-ly
 flagpoles: flag-poles
 flashbulb: flash-bulb
@@ -42196,7 +42196,7 @@ Eucharist: Euc-ha-rist
 exploders: ex-ploders
 extorsion: ex-tor-sion
 farmhands: farm-hands
-firebreak: fi-rebreak
+firebreak: fire-break
 flashover: flas-hover
 Frankfort: Fran-kfort
 fungicide: fun-gi-cide
@@ -42306,7 +42306,7 @@ Distiller: Dis-til-ler
 divertive: di-ver-tive
 effectual: ef-fec-tual
 Everglade: E-verglade
-firetruck: fi-retruck
+firetruck: fire-truck
 footrests: foo-trests
 garnisher: gar-nisher
 greenmail: green-mail
@@ -42471,7 +42471,7 @@ fantasised: fan-ta-sised
 feathering: fea-thering
 fetishists: fe-tis-hists
 feverishly: fe-ve-rish-ly
-firefights: fi-refights
+firefights: fire-fights
 flapdoodle: flap-doo-dle
 flavouring: fla-vouring
 floodwater: floo-dwa-ter
@@ -44953,7 +44953,7 @@ ferrous: fer-rous
 fetters: fet-ters
 fidding: fid-ding
 filbert: fil-bert
-firebox: fi-rebox
+firebox: fire-box
 firmest: fir-mest
 fisheye: fis-heye
 Flaying: Flay-ing
@@ -45914,7 +45914,7 @@ fiancees: fian-ce-es
 filberts: fil-berts
 filmgoer: film-goer
 filmland: film-land
-firebugs: fi-rebugs
+firebugs: fire-bugs
 fishhook: fish-hook
 fishmeal: fis-hmeal
 fishtail: fish-tail
@@ -46690,7 +46690,7 @@ brickwork: bric-kwork
 briquette: bri-quette
 broccolis: broc-co-lis
 brownouts: brow-nouts
-brushfire: brus-hfire
+brushfire: brush-fire
 bulldozes: bull-do-zes
 bullfrogs: bull-frogs
 bullheads: bull-heads
@@ -46871,7 +46871,7 @@ Federated: Fe-de-ra-ted
 fertilise: fer-ti-lise
 feudalism: feu-da-li-sm
 fightings: figh-tings
-fireplugs: fi-replugs
+fireplugs: fire-plugs
 flatmates: fla-tmates
 floodgate: flood-gate
 Floridian: Flo-ri-di-an
@@ -47251,7 +47251,7 @@ sourballs: sour-balls
 spatially: spa-tially
 speediest: spee-di-est
 spellings: spel-lings
-spitfires: spi-tfires
+spitfires: spit-fires
 splinting: splin-ting
 splotches: splotc-hes
 stagnates: sta-gnates
