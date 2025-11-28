@@ -15,7 +15,8 @@ import { useCoreStore } from '@/stores/core'
 import { useStaticStore } from '@/stores/static'
 import { LyricPlayer } from '@applemusic-like-lyrics/vue'
 import '@applemusic-like-lyrics/core/style.css'
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useRuntimeStore } from '@/stores/runtime'
 const coreStore = useCoreStore()
 const {
   audio: { progressComputed, playingComputed, seek },
@@ -61,6 +62,19 @@ const jumpSeek = (line: any) => {
   const time = line.line.lyricLine.startTime
   seek(time)
 }
+
+const runtimeStore = useRuntimeStore()
+onMounted(() => runtimeStore.clearSelection())
+onUnmounted(() => {
+  if (coreStore.lyricLines.length === 0) return
+  for (const line of [...coreStore.lyricLines].reverse()) {
+    if (line.startTime < progressComputed.value) {
+      runtimeStore.selectLine(line)
+      return
+    }
+  }
+  runtimeStore.selectLine(coreStore.lyricLines[0]!)
+})
 </script>
 
 <style lang="scss">
