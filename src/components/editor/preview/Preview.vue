@@ -5,6 +5,8 @@
       :lyric-lines="amllLyricLines"
       :current-time="progressComputed"
       :playing="playingComputed"
+      :enable-blur="false"
+      :enable-spring="false"
       @line-click="jumpSeek"
       :key="playerKey"
     />
@@ -83,6 +85,10 @@ onUnmounted(() => {
   padding: 0 1rem;
   .amll-lyric-player.dom {
     line-height: 1.5;
+    --bright-mask-alpha: 1;
+    --dark-mask-alpha: 0.4;
+    --amll-lp-color: light-dark(var(--p-neutral-800), var(--p-neutral-100));
+    --amll-lp-hover-bg-color: color-mix(in srgb, var(--amll-lp-color), transparent 95%);
   }
 }
 </style>
