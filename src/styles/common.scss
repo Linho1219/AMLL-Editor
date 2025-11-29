@@ -17,10 +17,7 @@ body {
     'JetBrains Mono', 'Sarasa Term SC', 'Iosevka', 'Fira Code', 'Source Code Pro', monospace;
   user-select: none;
   color: var(--p-text-color);
-  --global-background: white;
-  @media (prefers-color-scheme: dark) {
-    --global-background: #121212;
-  }
+  --global-background: light-dark(white, #121212);
   background-color: var(--global-background);
 }
 
