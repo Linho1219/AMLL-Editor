@@ -4,6 +4,9 @@
     :class="{
       selected: isSelected,
       removing: isSelected && runtimeStore.isDraggingLine && !runtimeStore.isDraggingCopy,
+      ignored,
+      mnlignored,
+      pgmignored,
     }"
     @mousedown.stop="handleMouseDown"
     @click="handleClick"
@@ -26,7 +29,13 @@
           @click.stop="props.line.bookmarked = !props.line.bookmarked"
           v-tooltip="'书签'"
         />
-        <div class="cline-index">{{ props.index + 1 }}</div>
+        <div
+          class="cline-index"
+          @dblclick="props.line.ignoreInTiming = !props.line.ignoreInTiming"
+          v-tooltip="tipMultiLine('行序号', '双击以切换时轴忽略状态')"
+        >
+          {{ props.index + 1 }}
+        </div>
         <div style="flex: 1"></div>
         <Button
           class="cline-tag cline-tag-duet"
@@ -85,16 +94,21 @@ import InputText from '@/components/repack/InputText.vue'
 import { useStaticStore, type LineComponentActions } from '@/stores/static'
 import { usePreferenceStore } from '@/stores/preference'
 import type { TimeoutHandle } from '@/utils/types'
+import { tipMultiLine } from '@/utils/tooltip'
 
 const props = defineProps<{
   line: LyricLine
   index: number
 }>()
 const runtimeStore = useRuntimeStore()
-const configStore = usePreferenceStore()
+const preferenceStore = usePreferenceStore()
 const coreStore = useCoreStore()
 const staticStore = useStaticStore()
 const isSelected = computed(() => runtimeStore.selectedLines.has(props.line))
+
+const pgmignored = computed(() => preferenceStore.alwaysIgnoreBackground && props.line.background)
+const mnlignored = computed(() => props.line.ignoreInTiming)
+const ignored = computed(() => mnlignored.value || pgmignored.value)
 
 const touch = () => {
   forceOutsideBlur()
@@ -177,7 +191,7 @@ const secondaryFields = [
   },
 ] as const
 const orderedFields = computed(() =>
-  configStore.swapTranslateRoman ? [...secondaryFields].reverse() : secondaryFields,
+  preferenceStore.swapTranslateRoman ? [...secondaryFields].reverse() : secondaryFields,
 )
 
 const secondaryInputShellEl = useTemplateRef('secondaryInputShellEl')
@@ -261,7 +275,8 @@ onUnmounted(() => {
 }
 .cline-head {
   display: flex;
-  background-color: color-mix(in srgb, var(--l-border-color), transparent 40%);
+  --cline-head-background: color-mix(in srgb, var(--l-border-color), var(--global-background) 40%);
+  background-color: var(--cline-head-background);
   color: var(--p-button-secondary-color);
   cursor: move;
 }
@@ -290,6 +305,29 @@ onUnmounted(() => {
   text-align: center;
   width: 3ch;
   font-family: var(--font-monospace);
+  position: relative;
+  --ignore-line-bg: currentColor;
+  .cline.pgmignored & {
+    --ignore-line-bg: var(--p-primary-color);
+  }
+  .cline.pgmignored.mnlignored & {
+    --ignore-line-bg: linear-gradient(90deg, var(--p-primary-color) 50%, currentColor 50%);
+  }
+  .cline.ignored &::after {
+    content: '';
+    position: absolute;
+    height: 0.1rem;
+    width: 2rem;
+    top: 0;
+    right: 0;
+    bottom: 0.1rem;
+    left: 0;
+    margin: auto;
+    background: var(--ignore-line-bg);
+    transform: rotate(30deg);
+    box-shadow: 0 0 0 0.1rem var(--cline-head-background);
+    border-radius: 0.1rem;
+  }
 }
 .cline-bookmark {
   padding-top: 0;

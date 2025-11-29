@@ -2,9 +2,9 @@
   <div
     class="tline"
     :class="{
-      ignored:
-        props.line.ignoreInTiming ||
-        (preferenceStore.alwaysIgnoreBackground && props.line.background),
+      ignored,
+      pgmignored,
+      mnlignored,
       selected: runtimeStore.selectedLines.has(props.line),
     }"
     @mousedown.stop="handleMouseDown"
@@ -43,7 +43,12 @@
       </div>
       <div class="tline-head-timestamps">
         <Timestamp begin v-model="props.line.startTime" v-tooltip="'行起始时间'" />
-        <span class="tline-index">{{ props.index + 1 }}</span>
+        <span
+          class="tline-index"
+          @dblclick="props.line.ignoreInTiming = !props.line.ignoreInTiming"
+          v-tooltip="tipMultiLine('行序号', '双击以切换时轴忽略状态')"
+          >{{ props.index + 1 }}</span
+        >
         <Timestamp end v-model="props.line.endTime" v-tooltip="'行结束时间'" />
       </div>
     </div>
@@ -59,6 +64,12 @@ import { Button } from 'primevue'
 import Timestamp from './Timestamp.vue'
 import { usePreferenceStore } from '@/stores/preference'
 import { useRuntimeStore } from '@/stores/runtime'
+import { tipMultiLine } from '@/utils/tooltip'
+import { computed } from 'vue'
+
+const pgmignored = computed(() => preferenceStore.alwaysIgnoreBackground && props.line.background)
+const mnlignored = computed(() => props.line.ignoreInTiming)
+const ignored = computed(() => mnlignored.value || pgmignored.value)
 
 const props = defineProps<{
   index: number
@@ -68,7 +79,7 @@ const props = defineProps<{
 const preferenceStore = usePreferenceStore()
 const runtimeStore = useRuntimeStore()
 
-function handleMouseDown(event: MouseEvent) {
+function handleMouseDown() {
   runtimeStore.selectLine(props.line)
 }
 </script>
@@ -87,9 +98,6 @@ function handleMouseDown(event: MouseEvent) {
   --timestamp-space: 0.5rem;
   --tline-border-color: var(--p-content-border-color);
   --word-height: 7.5rem;
-  &.ignored {
-    opacity: 0.5;
-  }
   &:hover,
   &.selected {
     --l-bg-color: var(--p-content-background);
@@ -98,13 +106,20 @@ function handleMouseDown(event: MouseEvent) {
     --l-border-color: var(--p-button-secondary-hover-background);
     opacity: 1;
   }
+  &.ignored {
+    opacity: 0.4;
+  }
+  &.ignored.selected {
+    opacity: 0.8;
+  }
 }
 .tline-head {
   display: flex;
   gap: 0.5rem;
   padding-right: 0.5rem;
   border-right: 1px solid transparent;
-  background-color: color-mix(in srgb, var(--l-border-color), transparent 40%);
+  --tline-head-background: color-mix(in srgb, var(--l-border-color), var(--global-background) 40%);
+  background-color: var(--tline-head-background);
 }
 .tline-head-btns {
   display: flex;
@@ -143,6 +158,33 @@ function handleMouseDown(event: MouseEvent) {
   font-size: 1.3rem;
   text-align: center;
   font-family: var(--font-monospace);
+  position: relative;
+  height: auto;
+  line-height: 0;
+  padding: 0.6em 0.5rem;
+  width: fit-content;
+  margin: 0 auto;
+  --ignore-line-bg: currentColor;
+  .tline.pgmignored & {
+    --ignore-line-bg: var(--p-primary-color);
+  }
+  .tline.pgmignored.mnlignored & {
+    --ignore-line-bg: linear-gradient(90deg, var(--p-primary-color) 50%, currentColor 50%);
+  }
+  .tline.ignored &::after {
+    content: '';
+    position: absolute;
+    height: 0.1rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: var(--ignore-line-bg);
+    transform: rotate(20deg);
+    box-shadow: 0 0 0 0.1rem var(--tline-head-background);
+    border-radius: 0.1rem;
+  }
 }
 .tline-content {
   flex: 1;
