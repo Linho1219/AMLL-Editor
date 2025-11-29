@@ -7,6 +7,7 @@
       :playing="playingComputed"
       :enable-blur="false"
       :enable-spring="false"
+      :word-fade-width="0.25"
       @line-click="jumpSeek"
       :key="playerKey"
     />
