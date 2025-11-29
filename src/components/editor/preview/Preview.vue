@@ -10,6 +10,14 @@
       @line-click="jumpSeek"
       :key="playerKey"
     />
+    <Button
+      class="preview-reload-button"
+      label="重载 AMLL"
+      severity="secondary"
+      icon="pi pi-refresh"
+      variant="text"
+      @click="playerKey = Symbol()"
+    />
   </div>
 </template>
 <script setup lang="ts">
@@ -17,9 +25,10 @@ import { useCoreStore } from '@/stores/core'
 import { useStaticStore } from '@/stores/static'
 import { LyricPlayer } from '@applemusic-like-lyrics/vue'
 import '@applemusic-like-lyrics/core/style.css'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import { useRuntimeStore } from '@/stores/runtime'
 import { tryRaf } from '@/utils/tryRaf'
+import { Button } from 'primevue'
 const coreStore = useCoreStore()
 const {
   audio: { progressComputed, playingComputed, seek },
@@ -95,6 +104,13 @@ onUnmounted(() => {
 .preview {
   font-weight: 500;
   padding: 0 1rem;
+  position: relative;
+  .preview-reload-button {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    z-index: 10;
+  }
   .amll-lyric-player.dom {
     line-height: 1.5;
     --bright-mask-alpha: 1;
