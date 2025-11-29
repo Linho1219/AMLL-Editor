@@ -56,7 +56,7 @@ import Line from './ContentLine.vue'
 import { useRuntimeStore, View } from '@/stores/runtime'
 import Word from './ContentWord.vue'
 import { Button, ContextMenu } from 'primevue'
-import { nextTick, onMounted, onUnmounted, shallowRef, useTemplateRef } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, onUnmounted, shallowRef, useTemplateRef } from 'vue'
 import { forceOutsideBlur } from '@/utils/selection'
 import WordInsertIndicator from './WordInsertIndicator.vue'
 import LineInsertIndicator from './LineInsertIndicator.vue'
@@ -67,6 +67,7 @@ import { VList } from 'virtua/vue'
 import { useGlobalKeyboard } from '@/utils/hotkey'
 import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 import { alignLineEndTime, alignLineTime } from '@/utils/alignLineTime'
+import { tryRaf } from '@/utils/tryRaf'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()
@@ -291,11 +292,19 @@ useGlobalKeyboard('delete', () => {
 })
 
 const vscroll = useTemplateRef('vscroll')
-onMounted(() => {
-  if (!runtimeStore.selectedLines.size) return
-  const firstLine = runtimeStore.getFirstSelectedLine()!
-  const lineIndex = coreStore.lyricLines.indexOf(firstLine)
-  if (lineIndex !== -1) vscroll.value?.scrollToIndex(lineIndex, { align: 'center' })
+onBeforeUnmount(() => {
+  if (runtimeStore.currentView !== View.Timing || !vscroll.value) return
+  const start = vscroll.value.findStartIndex()
+  const end = vscroll.value.findEndIndex()
+  const centerIndex = Math.floor((start + end) / 2)
+  tryRaf(() => {
+    if (staticStore.editorHook?.view !== View.Timing) return
+    if (start === 0) staticStore.editorHook.scrollTo(0, { align: 'start' })
+    else if (end === coreStore.lyricLines.length - 1)
+      staticStore.editorHook.scrollTo(end, { align: 'end' })
+    else staticStore.editorHook.scrollTo(centerIndex, { align: 'center' })
+    return true
+  })
 })
 onMounted(() => {
   const scrollToHook = (index: number, options?: ScrollToIndexOpts) => {

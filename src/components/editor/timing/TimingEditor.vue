@@ -28,12 +28,13 @@ import { useCoreStore, type LyricLine, type LyricWord } from '@/stores/core'
 import { VList } from 'virtua/vue'
 import Line from './TimingLine.vue'
 import Word from './TimingWord.vue'
-import { onMounted, onUnmounted, useTemplateRef } from 'vue'
+import { onBeforeUnmount, onMounted, onUnmounted, useTemplateRef } from 'vue'
 import { useRuntimeStore, View } from '@/stores/runtime'
 import { useGlobalKeyboard } from '@/utils/hotkey'
 import { useStaticStore, type EditorComponentActions } from '@/stores/static'
 import { usePreferenceStore } from '@/stores/preference'
 import type { ScrollToIndexOpts } from 'virtua/unstable_core'
+import { tryRaf } from '@/utils/tryRaf'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()
@@ -47,13 +48,19 @@ function handleScrollTo(lineIndex: number) {
   // so a short distance scroll is expected
   // besides, smooth scrolling in a table-like editor can help users track the movement
 }
-onMounted(() => {
-  if (runtimeStore.selectedWords.size > 1) runtimeStore.clearWordSelection()
-  if (runtimeStore.selectedLines.size) {
-    const firstLine = runtimeStore.getFirstSelectedLine()!
-    const lineIndex = coreStore.lyricLines.indexOf(firstLine)
-    if (lineIndex !== -1) vscroll.value?.scrollToIndex(lineIndex, { align: 'center' })
-  }
+onBeforeUnmount(() => {
+  if (runtimeStore.currentView !== View.Content || !vscroll.value) return
+  const start = vscroll.value.findStartIndex()
+  const end = vscroll.value.findEndIndex()
+  const centerIndex = Math.floor((start + end) / 2)
+  tryRaf(() => {
+    if (staticStore.editorHook?.view !== View.Content) return
+    if (start === 0) staticStore.editorHook.scrollTo(0, { align: 'start' })
+    else if (end === coreStore.lyricLines.length - 1)
+      staticStore.editorHook.scrollTo(end, { align: 'end' })
+    else staticStore.editorHook.scrollTo(centerIndex, { align: 'center' })
+    return true
+  })
 })
 onMounted(() => {
   const scrollToHook = (index: number, options?: ScrollToIndexOpts) => {

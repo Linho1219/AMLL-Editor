@@ -19,6 +19,7 @@ import { LyricPlayer } from '@applemusic-like-lyrics/vue'
 import '@applemusic-like-lyrics/core/style.css'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRuntimeStore } from '@/stores/runtime'
+import { tryRaf } from '@/utils/tryRaf'
 const coreStore = useCoreStore()
 const {
   audio: { progressComputed, playingComputed, seek },
@@ -66,16 +67,27 @@ const jumpSeek = (line: any) => {
 }
 
 const runtimeStore = useRuntimeStore()
+const staticStore = useStaticStore()
 onMounted(() => runtimeStore.clearSelection())
 onUnmounted(() => {
   if (coreStore.lyricLines.length === 0) return
-  for (const line of [...coreStore.lyricLines].reverse()) {
-    if (line.startTime < progressComputed.value) {
+  for (const [index, line] of coreStore.lyricLines.entries()) {
+    if (line.endTime > progressComputed.value) {
       runtimeStore.selectLine(line)
+      tryRaf(() => {
+        if (!staticStore.editorHook) return
+        else staticStore.editorHook.scrollTo(index, { align: 'center' })
+        return true
+      })
       return
     }
   }
-  runtimeStore.selectLine(coreStore.lyricLines[0]!)
+  runtimeStore.selectLine(coreStore.lyricLines.at(-1)!)
+  tryRaf(() => {
+    if (!staticStore.editorHook) return
+    else staticStore.editorHook.scrollTo(coreStore.lyricLines.length - 1, { align: 'end' })
+    return true
+  })
 })
 </script>
 
