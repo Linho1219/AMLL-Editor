@@ -1,7 +1,7 @@
 <template>
   <Card class="player">
     <template #content>
-      <!-- <Spectrogram v-if="showSpectrogram" :key="refresher" /> -->
+      <Spectrogram v-if="showSpectrogram" :height="200" />
       <div class="player-toolbar">
         <Button
           icon="pi pi-upload"
@@ -66,6 +66,7 @@ import Waveform from './Waveform.vue'
 import { useStaticStore } from '@/stores/static'
 import { useGlobalKeyboard } from '@/utils/hotkey'
 import { tipHotkey } from '@/utils/tooltip'
+import Spectrogram from './spectrogram/Spectrogram.vue'
 
 const audio = useStaticStore().audio
 const {

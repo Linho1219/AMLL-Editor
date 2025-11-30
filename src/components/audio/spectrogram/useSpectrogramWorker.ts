@@ -12,8 +12,7 @@ export type TileEntry = {
 }
 
 export interface RequestTileParams {
-  cacheId: string
-  reqId: string
+  reqId: number
   startTime: number
   endTime: number
   gain: number
@@ -21,17 +20,25 @@ export interface RequestTileParams {
   paletteId: string
 }
 
+const id2str = (id: number) => `tile-${id}`
+const str2id = (str: string) => Number(str.split('-')[1])
+
 export const useSpectrogramWorker = (
   audioBufferRef: ShallowRef<AudioBuffer | null>,
   paletteDataRef: ShallowRef<Uint8Array>,
 ) => {
   let worker = null as Worker | null
-  const tileCache = new LRUCache<string, TileEntry>(MAX_CACHED_TILES, (_key, entry) => {
+  const tileCache = new LRUCache<number, TileEntry>(MAX_CACHED_TILES, (_key, entry) => {
     entry.bitmap.close()
   })
-  const requestedTiles = new Set<string>()
+  const requestedTiles = new Set<number>()
 
   const lastTileTimestamp = ref(0)
+
+  let workerInitResolve = null as (() => void) | null
+  const workerInitPromise = new Promise<void>((resolve) => {
+    workerInitResolve = resolve
+  })
 
   onMounted(() => {
     worker = new SpectrogramWorker()
@@ -39,31 +46,32 @@ export const useSpectrogramWorker = (
     worker.onmessage = (event: MessageEvent) => {
       const {
         type,
-        tileId,
+        tileId: tileIdStr,
         imageBitmap,
         renderedWidth,
         gain: renderedGain,
         paletteId: renderedPaletteId,
       } = event.data
+      console.log(type)
 
       if (type === 'TILE_READY') {
-        if (tileId) {
-          requestedTiles.delete(tileId)
+        if (tileIdStr) {
+          requestedTiles.delete(str2id(tileIdStr))
         }
 
         if (
-          tileId &&
+          tileIdStr &&
           imageBitmap &&
           renderedWidth &&
           renderedGain != null &&
           renderedPaletteId != null
         ) {
-          const tileIndex = tileId.split('-')[1]
+          const tileIndex = str2id(tileIdStr)
           if (tileIndex == null) {
             imageBitmap.close()
             return
           }
-          const cacheId = `tile-${tileIndex}`
+          const cacheId = tileIndex
           const existingEntry = tileCache.get(cacheId)
 
           if (
@@ -87,6 +95,10 @@ export const useSpectrogramWorker = (
         requestedTiles.clear()
         tryMountPaletteData()
         lastTileTimestamp.value = Date.now()
+        if (workerInitResolve) {
+          workerInitResolve()
+          workerInitResolve = null
+        }
       }
     }
   })
@@ -127,7 +139,6 @@ export const useSpectrogramWorker = (
   watch(paletteDataRef, tryMountPaletteData)
 
   function requestTileIfNeeded({
-    cacheId,
     reqId,
     startTime,
     endTime,
@@ -135,7 +146,7 @@ export const useSpectrogramWorker = (
     tileWidthPx,
     paletteId,
   }: RequestTileParams) {
-    const cacheEntry = tileCache.get(cacheId)
+    const cacheEntry = tileCache.get(reqId)
     const currentWidth = cacheEntry?.width ?? 0
     const currentGain = cacheEntry?.gain
     const currentPaletteId = cacheEntry?.paletteId
@@ -146,9 +157,11 @@ export const useSpectrogramWorker = (
 
     if (needsRequest && !requestedTiles.has(reqId)) {
       requestedTiles.add(reqId)
+      if (!worker) console.warn('Spectrogram worker is not initialized')
+      console.log('reqid:', reqId)
       worker?.postMessage({
         type: 'GET_TILE',
-        tileId: reqId,
+        tileId: id2str(reqId),
         startTime,
         endTime,
         gain,
@@ -158,5 +171,10 @@ export const useSpectrogramWorker = (
     }
   }
 
-  return { tileCache, requestTileIfNeeded, lastTileTimestamp: readonly(lastTileTimestamp) }
+  return {
+    tileCache,
+    requestTileIfNeeded,
+    lastTileTimestamp: readonly(lastTileTimestamp),
+    workerInitPromise,
+  }
 }
