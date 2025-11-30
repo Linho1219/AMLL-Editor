@@ -1,7 +1,7 @@
 <template>
   <Card class="player">
     <template #content>
-      <Spectrogram v-if="showSpectrogram" :key="refresher" />
+      <!-- <Spectrogram v-if="showSpectrogram" :key="refresher" /> -->
       <div class="player-toolbar">
         <Button
           icon="pi pi-upload"
@@ -61,7 +61,6 @@ import { useDark, useFileDialog } from '@vueuse/core'
 import { Button, Card, Popover } from 'primevue'
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 import PopoverPane from './Popover.vue'
-import Spectrogram from './Spectrogram.vue'
 import { ms2str } from '@/utils/timeModel'
 import Waveform from './Waveform.vue'
 import { useStaticStore } from '@/stores/static'
