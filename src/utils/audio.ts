@@ -1,5 +1,5 @@
 import { usePreferenceStore } from '@/stores/preference'
-import { computed, readonly, ref, watch } from 'vue'
+import { computed, readonly, ref, shallowRef } from 'vue'
 import { useNcmResolver } from './ncm'
 
 // use ms as time unit
@@ -8,36 +8,55 @@ export function useAudioCtrl() {
   let revokeUrlHook: (() => void) | null = null
   const activatedRef = ref(false)
   const lengthRef = ref(0)
+  const audioBufferRef = shallowRef<AudioBuffer | null>(null)
+  const filenameRef = ref<string | undefined>(undefined)
 
-  function mount(src: Blob | File | string): Promise<void> {
+  function maintainMediaSession() {
+    if (!('mediaSession' in navigator)) return
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: filenameRef.value ?? 'Unknown',
+      artist: 'AMLL Editor',
+      album: '',
+      artwork: [],
+    })
+    navigator.mediaSession.setActionHandler('previoustrack', () => {
+      seek(0)
+    })
+  }
+
+  function mount(src: Blob | File, filename?: string): Promise<void> {
     audio.pause()
     audio.currentTime = 0
     audio.playbackRate = 1
     audio.volume = 1
+    filenameRef.value = filename ?? (src instanceof File ? src.name : undefined)
     revokeUrlHook?.()
     revokeUrlHook = null
-    if (typeof src !== 'string') {
-      const url = URL.createObjectURL(src)
-      revokeUrlHook = () => URL.revokeObjectURL(url)
-      src = url
-    }
-    audio.src = src
+    const objUrl = URL.createObjectURL(src)
+    revokeUrlHook = () => URL.revokeObjectURL(objUrl)
+    audio.src = objUrl
     activatedRef.value = true
     progressRef.value = 0
     playingRef.value = false
+    src.arrayBuffer().then(async (buffer) => {
+      const audioCtx = new AudioContext()
+      const decoded = await audioCtx.decodeAudioData(buffer)
+      audioBufferRef.value = decoded
+    })
     return new Promise((resolve) => {
       audio.onloadedmetadata = () => {
-        lengthRef.value = audio.duration * 1000
-        resolve()
+        lengthRef.value = Math.round(audio.duration * 1000)
+        maintainMediaSession()
         audio.playbackRate = playbackRateRef.value
         audio.volume = volumeRef.value
+        resolve()
       }
     })
   }
-  async function mountNcm(src: Blob | File) {
+  async function mountNcm(src: Blob | File, filename?: string) {
     const ncmResolver = useNcmResolver()
     const extractedBlob = await ncmResolver.transform(src)
-    await mount(extractedBlob)
+    await mount(extractedBlob, filename ?? (src instanceof File ? src.name : undefined))
     ncmResolver.destroy()
   }
 
@@ -110,6 +129,20 @@ export function useAudioCtrl() {
     },
   })
 
+  const destroy = () => {
+    audio.pause()
+    revokeUrlHook?.()
+    revokeUrlHook = null
+    audio.src = ''
+    activatedRef.value = false
+    progressRef.value = 0
+    playingRef.value = false
+    audioBufferRef.value = null
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = null
+    }
+  }
+
   return {
     audioEl: audio,
     mount,
@@ -129,6 +162,9 @@ export function useAudioCtrl() {
     volumeRef,
     playbackRateRef,
     activatedRef,
+    audioBufferComputed: readonly(audioBufferRef),
+    filenameComputed: readonly(filenameRef),
+    destroy,
   }
 }
 
