@@ -2,7 +2,7 @@ import { useCoreStore } from '@/stores/core'
 import { usePreferenceStore } from '@/stores/preference'
 import { useRuntimeStore, View } from '@/stores/runtime'
 import { useStaticStore } from '@/stores/static'
-import { computed, shallowRef, watch } from 'vue'
+import { computed, shallowRef, watch, type Reactive } from 'vue'
 import { tryRaf } from './tryRaf'
 
 interface FindReplaceState {
@@ -26,11 +26,33 @@ interface FindReplaceActions {
   handleReplaceAll: () => void
 }
 
+interface DocPosBasic {
+  lineIndex: number
+}
+interface DocPosLine extends DocPosBasic {
+  field: 'translation' | 'roman'
+}
+interface DocPosWhole extends DocPosBasic {
+  field: 'whole'
+}
+interface DocPosWord extends DocPosBasic {
+  field: 'word'
+  wordIndex: number
+}
+interface DocPosMultiWord extends DocPosBasic {
+  field: 'multiWord'
+  startWordIndex: number
+  endWordIndex: number
+}
+type DocPos = DocPosWhole | DocPosLine | DocPosWord | DocPosMultiWord
+type NoWholeDocPos = DocPosLine | DocPosWord | DocPosMultiWord
+type Direction = 'next' | 'prev'
+
 export function useFindReplaceEngine(
-  _state: Readonly<FindReplaceState>,
+  __state: Readonly<Reactive<FindReplaceState>>,
   notifier: (n: Notification) => void,
 ): FindReplaceActions {
-  const state = _state
+  const state = __state
   const coreStore = useCoreStore()
   const runtimeStore = useRuntimeStore()
   const staticStore = useStaticStore()
@@ -41,19 +63,6 @@ export function useFindReplaceEngine(
     const flags = state.compiledPattern.flags
     return new RegExp(state.compiledPattern.source, flags.includes('g') ? flags : flags + 'g')
   })
-
-  type DocPos = {
-    lineIndex: number
-  } & (
-    | {
-        field: 'translation' | 'roman'
-      }
-    | {
-        field: 'word'
-        wordIndex: number
-      }
-  )
-  type Jumper = (pos: DocPos | null) => DocPos | null
 
   function getCurrPos(): DocPos | null {
     const currLine = runtimeStore.getFirstSelectedLine()
@@ -71,12 +80,12 @@ export function useFindReplaceEngine(
     const focusedEl = document.activeElement as HTMLElement | null
     if (!focusedEl) return null
     const lineFieldKey = focusedEl.dataset.lineFieldKey as 'translation' | 'roman' | undefined
-    if (lineFieldKey)
+    if (lineFieldKey && (lineFieldKey === 'translation' || lineFieldKey === 'roman'))
       return {
         lineIndex,
         field: lineFieldKey,
       }
-    return { lineIndex, field: 'word', wordIndex: -1 }
+    return { lineIndex, field: 'whole' }
   }
   const currPos = shallowRef<DocPos | null>(null)
   watch(
@@ -85,137 +94,159 @@ export function useFindReplaceEngine(
     { immediate: true },
   )
 
-  const getFirstPos = () => getNextPos({ lineIndex: 0, field: 'word', wordIndex: -1 })
-  function getNextPos(nullablePos: DocPos | null): DocPos | null {
-    if (!nullablePos) return getFirstPos()
-    const pos = nullablePos
+  function getNextPos(nullablePos: DocPos | null): NoWholeDocPos | null {
     if (!coreStore.lyricLines.length) return null
-    const { swapTranslateRoman } = preferenceStore
-    // true:  word -> translation -> roman
-    // false: word -> roman -> translation
-    const firstField = swapTranslateRoman ? 'roman' : 'translation'
-    function nextField(field: 'translation' | 'roman'): 'translation' | 'roman' | undefined {
-      if (!swapTranslateRoman && field === 'translation') return 'roman'
-      else if (swapTranslateRoman && field === 'roman') return 'translation'
+    const pos = nullablePos ?? { lineIndex: 0, field: 'whole' }
+    const [firstSecField, lastSecField] = preferenceStore.swapTranslateRoman
+      ? (['roman', 'translation'] as const)
+      : (['translation', 'roman'] as const)
+
+    function getFirstPosOfLine(lineIndex: number): NoWholeDocPos | null {
+      if (lineIndex >= coreStore.lyricLines.length) return null
+      const line = coreStore.lyricLines[lineIndex]!
+      if (!line.words.length) return { lineIndex, field: firstSecField }
+      if (state.crossWordMatch)
+        return {
+          lineIndex,
+          field: 'multiWord',
+          startWordIndex: 0,
+          endWordIndex: line.words.length - 1,
+        }
+      return {
+        lineIndex,
+        field: 'word',
+        wordIndex: 0,
+      }
     }
-    const currLine = coreStore.lyricLines[pos.lineIndex]!
-    if (pos.field === 'word') {
-      const nextWordIndex = pos.wordIndex + 1
-      if (nextWordIndex < currLine.words.length)
+
+    switch (pos.field) {
+      case 'whole':
+        return getFirstPosOfLine(pos.lineIndex)
+      case 'word':
+      case 'multiWord': {
+        const currLine = coreStore.lyricLines[pos.lineIndex]!
+        const currentWordIndex = pos.field === 'word' ? pos.wordIndex : pos.endWordIndex
+        const nextWordIndex = currentWordIndex + 1
+        if (nextWordIndex >= currLine.words.length)
+          return {
+            lineIndex: pos.lineIndex,
+            field: firstSecField,
+          }
+        if (state.crossWordMatch)
+          return {
+            lineIndex: pos.lineIndex,
+            field: 'multiWord',
+            startWordIndex: nextWordIndex,
+            endWordIndex: currLine.words.length - 1,
+          }
         return {
           lineIndex: pos.lineIndex,
           field: 'word',
           wordIndex: nextWordIndex,
         }
-      else
+      }
+      case firstSecField:
         return {
           lineIndex: pos.lineIndex,
-          field: firstField,
+          field: lastSecField,
         }
-    }
-    const nextFieldKey = nextField(pos.field)
-    if (nextFieldKey)
-      return {
-        lineIndex: pos.lineIndex,
-        field: nextFieldKey,
-      }
-    const nextLineIndex = pos.lineIndex + 1
-    if (nextLineIndex >= coreStore.lyricLines.length) return null
-    if (coreStore.lyricLines[nextLineIndex]!.words.length)
-      return {
-        lineIndex: nextLineIndex,
-        field: 'word',
-        wordIndex: 0,
-      }
-    return {
-      lineIndex: nextLineIndex,
-      field: firstField,
+      case lastSecField:
+        return getFirstPosOfLine(pos.lineIndex + 1)
+      default:
+        throw new Error('Unreachable: Invalid DocPos field.')
     }
   }
-  function getPrevPos(nullablePos: DocPos | null): DocPos | null {
-    if (!nullablePos) return getLastPos()
-    const pos = nullablePos
+
+  function getPrevPos(nullablePos: DocPos | null): NoWholeDocPos | null {
     if (!coreStore.lyricLines.length) return null
-    const { swapTranslateRoman } = preferenceStore
-    // true:  word -> translation -> roman
-    // false: word -> roman -> translation
-    const lastField = swapTranslateRoman ? 'translation' : 'roman'
-    function prevField(field: 'translation' | 'roman'): 'translation' | 'roman' | undefined {
-      if (!swapTranslateRoman && field === 'roman') return 'translation'
-      else if (swapTranslateRoman && field === 'translation') return 'roman'
+    const pos = nullablePos ?? { lineIndex: coreStore.lyricLines.length - 1, field: 'whole' }
+    const [firstSecField, lastSecField] = preferenceStore.swapTranslateRoman
+      ? (['roman', 'translation'] as const)
+      : (['translation', 'roman'] as const)
+
+    function getLastPosOfLine(lineIndex: number): NoWholeDocPos | null {
+      if (lineIndex < 0) return null
+      return {
+        lineIndex,
+        field: lastSecField,
+      }
     }
-    if (pos.field === 'word') {
-      const prevWordIndex = pos.wordIndex - 1
-      if (prevWordIndex >= 0)
+
+    switch (pos.field) {
+      case 'whole':
+        return getLastPosOfLine(pos.lineIndex)
+      case 'word':
+      case 'multiWord': {
+        const currentWordIndex = pos.field === 'word' ? pos.wordIndex : pos.startWordIndex
+        const prevWordIndex = currentWordIndex - 1
+        if (prevWordIndex < 0) return getLastPosOfLine(pos.lineIndex - 1)
+        if (state.crossWordMatch)
+          return {
+            lineIndex: pos.lineIndex,
+            field: 'multiWord',
+            startWordIndex: 0,
+            endWordIndex: prevWordIndex,
+          }
+        else
+          return {
+            lineIndex: pos.lineIndex,
+            field: 'word',
+            wordIndex: prevWordIndex,
+          }
+      }
+      case lastSecField:
+        return {
+          lineIndex: pos.lineIndex,
+          field: firstSecField,
+        }
+      case firstSecField: {
+        const currLine = coreStore.lyricLines[pos.lineIndex]!
+        if (!currLine.words.length) return getLastPosOfLine(pos.lineIndex - 1)
+        if (state.crossWordMatch)
+          return {
+            lineIndex: pos.lineIndex,
+            field: 'multiWord',
+            startWordIndex: 0,
+            endWordIndex: currLine.words.length - 1,
+          }
         return {
           lineIndex: pos.lineIndex,
           field: 'word',
-          wordIndex: prevWordIndex,
-        }
-      else {
-        const lastLineIndex = pos.lineIndex - 1
-        if (lastLineIndex < 0) return null
-        return {
-          lineIndex: lastLineIndex,
-          field: lastField,
+          wordIndex: currLine.words.length - 1,
         }
       }
-    }
-    const prevFieldKey = prevField(pos.field)
-    if (prevFieldKey)
-      return {
-        lineIndex: pos.lineIndex,
-        field: prevFieldKey,
-      }
-    const currLine = coreStore.lyricLines[pos.lineIndex]!
-    if (currLine.words.length)
-      return {
-        lineIndex: pos.lineIndex,
-        field: 'word',
-        wordIndex: currLine.words.length - 1,
-      }
-    const prevLineIndex = pos.lineIndex - 1
-    if (prevLineIndex < 0) return null
-    return {
-      lineIndex: prevLineIndex,
-      field: lastField,
+      default:
+        throw new Error('Unreachable: Invalid DocPos field.')
     }
   }
-  function getLastPos(): DocPos | null {
-    if (!coreStore.lyricLines.length) return null
-    const lastLineIndex = coreStore.lyricLines.length - 1
-    return {
-      lineIndex: lastLineIndex,
-      field: preferenceStore.swapTranslateRoman ? 'translation' : 'roman',
-    }
-  }
-  function checkPosInRange(pos: DocPos): boolean {
+
+  function checkPosInRange(pos: NoWholeDocPos): boolean {
     if (pos.field === 'word' && !state.findInWords) return false
     if (pos.field === 'translation' && !state.findInTranslations) return false
     if (pos.field === 'roman' && !state.findInRoman) return false
     return true
   }
-  function getRangedJumpPos(jumper: Jumper): Jumper {
-    let firstFlag = true
-    let beginPos: DocPos | null = null
+  function getRangedJumpPos(direction: Direction, beginPos: DocPos | null) {
+    const jumper = direction === 'next' ? getNextPos : getPrevPos
     let wrappedBack = false
-    return (fromPos: DocPos | null, forceDisableWrap = false): DocPos | null => {
-      if (firstFlag) {
-        beginPos = fromPos
-        firstFlag = false
-      }
-      if (!fromPos) return jumper(null)
-      let pos: DocPos | null = fromPos
+    const MAX_SEARCH_STEPS = 10000
+    let stepCount = 0
+    return (pos: DocPos | null, forceDisableWrap = false): NoWholeDocPos | null => {
       while (true) {
+        if (stepCount++ > MAX_SEARCH_STEPS)
+          throw new Error('Exceeded maximum search steps in getRangedJumpPos, aborting.')
         const nextPos = jumper(pos)
-        if (wrappedBack && beginPos && comparePos(nextPos!, beginPos) >= 0) return null
-        if (!nextPos) {
-          if (state.wrapSearch && !forceDisableWrap) {
-            wrappedBack = true
-            if (!beginPos) return null
-            return jumper(null)
+        if (nextPos) {
+          if (wrappedBack) {
+            const compared = comparePos(nextPos, beginPos!, direction)
+            if (direction === 'next' && compared >= 0) return null
+            if (direction === 'prev' && compared <= 0) return null
           }
-          return null
+        } else {
+          if (!state.wrapSearch || forceDisableWrap) return null
+          if (!beginPos) return null
+          wrappedBack = true
+          continue
         }
         if (checkPosInRange(nextPos)) return nextPos
         pos = nextPos
@@ -224,29 +255,46 @@ export function useFindReplaceEngine(
   }
   function focusPosInEditor(pos: DocPos) {
     let shouldSwitchToContent = false
-    if (pos.field === 'word') {
-      const line = coreStore.lyricLines[pos.lineIndex]!
-      const word = line.words[pos.wordIndex]!
-      runtimeStore.selectLineWord(line, word)
-      if (!word.text.trim()) shouldSwitchToContent = true
-      if (runtimeStore.isContentView || shouldSwitchToContent)
+    switch (pos.field) {
+      case 'whole': {
+        runtimeStore.selectLine(coreStore.lyricLines[pos.lineIndex]!)
+        break
+      }
+      case 'word': {
+        const line = coreStore.lyricLines[pos.lineIndex]!
+        const word = line.words[pos.wordIndex]!
+        runtimeStore.selectLineWord(line, word)
+        if (!word.text.trim()) shouldSwitchToContent = true
+        if (runtimeStore.isContentView || shouldSwitchToContent)
+          tryRaf(() => {
+            const hook = staticStore.wordHooks.get(word.id)
+            if (!hook) return
+            hook.hightLightInput()
+            return true
+          })
+        break
+      }
+      case 'multiWord': {
+        const line = coreStore.lyricLines[pos.lineIndex]!
+        const words = line.words.slice(pos.startWordIndex, pos.endWordIndex + 1)
+        runtimeStore.selectLineWord(line, ...words)
+        if (words.every((w) => !w.text.trim())) shouldSwitchToContent = true
+        break
+      }
+      case 'translation':
+      case 'roman': {
+        shouldSwitchToContent = true
+        const line = coreStore.lyricLines[pos.lineIndex]!
+        runtimeStore.selectLine(line)
         tryRaf(() => {
-          const hook = staticStore.wordHooks.get(word.id)
+          const hook = staticStore.lineHooks.get(line.id)
           if (!hook) return
-          hook.hightLightInput()
+          if (pos.field === 'translation') hook.hightLightTranslation()
+          else hook.hightLightRoman()
           return true
         })
-    } else if (pos.field === 'translation' || pos.field === 'roman') {
-      shouldSwitchToContent = true
-      const line = coreStore.lyricLines[pos.lineIndex]!
-      runtimeStore.selectLine(line)
-      tryRaf(() => {
-        const hook = staticStore.lineHooks.get(line.id)
-        if (!hook) return
-        if (pos.field === 'translation') hook.hightLightTranslation()
-        else hook.hightLightRoman()
-        return true
-      })
+        break
+      }
     }
     if (shouldSwitchToContent) {
       if (!runtimeStore.isContentView) runtimeStore.currentView = View.Content
@@ -262,86 +310,78 @@ export function useFindReplaceEngine(
         return true
       })
   }
-  function focusMultipleWordsInEditor(
-    lineIndex: number,
-    startWordIndex: number,
-    endWordIndex: number,
-    shouldSwitchToContent = false,
-  ) {
-    const line = coreStore.lyricLines[lineIndex]!
-    const words = line.words.slice(startWordIndex, endWordIndex + 1)
-    runtimeStore.selectLineWord(line, ...words)
-    if (shouldSwitchToContent) {
-      if (!runtimeStore.isContentView) runtimeStore.currentView = View.Content
-      tryRaf(() => {
-        if (!staticStore.editorHook || staticStore.editorHook.view !== View.Content) return
-        staticStore.editorHook.scrollTo(lineIndex, { align: 'nearest' })
-        return true
-      })
-    } else
-      tryRaf(() => {
-        if (!staticStore.editorHook) return
-        staticStore.editorHook.scrollTo(lineIndex, { align: 'nearest' })
-        return true
-      })
-  }
-  function isPosMatch(pos: DocPos, pattern: RegExp): boolean {
+  function getPosText(pos: NoWholeDocPos): string {
     const line = coreStore.lyricLines[pos.lineIndex]!
-    let textToMatch = ''
-    if (pos.field === 'word') {
-      if (pos.wordIndex < 0) return false
-      const word = line.words[pos.wordIndex]!
-      textToMatch = word.text
-    } else if (pos.field === 'translation') {
-      textToMatch = line.translation
-    } else if (pos.field === 'roman') {
-      textToMatch = line.romanization
+    switch (pos.field) {
+      case 'word':
+        return line.words[pos.wordIndex]!.text
+      case 'multiWord':
+        return line.words
+          .slice(pos.startWordIndex, pos.endWordIndex + 1)
+          .map((w) => w.text)
+          .join('')
+      case 'translation':
+        return line.translation
+      case 'roman':
+        return line.romanization
     }
-    const result = textToMatch.search(pattern) !== -1
-    return result
   }
-  function replacePosText(pos: DocPos, pattern: RegExp, replaceText: string) {
-    if (pattern.flags.indexOf('g') === -1)
-      console.warn('Replacing with non-global regex, this may cause unexpected behavior.')
+  function isPosMatch(pos: NoWholeDocPos): boolean {
+    if (!state.compiledPattern) return false
+    return getPosText(pos).search(state.compiledPattern) !== -1
+  }
+  function replacePosText(pos: DocPos, replaceText: string) {
+    const pattern = compiledPatternGlobal.value
+    if (!pattern) return false
     const line = coreStore.lyricLines[pos.lineIndex]!
     let changed = false
     if (pos.field === 'word' && state.findInWords) {
       const word = line.words[pos.wordIndex]!
       const replaced = word.text.replace(pattern, replaceText)
       changed = word.text !== replaced
-      word.text = replaced
+      if (changed) word.text = replaced
     } else if (pos.field === 'translation' && state.findInTranslations) {
       const replaced = line.translation.replace(pattern, replaceText)
       changed = line.translation !== replaced
-      line.translation = replaced
+      if (changed) line.translation = replaced
     } else if (pos.field === 'roman' && state.findInRoman) {
       const replaced = line.romanization.replace(pattern, replaceText)
       changed = line.romanization !== replaced
-      line.romanization = replaced
+      if (changed) line.romanization = replaced
     }
     return changed
   }
-  const fieldOrder = computed(() => ({
-    word: 0,
-    translation: preferenceStore.swapTranslateRoman ? 2 : 1,
-    roman: preferenceStore.swapTranslateRoman ? 1 : 2,
-  }))
-  function comparePos(a: DocPos, b: DocPos) {
+  function comparePos(a: DocPos, b: DocPos, direction: Direction): number {
+    const fieldOrder: Record<DocPos['field'], number> = {
+      whole: direction === 'next' ? -3 : 3,
+      word: 0,
+      multiWord: 0,
+      translation: preferenceStore.swapTranslateRoman ? 2 : 1,
+      roman: preferenceStore.swapTranslateRoman ? 1 : 2,
+    }
     if (a.lineIndex !== b.lineIndex) return a.lineIndex - b.lineIndex
-    if (a.field !== b.field) return fieldOrder.value[a.field] - fieldOrder.value[b.field]
-    if (a.field === 'word' && b.field === 'word') return a.wordIndex - b.wordIndex
-    return 0
+    if ([a, b].every((p) => ['word', 'multiWord'].includes(p.field))) {
+      const aa = a as DocPosWord | DocPosMultiWord
+      const bb = b as DocPosWord | DocPosMultiWord
+      const [aStart, aEnd] =
+        aa.field === 'multiWord'
+          ? [aa.startWordIndex, aa.endWordIndex]
+          : [aa.wordIndex, aa.wordIndex]
+      const [bStart, bEnd] =
+        bb.field === 'multiWord'
+          ? [bb.startWordIndex, bb.endWordIndex]
+          : [bb.wordIndex, bb.wordIndex]
+      if (aEnd < bStart) return -1
+      if (aStart > bEnd) return 1
+      return 0
+    }
+    return fieldOrder[a.field] - fieldOrder[b.field]
   }
 
-  const MAX_SEARCH_STEPS = 100000
-  function handleFind(jumper: Jumper, noAlert = false) {
-    enum Direction {
-      Next,
-      Prev,
-    }
-    const direction = jumper === getNextPos ? Direction.Next : Direction.Prev
-    const rangedJumpPos = getRangedJumpPos(jumper)
-    const startingPos = currPos.value ? rangedJumpPos(currPos.value) : getFirstPos()
+  const MAX_SEARCH_STEPS = 10000
+  function handleFind(direction: Direction, noAlert = false) {
+    const rangedJumpPos = getRangedJumpPos(direction, currPos.value)
+    const startingPos = rangedJumpPos(currPos.value)
     if (!startingPos) {
       if (!noAlert)
         notifier({
@@ -354,67 +394,11 @@ export function useFindReplaceEngine(
     const pattern = state.compiledPattern
     if (!pattern) return
     for (let pos: DocPos | null = startingPos, step = 0; pos; pos = rangedJumpPos(pos), step++) {
-      if (step > MAX_SEARCH_STEPS) {
-        throw new Error('Exceeded maximum search steps, aborting.')
-      }
-      if (!state.crossWordMatch || pos.field !== 'word') {
-        if (!isPosMatch(pos, pattern)) continue
-        focusPosInEditor(pos)
-        currPos.value = pos
-        return
-      } else {
-        const line = coreStore.lyricLines[pos.lineIndex]!
-        const wordsToCheck =
-          direction === Direction.Next
-            ? line.words.slice(pos.wordIndex)
-            : line.words.slice(0, pos.wordIndex + 1)
-        const wordIndexOffset = direction === Direction.Next ? pos.wordIndex : 0
-        const wordsText = wordsToCheck.map((w) => w.text).join('')
-        const match = wordsText.match(pattern)
-        if (!match) {
-          pos = {
-            lineIndex: pos.lineIndex,
-            field: 'word',
-            wordIndex: direction === Direction.Next ? line.words.length : 0,
-          }
-          continue
-        }
-        const matchBeginIndex = match.index || 0
-        console.log(matchBeginIndex)
-        const matchEndIndex = matchBeginIndex + match[0].length
-        const shouldSwitchToContent = !!match[0].trim()
-        let charCount = 0
-        let matchWordStartIndex = -1
-        let matchWordEndIndex = -1
-        for (const [index, { text }] of wordsToCheck.entries()) {
-          const startCharIndex = charCount
-          const endCharIndex = (charCount += text.length)
-          if (startCharIndex <= matchBeginIndex && matchBeginIndex < endCharIndex) {
-            matchWordStartIndex = index
-          }
-          if (startCharIndex < matchEndIndex && matchEndIndex <= endCharIndex) {
-            matchWordEndIndex = index
-            break
-          }
-        }
-        if (matchWordStartIndex === -1 || matchWordEndIndex === -1) {
-          throw new Error('Unreachable: Failed to locate matched words in cross-word match.')
-        }
-        matchWordStartIndex += wordIndexOffset
-        matchWordEndIndex += wordIndexOffset
-        focusMultipleWordsInEditor(
-          pos.lineIndex,
-          matchWordStartIndex,
-          matchWordEndIndex,
-          shouldSwitchToContent,
-        )
-        currPos.value = {
-          lineIndex: pos.lineIndex,
-          field: 'word',
-          wordIndex: direction === Direction.Next ? matchWordEndIndex : matchWordStartIndex,
-        }
-        return
-      }
+      if (step > MAX_SEARCH_STEPS) throw new Error('Exceeded maximum search steps in handleFind, aborting.')
+      if (!isPosMatch(pos)) continue
+      focusPosInEditor(pos)
+      currPos.value = pos
+      return
     }
     runtimeStore.clearSelection()
     if (!noAlert)
@@ -427,34 +411,32 @@ export function useFindReplaceEngine(
       })
   }
   function handleFindNext() {
-    handleFind(getNextPos)
+    handleFind('next')
   }
   function handleFindPrev() {
-    handleFind(getPrevPos)
+    handleFind('prev')
   }
   function handleReplace() {
     const pattern = state.compiledPattern
-    const globalPattern = compiledPatternGlobal.value
     const replacement = state.replaceInput
-    if (!pattern || !globalPattern) return
-    if (currPos.value && isPosMatch(currPos.value, pattern)) {
-      replacePosText(currPos.value, globalPattern, replacement)
-      handleFind(getNextPos, true)
-    } else handleFind(getNextPos)
+    if (!pattern || !compiledPatternGlobal.value) return
+    if (currPos.value && currPos.value.field !== 'whole' && isPosMatch(currPos.value)) {
+      replacePosText(currPos.value, replacement)
+      handleFind('next', true)
+    } else handleFind('next')
   }
   function handleReplaceAll() {
     const pattern = state.compiledPattern
-    const globalPattern = compiledPatternGlobal.value
     let counter = 0
-    if (!pattern || !globalPattern) return
-    const rangedJumpPos = getRangedJumpPos(getNextPos)
-    for (let pos = getFirstPos(); pos; pos = rangedJumpPos(pos)) {
-      if (!isPosMatch(pos, pattern)) continue
-      counter += replacePosText(pos, globalPattern, state.replaceInput) ? 1 : 0
+    if (!pattern || !compiledPatternGlobal.value) return
+    const rangedJumpPos = getRangedJumpPos('next', null)
+    for (let pos = rangedJumpPos(null); pos; pos = rangedJumpPos(pos)) {
+      if (!isPosMatch(pos)) continue
+      counter += replacePosText(pos, state.replaceInput) ? 1 : 0
     }
     if (counter)
       notifier({
-        severity: 'info',
+        severity: 'success',
         summary: '全部替换完成',
         detail: `共替换了 ${counter} 个匹配项。`,
       })
