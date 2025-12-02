@@ -195,6 +195,7 @@ import { useToast } from 'primevue/usetoast'
 import type { TimeoutHandle } from '@/utils/types'
 import { useFindReplaceEngine } from '@/utils/findReplace'
 import { escapeRegExp } from 'lodash-es'
+import { sortWords } from '@/utils/selection'
 
 const [visible] = defineModel<boolean>({ required: true })
 
@@ -348,7 +349,11 @@ function handleDragEnter() {
   dragCounter++
 }
 function handleDragOver(e: DragEvent) {
-  if (!runtimeStore.isDraggingWord || runtimeStore.selectedWords.size !== 1) return
+  if (crossWordMatch.value) {
+    if (!runtimeStore.isDragging) return
+  } else {
+    if (!runtimeStore.isDraggingWord || runtimeStore.selectedWords.size !== 1) return
+  }
   e.preventDefault()
   runtimeStore.canDrop = true
   runtimeStore.isDraggingCopy = true
@@ -363,7 +368,24 @@ function handleDrop(where: 'find' | 'replace') {
   dragCounter = 0
   runtimeStore.canDrop = false
   runtimeStore.isDraggingCopy = false
-  const text = (runtimeStore.getFirstSelectedWord()?.text || '').trim()
+  let text = ''
+  if (crossWordMatch.value) {
+    if (!runtimeStore.isDragging) return
+    if (runtimeStore.isDraggingLine)
+      text = runtimeStore
+        .getFirstSelectedLine()!
+        .words.map((w) => w.text)
+        .join('')
+        .trim()
+    else
+      text = sortWords(...runtimeStore.selectedWords)
+        .map((w) => w.text)
+        .join('')
+        .trim()
+  } else {
+    if (!runtimeStore.isDraggingWord || runtimeStore.selectedWords.size !== 1) return
+    text = (runtimeStore.getFirstSelectedWord()?.text || '').trim()
+  }
   if (!text.length) return
   if (where === 'find') findInput.value = useRegex.value ? escapeRegExp(text) : text
   else replaceInput.value = text

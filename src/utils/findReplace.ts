@@ -5,6 +5,8 @@ import { useStaticStore } from '@/stores/static'
 import { computed, shallowRef, watch, type Reactive } from 'vue'
 import { tryRaf } from './tryRaf'
 
+const MAX_SEARCH_STEPS = 100000
+
 interface FindReplaceState {
   compiledPattern: RegExp | null
   replaceInput: string
@@ -229,7 +231,6 @@ export function useFindReplaceEngine(
   function getRangedJumpPos(direction: Direction, beginPos: DocPos | null) {
     const jumper = direction === 'next' ? getNextPos : getPrevPos
     let wrappedBack = false
-    const MAX_SEARCH_STEPS = 10000
     let stepCount = 0
     return (pos: DocPos | null, forceDisableWrap = false): NoWholeDocPos | null => {
       while (true) {
@@ -245,10 +246,13 @@ export function useFindReplaceEngine(
         } else {
           if (!state.wrapSearch || forceDisableWrap) return null
           if (!beginPos) return null
+          if (wrappedBack) {
+            console.warn('Wrapped back already, no valid positions found in range.')
+            return null
+          }
           wrappedBack = true
-          continue
         }
-        if (checkPosInRange(nextPos)) return nextPos
+        if (nextPos && checkPosInRange(nextPos)) return nextPos
         pos = nextPos
       }
     }
@@ -278,6 +282,8 @@ export function useFindReplaceEngine(
         const line = coreStore.lyricLines[pos.lineIndex]!
         const words = line.words.slice(pos.startWordIndex, pos.endWordIndex + 1)
         runtimeStore.selectLineWord(line, ...words)
+        // Only when all words are empty we switch to content view (show empty words)
+        // otherwise just stay
         if (words.every((w) => !w.text.trim())) shouldSwitchToContent = true
         break
       }
@@ -326,11 +332,41 @@ export function useFindReplaceEngine(
         return line.romanization
     }
   }
-  function isPosMatch(pos: NoWholeDocPos): boolean {
-    if (!state.compiledPattern) return false
-    return getPosText(pos).search(state.compiledPattern) !== -1
+  function isPosMatch(pos: NoWholeDocPos): NoWholeDocPos | null {
+    if (!state.compiledPattern) return null
+    const fulltext = getPosText(pos)
+    const match = fulltext.match(state.compiledPattern)
+    if (!match) return null
+    if (pos.field !== 'multiWord') return pos
+    // For multiWord, return the real matched range
+    const lineWords = coreStore.lyricLines[pos.lineIndex]!.words
+    let charCount = 0
+    let matchStartWord = -1
+    let matchEndWord = -1
+    const matchStartCh = match.index!
+    const matchEndCh = matchStartCh + match[0].length
+    for (let i = pos.startWordIndex; i <= pos.endWordIndex; i++) {
+      const word = lineWords[i]!
+      const wordStart = charCount
+      const wordEnd = (charCount += word.text.length)
+      if (wordStart <= match.index! && match.index! < wordEnd) matchStartWord = i
+      if (wordStart < matchEndCh && matchEndCh <= wordEnd) {
+        matchEndWord = i
+        break
+      }
+    }
+    if (matchStartWord === -1 || matchEndWord === -1) {
+      console.warn('Failed to locate multiWord match range, this should not happen.')
+      return pos
+    }
+    return {
+      lineIndex: pos.lineIndex,
+      field: 'multiWord',
+      startWordIndex: matchStartWord,
+      endWordIndex: matchEndWord,
+    }
   }
-  function replacePosText(pos: DocPos, replaceText: string) {
+  function replacePosText(pos: DocPosLine | DocPosWord, replaceText: string) {
     const pattern = compiledPatternGlobal.value
     if (!pattern) return false
     const line = coreStore.lyricLines[pos.lineIndex]!
@@ -378,7 +414,6 @@ export function useFindReplaceEngine(
     return fieldOrder[a.field] - fieldOrder[b.field]
   }
 
-  const MAX_SEARCH_STEPS = 10000
   function handleFind(direction: Direction, noAlert = false) {
     const rangedJumpPos = getRangedJumpPos(direction, currPos.value)
     const startingPos = rangedJumpPos(currPos.value)
@@ -394,10 +429,12 @@ export function useFindReplaceEngine(
     const pattern = state.compiledPattern
     if (!pattern) return
     for (let pos: DocPos | null = startingPos, step = 0; pos; pos = rangedJumpPos(pos), step++) {
-      if (step > MAX_SEARCH_STEPS) throw new Error('Exceeded maximum search steps in handleFind, aborting.')
-      if (!isPosMatch(pos)) continue
-      focusPosInEditor(pos)
-      currPos.value = pos
+      if (step > MAX_SEARCH_STEPS)
+        throw new Error('Exceeded maximum search steps in handleFind, aborting.')
+      const matchedPos = isPosMatch(pos)
+      if (!matchedPos) continue
+      focusPosInEditor(matchedPos)
+      currPos.value = matchedPos
       return
     }
     runtimeStore.clearSelection()
@@ -420,7 +457,12 @@ export function useFindReplaceEngine(
     const pattern = state.compiledPattern
     const replacement = state.replaceInput
     if (!pattern || !compiledPatternGlobal.value) return
-    if (currPos.value && currPos.value.field !== 'whole' && isPosMatch(currPos.value)) {
+    if (
+      currPos.value &&
+      currPos.value.field !== 'whole' &&
+      currPos.value.field !== 'multiWord' &&
+      isPosMatch(currPos.value)
+    ) {
       replacePosText(currPos.value, replacement)
       handleFind('next', true)
     } else handleFind('next')
@@ -432,6 +474,8 @@ export function useFindReplaceEngine(
     const rangedJumpPos = getRangedJumpPos('next', null)
     for (let pos = rangedJumpPos(null); pos; pos = rangedJumpPos(pos)) {
       if (!isPosMatch(pos)) continue
+      if (pos.field === 'multiWord')
+        throw new Error('Unreachable: multiWord should have been disabled in replacing.')
       counter += replacePosText(pos, state.replaceInput) ? 1 : 0
     }
     if (counter)
