@@ -2,20 +2,24 @@
   <div
     class="spectrogram-container"
     style="position: relative; overflow: hidden"
+    ref="containerEl"
     :style="{ height: props.height + 'px' }"
+    @wheel="handleWheel"
   >
-    <Tile
-      v-for="(tile, index) in tiles"
-      :key="index"
-      :tile="tile"
-      :left="index * TILE_WIDTH_PX"
-      :height="props.height"
-    />
+    <div class="spectrogram-scroller" :style="{ transform: `translateX(${-scrollLeft}px)` }">
+      <Tile
+        v-for="(tile, index) in tiles"
+        :key="index"
+        :tile="tile"
+        :left="index * TILE_WIDTH_PX"
+        :height="props.height"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { shallowRef, computed, watchEffect, ref, watch } from 'vue'
+import { shallowRef, computed, ref, watch, useTemplateRef } from 'vue'
 import Tile from './Tile.vue'
 import stringify from 'fast-json-stable-stringify'
 import {
@@ -25,11 +29,27 @@ import {
 } from './useSpectrogramWorker'
 import { useStaticStore } from '@/stores/static'
 import { generatePalette, getIcyBlueColor } from './colors'
+import { useElementSize } from '@vueuse/core'
 const { audio } = useStaticStore()
 
 const props = defineProps<{
   height: number
 }>()
+const scrollLeft = ref(0)
+const containerEl = useTemplateRef('containerEl')
+const { width: containerWidth } = useElementSize(containerEl)
+
+function handleWheel(event: WheelEvent) {
+  event.preventDefault()
+  scrollLeft.value += event.deltaY
+  // clamp
+  if (scrollLeft.value < 0) {
+    scrollLeft.value = 0
+  }
+}
+const scrollLeftEnd = computed(() => scrollLeft.value + containerWidth.value)
+const firstVisibleTileIndex = computed(() => Math.floor(scrollLeft.value / TILE_WIDTH_PX))
+const lastVisibleTileIndex = computed(() => Math.ceil(scrollLeftEnd.value / TILE_WIDTH_PX))
 
 // ======== temporary constants ========
 const TILE_DURATION_S = 5
