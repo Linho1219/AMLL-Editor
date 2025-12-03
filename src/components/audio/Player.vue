@@ -168,12 +168,13 @@ const drawProgress = () => {
   if (cachedDPR !== devicePixelRatio) {
     // Recalculate canvas size
     if (!audioProgressWrapperEl.value) return
+    const canvas = audioProgressCanvas.value
     const width = audioProgressWrapperEl.value.clientWidth
     const height = audioProgressWrapperEl.value.clientHeight
-    audioProgressCanvas.value.width = Math.ceil(width * devicePixelRatio)
-    audioProgressCanvas.value.height = Math.ceil(height * devicePixelRatio)
-    audioProgressCanvas.value.style.width = `${width}px`
-    audioProgressCanvas.value.style.height = `${height}px`
+    canvas.width = Math.ceil(width * devicePixelRatio)
+    canvas.height = Math.ceil(height * devicePixelRatio)
+    canvas.style.width = `${width}px`
+    canvas.style.height = `${height}px`
     cachedDPR = devicePixelRatio
   }
   const ctx = audioProgressCanvas.value.getContext('2d')

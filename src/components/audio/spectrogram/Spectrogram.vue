@@ -45,7 +45,7 @@ const containerEl = useTemplateRef('containerEl')
 const { width: containerWidth, height: containerHeight } = useElementSize(containerEl)
 const scaleRatio = ref(0.5)
 const MINSCALE = 0.25,
-  MAXSCALE = 3
+  MAXSCALE = 8
 
 const clamper = (min: number, max: number) => (value: number) => {
   if (value < min) return min
@@ -73,9 +73,8 @@ function handleWheel(event: WheelEvent) {
     const rect = containerEl.value.getBoundingClientRect()
     if (!rect) return
     const cursorX = event.clientX - rect.left
-    const cursorRatio = cursorX / rect.width
-    const contentX = scrollLeft.value + cursorRatio * containerWidth.value
-    const newContentX = contentX * (newScale / oldScale)
+    const contentX = scrollLeft.value + cursorX
+    const newContentX = (contentX * newScale) / oldScale
     scrollLeft.value = newContentX - cursorX
     if (scrollLeft.value < 0) scrollLeft.value = 0
     if (newScale < oldScale && scrollLeft.value > maxScrollLeft.value)
@@ -96,8 +95,9 @@ const lastVisibleIndex = computed(() =>
 )
 
 const TILE_DURATION_MS = 5000
-const renderTileWidth = 2048
-const visualTileWidth = computed(() => Math.round(renderTileWidth * scaleRatio.value))
+const basicTileWidth = 1024
+const maxTileWidth = basicTileWidth * MAXSCALE
+const visualTileWidth = computed(() => Math.round(basicTileWidth * scaleRatio.value))
 const userGain = ref(0.5)
 const gain = computed(() => userGain.value ** 2 * 10)
 
@@ -135,6 +135,7 @@ watch([audio.audioBufferComputed, scrollLeft, scaleRatio, gain], requestTiles, {
 
 async function requestTiles() {
   await workerInitPromise
+  const expectedTileWidth = scaleRatio.value > 1 ? maxTileWidth : basicTileWidth
   const requests = Array.from(
     {
       length: lastVisibleIndex.value - firstVisibleIndex.value + 2 * VISIBLE_TILE_BUFFER + 1,
@@ -147,8 +148,8 @@ async function requestTiles() {
       const clampedEnd = Math.min(end, audio.lengthComputed.value)
       const clampedWidth =
         clampedEnd !== end
-          ? Math.ceil(renderTileWidth * ((clampedEnd - start) / TILE_DURATION_MS))
-          : renderTileWidth
+          ? Math.ceil(expectedTileWidth * ((clampedEnd - start) / TILE_DURATION_MS))
+          : expectedTileWidth
       const paramsWithoutId: Omit<RequestTileParamsWithIndex, 'id'> = {
         startTime: start,
         endTime: clampedEnd,
