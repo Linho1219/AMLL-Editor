@@ -2,3 +2,4 @@
 /src/lib/
 LICENSE
 *.dict.json
+*.min.js
