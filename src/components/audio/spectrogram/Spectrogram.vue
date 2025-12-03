@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { shallowRef, computed, watchEffect, ref, watch } from 'vue'
 import Tile from './Tile.vue'
+import stringify from 'fast-json-stable-stringify'
 import {
   useSpectrogramWorker,
   type TileEntry,
@@ -45,20 +46,22 @@ const { tileCache, requestTileIfNeeded, workerInitPromise } = useSpectrogramWork
 
 // ---- 预生成 5 个 tile ----
 const tileCount = 5
+const obj2id = (obj: Object) => stringify(obj)
 
-const tileRequests = computed(() => {
+const tileRequests = computed((): RequestTileParams[] => {
   return Array.from({ length: tileCount }, (_, i) => {
     const start = i * TILE_DURATION_S
     const end = start + TILE_DURATION_S
 
-    return {
-      reqId: start,
+    const paramsWithoutId: Omit<RequestTileParams, 'id'> = {
       startTime: start,
       endTime: end,
       gain: GAIN,
       tileWidthPx: TILE_WIDTH_PX,
       paletteId: 'default',
-    } satisfies RequestTileParams
+    }
+    const id = obj2id(paramsWithoutId)
+    return { ...paramsWithoutId, id }
   })
 })
 
@@ -77,7 +80,7 @@ watch(
 tileCache.onSet(() => {
   console.log('Tile cache updated')
   tiles.value = tileRequests.value
-    .map((r) => tileCache.get(r.reqId))
+    .map((r) => tileCache.get(r.id))
     .filter((x): x is TileEntry => !!x)
 })
 </script>

@@ -3,9 +3,38 @@ import init, {
   initThreadPool,
 } from '@/lib/spectrogram/wasm_spectrogram'
 
-const log = (message: string) => {
-  console.log(message)
+interface MsgInit {
+  type: 'INIT'
+  audioData: Float32Array
+  sampleRate: number
 }
+interface MsgSetPalette {
+  type: 'SET_PALETTE'
+  palette: Uint8Array
+}
+interface MsgGetTile {
+  type: 'GET_TILE'
+  id: string
+  startTime: number
+  endTime: number
+  gain: number
+  tileWidthPx: number
+  paletteId: string
+}
+export type WorkerGetMsg = MsgInit | MsgSetPalette | MsgGetTile
+
+interface MsgInitComplete {
+  type: 'INIT_COMPLETE'
+}
+interface MsgTileReady {
+  type: 'TILE_READY'
+  id: string
+  imageBitmap: ImageBitmap
+  renderedWidth: number
+  gain: number
+  paletteId: string
+}
+export type WorkerEmitMsg = MsgInitComplete | MsgTileReady
 
 let fullAudioData: Float32Array | null = null
 let audioSampleRate: number = 0
@@ -22,7 +51,12 @@ async function initializeWasm() {
   await wasmInitialized
 }
 
-self.onmessage = async (event: MessageEvent) => {
+const postMessage = self.postMessage.bind(self) as (
+  msg: WorkerEmitMsg,
+  options?: WindowPostMessageOptions,
+) => void
+
+self.onmessage = async (event: MessageEvent<WorkerGetMsg>) => {
   await initializeWasm()
   const { type } = event.data
 
@@ -30,7 +64,7 @@ self.onmessage = async (event: MessageEvent) => {
     fullAudioData = event.data.audioData
     audioSampleRate = event.data.sampleRate
     currentPalette = null
-    self.postMessage({ type: 'INIT_COMPLETE' })
+    postMessage({ type: 'INIT_COMPLETE' })
   } else if (type === 'SET_PALETTE') {
     currentPalette = event.data.palette
   } else if (type === 'GET_TILE') {
@@ -38,14 +72,13 @@ self.onmessage = async (event: MessageEvent) => {
       return
     }
 
-    const { tileId, startTime, endTime, gain, tileWidthPx, paletteId } = event.data
+    const { id, startTime, endTime, gain, tileWidthPx, paletteId } = event.data
 
     const startSample = Math.floor(startTime * audioSampleRate)
     const endSample = Math.ceil(endTime * audioSampleRate)
 
-    if (startSample >= fullAudioData.length) {
-      return
-    }
+    if (startSample >= fullAudioData.length) return
+
     const audioSlice = fullAudioData.slice(startSample, Math.min(endSample, fullAudioData.length))
 
     const TILE_HEIGHT = 256
@@ -65,7 +98,7 @@ self.onmessage = async (event: MessageEvent) => {
 
     const t1 = performance.now()
 
-    log(`[Worker] ${tileId} width ${tileWidthPx} ${(t1 - t0).toFixed(2)} ms`)
+    console.log(`[Worker] ${id} width ${tileWidthPx} ${(t1 - t0).toFixed(2)} ms`)
 
     const canvas = new OffscreenCanvas(tileWidthPx, TILE_HEIGHT)
     const ctx = canvas.getContext('2d')
@@ -74,10 +107,10 @@ self.onmessage = async (event: MessageEvent) => {
       ctx.putImageData(imageData, 0, 0)
 
       const imageBitmap = canvas.transferToImageBitmap()
-      self.postMessage(
+      postMessage(
         {
           type: 'TILE_READY',
-          tileId,
+          id,
           imageBitmap,
           renderedWidth: tileWidthPx,
           gain: gain,

@@ -1,6 +1,7 @@
 import { LRUCache } from './lruCache'
-import { onBeforeUnmount, onMounted, readonly, ref, shallowRef, watch, type ShallowRef } from 'vue'
-import SpectrogramWorker from './spectrogram.worker.ts?worker'
+import { onBeforeUnmount, onMounted, readonly, ref, watch, type ShallowRef } from 'vue'
+import SpectrogramWorker from './spectrogram.worker?worker'
+import type { WorkerEmitMsg, WorkerGetMsg } from './spectrogram.worker'
 
 const MAX_CACHED_TILES = 70
 
@@ -12,7 +13,7 @@ export type TileEntry = {
 }
 
 export interface RequestTileParams {
-  reqId: number
+  id: string
   startTime: number
   endTime: number
   gain: number
@@ -20,18 +21,18 @@ export interface RequestTileParams {
   paletteId: string
 }
 
-const id2str = (id: number) => `tile-${id}`
-const str2id = (str: string) => Number(str.split('-')[1])
-
 export const useSpectrogramWorker = (
   audioBufferRef: ShallowRef<AudioBuffer | null>,
   paletteDataRef: ShallowRef<Uint8Array>,
 ) => {
   let worker = null as Worker | null
-  const tileCache = new LRUCache<number, TileEntry>(MAX_CACHED_TILES, (_key, entry) => {
+  const postMessage = (msg: WorkerGetMsg, transfer?: Transferable[]) =>
+    transfer ? worker?.postMessage(msg, transfer) : worker?.postMessage(msg)
+
+  const tileCache = new LRUCache<string, TileEntry>(MAX_CACHED_TILES, (_key, entry) => {
     entry.bitmap.close()
   })
-  const requestedTiles = new Set<number>()
+  const requestedTiles = new Set<string>()
 
   const lastTileTimestamp = ref(0)
 
@@ -43,36 +44,31 @@ export const useSpectrogramWorker = (
   onMounted(() => {
     worker = new SpectrogramWorker()
     tryMountAudioBuffer()
-    worker.onmessage = (event: MessageEvent) => {
-      const {
-        type,
-        tileId: tileIdStr,
-        imageBitmap,
-        renderedWidth,
-        gain: renderedGain,
-        paletteId: renderedPaletteId,
-      } = event.data
-      console.log(type)
-
+    worker.onmessage = (event: MessageEvent<WorkerEmitMsg>) => {
+      const { type } = event.data
       if (type === 'TILE_READY') {
-        if (tileIdStr) {
-          requestedTiles.delete(str2id(tileIdStr))
-        }
+        const {
+          id,
+          imageBitmap,
+          renderedWidth,
+          gain: renderedGain,
+          paletteId: renderedPaletteId,
+        } = event.data
+
+        if (id) requestedTiles.delete(id)
 
         if (
-          tileIdStr &&
+          id &&
           imageBitmap &&
           renderedWidth &&
           renderedGain != null &&
           renderedPaletteId != null
         ) {
-          const tileIndex = str2id(tileIdStr)
-          if (tileIndex == null) {
+          if (!id) {
             imageBitmap.close()
             return
           }
-          const cacheId = tileIndex
-          const existingEntry = tileCache.get(cacheId)
+          const existingEntry = tileCache.get(id)
 
           if (
             !existingEntry ||
@@ -80,7 +76,7 @@ export const useSpectrogramWorker = (
             renderedGain !== existingEntry.gain ||
             renderedPaletteId !== existingEntry.paletteId
           ) {
-            tileCache.set(cacheId, {
+            tileCache.set(id, {
               bitmap: imageBitmap,
               width: renderedWidth,
               gain: renderedGain,
@@ -118,7 +114,7 @@ export const useSpectrogramWorker = (
     const channelData = audioBufferRef.value.getChannelData(0)
     const channelDataCopy = channelData.slice()
 
-    worker.postMessage(
+    postMessage(
       {
         type: 'INIT',
         audioData: channelDataCopy,
@@ -131,7 +127,7 @@ export const useSpectrogramWorker = (
 
   const tryMountPaletteData = () => {
     if (!worker || !paletteDataRef.value) return
-    worker.postMessage({
+    postMessage({
       type: 'SET_PALETTE',
       palette: paletteDataRef.value,
     })
@@ -139,14 +135,14 @@ export const useSpectrogramWorker = (
   watch(paletteDataRef, tryMountPaletteData)
 
   function requestTileIfNeeded({
-    reqId,
+    id,
     startTime,
     endTime,
     gain,
     tileWidthPx,
     paletteId,
   }: RequestTileParams) {
-    const cacheEntry = tileCache.get(reqId)
+    const cacheEntry = tileCache.get(id)
     const currentWidth = cacheEntry?.width ?? 0
     const currentGain = cacheEntry?.gain
     const currentPaletteId = cacheEntry?.paletteId
@@ -155,13 +151,13 @@ export const useSpectrogramWorker = (
       (tileWidthPx > currentWidth || currentGain !== gain || currentPaletteId !== paletteId) &&
       tileWidthPx > 0
 
-    if (needsRequest && !requestedTiles.has(reqId)) {
-      requestedTiles.add(reqId)
+    if (needsRequest && !requestedTiles.has(id)) {
+      requestedTiles.add(id)
       if (!worker) console.warn('Spectrogram worker is not initialized')
-      console.log('reqid:', reqId)
+      console.log('id:', id)
       worker?.postMessage({
         type: 'GET_TILE',
-        tileId: id2str(reqId),
+        id,
         startTime,
         endTime,
         gain,
