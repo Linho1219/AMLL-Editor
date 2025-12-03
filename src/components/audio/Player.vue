@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-        <Waveform :audio="audio" :key="refresher" />
+        <Waveform :audio="audio" :key="refresher" @wheel="handleWaveformWheel" />
         <Button
           icon="pi pi-chart-bar"
           :severity="showSpectrogram ? 'primary' : 'secondary'"
@@ -202,6 +202,18 @@ const drawProgress = () => {
   ctx.fillText(percentageStr, 0, height + secondaryOffset * devicePixelRatio)
   ctx.textAlign = 'right'
   ctx.fillText(lengthStr, width, height + secondaryOffset * devicePixelRatio)
+}
+
+function handleWaveformWheel(e: WheelEvent) {
+  e.preventDefault()
+  if (e.shiftKey) {
+    const delta = e.deltaY || e.deltaX
+    audio.volumeRef.value = Math.min(1, Math.max(0, audio.volumeRef.value - delta * 0.001))
+  } else {
+    const delta = -e.deltaY || e.deltaX
+    const seekAmount = delta * 20
+    audio.seekBy(seekAmount)
+  }
 }
 </script>
 

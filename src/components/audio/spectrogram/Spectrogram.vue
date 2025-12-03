@@ -96,7 +96,7 @@ function handleWheel(event: WheelEvent) {
     if (newScale < oldScale && scrollLeft.value > maxScrollLeft.value)
       scrollLeft.value = maxScrollLeft.value
     scaleRatio.value = newScale
-  } else if (event.altKey) {
+  } else if (event.shiftKey) {
     userGain.value = clampUserGain(userGain.value + (event.deltaY > 0 ? -0.05 : 0.05))
   } else {
     zoomAccum = 0
