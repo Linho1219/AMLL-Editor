@@ -1,5 +1,5 @@
 import { LRUCache } from './lruCache'
-import { onBeforeUnmount, onMounted, readonly, ref, watch, type ShallowRef } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, readonly, ref, watch, type ShallowRef } from 'vue'
 import SpectrogramWorker from './spectrogram.worker?worker'
 import type { WorkerEmitMsg, WorkerGetMsg } from './spectrogram.worker'
 
@@ -20,6 +20,9 @@ export interface RequestTileParams {
   tileWidthPx: number
   paletteId: string
 }
+export interface RequestTileParamsWithIndex extends RequestTileParams {
+  index: number
+}
 
 export const useSpectrogramWorker = (
   audioBufferRef: ShallowRef<AudioBuffer | null>,
@@ -32,7 +35,22 @@ export const useSpectrogramWorker = (
   const tileCache = new LRUCache<string, TileEntry>(MAX_CACHED_TILES, (_key, entry) => {
     entry.bitmap.close()
   })
-  const requestedTiles = new Set<string>()
+  const requestedTiles = (() => {
+    const set = new Set<string>()
+    type Listener = (size: number) => void
+    const listeners = new Set<Listener>()
+    const notifyAll = () => listeners.forEach((l) => l(set.size))
+    return {
+      has: (id: string) => set.has(id),
+      add: (id: string) => (set.add(id), notifyAll()),
+      delete: (id: string) => (set.delete(id), notifyAll()),
+      clear: () => (set.clear(), notifyAll()),
+      listen: (listener: Listener) => (listeners.add(listener), () => listeners.delete(listener)),
+      get size() {
+        return set.size
+      },
+    }
+  })()
 
   const lastTileTimestamp = ref(0)
 
@@ -166,9 +184,49 @@ export const useSpectrogramWorker = (
     }
   }
 
+  const TIMEOUT_MS = 10000
+  function queueEmptyPromise(): Promise<void> {
+    if (requestedTiles.size === 0) return Promise.resolve()
+    return new Promise((resolve, reject) => {
+      const stopWatch = requestedTiles.listen((size) => {
+        if (size === 0) {
+          clearTimeout(timeout)
+          stopWatch()
+          resolve()
+        }
+      })
+      const timeout = setTimeout(() => {
+        stopWatch()
+        reject(
+          new Error(
+            'Timeout waiting for spectrogram worker queue to empty, current count: ' +
+              requestedTiles.size,
+          ),
+        )
+      }, TIMEOUT_MS)
+    })
+  }
+
+  async function batchRequestTiles(requests: RequestTileParamsWithIndex[]) {
+    if (requests.length > MAX_CACHED_TILES)
+      throw new Error('Number of requested tiles exceeds max cache size')
+    await workerInitPromise
+    await queueEmptyPromise()
+    for (const req of requests) requestTileIfNeeded(req)
+    await nextTick()
+    await queueEmptyPromise()
+    return requests.map((req) => {
+      const entry = tileCache.get(req.id)
+      if (!entry) {
+        throw new Error('Tile not found in cache after batch request: ' + req.id)
+      }
+      return { entry, index: req.index }
+    })
+  }
+
   return {
     tileCache,
-    requestTileIfNeeded,
+    batchRequestTiles,
     lastTileTimestamp: readonly(lastTileTimestamp),
     workerInitPromise,
   }
