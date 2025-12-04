@@ -42,6 +42,7 @@ import { useStaticStore } from '@/stores/static'
 import { generatePalette, getIcyBlueColor } from './colors'
 import { useElementSize } from '@vueuse/core'
 import { Slider } from 'primevue'
+import { nanoid } from 'nanoid'
 const { audio } = useStaticStore()
 
 const userSetContainerHeight = ref(250)
@@ -135,10 +136,13 @@ onUnmounted(() => revokeListeners?.())
 let tiles: { entry: TileEntry; index: number }[] = []
 const obj2id = (obj: Object) => stableStringify(obj)
 const VISIBLE_TILE_BUFFER = 0
-watch([audio.audioBufferComputed, scrollCenter, scaleRatio, gain], requestTiles)
+watch([audio.audioBufferComputed, audio.amendedProgressComputed, scaleRatio, gain], requestTiles)
 onMounted(requestTiles)
 
+let currentRequestId = ''
 async function requestTiles() {
+  const reqId = nanoid()
+  currentRequestId = reqId
   const expectedTileWidth = scaleRatio.value > 1 ? maxTileWidth : baseTileWidth
   const requests = Array.from(
     {
@@ -168,8 +172,8 @@ async function requestTiles() {
   ).filter((req): req is RequestTileParamsWithIndex => req !== null)
   const requestedTiles = await batchRequestTiles(requests)
   if (!requestedTiles) return
+  if (currentRequestId !== reqId) return
   tiles = requestedTiles
-  console.log('Spectrogram: received tiles count', requestedTiles.length)
   drawTiles()
 }
 
@@ -185,10 +189,8 @@ function drawTiles() {
   canvas.height = Math.ceil(height * dpr)
   canvas.style.width = width + 'px'
   canvas.style.height = height + 'px'
-  ctx.imageSmoothingEnabled = false
   ctx.scale(dpr, dpr)
   ctx.clearRect(0, 0, width, height)
-  console.log('Drawing tiles', tiles.length)
   tiles.forEach(({ entry, index }) => {
     const x = index * vTileWidth.value - (scrollCenter.value - halfContainerWidth.value)
     ctx.drawImage(entry.bitmap, x, 0, vTileWidth.value, containerHeight.value)

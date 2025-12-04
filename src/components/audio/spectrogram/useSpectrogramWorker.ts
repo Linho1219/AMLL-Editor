@@ -25,6 +25,40 @@ export interface RequestTileParamsWithIndex extends RequestTileParams {
   index: number
 }
 
+interface ReadonlyInitManager {
+  isInited: () => boolean
+  getInitPromise: () => Promise<void>
+}
+interface InitManager extends ReadonlyInitManager {
+  setInited: () => void
+  quitInited: () => void
+}
+function getInitManager(): InitManager {
+  let workerInited = false
+  const resolvers = new Set<() => void>()
+  function setInited() {
+    workerInited = true
+    resolvers.forEach((res) => res())
+    resolvers.clear()
+  }
+  function quitInited() {
+    workerInited = false
+  }
+  const isInited = () => workerInited
+  function getInitPromise() {
+    if (workerInited) return Promise.resolve()
+    return new Promise<void>((resolve) => {
+      resolvers.add(resolve)
+    })
+  }
+  return {
+    setInited,
+    quitInited,
+    isInited,
+    getInitPromise,
+  }
+}
+
 export const useSpectrogramWorker = (
   audioBufferRef: ShallowRef<AudioBuffer | null>,
   paletteDataRef: ShallowRef<Uint8Array>,
@@ -40,12 +74,7 @@ export const useSpectrogramWorker = (
 
   const lastTileTimestamp = ref(0)
 
-  let workerInitResolve = null as (() => void) | null
-  const workerInitPromise = new Promise<void>((resolve) => {
-    workerInitResolve = resolve
-  })
-  let workerInited = false
-  const getWorkerInited = () => workerInited
+  const initManager = getInitManager()
 
   onMounted(() => {
     worker = new SpectrogramWorker()
@@ -97,11 +126,7 @@ export const useSpectrogramWorker = (
         requestedTiles.clear()
         tryMountPaletteData()
         lastTileTimestamp.value = Date.now()
-        if (workerInitResolve) {
-          workerInitResolve()
-          workerInitResolve = null
-          workerInited = true
-        }
+        initManager.setInited()
       }
     }
   })
@@ -114,6 +139,7 @@ export const useSpectrogramWorker = (
 
   const tryMountAudioBuffer = () => {
     if (!audioBufferRef.value || !worker) return
+    initManager.quitInited()
     tileCache.clear()
     requestedTiles.clear()
     lastTileTimestamp.value = Date.now()
@@ -181,7 +207,7 @@ export const useSpectrogramWorker = (
     currentTransaction = transactionId
     if (requests.length > MAX_CACHED_TILES)
       throw new Error('Number of requested tiles exceeds max cache size')
-    if (!workerInited) await workerInitPromise
+    await initManager.getInitPromise()
     for (const req of requests) requestTileIfNeeded(req)
     if (!requests.every((req) => tileCache.has(req.id)))
       await new Promise<void>((resolve, reject) => {
@@ -219,7 +245,6 @@ export const useSpectrogramWorker = (
     tileCache,
     batchRequestTiles,
     lastTileTimestamp: readonly(lastTileTimestamp),
-    workerInitPromise,
-    getWorkerInited,
+    initManager: initManager as ReadonlyInitManager,
   }
 }
