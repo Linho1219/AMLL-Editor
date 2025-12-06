@@ -324,15 +324,16 @@ function handleDrop() {
     opacity: 0.8;
     &.collapsed {
       display: flex;
-      justify-content: space-between;
       .description-text {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: 0;
-        flex: 1;
       }
     }
+  }
+  .description-text {
+    user-select: text;
+    margin-inline-end: 0.5rem;
   }
   .description-button {
     display: inline-block;
@@ -344,6 +345,7 @@ function handleDrop() {
     &:active {
       opacity: 0.5;
     }
+    flex-shrink: 0;
   }
   .group {
     display: flex;

@@ -4,6 +4,8 @@ import { compromiseSplit } from './compromise'
 import { prosoticSplit } from './prosotic'
 import { japaneseSplit } from './japanese'
 import { silabeadorSplit } from './silabeador/silabeador'
+import { syllabifyFrSplit } from './syllabifyFr'
+import { syllabifySplit } from './syllabify'
 
 export interface Rewrite {
   target: string
@@ -37,7 +39,7 @@ const engines: SplitEngine[] = [
     processor: japaneseSplit,
   },
   {
-    name: 'Prosodic 英语词库断词',
+    name: 'Prosodic 英语断词',
     description:
       '将 SUBTLEXus 作为语料，由 Prosodic 根据 CMUDict 进行音节划分后，匹配回拼写得到词典，高频词经人工校对。未命中的词将回退至 Compromise。',
     processor: prosoticSplit,
@@ -45,14 +47,25 @@ const engines: SplitEngine[] = [
   {
     name: 'Silabeador 西班牙语断词',
     description:
-      '由 Silabeador 库提供基于正字法规则匹配的西班牙语音节划分，内置例外表。同时可容忍不常见或非西班牙语变音符号与辅音集群。',
+      '由 Silabeador 库提供的正字法西班牙语音节划分，内置例外表。同时可容忍不常见或非西班牙语变音符号与辅音集群。',
     processor: silabeadorSplit,
   },
   {
     name: 'Compromise 英语断词',
-    description:
-      '由 Compromise 库提供基于正字法规则匹配的英语音节拆分。若有自定义规则，将覆盖词内音节拆分。',
+    description: '由 Compromise 库提供的正字法英语音节拆分。',
     processor: compromiseSplit,
+    notRecommend: true,
+  },
+  {
+    name: 'Syllabify-fr 法语断词',
+    description: '由 Syllabify-fr 库提供的正字法法语语音节划分。',
+    processor: syllabifyFrSplit,
+    notRecommend: true,
+  },
+  {
+    name: 'Syllabify 俄语断词',
+    description: '由 Syllabify 库提供的正字法俄语音节划分。',
+    processor: syllabifySplit,
     notRecommend: true,
   },
 ]

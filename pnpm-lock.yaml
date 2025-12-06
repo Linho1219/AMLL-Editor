@@ -101,6 +101,12 @@ importers:
       pyodide:
         specifier: ^0.29.0
         version: 0.29.0
+      syllabify:
+        specifier: ^1.0.1
+        version: 1.0.1
+      syllabify-fr:
+        specifier: ^1.0.1
+        version: 1.0.1
       virtua:
         specifier: ^0.46.7
         version: 0.46.7(vue@3.5.25(typescript@5.9.3))
@@ -1662,6 +1668,13 @@ packages:
   supports-color@8.1.1:
     resolution: {integrity: sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==}
     engines: {node: '>=10'}
+
+  syllabify-fr@1.0.1:
+    resolution: {integrity: sha512-scD1EDeQURh4Tk29fSk1y18cvK+NM6/v70Og7M3vXwBMpKREEvi1lJLCj5ancXpd4jRszETor/Ozgg+P7LYRMw==}
+    engines: {node: '>=18'}
+
+  syllabify@1.0.1:
+    resolution: {integrity: sha512-gQvfySIwqY+PYB8f3p6OJ6x233VbzBoE/J1nSDoPl1Lu3zor/zEvzVC6wauca1+Il7bys6Z59YI+6mXIPR4Y0A==}
 
   symbol-observable@1.2.0:
     resolution: {integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==}
@@ -3296,6 +3309,10 @@ snapshots:
   supports-color@8.1.1:
     dependencies:
       has-flag: 4.0.0
+
+  syllabify-fr@1.0.1: {}
+
+  syllabify@1.0.1: {}
 
   symbol-observable@1.2.0: {}
 
