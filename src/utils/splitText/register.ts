@@ -32,7 +32,7 @@ const engines: SplitEngine[] = [
   {
     name: 'Compromise 英语正字法断词',
     description:
-      '在基本断词基础上，由 Compromise 库提供基于正字法规则匹配的英语音节拆分。若有自定义规则，将覆盖词内音节拆分。',
+      '由 Compromise 库提供基于正字法规则匹配的英语音节拆分。若有自定义规则，将覆盖词内音节拆分。',
     processor: compromiseSplit,
   },
   {
@@ -49,6 +49,8 @@ const engines: SplitEngine[] = [
   },
   {
     name: 'Silabeador 西班牙语断词',
+    description:
+      '由 Silabeador 库提供基于正字法规则匹配的西班牙语音节划分，内置例外表。同时可容忍不常见或非西班牙语变音符号与辅音集群。',
     processor: silabeadorSplit,
   },
 ]
