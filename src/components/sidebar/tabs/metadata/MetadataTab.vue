@@ -109,7 +109,7 @@
 <script setup lang="ts">
 import { computed, onMounted, shallowRef, useTemplateRef } from 'vue'
 import { amllMetaTemplate, lrcMetaTemplate, type MetadataTemplate } from './templates'
-import { AutoComplete, Button, Divider, IftaLabel, InputText, Message, Select } from 'primevue'
+import { AutoComplete, Button, Divider, IftaLabel, InputText, Select } from 'primevue'
 import { useCoreStore } from '@/stores/core'
 import MultiInputText from '@/components/repack/MultiInputText.vue'
 

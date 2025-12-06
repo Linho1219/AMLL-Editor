@@ -65,6 +65,7 @@
     "sass-embedded": "^1.93.2",
     "typescript": "~5.9.3",
     "vite": "^7.1.12",
+    "vite-plugin-static-copy": "^3.1.4",
     "vue-tsc": "^3.1.2"
   }
 }
