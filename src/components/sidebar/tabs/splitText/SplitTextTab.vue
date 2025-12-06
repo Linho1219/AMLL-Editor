@@ -5,12 +5,24 @@
         <Select
           v-model="selectedEngine"
           inputId="splitEngine"
-          :options="engines"
+          :options="displayEngines"
+          optionGroupLabel="label"
+          optionGroupChildren="items"
           optionLabel="name"
           placeholder="选择断词引擎"
+          scrollHeight="20rem"
           checkmark
           fluid
-        />
+        >
+          <template #optiongroup="slotProps">
+            <div
+              class="splittext-select-group-label"
+              :class="{ hidden: slotProps.option.hideLabel }"
+            >
+              <div>{{ slotProps.option.label }}</div>
+            </div>
+          </template>
+        </Select>
         <label for="splitEngine">断词引擎</label>
       </IftaLabel>
       <div
@@ -104,6 +116,18 @@ import { reactive, ref } from 'vue'
 import SplitTextRewriteEditor from './SplitTextRewriteEditor.vue'
 import InputText from '@/components/repack/InputText.vue'
 import engines, { type Rewrite, type SplitEngine } from '@/utils/splitText/register'
+
+const displayEngines: { label: string; hideLabel?: boolean; items: SplitEngine[] }[] = [
+  {
+    label: '推荐',
+    hideLabel: true,
+    items: engines.filter((e) => !e.notRecommend),
+  },
+  {
+    label: '不推荐',
+    items: engines.filter((e) => e.notRecommend),
+  },
+]
 
 const selectedEngine = ref<SplitEngine | null>(engines[0] || null)
 const customRewrites = reactive<Rewrite[]>([])
@@ -363,5 +387,13 @@ function handleDrop() {
       background-color: var(--p-button-secondary-background);
     }
   }
+}
+.splittext-select-group-label {
+  margin: -0.3rem -0.2rem;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+.p-select-list-container .p-select-option-group:has(.splittext-select-group-label.hidden) {
+  display: none;
 }
 </style>

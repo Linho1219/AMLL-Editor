@@ -19,6 +19,7 @@ export type Splitter = (
 export interface SplitEngine {
   name: string
   description?: string
+  notRecommend?: boolean
   processor: Splitter
 }
 
@@ -30,10 +31,10 @@ const engines: SplitEngine[] = [
     processor: basicSplit,
   },
   {
-    name: 'Compromise 英语正字法断词',
+    name: '日语基本断词',
     description:
-      '由 Compromise 库提供基于正字法规则匹配的英语音节拆分。若有自定义规则，将覆盖词内音节拆分。',
-    processor: compromiseSplit,
+      '针对日语拗音等做专门处理。若有自定义规则，将优先提取自定义词拆分，其余部分按规则拆分。',
+    processor: japaneseSplit,
   },
   {
     name: 'Prosodic 英语词库断词',
@@ -42,16 +43,17 @@ const engines: SplitEngine[] = [
     processor: prosoticSplit,
   },
   {
-    name: '日语基本断词',
-    description:
-      '针对日语拗音等做专门处理，逻辑来自 @Xionghaizi001。若有自定义规则，将优先提取自定义词拆分，其余部分按规则拆分。',
-    processor: japaneseSplit,
-  },
-  {
     name: 'Silabeador 西班牙语断词',
     description:
       '由 Silabeador 库提供基于正字法规则匹配的西班牙语音节划分，内置例外表。同时可容忍不常见或非西班牙语变音符号与辅音集群。',
     processor: silabeadorSplit,
+  },
+  {
+    name: 'Compromise 英语断词',
+    description:
+      '由 Compromise 库提供基于正字法规则匹配的英语音节拆分。若有自定义规则，将覆盖词内音节拆分。',
+    processor: compromiseSplit,
+    notRecommend: true,
   },
 ]
 
