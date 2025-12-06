@@ -71,6 +71,7 @@
         fluid
         severity="secondary"
         :disabled="working || !selectedEngine || runtimeStore.selectedLines.size === 0"
+        :loading="lastFired === 'selected' && working"
         @click="applyToSelectedLines"
       />
       <Button
@@ -79,6 +80,7 @@
         fluid
         severity="secondary"
         :disabled="working || !selectedEngine || runtimeStore.selectedLines.size === 0"
+        :loading="lastFired === 'selectedAndAfter' && working"
         @click="applyToSelectedLinesAndAfter"
       />
       <Button
@@ -87,6 +89,7 @@
         fluid
         severity="secondary"
         :disabled="working || !selectedEngine"
+        :loading="lastFired === 'all' && working"
         @click="applyToAllLines"
       />
     </div>
@@ -110,10 +113,13 @@ const descriptionCollapsed = ref(true)
 const runtimeStore = useRuntimeStore()
 const coreStore = useCoreStore()
 
+const lastFired = ref<'selected' | 'selectedAndAfter' | 'all' | undefined>(undefined)
 function applyToSelectedLines() {
+  lastFired.value = 'selected'
   return applyToLines([...runtimeStore.selectedLines])
 }
 function applyToSelectedLinesAndAfter() {
+  lastFired.value = 'selectedAndAfter'
   let startApplying = false
   const lines: LyricLine[] = []
   for (const line of coreStore.lyricLines) {
@@ -126,6 +132,7 @@ function applyToSelectedLinesAndAfter() {
   return applyToLines(lines)
 }
 function applyToAllLines() {
+  lastFired.value = 'all'
   return applyToLines(coreStore.lyricLines)
 }
 async function applyToLines(lines: LyricLine[]) {
