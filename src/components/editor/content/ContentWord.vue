@@ -391,6 +391,8 @@ onUnmounted(() => {
   bottom: 0;
 }
 .cword-input.cword-input {
+  padding-inline: 0;
+  text-align: center;
   background: transparent;
   transition: none;
   border-top-left-radius: 0;

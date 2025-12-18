@@ -112,12 +112,18 @@ onUnmounted(() => {
     right: 1rem;
     z-index: 10;
   }
-  .amll-lyric-player.dom {
-    line-height: 1.5;
-    --bright-mask-alpha: 1;
-    --dark-mask-alpha: 0.4;
-    --amll-lp-color: light-dark(var(--p-neutral-800), var(--p-neutral-100));
-    --amll-lp-hover-bg-color: color-mix(in srgb, var(--amll-lp-color), transparent 95%);
+}
+.amll-lyric-player.dom {
+  line-height: 1.5;
+  --bright-mask-alpha: 1;
+  --dark-mask-alpha: 0.4;
+  --amll-lp-color: light-dark(var(--p-neutral-800), var(--p-neutral-100));
+  --amll-lp-hover-bg-color: color-mix(in srgb, var(--amll-lp-color), transparent 95%);
+
+  // Fix padding issue: letters like 'j' get cut off
+  span[class^='_emphasizeWrapper'] span {
+    padding: 1em;
+    margin: -1em;
   }
 }
 </style>
