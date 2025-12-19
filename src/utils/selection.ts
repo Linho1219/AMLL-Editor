@@ -1,4 +1,5 @@
-import { useCoreStore, type LyricLine, type LyricWord } from '../states/core'
+import type { LyricLine, LyricWord } from '@core/types'
+import { useCoreStore } from '@states/stores'
 
 export function forceOutsideBlur() {
   const focusedInput = document.activeElement

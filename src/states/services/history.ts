@@ -1,12 +1,9 @@
 import { computed, nextTick, reactive, toRaw, watch } from 'vue'
-import { useCoreStore, type LyricLine, type LyricWord, type Metadata } from './core'
-import { useRuntimeStore, type View } from './runtime'
 import cloneDeep from 'lodash-es/cloneDeep'
-import { useStaticStore } from './static'
-import { tryRaf } from '@/utils/tryRaf'
+import { tryRaf } from '@utils/tryRaf'
+import type { LyricLine, LyricWord, RuntimeSnapShot, Snapshot } from '@core/types'
+import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
 const staticStore = useStaticStore()
-
-
 
 const snapshotList = new Map<number, Snapshot>()
 const state = reactive({
@@ -62,7 +59,7 @@ function init() {
   }
 }
 
-function takeRuntime(): SnapShotRuntime {
+function takeRuntime(): RuntimeSnapShot {
   const runtimeStore = useRuntimeStore()
   return {
     currentView: toRaw(runtimeStore.currentView),
@@ -167,7 +164,7 @@ function shutdown() {
   }
 }
 
-export default {
+export const editHistory = {
   init,
   take,
   undo,

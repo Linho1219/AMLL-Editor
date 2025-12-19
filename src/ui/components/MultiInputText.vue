@@ -65,7 +65,7 @@
 import { nanoid } from 'nanoid'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 import InputText from './InputText.vue'
-import { tryRaf } from '@/utils/tryRaf'
+import { tryRaf } from '@utils/tryRaf'
 
 const [modelList] = defineModel<string[]>({ required: true })
 interface InternalListItem {

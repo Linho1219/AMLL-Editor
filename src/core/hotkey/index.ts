@@ -1,10 +1,10 @@
 import type { HotKey as HK } from './types'
 export type { HotKey } from './types'
+export { getDefaultHotkeyMap } from './data'
 
 import mitt from 'mitt'
 import { onUnmounted } from 'vue'
 import { hotkeyInputBlockList } from './data'
-
 
 const globalKeyboardEmit = mitt<{ [K in HK.Command]: undefined }>()
 export function useGlobalKeyboard(command: HK.Command, handler: () => void) {
@@ -26,7 +26,6 @@ export const shouldEscapeInInput = (hotKey: HK.Key) => {
 export function isHotkeyMatch(a: HK.Key, b: HK.Key) {
   return a.code === b.code && a.ctrl === b.ctrl && a.alt === b.alt && a.shift === b.shift
 }
-
 
 const keyBlockList = new Set([
   'Meta',

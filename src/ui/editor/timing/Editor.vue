@@ -28,17 +28,16 @@
 </template>
 
 <script setup lang="ts">
-import { useCoreStore, type LyricLine, type LyricWord } from '@/stores/core'
 import { VList } from 'virtua/vue'
 import Line from './Line.vue'
 import Word from './Word.vue'
 import { onBeforeUnmount, onMounted, onUnmounted, useTemplateRef } from 'vue'
-import { useRuntimeStore, View } from '@/stores/runtime'
-import { useGlobalKeyboard } from '@/core/hotkey'
-import { useStaticStore, type EditorComponentActions } from '@/stores/static'
-import { usePrefStore } from '@/stores/preference'
+import { useRuntimeStore, useCoreStore, useStaticStore, usePrefStore } from '@states/stores'
+import { useGlobalKeyboard } from '@core/hotkey'
 import type { ScrollToIndexOpts } from 'virtua/unstable_core'
-import { tryRaf } from '@/utils/tryRaf'
+import { tryRaf } from '@utils/tryRaf'
+import { View, type LyricLine, type LyricWord } from '@core/types'
+import type { EditorComponentActions } from '@states/stores/static'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()

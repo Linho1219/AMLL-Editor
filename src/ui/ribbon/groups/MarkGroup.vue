@@ -30,11 +30,10 @@
 <script setup lang="ts">
 import { Button } from 'primevue'
 import RibbonGroup from '../RibbonGroupShell.vue'
-import { useRuntimeStore } from '@/stores/runtime'
+import { useRuntimeStore, useCoreStore } from '@states/stores'
 import { computed } from 'vue'
-import { useGlobalKeyboard } from '@/core/hotkey'
-import { useCoreStore } from '@/stores/core'
-import { tipDesc, tipHotkey } from '@/utils/tooltip'
+import { useGlobalKeyboard } from '@core/hotkey'
+import { tipDesc } from '@utils/tooltip'
 const runtimeStore = useRuntimeStore()
 
 const focusingSet = computed(() =>

@@ -1,6 +1,10 @@
-import { useCoreStore, type LyricLine, type MetadataKey } from '@stores/core'
-import editHistory from '@stores/editHistory'
-import { useRuntimeStore } from '@stores/runtime'
+export type { Port } from './types'
+import type { Port as PT } from './types'
+export { portFormatRegister } from './data'
+
+import { useCoreStore, useRuntimeStore } from '@states/stores'
+import { editHistory } from '@states/services/history'
+import type { LyricLine, MetadataKey } from '@core/types'
 
 export interface Persist {
   metadata: Record<MetadataKey, string[]>

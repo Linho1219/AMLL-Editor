@@ -7,14 +7,13 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 import packageJSON from './package.json'
 
 const aliasRelMap: Record<string, string> = {
-  '@': './src',
   '@core': './src/core',
   '@assets': './src/assets',
   '@components': './src/components',
   '@ui': './src/ui',
   '@utils': './src/utils',
   '@states': './src/states',
-  '@vendors': './src/vendors'
+  '@vendors': './src/vendors',
 }
 const aliasMap: Record<string, string> = {}
 for (const [key, relPath] of Object.entries(aliasRelMap)) {

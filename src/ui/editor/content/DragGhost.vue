@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useRuntimeStore } from '@stores/runtime'
+import { useRuntimeStore } from '@states/stores'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 const pointerX = ref(0)

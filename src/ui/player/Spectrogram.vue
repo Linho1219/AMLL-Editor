@@ -5,8 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { useStaticStore } from '@stores/static.ts'
-import { ms2str } from '@/utils/timeModel'
 import { useCssVar } from '@vueuse/core'
 import { onMounted, onUnmounted, useTemplateRef } from 'vue'
 import WaveSurfer from 'wavesurfer.js'
@@ -14,10 +12,12 @@ import HoverPlugin from 'wavesurfer.js/dist/plugins/hover.esm.js'
 import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions.js'
 import SpectrogramPlugin from './spectrogramPlugin/index.ts'
 import ZoomPlugin from 'wavesurfer.js/dist/plugins/zoom.js'
+import { useStaticStore } from '@states/stores/static.ts'
+import { ms2str } from '@utils/timeModel.ts'
 const spectrogramEl = useTemplateRef('spectrogramEl')
 const primaryColor = useCssVar('--p-primary-color')
 
-const audio = useStaticStore().audio
+const { audio } = useStaticStore()
 
 let wsInstance: WaveSurfer | null = null
 let rgInstance: RegionsPlugin | null = null

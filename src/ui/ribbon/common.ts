@@ -1,4 +1,4 @@
-import { ms2str, str2ms } from '@/utils/timeModel'
+import { ms2str, str2ms } from '@utils/timeModel'
 import { computed, ref } from 'vue'
 
 export type BooleanKeys<T> = {

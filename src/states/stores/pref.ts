@@ -1,6 +1,6 @@
-import { reactive, readonly, ref } from 'vue'
+import { reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
-import { getDefaultHotkeyMap } from '@/core/hotkey'
+import { getDefaultHotkeyMap } from '@core/hotkey'
 
 export const usePrefStore = defineStore('preference', () => {
   const globalLatency = ref(0)
@@ -11,9 +11,7 @@ export const usePrefStore = defineStore('preference', () => {
   const alwaysIgnoreBackground = ref(false)
   const sidebarWidth = ref(360)
   const hotkeyMap = reactive(getDefaultHotkeyMap())
-
-  const __test_forceMac = false
-  const isMac = __test_forceMac || isAppleDevice()
+  const isMac = ref(isAppleDevice())
 
   return {
     globalLatency,

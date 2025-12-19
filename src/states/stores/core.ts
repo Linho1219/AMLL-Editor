@@ -3,10 +3,10 @@ import { defineStore } from 'pinia'
 import { useRuntimeStore } from './runtime'
 import { nanoid } from 'nanoid'
 import { alignLineEndTime, alignLineStartTime } from '@utils/alignLineTime'
-import type { LyricLine, LyricWord } from '@core/types'
+import type { LyricLine, LyricWord, Metadata } from '@core/types'
 
-const newLine = (attrs: Partial<LyricLine> = {}): LyricLine =>
-  reactive({
+const newLine = (attrs: Partial<LyricLine> = {}) =>
+  reactive<LyricLine>({
     startTime: 0,
     endTime: 0,
     words: [],
@@ -19,8 +19,9 @@ const newLine = (attrs: Partial<LyricLine> = {}): LyricLine =>
     ...attrs,
     id: nanoid(),
   })
-const newWord = (attrs: Partial<LyricWord> = {}): LyricWord =>
-  reactive({
+
+const newWord = (attrs: Partial<LyricWord> = {}) =>
+  reactive<LyricWord>({
     startTime: 0,
     endTime: 0,
     text: '',
@@ -32,33 +33,10 @@ const newWord = (attrs: Partial<LyricWord> = {}): LyricWord =>
     id: nanoid(),
   })
 
-const line: LyricLine = newLine({
-  startTime: 0,
-  endTime: 3000,
-  translation: '你好，世界！',
-})
-const word1: LyricWord = newWord({
-  startTime: 0,
-  endTime: 1000,
-  text: 'Hello',
-})
-const word2: LyricWord = newWord({
-  startTime: 0,
-  endTime: 0,
-  text: ' ',
-})
-const word3: LyricWord = newWord({
-  startTime: 2300,
-  endTime: 3000,
-  text: 'world!',
-  placeholdingBeat: 3,
-})
-line.words.push(word1, word2, word3)
-
 export const useCoreStore = defineStore('core', () => {
   // const createdAt = ref(Date.now())
   const metadata = reactive<Metadata>([])
-  const lyricLines = reactive<LyricLine[]>([line])
+  const lyricLines = reactive<LyricLine[]>([])
   // const comments = reactive<Comment[]>([])
   return {
     // createdAt,
@@ -104,17 +82,3 @@ export const useCoreStore = defineStore('core', () => {
   }
 })
 export const coreCreate = { newLine, newWord }
-
-
-
-/** 批注 */
-// export interface Comment {
-//   /** 创建时间 */
-//   createTime: number
-//   /** 上次编辑时间 */
-//   lastEditTime: number
-//   /** 内容 */
-//   content: string
-//   /** 目标行或词 */
-//   target: LyricLine | LyricWord
-// }

@@ -16,8 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import { ms2str, str2ms } from '@/utils/timeModel'
-import InputText from '@/components/repack/InputText.vue'
+import { ms2str, str2ms } from '@utils/timeModel'
+import InputText from '@ui/components/InputText.vue'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 
 const props = defineProps<{

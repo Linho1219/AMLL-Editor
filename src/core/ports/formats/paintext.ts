@@ -1,6 +1,7 @@
-import { coreCreate, type LyricLine } from '@stores/core'
 import { zip } from 'lodash-es'
 import { type Persist } from '..'
+import { coreCreate } from '@states/stores/core'
+import type { LyricLine } from '@core/types'
 
 export function parseSeparatePlainText(
   originalStr: string,

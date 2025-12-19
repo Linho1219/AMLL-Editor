@@ -3,13 +3,13 @@
 </template>
 
 <script setup lang="ts">
-import { useStaticStore } from '@stores/static'
-import { ms2str } from '@/utils/timeModel'
+import { useStaticStore } from '@states/stores'
+import { ms2str } from '@utils/timeModel'
 import { useCssVar } from '@vueuse/core'
 import { onMounted, onUnmounted, useTemplateRef } from 'vue'
 import WaveSurfer from 'wavesurfer.js'
 import HoverPlugin from 'wavesurfer.js/dist/plugins/hover.esm.js'
-const audio = useStaticStore().audio
+const { audio } = useStaticStore()
 const waveformEl = useTemplateRef('waveformEl')
 const primaryColor = useCssVar('--p-primary-color')
 let wsInstance: WaveSurfer | null = null

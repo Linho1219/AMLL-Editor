@@ -4,7 +4,7 @@ import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'
 import FocusTrap from 'primevue/focustrap'
 import KeyFilter from 'primevue/keyfilter'
-import ToastService from 'primevue/toastservice';
+import ToastService from 'primevue/toastservice'
 import Aura from '@primeuix/themes/aura'
 import { definePreset } from '@primeuix/themes'
 import 'primeicons/primeicons.css'
@@ -37,7 +37,7 @@ app.use(PrimeVue, {
 })
 app.directive('focustrap', FocusTrap)
 app.directive('keyfilter', KeyFilter)
-app.use(ToastService);
+app.use(ToastService)
 
 app.use(FloatingVue, {
   themes: {

@@ -1,7 +1,8 @@
 import { computed, reactive, ref, shallowReactive, watch } from 'vue'
 import { defineStore } from 'pinia'
-import { useCoreStore, type LyricLine, type LyricWord } from './core'
-import type { SidebarKey } from '@/ui/sidebar'
+import type { SidebarKey } from '@ui/sidebar'
+import { View, type LyricLine, type LyricWord } from '@core/types'
+import { useCoreStore } from './core'
 
 export const useRuntimeStore = defineStore('runtime', () => {
   // View

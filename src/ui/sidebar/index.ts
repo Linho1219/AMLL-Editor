@@ -1,4 +1,4 @@
-import SplitTextTab from './tabs/splitText/SplitTextTab.vue'
+import SplitTextTab from './tabs/syllabify/Syllabify.vue'
 import MetadataTab from './tabs/metadata/MetadataTab.vue'
 
 export enum SidebarKey {

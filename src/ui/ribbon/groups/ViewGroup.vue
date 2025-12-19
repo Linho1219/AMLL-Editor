@@ -42,6 +42,6 @@
 <script setup lang="ts">
 import { Checkbox } from 'primevue'
 import RibbonGroup from '../RibbonGroupShell.vue'
-import { usePrefStore } from '@/stores/preference'
+import { usePrefStore } from '@states/stores'
 const prefStore = usePrefStore()
 </script>

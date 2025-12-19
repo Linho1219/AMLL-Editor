@@ -1,4 +1,4 @@
-export type { LyricLine, MetadataKey } from './core'
+export type { LyricWord, LyricLine, MetadataKey, Metadata } from './core'
 export { View } from './runtime'
 export type { Persist } from './persist'
-export type { SnapShotRuntime, Snapshot } from './snapshot'
+export type { RuntimeSnapShot, Snapshot } from './snapshot'

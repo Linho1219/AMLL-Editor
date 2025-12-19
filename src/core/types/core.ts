@@ -46,3 +46,15 @@ export interface LyricWord {
   /** 已添加书签 */
   bookmarked: boolean
 }
+
+/** 批注 */
+// export interface Comment {
+//   /** 创建时间 */
+//   createTime: number
+//   /** 上次编辑时间 */
+//   lastEditTime: number
+//   /** 内容 */
+//   content: string
+//   /** 目标行或词 */
+//   target: LyricLine | LyricWord
+// }

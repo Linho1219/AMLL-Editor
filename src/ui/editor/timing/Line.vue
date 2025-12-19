@@ -59,13 +59,12 @@
 </template>
 
 <script setup lang="ts">
-import type { LyricLine } from '@/stores/core'
 import { Button } from 'primevue'
 import Timestamp from './Timestamp.vue'
-import { usePrefStore } from '@/stores/preference'
-import { useRuntimeStore } from '@/stores/runtime'
-import { tipMultiLine } from '@/utils/tooltip'
+import { tipMultiLine } from '@utils/tooltip'
 import { computed } from 'vue'
+import type { LyricLine } from '@core/types'
+import { usePrefStore, useRuntimeStore } from '@states/stores'
 
 const pgmignored = computed(() => prefStore.alwaysIgnoreBackground && props.line.background)
 const mnlignored = computed(() => props.line.ignoreInTiming)

@@ -20,17 +20,15 @@
 </template>
 
 <script setup lang="ts">
-import Titlebar from './components/titlebar/Titlebar.vue'
+import Titlebar from './titlebar/Titlebar.vue'
 import Ribbon from './ribbon/Ribbon.vue'
-import ContentEditor from './components/editor/content/ContentEditor.vue'
-import TimingEditor from './components/editor/timing/TimingEditor.vue'
-import Preview from './components/editor/preview/Preview.vue'
+import ContentEditor from './editor/content/Editor.vue'
+import TimingEditor from './editor/timing/Editor.vue'
+import Preview from './editor/preview/Preview.vue'
 import Player from './player/Player.vue'
-import { useRuntimeStore, View } from '../states/runtime'
-import editHistory from '../states/editHistory'
+import { editHistory } from '@states/services/history'
 import { onMounted, onUnmounted } from 'vue'
 import Sidebar from './sidebar/Sidebar.vue'
-import { usePrefStore } from '../states/preference'
 import {
   emitGlobalKeyboard,
   matchHotkeyInMap,
@@ -38,6 +36,8 @@ import {
   shouldEscapeInInput,
 } from '../core/hotkey'
 import { Toast } from 'primevue'
+import { usePrefStore, useRuntimeStore } from '@states/stores'
+import { View } from '@core/types'
 editHistory.init()
 
 const prefStore = usePrefStore()

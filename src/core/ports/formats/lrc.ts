@@ -14,9 +14,10 @@
 // [02:03.552]In our souls, do we know?
 // [02:06.103][02:08.916][02:11.135]On the journey
 
-import type { LyricLine } from '@/core/types'
+import type { LyricLine } from '@core/types'
 import { type Persist } from '..'
-import { str2ms } from '@/utils/timeModel'
+import { str2ms } from '@utils/timeModel'
+import { coreCreate } from '@states/stores/core'
 
 export function parseLRC(lrc: string): Persist {
   const metadata: Record<string, string[]> = {}

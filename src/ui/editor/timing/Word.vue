@@ -25,13 +25,11 @@
 </template>
 
 <script setup lang="ts">
-import type { LyricLine, LyricWord } from '@/stores/core'
 import Timestamp from './Timestamp.vue'
-import { useRuntimeStore, View } from '@/stores/runtime'
 import { computed, nextTick, watch } from 'vue'
-import { useStaticStore } from '@/stores/static'
-import { usePrefStore } from '@/stores/preference'
-import { tryRaf } from '@/utils/tryRaf'
+import { tryRaf } from '@utils/tryRaf'
+import { View, type LyricLine, type LyricWord } from '@core/types'
+import { usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
 
 const props = defineProps<{
   word: LyricWord

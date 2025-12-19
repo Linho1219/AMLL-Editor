@@ -49,7 +49,7 @@
 </template>
 <script setup lang="ts">
 import { useFocus } from '@vueuse/core'
-import InputText from '@/components/repack/InputText.vue'
+import InputText from '@ui/components/InputText.vue'
 import {
   computed,
   nextTick,
@@ -60,12 +60,12 @@ import {
   useTemplateRef,
   watch,
 } from 'vue'
-import { useCoreStore, type LyricLine, type LyricWord } from '@/stores/core'
-import { useRuntimeStore } from '@/stores/runtime'
-import { forceOutsideBlur, sortIndex } from '@/utils/selection'
-import { digit2Sup } from '@/utils/toSupSub'
-import { useStaticStore, type WordComponentActions } from '@/stores/static'
-import type { TimeoutHandle } from '@/utils/types'
+import { forceOutsideBlur, sortIndex } from '@utils/selection'
+import { digit2Sup } from '@utils/toSupSub'
+import type { TimeoutHandle } from '@utils/types'
+import { useRuntimeStore, useCoreStore, useStaticStore } from '@states/stores'
+import type { LyricLine, LyricWord } from '@core/types'
+import type { WordComponentActions } from '@states/stores/static'
 const runtimeStore = useRuntimeStore()
 const coreStore = useCoreStore()
 const staticStore = useStaticStore()

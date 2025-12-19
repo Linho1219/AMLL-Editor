@@ -185,17 +185,17 @@
 </template>
 
 <script setup lang="ts">
-import { useRuntimeStore } from '@/stores/runtime'
 import { Button, Checkbox, Dialog, IftaLabel, RadioButton, ToggleSwitch } from 'primevue'
 import { computed, readonly, ref, useTemplateRef, watch } from 'vue'
-import InputText from '../repack/InputText.vue'
-import { useGlobalKeyboard } from '@/core/hotkey'
-import { tryRaf } from '@/utils/tryRaf'
 import { useToast } from 'primevue/usetoast'
-import type { TimeoutHandle } from '@/utils/types'
-import { useFindReplaceEngine } from '@/core/findReplace'
 import { escapeRegExp } from 'lodash-es'
-import { sortWords } from '@/utils/selection'
+import { useRuntimeStore } from '@states/stores'
+import { useFindReplaceEngine } from '@core/findReplace'
+import { useGlobalKeyboard } from '@core/hotkey'
+import { tryRaf } from '@utils/tryRaf'
+import type { TimeoutHandle } from '@utils/types'
+import { sortWords } from '@utils/selection'
+import InputText from '@ui/components/InputText.vue'
 
 const [visible] = defineModel<boolean>({ required: true })
 

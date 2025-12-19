@@ -1,4 +1,4 @@
-import type { LyricLine, LyricWord } from '@stores/core'
+import type { LyricLine, LyricWord } from '@core/types'
 
 const isWordTimed = (word: LyricWord) => !!((word.startTime || word.endTime) && word.text.trim())
 

@@ -80,10 +80,9 @@
 <script setup lang="ts">
 import RibbonGroup from '../RibbonGroupShell.vue'
 import { itemTimeInput } from '../common'
-import InputText from '@/components/repack/InputText.vue'
+import InputText from '@ui/components/InputText.vue'
 import { computed } from 'vue'
-import { useRuntimeStore } from '@/stores/runtime'
-import { useCoreStore } from '@/stores/core'
+import { useRuntimeStore, useCoreStore } from '@states/stores'
 import { Button, InputGroup, InputGroupAddon, InputNumber, Slider } from 'primevue'
 
 const runtimeStore = useRuntimeStore()

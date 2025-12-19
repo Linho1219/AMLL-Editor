@@ -84,17 +84,15 @@
 </template>
 
 <script setup lang="ts">
-import { useCoreStore, type LyricLine } from '@/stores/core'
-import { useRuntimeStore } from '@/stores/runtime'
-import { forceOutsideBlur, sortIndex } from '@/utils/selection'
-import { Button, ContextMenu, FloatLabel } from 'primevue'
-import type { MenuItem } from 'primevue/menuitem'
-import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
-import InputText from '@/components/repack/InputText.vue'
-import { useStaticStore, type LineComponentActions } from '@/stores/static'
-import { usePrefStore } from '@/stores/preference'
-import type { TimeoutHandle } from '@/utils/types'
-import { tipMultiLine } from '@/utils/tooltip'
+import { forceOutsideBlur, sortIndex } from '@utils/selection'
+import { Button, FloatLabel } from 'primevue'
+import { computed, onMounted, onUnmounted, useTemplateRef } from 'vue'
+import InputText from '@ui/components/InputText.vue'
+import type { TimeoutHandle } from '@utils/types'
+import { tipMultiLine } from '@utils/tooltip'
+import type { LyricLine } from '@core/types'
+import { useCoreStore, usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
+import type { LineComponentActions } from '@states/stores/static'
 
 const props = defineProps<{
   line: LyricLine

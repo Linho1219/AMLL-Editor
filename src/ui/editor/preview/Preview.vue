@@ -22,14 +22,12 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useCoreStore } from '@stores/core'
-import { useStaticStore } from '@stores/static'
 import { LyricPlayer } from '@applemusic-like-lyrics/vue'
 import '@applemusic-like-lyrics/core/style.css'
-import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
-import { useRuntimeStore } from '@stores/runtime'
-import { tryRaf } from '@/utils/tryRaf'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { Button } from 'primevue'
+import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
+import { tryRaf } from '@utils/tryRaf'
 const coreStore = useCoreStore()
 const {
   audio: { progressComputed, playingComputed, amendmentRef, seek },

@@ -109,15 +109,15 @@
 </template>
 
 <script setup lang="ts">
-import { useCoreStore, type LyricLine, type LyricWord } from '@/stores/core'
-import { useRuntimeStore } from '@/stores/runtime'
 import { Button, Checkbox, IftaLabel, Select } from 'primevue'
 import { reactive, ref } from 'vue'
-import SplitTextRewriteEditor from './SplitTextRewriteEditor.vue'
-import InputText from '@/components/repack/InputText.vue'
-import engines, { type Rewrite, type SplitEngine } from '@/core/syllabify'
+import SplitTextRewriteEditor from './SyllabifyRewriteEditor.vue'
+import InputText from '@ui/components/InputText.vue'
+import engines, { type Syllabify as SL } from '@core/syllabify'
+import { useCoreStore, useRuntimeStore } from '@states/stores'
+import type { LyricLine } from '@core/types'
 
-const displayEngines: { label: string; hideLabel?: boolean; items: SplitEngine[] }[] = [
+const displayEngines: { label: string; hideLabel?: boolean; items: SL.Engine[] }[] = [
   {
     label: '推荐',
     hideLabel: true,
@@ -129,8 +129,8 @@ const displayEngines: { label: string; hideLabel?: boolean; items: SplitEngine[]
   },
 ]
 
-const selectedEngine = ref<SplitEngine | null>(engines[0] || null)
-const customRewrites = reactive<Rewrite[]>([])
+const selectedEngine = ref<SL.Engine | null>(engines[0] || null)
+const customRewrites = reactive<SL.Rewrite[]>([])
 const caseSensitive = ref(false)
 const working = ref(false)
 const descriptionCollapsed = ref(true)

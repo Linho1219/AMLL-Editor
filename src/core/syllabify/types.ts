@@ -1,4 +1,4 @@
-import type { LyricWord } from '../types'
+import type { LyricWord } from '@core/types'
 
 export namespace Syllabify {
   export interface Rewrite {

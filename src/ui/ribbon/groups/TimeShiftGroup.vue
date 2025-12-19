@@ -29,11 +29,11 @@
 <script setup lang="ts">
 import { Button, InputNumber } from 'primevue'
 import RibbonGroup from '../RibbonGroupShell.vue'
-import { usePrefStore } from '@/stores/preference'
-import BatchTimeShiftDialog from '@/components/dialogs/BatchTimeShiftDialog.vue'
+import { usePrefStore } from '@states/stores'
+import BatchTimeShiftDialog from '@ui/dialogs/BatchTimeShiftDialog.vue'
 import { ref } from 'vue'
-import { tipDesc } from '@/utils/tooltip'
-import { useGlobalKeyboard } from '@/core/hotkey'
+import { tipDesc } from '@utils/tooltip'
+import { useGlobalKeyboard } from '@core/hotkey'
 
 const prefStore = usePrefStore()
 const batchShiftDialogVisible = ref(false)

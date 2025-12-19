@@ -60,20 +60,20 @@
 </template>
 
 <script setup lang="ts">
-import { View } from '@/stores/runtime'
-import { Button, Dialog, Menu, SelectButton, SplitButton } from 'primevue'
-import { useRuntimeStore } from '@/stores/runtime'
+import { Button, Menu, SelectButton, SplitButton } from 'primevue'
+import { useRuntimeStore } from '@states/stores'
 import { nextTick, ref, useTemplateRef, watch } from 'vue'
 import type { MenuItem } from 'primevue/menuitem'
 
-import editHistory from '@/stores/editHistory'
-import { chooseFile } from '@/core/file'
-import { importTTML, parseTTML, stringifyTTML } from '@/ports/formats/ttml'
-import { exportPersist, importPersist } from '@/ports'
+import { editHistory } from '@states/services/history'
+import { chooseFile } from '@core/file'
+import { importTTML, stringifyTTML } from '@core/ports/formats/ttml'
+import { exportPersist, importPersist } from '@core/ports'
 
-import FromTextModal from '@/components/dialogs/FromTextModal.vue'
-import FromOtherFormatModal from '@/components/dialogs/FromOtherFormatModal.vue'
-import { tipHotkey } from '@/utils/tooltip'
+import FromTextModal from '@ui/dialogs/FromTextModal.vue'
+import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
+import { tipHotkey } from '@utils/tooltip'
+import { View } from '@core/types'
 
 const runtimeStore = useRuntimeStore()
 

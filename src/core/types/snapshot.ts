@@ -1,7 +1,7 @@
 import type { View } from './runtime'
 import type { LyricLine, Metadata } from './core'
 
-export interface SnapShotRuntime {
+export interface RuntimeSnapShot {
   currentView: View
   selectedLineIds: string[]
   selectedWordIds: string[]
@@ -15,6 +15,6 @@ export interface Snapshot {
     metadata: Metadata
     lyricLines: LyricLine[]
   }
-  firstRuntime: SnapShotRuntime
-  lastRuntime?: SnapShotRuntime
+  firstRuntime: RuntimeSnapShot
+  lastRuntime?: RuntimeSnapShot
 }

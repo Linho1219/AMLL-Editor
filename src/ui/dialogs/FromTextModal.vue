@@ -118,11 +118,11 @@
 <script setup lang="ts">
 import { Button, Checkbox, Dialog, Select } from 'primevue'
 import { computed, ref, shallowRef, useTemplateRef, watch, type ShallowRef } from 'vue'
-import CodeMirror from '@/components/repack/CodeMirror.vue'
-import { importPersist } from '@/ports'
-import { parseInterleavedPlainText, parseSeparatePlainText } from '@/ports/formats/paintext'
+import CodeMirror from '@ui/components/CodeMirror.vue'
+import { importPersist } from '@core/ports'
+import { parseInterleavedPlainText, parseSeparatePlainText } from '@core/ports/formats/paintext'
 import LineOrderInput from './LineOrderInput.vue'
-import { useCoreStore } from '@/stores/core'
+import { useCoreStore } from '@states/stores'
 
 const [visible] = defineModel<boolean>({ required: true })
 const originalInput = ref<string>('')

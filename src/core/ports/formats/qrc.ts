@@ -9,8 +9,9 @@
 // [190871,1984]For(190871,361) (0,0)the(191232,172) (0,0)first(191404,376) (0,0)time(191780,1075)
 // [193459,4198]What's(193459,412) (0,0)past(193871,574) (0,0)is(194445,506) (0,0)past(194951,2706)
 
-import { coreCreate, type LyricLine } from '@stores/core'
+import type { LyricLine } from '@core/types'
 import { type Persist } from '..'
+import { coreCreate } from '@states/stores/core'
 
 export function parseQRC(qrc: string) {
   const lines = qrc

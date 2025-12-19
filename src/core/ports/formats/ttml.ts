@@ -3,9 +3,11 @@
 // See https://www.w3.org/TR/2018/REC-ttml1-20181108/
 
 // import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
-import { coreCreate, type LyricLine, type MetadataKey } from '../states/core'
-import { ms2str, str2ms } from '../../utils/timeModel'
+
+import { ms2str, str2ms } from '../../../utils/timeModel'
 import { importPersist, type Persist } from '..'
+import type { LyricLine, MetadataKey } from '@core/types'
+import { coreCreate } from '@states/stores/core'
 
 export function parseTTML(ttmlString: string): Persist {
   const raw = new DOMParser().parseFromString(ttmlString, 'application/xml').documentElement

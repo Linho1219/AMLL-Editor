@@ -76,11 +76,10 @@
 <script setup lang="ts">
 import { Checkbox, InputNumber } from 'primevue'
 import RibbonGroup from '../RibbonGroupShell.vue'
-import { useRuntimeStore } from '@/stores/runtime'
 import { computed } from 'vue'
 import { attrCheckbox, itemTimeInput } from '../common'
-import InputText from '@/components/repack/InputText.vue'
-import { usePrefStore } from '@/stores/preference'
+import InputText from '@ui/components/InputText.vue'
+import { usePrefStore, useRuntimeStore } from '@states/stores'
 
 const runtimeStore = useRuntimeStore()
 const prefStore = usePrefStore()

@@ -48,8 +48,8 @@
 </template>
 
 <script setup lang="ts">
-import { useCoreStore, type LyricLine, type LyricWord } from '@stores/core'
-import { useRuntimeStore } from '@stores/runtime'
+import type { LyricLine, LyricWord } from '@core/types'
+import { useCoreStore, useRuntimeStore } from '@states/stores'
 import { Button, Dialog, InputNumber } from 'primevue'
 import { ref } from 'vue'
 

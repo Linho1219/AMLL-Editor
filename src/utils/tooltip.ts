@@ -1,8 +1,8 @@
-import { usePrefStore } from '@/states/stores/pref'
-import { hotkeyToString, type Hotkey.Command } from '../core/hotkey'
+import { usePrefStore } from '@states/stores'
+import { hotkeyToString, type HotKey as HK } from '@core/hotkey'
 import { escape } from 'lodash-es'
 
-function getHotkeyStr(hotkeyCmd: Hotkey.Command) {
+function getHotkeyStr(hotkeyCmd: HK.Command) {
   const prefStore = usePrefStore()
   const hotkey = prefStore.hotkeyMap[hotkeyCmd][0]
   if (!hotkey) return undefined
@@ -10,7 +10,7 @@ function getHotkeyStr(hotkeyCmd: Hotkey.Command) {
   return hotkeyStr
 }
 
-export function tipHotkey(label: string | undefined, hotkeyCmd: Hotkey.Command) {
+export function tipHotkey(label: string | undefined, hotkeyCmd: HK.Command) {
   const hotkeyStr = getHotkeyStr(hotkeyCmd)
   if (!hotkeyStr) return label
   return {
@@ -19,7 +19,7 @@ export function tipHotkey(label: string | undefined, hotkeyCmd: Hotkey.Command) 
   }
 }
 
-export function tipDesc(label: string, desc: string, hotkeyCmd?: Hotkey.Command) {
+export function tipDesc(label: string, desc: string, hotkeyCmd?: HK.Command) {
   const hotkeyStr = hotkeyCmd ? getHotkeyStr(hotkeyCmd) : ''
   return {
     content: /* html */ `

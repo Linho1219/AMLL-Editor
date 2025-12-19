@@ -1,5 +1,5 @@
 import { computed, readonly, ref } from 'vue'
-import { usePrefStore } from '@/states/stores'
+import { usePrefStore } from '@states/stores'
 import { useNcmResolver } from './ncm'
 
 // Use ms as time unit

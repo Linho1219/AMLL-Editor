@@ -50,24 +50,24 @@
 </template>
 
 <script setup lang="ts">
-import { useCoreStore, type LyricLine } from '@/stores/core'
 import Line from './Line.vue'
 // import LineLazyShell from './LineLazyShell.vue'
-import { useRuntimeStore, View } from '@/stores/runtime'
 import Word from './Word.vue'
 import { Button, ContextMenu } from 'primevue'
 import { nextTick, onBeforeUnmount, onMounted, onUnmounted, shallowRef, useTemplateRef } from 'vue'
-import { forceOutsideBlur } from '@/utils/selection'
+import { forceOutsideBlur } from '@utils/selection'
 import WordInsertIndicator from './WordInsertIndicator.vue'
 import LineInsertIndicator from './LineInsertIndicator.vue'
 import DragGhost from './DragGhost.vue'
 import type { MenuItem } from 'primevue/menuitem'
-import { useStaticStore, type EditorComponentActions } from '@/stores/static'
 import { VList } from 'virtua/vue'
-import { useGlobalKeyboard } from '@/core/hotkey'
+import { useGlobalKeyboard } from '@core/hotkey'
 import type { ScrollToIndexOpts } from 'virtua/unstable_core'
-import { alignLineEndTime, alignLineTime } from '@/utils/alignLineTime'
-import { tryRaf } from '@/utils/tryRaf'
+import { alignLineEndTime, alignLineTime } from '@utils/alignLineTime'
+import { tryRaf } from '@utils/tryRaf'
+import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
+import { View, type LyricLine } from '@core/types'
+import type { EditorComponentActions } from '@states/stores/static'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()
