@@ -79,31 +79,32 @@
       </div>
     </div>
     <div class="actions">
-      <Button
-        label="去除时间戳"
-        icon="pi pi-minus-circle"
-        severity="secondary"
-        @click="handleRemoveTimestamps"
-      />
-      <Button
-        label="规范化空格"
-        icon="pi pi-hammer"
-        severity="secondary"
-        @click="handleNormalizeSpaces"
-      />
-      <Button
-        label="首字母大写"
-        icon="pi pi-arrow-up"
-        severity="secondary"
-        @click="handleCapitalizeFirstLetter"
-      />
-      <Button
-        label="去除尾标点"
-        icon="pi pi-delete-left"
-        severity="secondary"
-        @click="handleRemoveTrailingPunctuation"
-      />
-      <div style="flex: 1"></div>
+      <div class="quick-tools">
+        <Button
+          label="去除时间戳"
+          icon="pi pi-minus-circle"
+          severity="secondary"
+          @click="handleRemoveTimestamps"
+        />
+        <Button
+          label="规范化空格"
+          icon="pi pi-hammer"
+          severity="secondary"
+          @click="handleNormalizeSpaces"
+        />
+        <Button
+          label="首字母大写"
+          icon="pi pi-arrow-up"
+          severity="secondary"
+          @click="handleCapitalizeFirstLetter"
+        />
+        <Button
+          label="去除尾标点"
+          icon="pi pi-delete-left"
+          severity="secondary"
+          @click="handleRemoveTrailingPunctuation"
+        />
+      </div>
       <Button label="取消" icon="pi pi-times" severity="secondary" @click="visible = false" />
       <Button
         label="导入"
@@ -350,8 +351,16 @@ function handleRemoveTrailingPunctuation() {
   }
   .actions {
     display: flex;
-    justify-content: flex-end;
+    align-items: flex-end;
     gap: 1rem;
+  }
+  .quick-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    width: 0;
+    flex: 1;
+    justify-content: flex-start;
   }
   .cm-translation-line {
     color: var(--p-button-text-help-color);
