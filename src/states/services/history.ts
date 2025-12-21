@@ -1,4 +1,4 @@
-import { computed, nextTick, reactive, toRaw, watch } from 'vue'
+import { computed, nextTick, reactive, ref, toRaw, watch } from 'vue'
 import cloneDeep from 'lodash-es/cloneDeep'
 import { tryRaf } from '@utils/tryRaf'
 import type { LyricLine, LyricWord, RuntimeSnapShot, Snapshot } from '@core/types'
@@ -13,17 +13,29 @@ const state = reactive({
 })
 const redoable = computed(() => state.current < state.head)
 const undoable = computed(() => state.current > state.tail)
-const maxLength = 50
+const maxLength = 100
 let stopRecording = false
+
+const savedStatePointer = ref<number>(NaN)
+const isDirty = computed(() => savedStatePointer.value !== state.current)
+const markSaved = () => (savedStatePointer.value = state.current)
 
 let shutdownHook: (() => void) | null = null
 
-function init() {
+function clear() {
   state.head = state.current = -1
   state.tail = 0
   stopRecording = false
+  markSaved()
   snapshotList.clear()
   take()
+}
+
+function init() {
+  if (shutdownHook) {
+    console.warn('editHistory is already initialized')
+    return
+  }
   const coreStore = useCoreStore()
   const runtimeStore = useRuntimeStore()
   let isTakingSnapshot = false
@@ -57,9 +69,15 @@ function init() {
     coreStoreWatcher()
     runtimeStoreWatcher()
   }
+  clear()
+}
+
+const forceCheckInited = () => {
+  if (!shutdownHook) throw new Error('editHistory is not initialized')
 }
 
 function takeRuntime(): RuntimeSnapShot {
+  forceCheckInited()
   const runtimeStore = useRuntimeStore()
   return {
     currentView: toRaw(runtimeStore.currentView),
@@ -70,6 +88,7 @@ function takeRuntime(): RuntimeSnapShot {
   }
 }
 function take() {
+  forceCheckInited()
   const coreStore = useCoreStore()
   const snapshot: Snapshot = {
     timestamp: Date.now(),
@@ -87,6 +106,7 @@ function take() {
 }
 
 function wayback(snapshot: Readonly<Snapshot>, isRedo = false) {
+  forceCheckInited()
   snapshot = cloneDeep(snapshot)
   // cloneDeep: avoid snapshot objects linking back into coreStore reactive objects.
   // If not cloned, restoring would cause snapshot to share references with the editor,
@@ -137,6 +157,7 @@ function wayback(snapshot: Readonly<Snapshot>, isRedo = false) {
 }
 
 function undo() {
+  forceCheckInited()
   if (!undoable.value) return null
   const snapshot = snapshotList.get(--state.current)
   if (!snapshot) throw new Error('Snapshot not found during undo')
@@ -144,20 +165,15 @@ function undo() {
 }
 
 function redo() {
+  forceCheckInited()
   if (!redoable.value) return null
   const snapshot = snapshotList.get(++state.current)
   if (!snapshot) throw new Error('Snapshot not found during redo')
   wayback(snapshot, true)
 }
 
-function clear() {
-  state.head = state.current = -1
-  state.tail = 0
-  snapshotList.clear()
-  take()
-}
-
 function shutdown() {
+  forceCheckInited()
   if (shutdownHook) {
     shutdownHook()
     shutdownHook = null
@@ -173,5 +189,7 @@ export const editHistory = {
   shutdown,
   redoable,
   undoable,
+  isDirty,
+  markSaved,
   state: state as Readonly<typeof state>,
 }
