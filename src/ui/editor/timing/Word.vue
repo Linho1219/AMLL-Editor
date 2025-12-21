@@ -49,8 +49,8 @@ const audio = useStaticStore().audio
 const isActive = computed(
   () =>
     (props.word.startTime || props.word.endTime) &&
-    audio.progressComputed.value - audio.amendmentRef.value >= props.word.startTime &&
-    audio.progressComputed.value - audio.amendmentRef.value <= props.word.endTime,
+    audio.amendedProgressComputed.value >= props.word.startTime &&
+    audio.amendedProgressComputed.value <= props.word.endTime,
 )
 
 const emit = defineEmits<{

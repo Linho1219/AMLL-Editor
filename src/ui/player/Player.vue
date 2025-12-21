@@ -17,10 +17,10 @@
         />
         <Popover ref="popover"> <PopoverPane /> </Popover>
         <Button
-          :icon="playingRef ? 'pi pi-pause' : 'pi pi-play'"
+          :icon="playingComputed ? 'pi pi-pause' : 'pi pi-play'"
           @click="audio.togglePlay()"
           :disabled="!activatedRef"
-          v-tooltip="tipHotkey(playingRef ? '暂停' : '播放', 'playPauseAudio')"
+          v-tooltip="tipHotkey(playingComputed ? '暂停' : '播放', 'playPauseAudio')"
         />
         <div class="audio-progress-canvas-wrapper" ref="audioProgressWrapperEl">
           <canvas
@@ -69,18 +69,25 @@ import { tipHotkey } from '@utils/generateTooltip'
 import { useStaticStore } from '@states/stores'
 
 const { audio } = useStaticStore()
-const {
-  progressComputed: progressRef,
-  amendmentRef,
-  lengthComputed: lengthRef,
-  playingComputed: playingRef,
-  activatedRef,
-} = audio
+const { amendedProgressComputed, lengthComputed, playingComputed, activatedRef } = audio
 
 const { open: handleSelectFile, onChange: onFileChange } = useFileDialog({
   accept: 'audio/*,.ncm',
   multiple: false,
 })
+onFileChange((files) => {
+  const file = files?.[0]
+  if (!file) return
+  audio.mount(file)
+})
+
+const refresher = ref(Symbol())
+audio.audioEl.onloadeddata = () => {
+  nextTick(() => {
+    refresher.value = Symbol()
+  })
+}
+
 useGlobalKeyboard('chooseMedia', () => handleSelectFile())
 useGlobalKeyboard('playPauseAudio', () => {
   if (activatedRef.value) audio.togglePlay()
@@ -98,23 +105,9 @@ useGlobalKeyboard('volumeUp', () => {
   audio.volumeRef.value = Math.min(1, audio.volumeRef.value + 0.1)
 })
 
-const refresher = ref(Symbol())
-onFileChange((files) => {
-  const file = files?.[0]
-  if (!file) return
-  if (file.name.endsWith('.ncm')) audio.mountNcm(file)
-  else audio.mount(file)
-})
-audio.audioEl.onloadeddata = () => {
-  nextTick(() => {
-    refresher.value = Symbol()
-  })
-}
-
-const displayProgress = computed(() => progressRef.value - amendmentRef.value)
 const percentageRef = computed(() => {
-  if (lengthRef.value === 0) return 0
-  return Math.round((displayProgress.value / lengthRef.value) * 100)
+  if (lengthComputed.value === 0) return 0
+  return Math.round((amendedProgressComputed.value / lengthComputed.value) * 100)
 })
 
 const popover = useTemplateRef('popover')
@@ -144,7 +137,7 @@ onMounted(async () => {
   }
 })
 onUnmounted(() => revokeListeners?.())
-watch([displayProgress, lengthRef], () => drawProgress())
+watch([amendedProgressComputed, lengthComputed], () => drawProgress())
 
 const isDark = useDark()
 // Where sizes from:
@@ -186,7 +179,7 @@ const drawProgress = () => {
   ctx.fillStyle = isDark.value ? 'white' : 'black'
   ctx.textBaseline = 'top'
   ctx.textAlign = 'left'
-  const progressStr = ms2str(displayProgress.value)
+  const progressStr = ms2str(amendedProgressComputed.value)
   ctx.fillText(progressStr, 0, primaryOffset * devicePixelRatio)
   // Bottom: percentage and length
   ctx.font = `${secondarySize * devicePixelRatio}rem ${fontFamily.value}`
@@ -195,7 +188,7 @@ const drawProgress = () => {
     : `rgba(0, 0, 0, ${secondaryOpacity})`
   ctx.textBaseline = 'bottom'
   const percentageStr = `${percentageRef.value}%`
-  const lengthStr = ms2str(lengthRef.value)
+  const lengthStr = ms2str(lengthComputed.value)
   ctx.textBaseline = 'bottom'
   ctx.textAlign = 'left'
   ctx.fillText(percentageStr, 0, height + secondaryOffset * devicePixelRatio)

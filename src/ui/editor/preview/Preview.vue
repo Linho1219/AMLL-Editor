@@ -3,7 +3,7 @@
     <LyricPlayer
       class="amll-lyric-player"
       :lyric-lines="amllLyricLines"
-      :current-time="progressComputed - amendmentRef"
+      :current-time="amendedProgressComputed"
       :playing="playingComputed"
       :enable-blur="false"
       :enable-spring="false"
@@ -30,7 +30,7 @@ import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
 import { tryRaf } from '@utils/tryRaf'
 const coreStore = useCoreStore()
 const {
-  audio: { progressComputed, playingComputed, amendmentRef, seek },
+  audio: { progressComputed, playingComputed, amendedProgressComputed, seek },
 } = useStaticStore()
 interface AMLLLyricLine {
   words: AMLLLyricWord[]
