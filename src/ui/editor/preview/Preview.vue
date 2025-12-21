@@ -104,6 +104,7 @@ onUnmounted(() => {
   font-weight: 500;
   padding: 0 1rem;
   position: relative;
+  flex: 1;
   .preview-reload-button {
     position: absolute;
     bottom: 0.5rem;
