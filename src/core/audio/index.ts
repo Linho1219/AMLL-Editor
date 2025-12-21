@@ -1,46 +1,78 @@
-import { computed, readonly, ref } from 'vue'
+import { computed, readonly, ref, shallowRef } from 'vue'
 import { usePrefStore } from '@states/stores'
 import { useNcmResolver } from './ncm'
 
-// Use ms as time unit
 export function useAudioCtrl() {
   const audioEl = new Audio()
   let revokeUrlHook: (() => void) | null = null
   const activatedRef = ref(false)
   const lengthRef = ref(0)
+  const audioBufferRef = shallowRef<AudioBuffer | null>(null)
+  const rawFileRef = shallowRef<File | null>(null)
+  const filenameRef = ref<string | undefined>(undefined)
 
-  function mount(src: Blob | File | string): Promise<void> {
+  function maintainMediaSession() {
+    if (!('mediaSession' in navigator)) return
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: filenameRef.value ?? 'Unknown',
+      artist: 'AMLL Editor',
+      album: '',
+      artwork: [],
+    })
+    navigator.mediaSession.setActionHandler('previoustrack', () => {
+      seek(0)
+    })
+  }
+
+  //#region File
+  function mount(src: File): Promise<void> {
+    rawFileRef.value = src
+    if (src.name.endsWith('.ncm')) return _mountNcm(src)
+    return _mount(src)
+  }
+
+  async function _mountNcm(src: File) {
+    rawFileRef.value = src
+    const ncmResolver = useNcmResolver()
+    const extractedBlob = await ncmResolver.transform(src)
+    await _mount(extractedBlob, src.name)
+    ncmResolver.destroy()
+  }
+
+  function _mount(src: Blob, filename: string): Promise<void>
+  function _mount(src: File): Promise<void>
+  function _mount(src: Blob | File, filename?: string): Promise<void> {
     audioEl.pause()
     audioEl.currentTime = 0
     audioEl.playbackRate = 1
     audioEl.volume = 1
+    filenameRef.value = filename ?? (src instanceof File ? src.name : undefined)
     revokeUrlHook?.()
     revokeUrlHook = null
-    if (typeof src !== 'string') {
-      const url = URL.createObjectURL(src)
-      revokeUrlHook = () => URL.revokeObjectURL(url)
-      src = url
-    }
-    audioEl.src = src
+    const objUrl = URL.createObjectURL(src)
+    revokeUrlHook = () => URL.revokeObjectURL(objUrl)
+    audioEl.src = objUrl
     activatedRef.value = true
     progressRef.value = 0
     playingRef.value = false
+    src.arrayBuffer().then(async (buffer) => {
+      const audioCtx = new AudioContext()
+      const decoded = await audioCtx.decodeAudioData(buffer)
+      audioBufferRef.value = decoded
+    })
     return new Promise((resolve) => {
       audioEl.onloadedmetadata = () => {
-        lengthRef.value = audioEl.duration * 1000
-        resolve()
+        lengthRef.value = Math.round(audioEl.duration * 1000)
+        maintainMediaSession()
         audioEl.playbackRate = playbackRateRef.value
         audioEl.volume = volumeRef.value
+        resolve()
       }
     })
   }
-  async function mountNcm(src: Blob | File) {
-    const ncmResolver = useNcmResolver()
-    const extractedBlob = await ncmResolver.transform(src)
-    await mount(extractedBlob)
-    ncmResolver.destroy()
-  }
+  //#endregion
 
+  //#region Playback
   const seek = (time: number) => (audioEl.currentTime = time / 1000)
   const seekBy = (delta: number) => {
     delta /= 1000
@@ -48,14 +80,18 @@ export function useAudioCtrl() {
     audioEl.currentTime = target
   }
   const getProgress = () => Math.round(audioEl.currentTime * 1000)
+  const getPreciseProgress = () => audioEl.currentTime * 1000
   const progressRef = ref(0)
   const maintainProgressRef = () => {
     progressRef.value = getProgress()
     if (!audioEl.paused) requestAnimationFrame(maintainProgressRef)
   }
   audioEl.onseeked = () => (progressRef.value = getProgress())
-  const amendmentRef = computed(
-    () => usePrefStore().globalLatency * playbackRateRef.value * (playingRef.value ? 1 : 0),
+  const amendmentComputed = computed(() =>
+    !playingRef.value ? 0 : usePrefStore().globalLatency * playbackRateRef.value,
+  )
+  const amendedProgressComputed = computed(() =>
+    Math.min(Math.max(0, progressRef.value - amendmentComputed.value), lengthRef.value),
   )
 
   /**
@@ -105,26 +141,46 @@ export function useAudioCtrl() {
       if (v !== audioEl.playbackRate) audioEl.playbackRate = v
     },
   })
+  //#endregion
+
+  const destroy = () => {
+    audioEl.pause()
+    revokeUrlHook?.()
+    revokeUrlHook = null
+    audioEl.src = ''
+    activatedRef.value = false
+    progressRef.value = 0
+    playingRef.value = false
+    audioBufferRef.value = null
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = null
+    }
+  }
 
   return {
     audioEl: audioEl,
     mount,
-    mountNcm,
     play,
     pause,
     togglePlay,
     seek,
     seekBy,
     getProgress,
+    getPreciseProgress,
     /** Readonly: use `seek` to change */
     progressComputed: readonly(progressRef),
     lengthComputed: readonly(lengthRef),
-    amendmentRef,
+    amendmentComputed,
+    amendedProgressComputed,
     /** Readonly: use `play`, `pause`, `togglePlay` to change */
     playingComputed: readonly(playingRef),
     volumeRef,
     playbackRateRef,
     activatedRef,
+    audioBufferComputed: readonly(audioBufferRef),
+    filenameComputed: readonly(filenameRef),
+    rawFileComputed: readonly(rawFileRef),
+    destroy,
   }
 }
 

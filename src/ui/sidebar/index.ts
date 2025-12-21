@@ -1,10 +1,12 @@
 import SplitTextTab from './tabs/syllabify/Syllabify.vue'
 import MetadataTab from './tabs/metadata/MetadataTab.vue'
+import PreferenceTab from './tabs/preference/PreferenceTab.vue'
 import type { ValueOf } from '@utils/types'
 
 export const SidebarKey = {
   SplitText: 'SplitText',
   Metadata: 'Metadata',
+  Preference: 'Preference',
 } as const
 export type SidebarKey = ValueOf<typeof SidebarKey>
 
@@ -24,5 +26,10 @@ export const sidebarRegs = {
     key: SidebarKey.Metadata,
     title: '元数据',
     component: MetadataTab,
+  },
+  [SidebarKey.Preference]: {
+    key: SidebarKey.Preference,
+    title: '偏好设置',
+    component: PreferenceTab,
   },
 } as const satisfies Record<SidebarKey, SidebarTab>

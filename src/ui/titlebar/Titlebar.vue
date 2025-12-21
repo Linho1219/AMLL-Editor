@@ -18,9 +18,11 @@
       <Button
         icon="pi pi-cog"
         variant="text"
-        severity="secondary"
-        disabled
         v-tooltip="tipHotkey('偏好设置', 'preferences')"
+        :severity="
+          runtimeStore.openedSidebars.includes(SidebarKey.Preference) ? undefined : 'secondary'
+        "
+        @click="runtimeStore.toogleSidebar(SidebarKey.Preference)"
       />
       <Button
         icon="pi pi-undo"
@@ -74,6 +76,7 @@ import FromTextModal from '@ui/dialogs/FromTextModal.vue'
 import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
 import { tipHotkey } from '@utils/generateTooltip'
 import { View } from '@core/types'
+import { SidebarKey } from '@ui/sidebar'
 
 const runtimeStore = useRuntimeStore()
 
