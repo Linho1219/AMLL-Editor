@@ -67,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import { chooseFile } from '@core/file'
+import { simpleChooseTextFile } from '@core/file'
 import { Button, Dialog, Listbox } from 'primevue'
 import { ref } from 'vue'
 import CodeMirror from '@ui/components/CodeMirror.vue'
@@ -81,7 +81,7 @@ const inputText = ref('')
 
 async function handleOpenFromFile() {
   if (!selectedFormat.value) return
-  const file = await chooseFile(selectedFormat.value.accept)
+  const file = await simpleChooseTextFile(selectedFormat.value.accept)
   if (!file) return
   inputText.value = file.content || ''
 }

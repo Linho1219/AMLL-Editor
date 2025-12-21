@@ -66,7 +66,7 @@ import { nextTick, ref, useTemplateRef, watch } from 'vue'
 import type { MenuItem } from 'primevue/menuitem'
 
 import { editHistory } from '@states/services/history'
-import { chooseFile } from '@core/file'
+import { simpleChooseTextFile } from '@core/file'
 import { importTTML, stringifyTTML } from '@core/ports/formats/ttml'
 import { exportPersist, importPersist } from '@core/ports'
 
@@ -98,7 +98,7 @@ watch(
 const openMenu = useTemplateRef('openMenu')
 
 const handleImportFromFile = (accept: string, parser: (content: string) => void) => async () => {
-  const file = await chooseFile(accept)
+  const file = await simpleChooseTextFile(accept)
   if (!file) return
   return parser(file.content)
 }
