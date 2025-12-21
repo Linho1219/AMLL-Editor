@@ -107,13 +107,27 @@ function handleResizeStart(e: MouseEvent) {
     --p-button-sm-icon-only-width: 1.3rem;
     --p-button-sm-font-size: 0.8rem;
     .p-tablist-active-bar {
-      top: 0;
-      bottom: unset;
-      transition-duration: 0.15s;
+      display: none;
     }
     .p-tab {
       padding: 0;
+      animation: sidebar-tab-in 0.25s cubic-bezier(0, 1, 0.5, 1);
+      border: none;
+      border-top: solid var(--p-tabs-active-bar-height) transparent;
+      &-active {
+        border-top-color: var(--p-primary-color);
+      }
+      &:nth-child(1) {
+        animation: none;
+      }
     }
+    @keyframes sidebar-tab-in {
+      from {
+        opacity: 0;
+        transform: translateY(1rem);
+      }
+    }
+
     .p-tab-inner {
       padding: var(--p-tabs-tab-padding);
       display: flex;
