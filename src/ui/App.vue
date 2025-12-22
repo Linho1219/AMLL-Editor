@@ -11,6 +11,7 @@
   </main>
   <Player />
   <Toast />
+  <FontLoader />
 </template>
 
 <script setup lang="ts">
@@ -20,6 +21,7 @@ import ContentEditor from './editor/content/Editor.vue'
 import TimingEditor from './editor/timing/Editor.vue'
 import Preview from './editor/preview/Preview.vue'
 import Player from './player/Player.vue'
+import FontLoader from './components/FontLoader.vue'
 import { editHistory } from '@states/services/history'
 import { onMounted, onUnmounted } from 'vue'
 import Sidebar from './sidebar/Sidebar.vue'

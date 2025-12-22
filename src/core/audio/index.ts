@@ -11,6 +11,16 @@ export function useAudioCtrl() {
   const rawFileRef = shallowRef<File | null>(null)
   const filenameRef = ref<string | undefined>(undefined)
 
+  const loadedListeners = new Set<() => void>()
+  const onLoaded = (listener: () => void) => (
+    loadedListeners.add(listener),
+    () => loadedListeners.delete(listener)
+  )
+  const offLoaded = (listener: () => void) => {
+    loadedListeners.delete(listener)
+  }
+  const _dispatchLoaded = () => loadedListeners.forEach((listener) => listener())
+
   function maintainMediaSession() {
     if (!('mediaSession' in navigator)) return
     navigator.mediaSession.metadata = new MediaMetadata({
@@ -25,10 +35,10 @@ export function useAudioCtrl() {
   }
 
   //#region File
-  function mount(src: File): Promise<void> {
+  function mount(src: File) {
     rawFileRef.value = src
-    if (src.name.endsWith('.ncm')) return _mountNcm(src)
-    return _mount(src)
+    if (src.name.endsWith('.ncm')) _mountNcm(src)
+    else _mount(src)
   }
 
   async function _mountNcm(src: File) {
@@ -39,9 +49,9 @@ export function useAudioCtrl() {
     ncmResolver.destroy()
   }
 
-  function _mount(src: Blob, filename: string): Promise<void>
-  function _mount(src: File): Promise<void>
-  function _mount(src: Blob | File, filename?: string): Promise<void> {
+  function _mount(src: Blob, filename: string): void
+  function _mount(src: File): void
+  function _mount(src: Blob | File, filename?: string): void {
     audioEl.pause()
     audioEl.currentTime = 0
     audioEl.playbackRate = 1
@@ -51,24 +61,24 @@ export function useAudioCtrl() {
     revokeUrlHook = null
     const objUrl = URL.createObjectURL(src)
     revokeUrlHook = () => URL.revokeObjectURL(objUrl)
-    audioEl.src = objUrl
-    activatedRef.value = true
-    progressRef.value = 0
-    playingRef.value = false
-    src.arrayBuffer().then(async (buffer) => {
-      const audioCtx = new AudioContext()
-      const decoded = await audioCtx.decodeAudioData(buffer)
-      audioBufferRef.value = decoded
-    })
-    return new Promise((resolve) => {
-      audioEl.onloadedmetadata = () => {
+    audioEl.addEventListener(
+      'loadedmetadata',
+      async () => {
+        const srcBuffer = await src.arrayBuffer()
+        const decoded = await new AudioContext().decodeAudioData(srcBuffer)
+        audioBufferRef.value = decoded
         lengthRef.value = Math.round(audioEl.duration * 1000)
-        maintainMediaSession()
+        activatedRef.value = true
+        progressRef.value = 0
+        playingRef.value = false
         audioEl.playbackRate = playbackRateRef.value
         audioEl.volume = volumeRef.value
-        resolve()
-      }
-    })
+        maintainMediaSession()
+        _dispatchLoaded()
+      },
+      { once: true },
+    )
+    audioEl.src = objUrl
   }
   //#endregion
 
@@ -159,6 +169,8 @@ export function useAudioCtrl() {
 
   return {
     audioEl: audioEl,
+    onLoaded,
+    offLoaded,
     mount,
     play,
     pause,

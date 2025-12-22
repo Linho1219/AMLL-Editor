@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-        <Waveform :audio="audio" :key="refresher" />
+        <Waveform :audio="audio" />
         <Button
           icon="pi pi-chart-bar"
           :severity="showSpectrogram ? 'primary' : 'secondary'"
@@ -82,11 +82,9 @@ onFileChange((files) => {
 })
 
 const refresher = ref(Symbol())
-audio.audioEl.onloadeddata = () => {
-  nextTick(() => {
-    refresher.value = Symbol()
-  })
-}
+const refresh = () => (refresher.value = Symbol())
+audio.onLoaded(refresh)
+onUnmounted(() => audio.offLoaded(refresh))
 
 useGlobalKeyboard('chooseMedia', () => handleSelectFile())
 useGlobalKeyboard('playPauseAudio', () => {

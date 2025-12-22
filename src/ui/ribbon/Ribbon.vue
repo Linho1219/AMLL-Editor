@@ -8,7 +8,7 @@
         <TimeShiftGroup />
         <MarkGroup />
         <ViewGroup />
-        <PerformanceGroup />
+        <!-- <PerformanceGroup /> -->
       </template>
     </Card>
   </nav>
