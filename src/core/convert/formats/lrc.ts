@@ -14,8 +14,7 @@
 // [02:03.552]In our souls, do we know?
 // [02:06.103][02:08.916][02:11.135]On the journey
 
-import type { LyricLine } from '@core/types'
-import { type Persist } from '..'
+import type { LyricLine, Persist } from '@core/types'
 import { str2ms } from '@utils/formatTime'
 import { coreCreate } from '@states/stores/core'
 

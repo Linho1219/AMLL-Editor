@@ -1,11 +1,12 @@
+export type { Convert } from './types'
+import type { Convert as CV } from './types'
 import { parseLRC } from './formats/lrc'
 import { parseLRCa2 } from './formats/lrca2'
 import { parseQRC } from './formats/qrc'
 import { parseSPL } from './formats/spl'
 import { parseYRC } from './formats/yrc'
-import type { Port as PT } from './types'
 
-export const portFormatRegister: PT.Format[] = [
+export const portFormatRegister: CV.Format[] = [
   {
     name: '基本 LRC',
     description:

@@ -9,8 +9,7 @@
 // [02:38.850]<02:38.850>Words <02:39.030>are <02:39.120>made <02:39.360>of <02:39.420>plastic<02:40.080>
 // [02:40.080]<02:40.080>Come <02:40.290>back <02:40.470>like <02:40.680>elastic<02:41.370>
 
-import type { LyricLine, LyricWord } from '@core/types'
-import type { Persist } from '..'
+import type { LyricLine, LyricWord, Persist } from '@core/types'
 import { ms2str, str2ms } from '@utils/formatTime'
 import { coreCreate } from '@states/stores/core'
 

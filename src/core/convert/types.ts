@@ -1,6 +1,6 @@
 import type { Persist } from '@core/types'
 
-export namespace Port {
+export namespace Convert {
   export interface Format {
     name: string
     description?: string

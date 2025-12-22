@@ -71,11 +71,12 @@ import { simpleChooseTextFile } from '@core/file'
 import { Button, Dialog, Listbox } from 'primevue'
 import { ref } from 'vue'
 import CodeMirror from '@ui/components/CodeMirror.vue'
-import { importPersist, portFormatRegister, type Port as PT } from '@core/ports'
+import { portFormatRegister, type Convert as CV } from '@core/convert'
+import { importPersist } from '@states/services/port'
 
 const [visible] = defineModel<boolean>({ required: true })
 
-const selectedFormat = ref<PT.Format | undefined>(portFormatRegister[0])
+const selectedFormat = ref<CV.Format | undefined>(portFormatRegister[0])
 const showExample = ref(false)
 const inputText = ref('')
 

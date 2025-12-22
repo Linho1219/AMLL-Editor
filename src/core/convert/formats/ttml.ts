@@ -5,8 +5,7 @@
 // import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
 
 import { ms2str, str2ms } from '@utils/formatTime'
-import { importPersist, type Persist } from '..'
-import type { LyricLine, MetadataKey } from '@core/types'
+import type { LyricLine, MetadataKey, Persist } from '@core/types'
 import { coreCreate } from '@states/stores/core'
 
 export function parseTTML(ttmlString: string): Persist {
@@ -248,5 +247,3 @@ export function stringifyTTML(data: Persist) {
   // Output
   return new XMLSerializer().serializeToString(doc)
 }
-
-export const importTTML = (s: string) => importPersist(parseTTML(s))

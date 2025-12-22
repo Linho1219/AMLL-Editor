@@ -4,8 +4,7 @@
 // <> and [] are both supported for word timestamps
 // but when [] represents word timestamps, shouldn't be at the beginning: it will be treated as line timestamp
 
-import type { LyricLine } from '@core/types'
-import type { Persist } from '..'
+import type { LyricLine, Persist } from '@core/types'
 import { ms2str, str2ms } from '@utils/formatTime'
 import { coreCreate } from '@states/stores/core'
 

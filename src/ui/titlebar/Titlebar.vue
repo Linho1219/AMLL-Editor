@@ -69,14 +69,14 @@ import type { MenuItem } from 'primevue/menuitem'
 
 import { editHistory } from '@states/services/history'
 import { simpleChooseTextFile } from '@core/file'
-import { importTTML, stringifyTTML } from '@core/ports/formats/ttml'
-import { exportPersist, importPersist } from '@core/ports'
+import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
 
 import FromTextModal from '@ui/dialogs/FromTextModal.vue'
 import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
 import { tipHotkey } from '@utils/generateTooltip'
 import { View } from '@core/types'
 import { SidebarKey } from '@ui/sidebar'
+import { exportPersist, importPersist } from '@states/services/port'
 
 const runtimeStore = useRuntimeStore()
 
@@ -113,6 +113,8 @@ const handleImportFromClipboard = (parser: (content: string) => void) => async (
 
 const showImportFromTextModal = ref(false)
 const showImportFromOtherFormatModal = ref(false)
+const importTTML = (s: string) => importPersist(parseTTML(s))
+
 const openMenuItems: MenuItem[] = [
   {
     label: '现有项目',

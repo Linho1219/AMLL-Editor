@@ -1,1 +1,2 @@
-export { simpleChooseTextFile, simpleSaveTextFile } from './simpleText'
+export { simpleChooseFile, simpleSaveFile } from './simple'
+export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
