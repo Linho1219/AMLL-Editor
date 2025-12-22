@@ -6,14 +6,15 @@
 import { useStaticStore } from '@states/stores'
 import { ms2str } from '@utils/formatTime'
 import { useCssVar } from '@vueuse/core'
-import { onMounted, onUnmounted, useTemplateRef } from 'vue'
+import { onBeforeUnmount, onMounted, useTemplateRef } from 'vue'
 import WaveSurfer from 'wavesurfer.js'
 import HoverPlugin from 'wavesurfer.js/dist/plugins/hover.esm.js'
 const { audio } = useStaticStore()
 const waveformEl = useTemplateRef('waveformEl')
 const primaryColor = useCssVar('--p-primary-color')
 let wsInstance: WaveSurfer | null = null
-onMounted(() => {
+
+const createWs = () => {
   if (!waveformEl.value) return
   wsInstance = WaveSurfer.create({
     media: audio.audioEl,
@@ -30,9 +31,18 @@ onMounted(() => {
       }),
     ],
   })
-})
-onUnmounted(() => {
+}
+
+onMounted(createWs)
+const refresher = () => {
   wsInstance?.destroy()
+  createWs()
+}
+audio.onLoaded(refresher)
+onBeforeUnmount(() => {
+  wsInstance?.destroy()
+  wsInstance = null
+  audio.offLoaded(refresher)
 })
 </script>
 
