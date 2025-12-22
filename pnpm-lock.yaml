@@ -68,9 +68,6 @@ importers:
       compromise-syllables:
         specifier: ^0.0.6
         version: 0.0.6(compromise@14.14.4)
-      flatted:
-        specifier: ^3.3.3
-        version: 3.3.3
       floating-vue:
         specifier: ^5.2.2
         version: 5.2.2(vue@3.5.25(typescript@5.9.3))
@@ -1119,9 +1116,6 @@ packages:
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
-
-  flatted@3.3.3:
-    resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
 
   floating-vue@5.2.2:
     resolution: {integrity: sha512-afW+h2CFafo+7Y9Lvw/xsqjaQlKLdJV7h1fCHfcYQ1C4SVMlu7OAekqWgu5d4SgvkBVU0pVpLlVsrSTBURFRkg==}
@@ -2738,8 +2732,6 @@ snapshots:
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
-
-  flatted@3.3.3: {}
 
   floating-vue@5.2.2(vue@3.5.25(typescript@5.9.3)):
     dependencies:
