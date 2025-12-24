@@ -35,6 +35,7 @@ import { Toast } from 'primevue'
 import { usePrefStore, useRuntimeStore } from '@states/stores'
 import { View } from '@core/types'
 editHistory.init()
+editHistory.markSaved() // Empty state is considered saved
 
 const prefStore = usePrefStore()
 const runtimeStore = useRuntimeStore()

@@ -68,12 +68,11 @@
 </template>
 
 <script setup lang="ts">
-import { simpleChooseTextFile } from '@core/file'
+import { fileState as FS, simpleChooseTextFile } from '@core/file'
 import { Button, Dialog, Listbox } from 'primevue'
 import { ref } from 'vue'
 import CodeMirror from '@ui/components/CodeMirror.vue'
 import { portFormatRegister, type Convert as CV } from '@core/convert'
-import { importPersist } from '@states/services/port'
 import EmptyTip from '@ui/components/EmptyTip.vue'
 
 const [visible] = defineModel<boolean>({ required: true })
@@ -92,7 +91,7 @@ function handleImport() {
   if (!selectedFormat.value) return
   try {
     const persist = selectedFormat.value.parser(inputText.value)
-    importPersist(persist)
+    FS.importPersist(persist)
     visible.value = false
   } catch (err) {
     console.error(err)

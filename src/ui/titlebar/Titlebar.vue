@@ -58,23 +58,22 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Menu, SelectButton, SplitButton, useToast } from 'primevue'
+import { Button, SelectButton, SplitButton, useToast } from 'primevue'
 import { useRuntimeStore } from '@states/stores'
-import { nextTick, ref, useTemplateRef, watch } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import type { MenuItem } from 'primevue/menuitem'
 
 import { editHistory } from '@states/services/history'
 import { simpleChooseTextFile } from '@core/file'
-import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
+import { parseTTML } from '@core/convert/formats/ttml'
 
 import FromTextModal from '@ui/dialogs/FromTextModal.vue'
 import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
 import { tipHotkey } from '@utils/generateTooltip'
 import { View } from '@core/types'
 import { SidebarKey } from '@ui/sidebar'
-import { exportPersist, importPersist } from '@states/services/port'
 
-import { FileState as FS } from '@core/file'
+import { fileState as FS } from '@core/file'
 import { useGlobalKeyboard } from '@core/hotkey'
 const { displayFilenameComputed: filename } = FS
 const { isDirty } = editHistory
@@ -107,9 +106,9 @@ const errorTip = (summary: string, detail?: string) => {
 }
 
 // File open
-async function handleOpenClick() {
+async function handleOpen(fsopener: () => Promise<string>) {
   try {
-    successTip('成功装载文件', await FS.openFile())
+    successTip('成功装载文件', await fsopener())
   } catch (e) {
     console.error(e)
     const err = e as Error
@@ -118,12 +117,16 @@ async function handleOpenClick() {
     return
   }
 }
-
-const handleImportFromFile = (accept: string, parser: (content: string) => void) => async () => {
-  const file = await simpleChooseTextFile(accept)
-  if (!file) return
-  return parser(file.content)
+function handleOpenClick() {
+  handleOpen(FS.openFile)
 }
+function handleOpenProjClick() {
+  handleOpen(FS.openProjFile)
+}
+function handleOpenTTMLClick() {
+  handleOpen(FS.openTTMLFile)
+}
+
 const handleImportFromClipboard = (parser: (content: string) => void) => async () => {
   const text = await navigator.clipboard.readText()
   if (!text) return
@@ -132,18 +135,18 @@ const handleImportFromClipboard = (parser: (content: string) => void) => async (
 
 const showImportFromTextModal = ref(false)
 const showImportFromOtherFormatModal = ref(false)
-const importTTML = (s: string) => importPersist(parseTTML(s))
+const importTTML = (s: string) => FS.importPersist(parseTTML(s))
 
 const openMenuItems: MenuItem[] = [
   {
     label: '现有项目',
     icon: 'pi pi-file',
-    command: handleImportFromFile('.aleproj', importTTML),
+    command: handleOpenProjClick,
   },
   {
     label: 'TTML 文件',
     icon: 'pi pi-file',
-    command: handleImportFromFile('.ttml', importTTML),
+    command: handleOpenTTMLClick,
   },
   { separator: true },
   {
@@ -165,7 +168,7 @@ const openMenuItems: MenuItem[] = [
   {
     label: '空项目',
     icon: 'pi pi-ban',
-    command: handleNewProject,
+    command: FS.createBlankProject,
   },
 ]
 const saveMenuItems: MenuItem[] = [
@@ -176,17 +179,8 @@ const saveMenuItems: MenuItem[] = [
   },
 ]
 
-async function handleNewProject() {
-  importPersist({
-    lyricLines: [],
-    metadata: {},
-  })
-}
-
 // File save
 async function handleSaveClick() {
-  //test: clipboard
-  // navigator.clipboard.writeText(stringifyTTML(exportPersist()))
   try {
     successTip('成功保存文件', await FS.saveFile())
   } catch (e) {

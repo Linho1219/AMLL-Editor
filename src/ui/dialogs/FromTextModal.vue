@@ -123,7 +123,7 @@ import CodeMirror from '@ui/components/CodeMirror.vue'
 import { parseInterleavedPlainText, parseSeparatePlainText } from '@core/convert/formats/paintext'
 import LineOrderInput from './LineOrderInput.vue'
 import { useCoreStore } from '@states/stores'
-import { importPersist } from '@states/services/port'
+import { fileState as FS } from '@core/file'
 
 const [visible] = defineModel<boolean>({ required: true })
 const originalInput = ref<string>('')
@@ -207,7 +207,7 @@ function handleImportAction() {
         if (roman !== undefined) line.romanization = roman
       })
     } else
-      importPersist(
+      FS.importPersist(
         parseSeparatePlainText(
           originalInput.value,
           translationChecked.value ? translationInput.value : undefined,
@@ -217,7 +217,7 @@ function handleImportAction() {
   } else if (currentMode.value === interleaved) {
     const loi = lineOrderInput.value
     if (!loi) return
-    importPersist(
+    FS.importPersist(
       parseInterleavedPlainText(
         {
           originalIndex: loi.originalOrder,

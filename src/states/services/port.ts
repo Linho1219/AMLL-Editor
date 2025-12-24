@@ -3,7 +3,7 @@ import { editHistory } from './history'
 import { useCoreStore, useRuntimeStore } from '@states/stores'
 import { cloneDeep } from 'lodash-es'
 
-export function importPersist(data: Persist) {
+export function applyPersist(data: Persist) {
   data = cloneDeep(data)
   editHistory.shutdown()
   const coreStore = useCoreStore()
@@ -18,7 +18,7 @@ export function importPersist(data: Persist) {
   editHistory.init()
 }
 
-export function exportPersist(): Persist {
+export function collectPersist(): Persist {
   const coreStore = useCoreStore()
   const outputData: Persist = {
     metadata: [...coreStore.metadata].reduce(

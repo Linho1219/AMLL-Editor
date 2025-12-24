@@ -1,12 +1,12 @@
 import { detectFormat, portFormatRegister } from '@core/convert'
 import { parseTTML, stringifyTTML, ttmlReg } from '@core/convert/formats/ttml'
 import { readonly, ref } from 'vue'
-import { collectProjectData, makeProjectFile, parseProjectFile } from './project'
-import { exportPersist, importPersist } from '@states/services/port'
-import { useStaticStore } from '@states/stores'
+import { collectProjectData, makeProjectFile, mountProjectData, parseProjectFile } from './project'
+import { collectPersist, applyPersist } from '@states/services/port'
 import { breakExtension } from '@utils/breakExtension'
 import type { ValueOf } from '@utils/types'
 import { editHistory } from '@states/services/history'
+import type { Persist } from '@core/types'
 
 export { simpleChooseFile, simpleSaveFile } from './simple'
 export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
@@ -55,9 +55,26 @@ const allPickerTypes: FilePickerAcceptType[] = [
 ]
 
 let fileSystemHandle: FileSystemFileHandle | null = null
-let currBackFormat: BackingFmt = BackingFmt.ALP
-let createdAtRef = ref<Date | null>(null)
+let currBackingFmt: BackingFmt = BackingFmt.ALP
+const createdAtRef = ref<Date | null>(null)
+const readonlyRef = ref<boolean>(true)
 const displayFilenameRef = ref<string>('未命名.alp')
+
+interface FileState {
+  fileSystemHandle: FileSystemFileHandle | null
+  currBackingFmt: BackingFmt
+  createdAt: Date | null
+  displayFilename: string
+  isReadonly: boolean
+}
+function setFileState(state: Partial<FileState> | null) {
+  if (!state) state = {}
+  fileSystemHandle = state.fileSystemHandle ?? null
+  currBackingFmt = state.currBackingFmt ?? BackingFmt.ALP
+  createdAtRef.value = state.createdAt ?? null
+  displayFilenameRef.value = state.displayFilename ?? '未命名.alp'
+  readonlyRef.value = state.isReadonly ?? true
+}
 
 /**
  * Handle opening of any known file format.
@@ -72,21 +89,9 @@ async function openFile() {
   })
   const [, ext] = breakExtension(handle.name)
   if (!allSupportedExt.has(`.${ext}`)) throw new Error('Unsupported file format.')
-  const file = await handle.getFile()
-  if (ext === 'alp') {
-    await handleProjFile(file)
-    fileSystemHandle = handle
-    editHistory.markSaved()
-    handle.createWritable()
-  } else if (ext === 'ttml') {
-    await handleTTMLFile(file)
-    fileSystemHandle = handle
-    editHistory.markSaved()
-    handle.createWritable()
-  } else {
-    await handleMiscFile(file)
-    fileSystemHandle = null
-  }
+  if (ext === 'alp') await handleProjFile(handle)
+  else if (ext === 'ttml') await handleTTMLFile(handle)
+  else await handleMiscFile(handle)
   return handle.name
 }
 /**
@@ -100,11 +105,7 @@ async function openProjFile() {
     excludeAcceptAllOption: true,
     id: 'amll-ttml-tool-file-open',
   })
-  if (!handle) return null
-  const file = await handle.getFile()
-  await handleProjFile(file)
-  fileSystemHandle = handle
-  editHistory.markSaved()
+  await handleProjFile(handle)
   return handle.name
 }
 /**
@@ -118,38 +119,67 @@ async function openTTMLFile() {
     excludeAcceptAllOption: true,
     id: 'amll-ttml-tool-file-open',
   })
-  if (!handle) return null
-  const file = await handle.getFile()
-  await handleTTMLFile(file)
-  fileSystemHandle = handle
-  editHistory.markSaved()
+  await handleTTMLFile(handle)
   return handle.name
 }
 
-async function handleProjFile(file: File) {
-  const { data, createdAt, audioFile } = await parseProjectFile(file)
-  importPersist(data)
-  if (audioFile) useStaticStore().audio.mount(audioFile)
-  createdAtRef.value = createdAt || null
-  displayFilenameRef.value = file.name
-  currBackFormat = BackingFmt.ALP
+const tryWritehandle = (handle: FileSystemFileHandle) =>
+  handle
+    .createWritable()
+    .then(() => (readonlyRef.value = false))
+    .catch(() => (readonlyRef.value = true))
+
+async function handleProjFile(handle: FileSystemFileHandle) {
+  const file = await handle.getFile()
+  const payload = await parseProjectFile(file)
+  mountProjectData(payload)
+  setFileState({
+    fileSystemHandle: handle,
+    currBackingFmt: BackingFmt.ALP,
+    createdAt: payload.createdAt ?? new Date(file.lastModified),
+    displayFilename: file.name,
+  })
+  editHistory.markSaved()
+  tryWritehandle(handle)
 }
-async function handleTTMLFile(file: File) {
+async function handleTTMLFile(handle: FileSystemFileHandle) {
+  const file = await handle.getFile()
   const text = await file.text()
   const data = parseTTML(text)
-  importPersist(data)
-  createdAtRef.value = new Date()
-  displayFilenameRef.value = file.name
-  currBackFormat = BackingFmt.TTML
+  applyPersist(data)
+  setFileState({
+    fileSystemHandle: handle,
+    currBackingFmt: BackingFmt.ALP,
+    createdAt: new Date(file.lastModified),
+    displayFilename: file.name,
+  })
+  editHistory.markSaved()
+  tryWritehandle(handle)
 }
-async function handleMiscFile(file: File) {
+async function handleMiscFile(handle: FileSystemFileHandle) {
+  const file = await handle.getFile()
   const [name, ext] = breakExtension(file.name)
   const text = await file.text()
   const format = detectFormat(ext, text)
   const data = format.parser(text)
-  importPersist(data)
-  createdAtRef.value = new Date()
-  displayFilenameRef.value = `${name}.alp`
+  applyPersist(data)
+  setFileState({
+    currBackingFmt: BackingFmt.ALP,
+    createdAt: new Date(),
+    displayFilename: `${name}.alp`,
+  })
+}
+function importPersist(data: Persist, name: string = '未命名') {
+  applyPersist(data)
+  setFileState({
+    currBackingFmt: BackingFmt.ALP,
+    createdAt: new Date(),
+    displayFilename: `${name}.alp`,
+  })
+}
+function createBlankProject() {
+  importPersist({ lyricLines: [], metadata: {} })
+  editHistory.markSaved()
 }
 
 /**
@@ -164,12 +194,13 @@ async function saveFile() {
     return
   }
   const writeable = await fileSystemHandle.createWritable()
+  readonlyRef.value = false
   let blob: Blob
-  if (currBackFormat === BackingFmt.ALP) {
+  if (currBackingFmt === BackingFmt.ALP) {
     const collected = collectProjectData()
     blob = await makeProjectFile(collected)
-  } else if (currBackFormat === BackingFmt.TTML) {
-    const persist = exportPersist()
+  } else if (currBackingFmt === BackingFmt.TTML) {
+    const persist = collectPersist()
     const str = stringifyTTML(persist)
     blob = new Blob([str], { type: 'application/xml' })
   } else throw new Error('Unsupported backing format.')
@@ -185,7 +216,7 @@ async function saveFile() {
  * @throws User cancel; write errors.
  * @returns Filename
  */
-export async function saveAsFile() {
+async function saveAsFile() {
   const types: FilePickerAcceptType[] = [...alpPickerType, ...ttmlPickerType]
   const handle = await showSaveFilePicker({
     types,
@@ -194,17 +225,18 @@ export async function saveAsFile() {
     suggestedName: displayFilenameRef.value,
   })
   const writeable = await handle.createWritable()
+  readonlyRef.value = false
   let blob: Blob
   const [, ext] = breakExtension(handle.name)
   if (ext === 'alp') {
     const collected = collectProjectData()
     blob = await makeProjectFile(collected)
-    currBackFormat = BackingFmt.ALP
+    currBackingFmt = BackingFmt.ALP
   } else if (ext === 'ttml') {
-    const persist = exportPersist()
+    const persist = collectPersist()
     const str = stringifyTTML(persist)
     blob = new Blob([str], { type: 'application/xml' })
-    currBackFormat = BackingFmt.TTML
+    currBackingFmt = BackingFmt.TTML
   } else throw new Error('Unsupported backing format.')
   await writeable.write(blob)
   await writeable.close()
@@ -214,12 +246,14 @@ export async function saveAsFile() {
   return handle.name
 }
 
-export const FileState = {
+export const fileState = {
   openFile,
   openProjFile,
   openTTMLFile,
   saveFile,
   saveAsFile,
+  importPersist,
+  createBlankProject,
   createdAtComputed: readonly(createdAtRef),
   displayFilenameComputed: readonly(displayFilenameRef),
 }
