@@ -1,7 +1,7 @@
-import type { FileBackend } from '../types'
+import { defineFileBackend } from '../types'
 
-export class FileSystemBackend implements FileBackend<FileSystemFileHandle> {
-  async read(types: FilePickerAcceptType[], tryWrite = false) {
+export const fileSystemBackend = defineFileBackend<FileSystemFileHandle>({
+  async read(types, tryWrite = false) {
     const [handle] = await showOpenFilePicker({
       types,
       excludeAcceptAllOption: true,
@@ -18,24 +18,26 @@ export class FileSystemBackend implements FileBackend<FileSystemFileHandle> {
       filename: handle.name,
       writable,
     }
-  }
-  async write(handle: FileSystemFileHandle, blob: Blob) {
+  },
+  async write(handle, blob) {
     const writable = await handle.createWritable()
     await writable.write(blob)
     await writable.close()
-  }
-  async writeAs(types: FilePickerAcceptType[], suggestedBaseName: string, blob: Blob) {
+  },
+  async writeAs(types, suggestedBaseName, blob) {
     const handle = await showSaveFilePicker({
       types,
       suggestedName: suggestedBaseName,
       excludeAcceptAllOption: true,
       id: 'amll-ttml-tool-file-save',
     })
-    await this.write(handle, blob)
+    const writable = await handle.createWritable()
+    await writable.write(blob)
+    await writable.close()
     return {
       handle,
       filename: handle.name,
       writable: true,
     }
-  }
-}
+  },
+})
