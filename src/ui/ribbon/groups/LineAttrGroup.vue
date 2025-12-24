@@ -63,7 +63,6 @@
           class="durationinput"
           size="small"
           placeholder="0"
-          :useGrouping="false"
           :disabled="lineSelectedEmpty"
           v-model="lineDuration"
           :invalid="(lineDuration ?? 0) < 0"
