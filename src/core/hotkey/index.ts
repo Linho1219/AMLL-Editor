@@ -5,6 +5,7 @@ export { getDefaultHotkeyMap } from './data'
 import mitt from 'mitt'
 import { onUnmounted } from 'vue'
 import { hotkeyInputBlockList } from './data'
+import { usePrefStore } from '@states/stores'
 
 const globalKeyboardEmit = mitt<{ [K in HK.Command]: undefined }>()
 export function useGlobalKeyboard(command: HK.Command, handler: () => void) {
@@ -63,6 +64,8 @@ const keyRewrites: Record<string, string> = {
   ArrowUp: '↑',
   ArrowDown: '↓',
   Backquote: '`',
+  Comma: ',',
+  Period: '.',
 }
 export function hotkeyToString(hotkey: HK.Key, isMac: boolean = false) {
   const parts: string[] = []
@@ -72,4 +75,12 @@ export function hotkeyToString(hotkey: HK.Key, isMac: boolean = false) {
   const key = (keyRewrites[hotkey.code] ?? hotkey.code).replace(/^Key/, '').replace(/^Digit/, '')
   parts.push(key)
   return parts.join(isMac ? '' : '+')
+}
+
+export function getHotkeyStr(hotkeyCmd: HK.Command) {
+  const prefStore = usePrefStore()
+  const hotkey = prefStore.hotkeyMap[hotkeyCmd][0]
+  if (!hotkey) return undefined
+  const hotkeyStr = hotkeyToString(hotkey, prefStore.isMac)
+  return hotkeyStr
 }

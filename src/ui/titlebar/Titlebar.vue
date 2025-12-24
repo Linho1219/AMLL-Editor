@@ -7,7 +7,12 @@
         severity="secondary"
         :model="openMenuItems"
         @click="handleOpenClick"
-      />
+        v-tooltip="tipHotkey('打开文件', 'open')"
+      >
+        <template #item="{ item, props }">
+          <TieredMenuItem :item="item" :binding="props" />
+        </template>
+      </SplitButton>
 
       <FromOtherFormatModal v-model="showImportFromOtherFormatModal" />
       <FromTextModal v-model="showImportFromTextModal" />
@@ -51,10 +56,19 @@
       <div class="save-state-section">
         <span class="readonly" v-if="!compatibilityMap.fileSystem">兼容读写模式</span>
         <span class="readonly" v-else-if="readonlyComputed">未授予写入权限</span>
-
         <span class="saved-at" v-if="savedAtComputed">保存于 {{ savedAtComputed }}</span>
       </div>
-      <SplitButton label="保存" icon="pi pi-save" :model="saveMenuItems" @click="handleSaveClick" />
+      <SplitButton
+        label="保存"
+        icon="pi pi-save"
+        :model="saveMenuItems"
+        @click="handleSaveClick"
+        v-tooltip="tipHotkey('保存文件', 'save')"
+      >
+        <template #item="{ item, props }">
+          <TieredMenuItem :item="item" :binding="props" />
+        </template>
+      </SplitButton>
     </div>
   </header>
 </template>
@@ -74,11 +88,12 @@ import { tipHotkey } from '@utils/generateTooltip'
 import { SidebarKey } from '@ui/sidebar'
 
 import { fileState as FS, simpleSaveTextFile } from '@core/file'
-import { useGlobalKeyboard } from '@core/hotkey'
+import { getHotkeyStr, useGlobalKeyboard } from '@core/hotkey'
 import { collectPersist } from '@states/services/port'
 import ViewSwitcher from './ViewSwitcher.vue'
 import { portFormatRegister } from '@core/convert'
 import { compatibilityMap } from '@core/compat'
+import TieredMenuItem from '@ui/components/TieredMenuItem.vue'
 const {
   displayFilenameComputed: filename,
   readonlyComputed,
@@ -209,18 +224,19 @@ const openMenuItems: MenuItem[] = [
   },
   { separator: true },
   {
-    label: '从剪贴板导入 TTML',
+    label: '粘贴 TTML',
     icon: 'pi pi-clipboard',
     command: handleImportFromClipboard,
     disabled: !compatibilityMap.clipboard,
+    tip: getHotkeyStr('importFromClipboard'),
   },
   {
-    label: '从纯文本导入',
+    label: '导入纯文本',
     icon: 'pi pi-align-left',
     command: () => (showImportFromTextModal.value = true),
   },
   {
-    label: '从其他歌词格式导入',
+    label: '导入其他格式',
     icon: 'pi pi-paperclip',
     command: () => (showImportFromOtherFormatModal.value = true),
   },
@@ -229,6 +245,7 @@ const openMenuItems: MenuItem[] = [
     label: '空项目',
     icon: 'pi pi-ban',
     command: handleCreateBlankProject,
+    tip: getHotkeyStr('new'),
   },
 ]
 
@@ -237,6 +254,7 @@ const saveMenuNormalSaveAs: MenuItem[] = [
     label: '另存为',
     icon: 'pi pi-file-edit',
     command: handleSaveAsClick,
+    tip: getHotkeyStr('saveAs'),
   },
 ]
 const saveMenuFallbackSaveAs: MenuItem[] = [
@@ -253,13 +271,14 @@ const saveMenuFallbackSaveAs: MenuItem[] = [
 ]
 const saveMenuItemsWithoutSaveAs: MenuItem[] = [
   {
-    label: '复制 TTML 到剪贴板',
+    label: '复制 TTML',
     icon: 'pi pi-clipboard',
     command: handleExportToClipboard,
     disabled: !compatibilityMap.clipboard,
+    tip: getHotkeyStr('exportToClipboard'),
   },
   {
-    label: '导出到其他格式',
+    label: '导出其他格式',
     icon: 'pi pi-file-export',
     items: portFormatRegister.map((format) => ({
       label: format.name,
@@ -273,6 +292,7 @@ const saveMenuItemsWithoutSaveAs: MenuItem[] = [
           'export-to-other-format',
         )
       },
+      tip: format.accept.join(', '),
     })),
   },
 ]
@@ -281,8 +301,9 @@ const saveMenuItems: MenuItem[] = [
   ...saveMenuItemsWithoutSaveAs,
 ]
 
+useGlobalKeyboard('preferences', () => runtimeStore.toogleSidebar(SidebarKey.Preference))
 useGlobalKeyboard('save', handleSaveClick)
-useGlobalKeyboard('saveAs', handleSaveAsClick)
+if (compatibilityMap.fileSystem) useGlobalKeyboard('saveAs', handleSaveAsClick)
 useGlobalKeyboard('open', handleOpenClick)
 useGlobalKeyboard('new', handleCreateBlankProject)
 useGlobalKeyboard('exportToClipboard', handleExportToClipboard)
