@@ -12,8 +12,7 @@ const fileSystemInfo: CP.CompatibilityInfo = {
 }
 
 const meet =
-  // window.isSecureContext && 'showOpenFilePicker' in window && 'showSaveFilePicker' in window
-  false
+  window.isSecureContext && 'showOpenFilePicker' in window && 'showSaveFilePicker' in window
 
 function findWhy(): string | undefined {
   if (meet) return undefined
