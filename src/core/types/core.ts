@@ -39,6 +39,8 @@ export interface LyricWord {
   endTime: number
   /** 词内容 */
   text: string
+  /** 音译 */
+  romanization: string
   /** 占位拍，用于日语多音节汉字时轴 */
   placeholdingBeat: number
   /** 当前占位拍 */

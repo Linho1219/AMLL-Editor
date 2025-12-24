@@ -25,6 +25,7 @@ const newWord = (attrs: Partial<LyricWord> = {}) =>
     startTime: 0,
     endTime: 0,
     text: '',
+    romanization: '',
     placeholdingBeat: 0,
     currentplaceholdingBeat: 0,
     bookmarked: false,
