@@ -49,7 +49,9 @@
     </div>
     <div class="rightbar">
       <div class="save-state-section">
-        <span class="readonly" v-if="readonlyComputed">无写入权限</span>
+        <span class="readonly" v-if="!compatibilityMap.fileSystem">兼容读写模式</span>
+        <span class="readonly" v-else-if="readonlyComputed">未授予写入权限</span>
+
         <span class="saved-at" v-if="savedAtComputed">保存于 {{ savedAtComputed }}</span>
       </div>
       <SplitButton label="保存" icon="pi pi-save" :model="saveMenuItems" @click="handleSaveClick" />
@@ -175,14 +177,23 @@ async function handleSaveClick() {
     else errorTip('保存文件失败', (e as Error).message)
   }
 }
-async function handleSaveAsClick() {
+async function __handleSaveAs(savePromise: Promise<string>) {
   try {
-    successTip('成功另存为文件', await FS.saveAsFile())
+    successTip('成功另存为文件', await savePromise)
   } catch (e) {
     console.error(e)
     if (isUserAbortError(e)) errorTip('另存为文件失败', '文件写入被用户或平台拒绝')
     else errorTip('另存为文件失败', (e as Error).message)
   }
+}
+function handleSaveAsClick() {
+  __handleSaveAs(FS.saveAsFile())
+}
+function handleSaveAsTTMLClick() {
+  __handleSaveAs(FS.saveAsTTMLFile())
+}
+function handleSaveAsProjectClick() {
+  __handleSaveAs(FS.saveAsProjectFile())
 }
 
 const openMenuItems: MenuItem[] = [
@@ -220,12 +231,27 @@ const openMenuItems: MenuItem[] = [
     command: handleCreateBlankProject,
   },
 ]
-const saveMenuItems: MenuItem[] = [
+
+const saveMenuNormalSaveAs: MenuItem[] = [
   {
     label: '另存为',
     icon: 'pi pi-file-edit',
     command: handleSaveAsClick,
   },
+]
+const saveMenuFallbackSaveAs: MenuItem[] = [
+  {
+    label: '导出为项目文件',
+    icon: 'pi pi-file-edit',
+    command: handleSaveAsProjectClick,
+  },
+  {
+    label: '导出为 TTML 文件',
+    icon: 'pi pi-file-edit',
+    command: handleSaveAsTTMLClick,
+  },
+]
+const saveMenuItemsWithoutSaveAs: MenuItem[] = [
   {
     label: '复制 TTML 到剪贴板',
     icon: 'pi pi-clipboard',
@@ -249,6 +275,10 @@ const saveMenuItems: MenuItem[] = [
       },
     })),
   },
+]
+const saveMenuItems: MenuItem[] = [
+  ...(compatibilityMap.fileSystem ? saveMenuNormalSaveAs : saveMenuFallbackSaveAs),
+  ...saveMenuItemsWithoutSaveAs,
 ]
 
 useGlobalKeyboard('save', handleSaveClick)
@@ -324,7 +354,12 @@ useGlobalKeyboard('importFromClipboard', handleImportFromClipboard)
     line-height: 1;
     color: var(--p-button-text-secondary-color);
     opacity: 0.9;
-    gap: 0.5rem;
+    span + span {
+      &::before {
+        content: '·';
+        margin: 0 0.3rem;
+      }
+    }
   }
 }
 </style>
