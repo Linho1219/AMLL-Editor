@@ -52,6 +52,10 @@
       />
     </div>
     <div class="rightbar">
+      <div class="save-state-section">
+        <span class="readonly" v-if="readonlyComputed">无写入权限</span>
+        <span class="saved-at" v-if="savedAtComputed">保存于 {{ savedAtComputed }}</span>
+      </div>
       <SplitButton label="保存" icon="pi pi-save" :model="saveMenuItems" @click="handleSaveClick" />
     </div>
   </header>
@@ -60,12 +64,11 @@
 <script setup lang="ts">
 import { Button, SelectButton, SplitButton, useToast } from 'primevue'
 import { useRuntimeStore } from '@states/stores'
-import { nextTick, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import type { MenuItem } from 'primevue/menuitem'
 
 import { editHistory } from '@states/services/history'
-import { simpleChooseTextFile } from '@core/file'
-import { parseTTML } from '@core/convert/formats/ttml'
+import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
 
 import FromTextModal from '@ui/dialogs/FromTextModal.vue'
 import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
@@ -75,10 +78,21 @@ import { SidebarKey } from '@ui/sidebar'
 
 import { fileState as FS } from '@core/file'
 import { useGlobalKeyboard } from '@core/hotkey'
-const { displayFilenameComputed: filename } = FS
+import { collectPersist } from '@states/services/port'
+const {
+  displayFilenameComputed: filename,
+  readonlyComputed,
+  savedAtComputed: savedAtDateComputed,
+} = FS
 const { isDirty } = editHistory
 
 const runtimeStore = useRuntimeStore()
+
+const savedAtComputed = computed(() => {
+  const date = savedAtDateComputed.value
+  if (!date) return ''
+  return date.toTimeString().split(' ')[0]
+})
 
 // Middle view selector
 const viewOptions = [
@@ -105,14 +119,20 @@ const errorTip = (summary: string, detail?: string) => {
   toast.add({ severity: 'error', summary, detail, life: 3000 })
 }
 
-// File open
+const showImportFromTextModal = ref(false)
+const showImportFromOtherFormatModal = ref(false)
+
+const isUserAbortError = (e: unknown) => {
+  const err = e as Error
+  return err.message.includes('The user aborted a request.')
+}
 async function handleOpen(fsopener: () => Promise<string>) {
   try {
     successTip('成功装载文件', await fsopener())
   } catch (e) {
     console.error(e)
     const err = e as Error
-    if (err.message.includes('The user aborted a request.')) return
+    if (isUserAbortError(err)) return
     else errorTip('打开文件失败', (e as Error).message)
     return
   }
@@ -127,15 +147,44 @@ function handleOpenTTMLClick() {
   handleOpen(FS.openTTMLFile)
 }
 
-const handleImportFromClipboard = (parser: (content: string) => void) => async () => {
+const handleImportFromClipboard = () => async () => {
   const text = await navigator.clipboard.readText()
-  if (!text) return
-  return parser(text)
+  if (!text) {
+    errorTip('剪贴板为空')
+    return
+  }
+  try {
+    const persist = parseTTML(text)
+    FS.importPersist(persist)
+    successTip('已从剪贴板导入 TTML')
+  } catch (err) {
+    console.error(err)
+    errorTip('从剪贴板导入 TTML 失败', (err as Error).message)
+  }
 }
-
-const showImportFromTextModal = ref(false)
-const showImportFromOtherFormatModal = ref(false)
-const importTTML = (s: string) => FS.importPersist(parseTTML(s))
+const handleExportToClipboard = async () => {
+  const ttml = stringifyTTML(collectPersist())
+  await navigator.clipboard.writeText(ttml)
+  successTip('已复制 TTML 到剪贴板')
+}
+async function handleSaveClick() {
+  try {
+    successTip('成功保存文件', await FS.saveFile())
+  } catch (e) {
+    console.error(e)
+    if (isUserAbortError(e)) return
+    errorTip('保存文件失败', (e as Error).message)
+  }
+}
+async function handleSaveAsClick() {
+  try {
+    successTip('成功另存为文件', await FS.saveAsFile())
+  } catch (e) {
+    console.error(e)
+    if (isUserAbortError(e)) return
+    errorTip('另存为文件失败', (e as Error).message)
+  }
+}
 
 const openMenuItems: MenuItem[] = [
   {
@@ -152,7 +201,7 @@ const openMenuItems: MenuItem[] = [
   {
     label: '从剪贴板导入 TTML',
     icon: 'pi pi-clipboard',
-    command: handleImportFromClipboard(importTTML),
+    command: handleImportFromClipboard(),
   },
   {
     label: '从纯文本导入',
@@ -174,28 +223,20 @@ const openMenuItems: MenuItem[] = [
 const saveMenuItems: MenuItem[] = [
   {
     label: '另存为',
+    icon: 'pi pi-file-edit',
+    command: handleSaveAsClick,
+  },
+  {
+    label: '复制 TTML 到剪贴板',
+    icon: 'pi pi-clipboard',
+    command: handleExportToClipboard,
+  },
+  {
+    label: '导出到其他格式',
     icon: 'pi pi-file-export',
     command: handleSaveAsClick,
   },
 ]
-
-// File save
-async function handleSaveClick() {
-  try {
-    successTip('成功保存文件', await FS.saveFile())
-  } catch (e) {
-    console.error(e)
-    errorTip('保存文件失败', (e as Error).message)
-  }
-}
-async function handleSaveAsClick() {
-  try {
-    successTip('成功另存为文件', await FS.saveAsFile())
-  } catch (e) {
-    console.error(e)
-    errorTip('另存为文件失败', (e as Error).message)
-  }
-}
 
 useGlobalKeyboard('save', handleSaveClick)
 useGlobalKeyboard('saveAs', handleSaveAsClick)
@@ -234,6 +275,15 @@ useGlobalKeyboard('open', handleOpenClick)
       margin-left: 0.2rem;
       user-select: none;
     }
+  }
+  .save-state-section {
+    display: flex;
+    align-items: center;
+    padding: 0 0.8rem;
+    line-height: 1;
+    color: var(--p-button-text-secondary-color);
+    opacity: 0.9;
+    gap: 0.5rem;
   }
 }
 </style>

@@ -59,6 +59,7 @@ let currBackingFmt: BackingFmt = BackingFmt.ALP
 const createdAtRef = ref<Date | null>(null)
 const readonlyRef = ref<boolean>(true)
 const displayFilenameRef = ref<string>('未命名.alp')
+const savedAtRef = ref<Date | null>(null)
 
 interface FileState {
   fileSystemHandle: FileSystemFileHandle | null
@@ -66,6 +67,7 @@ interface FileState {
   createdAt: Date | null
   displayFilename: string
   isReadonly: boolean
+  savedAt: Date | null
 }
 function setFileState(state: Partial<FileState> | null) {
   if (!state) state = {}
@@ -74,6 +76,7 @@ function setFileState(state: Partial<FileState> | null) {
   createdAtRef.value = state.createdAt ?? null
   displayFilenameRef.value = state.displayFilename ?? '未命名.alp'
   readonlyRef.value = state.isReadonly ?? true
+  savedAtRef.value = state.savedAt ?? null
 }
 
 /**
@@ -207,6 +210,7 @@ async function saveFile() {
   await writeable.write(blob)
   await writeable.close()
   editHistory.markSaved()
+  savedAtRef.value = new Date()
   return fileSystemHandle.name
 }
 /**
@@ -240,8 +244,13 @@ async function saveAsFile() {
   } else throw new Error('Unsupported backing format.')
   await writeable.write(blob)
   await writeable.close()
-  fileSystemHandle = handle
-  displayFilenameRef.value = handle.name
+  setFileState({
+    fileSystemHandle :handle,
+    currBackingFmt,
+    displayFilename: handle.name,
+    isReadonly: false,
+    savedAt: new Date(),
+  })
   editHistory.markSaved()
   return handle.name
 }
@@ -256,4 +265,6 @@ export const fileState = {
   createBlankProject,
   createdAtComputed: readonly(createdAtRef),
   displayFilenameComputed: readonly(displayFilenameRef),
+  readonlyComputed: readonly(readonlyRef),
+  savedAtComputed: readonly(savedAtRef),
 }
