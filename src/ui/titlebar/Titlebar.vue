@@ -39,8 +39,8 @@
       />
       <div class="filename-section">
         <div class="filename-text">
-          <span class="name">{{ filename }}</span>
-          <span class="asterisk" v-if="isDirty">*</span>
+          <span class="name">{{ filename }}</span
+          ><span class="asterisk" v-if="isDirty">*</span>
         </div>
       </div>
     </div>
@@ -269,6 +269,7 @@ useGlobalKeyboard('importFromClipboard', handleImportFromClipboard)
     align-items: center;
     white-space: nowrap;
     overflow-x: hidden;
+    position: relative;
     .filename-text {
       line-height: 1;
       .name {
@@ -278,9 +279,20 @@ useGlobalKeyboard('importFromClipboard', handleImportFromClipboard)
       .asterisk {
         color: var(--p-primary-color);
         font-weight: bold;
-        margin-left: 0.2rem;
+        margin-left: 0.1rem;
         user-select: none;
       }
+    }
+    &::after {
+      content: '';
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2rem;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(to right, transparent, var(--global-background));
     }
     @media screen and (max-width: 720px) {
       & {

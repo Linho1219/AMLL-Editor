@@ -105,11 +105,23 @@ onUnmounted(() => {
   padding: 0 1rem;
   position: relative;
   flex: 1;
+  overflow: hidden;
   .preview-reload-button {
     position: absolute;
     bottom: 0.5rem;
     right: 1rem;
     z-index: 10;
+  }
+  &::after {
+    content: '';
+    pointer-events: none;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    bottom: 0;
+    left: -2rem;
+    box-shadow: var(--global-background) 0 0 1rem 1rem inset;
   }
 }
 .amll-lyric-player.dom {
