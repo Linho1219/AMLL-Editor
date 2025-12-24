@@ -87,11 +87,11 @@ async function handleOpenFromFile() {
   if (!file) return
   inputText.value = file.content || ''
 }
-function handleImport() {
+async function handleImport() {
   if (!selectedFormat.value) return
   try {
     const persist = selectedFormat.value.parser(inputText.value)
-    FS.importPersist(persist)
+    await FS.importPersist(persist)
     visible.value = false
   } catch (err) {
     console.error(err)

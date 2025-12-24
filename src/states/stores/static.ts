@@ -14,6 +14,7 @@ const staticStore = {
   touchLineOnly,
   touchClear,
   scrollToHook: null as null | ScrollTo,
+  waitForDataDropConfirmHook: null as null | WaitForConfirmHook,
 }
 
 export const useStaticStore = () => staticStore
@@ -32,6 +33,7 @@ export interface EditorComponentActions {
   view: View
   scrollTo: ScrollTo
 }
+export type WaitForConfirmHook = () => Promise<boolean>
 
 function touchLineWord(line: LyricLine, word: LyricWord) {
   staticStore.lastTouchedLine = line

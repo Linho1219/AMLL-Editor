@@ -192,7 +192,7 @@ const noItemChecked = computed(
   () => !originalChecked.value && !translationChecked.value && !romanChecked.value,
 )
 
-function handleImportAction() {
+async function handleImportAction() {
   if (currentMode.value === separate) {
     const toTextArr = (str: string) => {
       return str.split(/\r?\n/).map((t) => t.trim())
@@ -207,7 +207,7 @@ function handleImportAction() {
         if (roman !== undefined) line.romanization = roman
       })
     } else
-      FS.importPersist(
+      await FS.importPersist(
         parseSeparatePlainText(
           originalInput.value,
           translationChecked.value ? translationInput.value : undefined,
@@ -217,7 +217,7 @@ function handleImportAction() {
   } else if (currentMode.value === interleaved) {
     const loi = lineOrderInput.value
     if (!loi) return
-    FS.importPersist(
+    await FS.importPersist(
       parseInterleavedPlainText(
         {
           originalIndex: loi.originalOrder,

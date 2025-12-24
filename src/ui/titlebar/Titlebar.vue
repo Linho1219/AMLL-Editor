@@ -101,7 +101,10 @@ const showImportFromOtherFormatModal = ref(false)
 
 const isUserAbortError = (e: unknown) => {
   const err = e as Error
-  return err.message.includes('The user aborted a request.')
+  return (
+    err.message.includes('The user aborted a request') ||
+    err.message.includes('is not allowed by the user agent')
+  )
 }
 async function handleOpen(fsopener: () => Promise<string>) {
   try {
@@ -109,7 +112,7 @@ async function handleOpen(fsopener: () => Promise<string>) {
   } catch (e) {
     console.error(e)
     const err = e as Error
-    if (isUserAbortError(err)) return
+    if (isUserAbortError(err)) errorTip('打开文件失败', '文件访问被用户或平台拒绝')
     else errorTip('打开文件失败', (e as Error).message)
     return
   }
@@ -124,7 +127,7 @@ function handleOpenTTMLClick() {
   handleOpen(FS.openTTMLFile)
 }
 
-const handleImportFromClipboard = () => async () => {
+async function handleImportFromClipboard() {
   const text = await navigator.clipboard.readText()
   if (!text) {
     errorTip('剪贴板为空')
@@ -132,25 +135,40 @@ const handleImportFromClipboard = () => async () => {
   }
   try {
     const persist = parseTTML(text)
-    FS.importPersist(persist)
+    await FS.importPersist(persist)
     successTip('已从剪贴板导入 TTML')
   } catch (err) {
     console.error(err)
     errorTip('从剪贴板导入 TTML 失败', (err as Error).message)
   }
 }
-const handleExportToClipboard = async () => {
+async function handleCreateBlankProject() {
+  try {
+    await FS.createBlankProject()
+    successTip('已创建空项目')
+  } catch (e) {
+    console.error(e)
+    if (isUserAbortError(e)) errorTip('创建空项目失败', '操作被用户拒绝')
+    else errorTip('创建空项目失败', (e as Error).message)
+  }
+}
+async function handleExportToClipboard() {
   const ttml = stringifyTTML(collectPersist())
-  await navigator.clipboard.writeText(ttml)
-  successTip('已复制 TTML 到剪贴板')
+  try {
+    await navigator.clipboard.writeText(ttml)
+    successTip('已复制 TTML 到剪贴板')
+  } catch (err) {
+    console.error(err)
+    errorTip('复制 TTML 到剪贴板失败', (err as Error).message)
+  }
 }
 async function handleSaveClick() {
   try {
     successTip('成功保存文件', await FS.saveFile())
   } catch (e) {
     console.error(e)
-    if (isUserAbortError(e)) return
-    errorTip('保存文件失败', (e as Error).message)
+    if (isUserAbortError(e)) errorTip('保存文件失败', '文件写入被用户或平台拒绝')
+    else errorTip('保存文件失败', (e as Error).message)
   }
 }
 async function handleSaveAsClick() {
@@ -158,8 +176,8 @@ async function handleSaveAsClick() {
     successTip('成功另存为文件', await FS.saveAsFile())
   } catch (e) {
     console.error(e)
-    if (isUserAbortError(e)) return
-    errorTip('另存为文件失败', (e as Error).message)
+    if (isUserAbortError(e)) errorTip('另存为文件失败', '文件写入被用户或平台拒绝')
+    else errorTip('另存为文件失败', (e as Error).message)
   }
 }
 
@@ -178,7 +196,7 @@ const openMenuItems: MenuItem[] = [
   {
     label: '从剪贴板导入 TTML',
     icon: 'pi pi-clipboard',
-    command: handleImportFromClipboard(),
+    command: handleImportFromClipboard,
   },
   {
     label: '从纯文本导入',
@@ -194,7 +212,7 @@ const openMenuItems: MenuItem[] = [
   {
     label: '空项目',
     icon: 'pi pi-ban',
-    command: FS.createBlankProject,
+    command: handleCreateBlankProject,
   },
 ]
 const saveMenuItems: MenuItem[] = [
@@ -223,8 +241,10 @@ useGlobalKeyboard('open', handleOpenClick)
 .titlebar {
   display: flex;
   margin: 0 0.5rem;
+  gap: 0.8rem;
   .leftbar,
   .rightbar {
+    width: 0;
     flex: 1;
     display: flex;
     gap: 0.3rem;
@@ -236,11 +256,13 @@ useGlobalKeyboard('open', handleOpenClick)
     justify-content: flex-end;
   }
   .filename-section {
-    display: flex;
-    align-items: center;
     padding: 0 0.5rem;
-    line-height: 1;
     opacity: 0.9;
+    line-height: 1;
+    width: 0;
+    flex-grow: 1;
+    align-self: center;
+    white-space: nowrap;
     .name {
       font-size: 1.1rem;
       user-select: none;
@@ -250,6 +272,11 @@ useGlobalKeyboard('open', handleOpenClick)
       font-weight: bold;
       margin-left: 0.2rem;
       user-select: none;
+    }
+    @media screen and (max-width: 720px) {
+      & {
+        display: none;
+      }
     }
   }
   .save-state-section {

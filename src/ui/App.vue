@@ -12,6 +12,7 @@
   <Player />
   <Toast />
   <FontLoader />
+  <DropDataConfirmModal />
 </template>
 
 <script setup lang="ts">
@@ -34,6 +35,7 @@ import {
 import { Toast } from 'primevue'
 import { usePrefStore, useRuntimeStore } from '@states/stores'
 import { View } from '@core/types'
+import DropDataConfirmModal from './dialogs/DropDataConfirmModal.vue'
 editHistory.init()
 editHistory.markSaved() // Empty state is considered saved
 

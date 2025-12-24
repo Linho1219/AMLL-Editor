@@ -7,6 +7,7 @@ import { breakExtension } from '@utils/breakExtension'
 import type { ValueOf } from '@utils/types'
 import { editHistory } from '@states/services/history'
 import type { Persist } from '@core/types'
+import { checkDataDropConfirm } from './shared'
 
 export { simpleChooseFile, simpleSaveFile } from './simple'
 export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
@@ -85,6 +86,7 @@ function setFileState(state: Partial<FileState> | null) {
  * @returns Filename
  */
 async function openFile() {
+  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
   const [handle] = await showOpenFilePicker({
     types: allPickerTypes,
     excludeAcceptAllOption: true,
@@ -103,6 +105,7 @@ async function openFile() {
  * @returns Filename
  */
 async function openProjFile() {
+  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
   const [handle] = await showOpenFilePicker({
     types: alpPickerType,
     excludeAcceptAllOption: true,
@@ -117,6 +120,7 @@ async function openProjFile() {
  * @returns Filename
  */
 async function openTTMLFile() {
+  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
   const [handle] = await showOpenFilePicker({
     types: ttmlPickerType,
     excludeAcceptAllOption: true,
@@ -172,7 +176,8 @@ async function handleMiscFile(handle: FileSystemFileHandle) {
     displayFilename: `${name}.alp`,
   })
 }
-function importPersist(data: Persist, name: string = '未命名') {
+async function importPersist(data: Persist, name: string = '未命名') {
+  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
   applyPersist(data)
   setFileState({
     currBackingFmt: BackingFmt.ALP,
@@ -180,8 +185,8 @@ function importPersist(data: Persist, name: string = '未命名') {
     displayFilename: `${name}.alp`,
   })
 }
-function createBlankProject() {
-  importPersist({ lyricLines: [], metadata: {} })
+async function createBlankProject() {
+  await importPersist({ lyricLines: [], metadata: {} })
   editHistory.markSaved()
 }
 
@@ -245,7 +250,7 @@ async function saveAsFile() {
   await writeable.write(blob)
   await writeable.close()
   setFileState({
-    fileSystemHandle :handle,
+    fileSystemHandle: handle,
     currBackingFmt,
     displayFilename: handle.name,
     isReadonly: false,
