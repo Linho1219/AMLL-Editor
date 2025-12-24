@@ -3,11 +3,12 @@
     <div class="leftbar">
       <SplitButton
         label="打开"
-        icon="pi pi-folder-open"
+        :icon="`pi ${openWorking ? 'pi-sync' : 'pi-folder-open'}`"
         severity="secondary"
         :model="openMenuItems"
         @click="handleOpenClick"
         v-tooltip="tipHotkey('打开文件', 'open')"
+        :disabled="openWorking"
       >
         <template #item="{ item, props }">
           <TieredMenuItem :item="item" :binding="props" />
@@ -60,10 +61,11 @@
       </div>
       <SplitButton
         label="保存"
-        icon="pi pi-save"
+        :icon="`pi ${saveWorking ? 'pi-sync' : 'pi-save'}`"
         :model="saveMenuItems"
         @click="handleSaveClick"
         v-tooltip="tipHotkey('保存文件', 'save')"
+        :disabled="saveWorking"
       >
         <template #item="{ item, props }">
           <TieredMenuItem :item="item" :binding="props" />
@@ -127,7 +129,10 @@ const isUserAbortError = (e: unknown) => {
     err.message.includes('is not allowed by the user agent')
   )
 }
-async function handleOpen(fsopener: () => Promise<string>) {
+const openWorking = ref(false)
+async function __handleOpen(fsopener: () => Promise<string>) {
+  if (openWorking.value) return
+  openWorking.value = true
   try {
     successTip('成功装载文件', await fsopener())
   } catch (e) {
@@ -135,17 +140,17 @@ async function handleOpen(fsopener: () => Promise<string>) {
     const err = e as Error
     if (isUserAbortError(err)) errorTip('打开文件失败', '文件访问被用户或平台拒绝')
     else errorTip('打开文件失败', (e as Error).message)
-    return
   }
+  openWorking.value = false
 }
 function handleOpenClick() {
-  handleOpen(FS.openFile)
+  __handleOpen(FS.openFile)
 }
 function handleOpenProjClick() {
-  handleOpen(FS.openProjFile)
+  __handleOpen(FS.openProjFile)
 }
 function handleOpenTTMLClick() {
-  handleOpen(FS.openTTMLFile)
+  __handleOpen(FS.openTTMLFile)
 }
 
 async function handleImportFromClipboard() {
@@ -183,7 +188,11 @@ async function handleExportToClipboard() {
     errorTip('复制 TTML 到剪贴板失败', (err as Error).message)
   }
 }
+
+const saveWorking = ref(false)
 async function handleSaveClick() {
+  if (saveWorking.value) return
+  saveWorking.value = true
   try {
     successTip('成功保存文件', await FS.saveFile())
   } catch (e) {
@@ -191,8 +200,11 @@ async function handleSaveClick() {
     if (isUserAbortError(e)) errorTip('保存文件失败', '文件写入被用户或平台拒绝')
     else errorTip('保存文件失败', (e as Error).message)
   }
+  saveWorking.value = false
 }
 async function __handleSaveAs(savePromise: Promise<string>) {
+  if (saveWorking.value) return
+  saveWorking.value = true
   try {
     successTip('成功另存为文件', await savePromise)
   } catch (e) {
@@ -200,6 +212,7 @@ async function __handleSaveAs(savePromise: Promise<string>) {
     if (isUserAbortError(e)) errorTip('另存为文件失败', '文件写入被用户或平台拒绝')
     else errorTip('另存为文件失败', (e as Error).message)
   }
+  saveWorking.value = false
 }
 function handleSaveAsClick() {
   __handleSaveAs(FS.saveAsFile())
