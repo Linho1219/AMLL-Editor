@@ -43,13 +43,7 @@
       </div>
     </div>
     <div class="centerbar">
-      <SelectButton
-        v-model="viewHandler"
-        :options="viewOptions"
-        optionLabel="name"
-        optionDisabled="disabled"
-        size="large"
-      />
+      <ViewSwitcher />
     </div>
     <div class="rightbar">
       <div class="save-state-section">
@@ -62,9 +56,9 @@
 </template>
 
 <script setup lang="ts">
-import { Button, SelectButton, SplitButton, useToast } from 'primevue'
+import { Button, SplitButton, useToast } from 'primevue'
 import { useRuntimeStore } from '@states/stores'
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import type { MenuItem } from 'primevue/menuitem'
 
 import { editHistory } from '@states/services/history'
@@ -73,12 +67,12 @@ import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
 import FromTextModal from '@ui/dialogs/FromTextModal.vue'
 import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
 import { tipHotkey } from '@utils/generateTooltip'
-import { View } from '@core/types'
 import { SidebarKey } from '@ui/sidebar'
 
 import { fileState as FS } from '@core/file'
 import { useGlobalKeyboard } from '@core/hotkey'
 import { collectPersist } from '@states/services/port'
+import ViewSwitcher from './ViewSwitcher.vue'
 const {
   displayFilenameComputed: filename,
   readonlyComputed,
@@ -93,23 +87,6 @@ const savedAtComputed = computed(() => {
   if (!date) return ''
   return date.toTimeString().split(' ')[0]
 })
-
-// Middle view selector
-const viewOptions = [
-  { name: '内容', value: View.Content },
-  { name: '时轴', value: View.Timing },
-  { name: '预览', value: View.Preview },
-]
-const stateToView = () => viewOptions.find((v) => v.value === runtimeStore.currentView)!
-const viewHandler = ref<(typeof viewOptions)[number] | null>(stateToView())
-watch(viewHandler, (value) => {
-  if (!value) nextTick(() => (viewHandler.value = stateToView()))
-  else runtimeStore.currentView = value.value
-})
-watch(
-  () => runtimeStore.currentView,
-  () => (viewHandler.value = stateToView()),
-)
 
 const toast = useToast()
 const successTip = (summary: string, detail?: string) => {
@@ -234,7 +211,6 @@ const saveMenuItems: MenuItem[] = [
   {
     label: '导出到其他格式',
     icon: 'pi pi-file-export',
-    command: handleSaveAsClick,
   },
 ]
 
