@@ -26,13 +26,14 @@ export const fileSystemBackend = defineFileBackend<FileSystemFileHandle>({
     await writable.close()
     return handle.name
   },
-  async writeAs(id, types, suggestedBaseName, blob) {
+  async writeAs(id, types, suggestedBaseName, blobGenerator) {
     const handle = await showSaveFilePicker({
       types,
       suggestedName: suggestedBaseName,
       excludeAcceptAllOption: true,
       id,
     })
+    const blob = await blobGenerator(handle.name)
     const writable = await handle.createWritable()
     await writable.write(blob)
     await writable.close()

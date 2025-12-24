@@ -42,7 +42,7 @@ interface __FileBackend<BackendFileHandle> {
     id: string,
     types: FilePickerAcceptType[],
     suggestedBaseName: string,
-    blob: Blob,
+    blobGenerator: (filename: string) => Promise<Blob>,
   ): Promise<__FileReadResult<BackendFileHandle>>
 }
 

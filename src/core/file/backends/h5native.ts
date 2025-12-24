@@ -44,10 +44,11 @@ export const h5NativeBackend = defineFileBackend<H5NativeFileHandle>({
     saveFile(blob, filename)
     return filename
   },
-  async writeAs(_id, types, suggestedBaseName, blob) {
+  async writeAs(_id, types, suggestedBaseName, blobGenerator) {
     const [dotExt] = extractDotExts(types)
     if (!dotExt) throw new Error('Cannot determine file extension for saving.')
     const filename = `${suggestedBaseName}${dotExt}`
+    const blob = await blobGenerator(filename)
     saveFile(blob, filename)
     return {
       handle: { filename },

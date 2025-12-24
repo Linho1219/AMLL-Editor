@@ -230,13 +230,17 @@ function suggestName() {
  * @throws User cancel; write errors.
  * @returns Filename
  */
-async function saveAsFile() {
-  const blob = await blobGenerators[currBackingFmt]()
+async function __saveAsFile(types: FilePickerAcceptType[]) {
   const { handle, filename } = await fileBackend.writeAs(
     'amll-ttml-tool-file-save-as',
-    [...alpPickerType, ...ttmlPickerType],
+    types,
     suggestName(),
-    blob,
+    (filename: string) => {
+      const [, ext] = breakExtension(filename)
+      if (ext !== 'alp' && ext !== 'ttml') throw new Error('Cannot save as non-backing format.')
+      currBackingFmt = ext === 'ttml' ? BackingFmt.TTML : BackingFmt.ALP
+      return blobGenerators[currBackingFmt]()
+    },
   )
   setFileState({
     handle,
@@ -247,6 +251,15 @@ async function saveAsFile() {
   })
   editHistory.markSaved()
   return filename
+}
+async function saveAsFile() {
+  return await __saveAsFile([...alpPickerType, ...ttmlPickerType])
+}
+async function saveAsTTMLFile() {
+  return await __saveAsFile(ttmlPickerType)
+}
+async function saveAsProjectFile() {
+  return await __saveAsFile(alpPickerType)
 }
 
 let dragListenerInitialized = false
@@ -292,6 +305,8 @@ export const fileState = {
   openTTMLFile,
   saveFile,
   saveAsFile,
+  saveAsTTMLFile,
+  saveAsProjectFile,
   importPersist,
   createBlankProject,
   suggestName,
