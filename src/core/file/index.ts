@@ -11,7 +11,6 @@ import { checkDataDropConfirm } from './shared'
 import { useCoreStore, useStaticStore } from '@states/stores'
 import { useToast } from 'primevue'
 
-export { simpleChooseFile, simpleSaveFile } from './simple'
 export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
 
 // Native format (*.alp) and TTML format (*.ttml) are the first-class supported formats

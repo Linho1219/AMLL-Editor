@@ -83,7 +83,11 @@ const inputText = ref('')
 
 async function handleOpenFromFile() {
   if (!selectedFormat.value) return
-  const file = await simpleChooseTextFile(selectedFormat.value.accept.join(','))
+  const file = await simpleChooseTextFile(
+    selectedFormat.value.accept,
+    selectedFormat.value.name,
+    'from-other-format',
+  )
   if (!file) return
   inputText.value = file.content || ''
 }

@@ -76,6 +76,7 @@ import { useGlobalKeyboard } from '@core/hotkey'
 import { collectPersist } from '@states/services/port'
 import ViewSwitcher from './ViewSwitcher.vue'
 import { portFormatRegister } from '@core/convert'
+import { compatibilityMap } from '@core/compat.ts'
 const {
   displayFilenameComputed: filename,
   readonlyComputed,
@@ -200,6 +201,7 @@ const openMenuItems: MenuItem[] = [
     label: '从剪贴板导入 TTML',
     icon: 'pi pi-clipboard',
     command: handleImportFromClipboard,
+    disabled: !compatibilityMap.clipboard,
   },
   {
     label: '从纯文本导入',
@@ -228,6 +230,7 @@ const saveMenuItems: MenuItem[] = [
     label: '复制 TTML 到剪贴板',
     icon: 'pi pi-clipboard',
     command: handleExportToClipboard,
+    disabled: !compatibilityMap.clipboard,
   },
   {
     label: '导出到其他格式',
@@ -236,7 +239,13 @@ const saveMenuItems: MenuItem[] = [
       label: format.name,
       command: () => {
         const string = format.stringifier(collectPersist())
-        simpleSaveTextFile(FS.suggestName(), string, format.accept.join(','))
+        simpleSaveTextFile(
+          string,
+          FS.suggestName(),
+          format.accept,
+          format.name,
+          'export-to-other-format',
+        )
       },
     })),
   },

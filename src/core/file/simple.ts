@@ -1,10 +1,44 @@
+import { compatibilityMap } from '@core/compat.ts'
+import saveFile from 'save-file'
+
+const fsApiAvaliable = compatibilityMap.fileSystem
+
 interface TextFileResult {
   fileName: string
   extension: string
   content: string
 }
 
-export function simpleChooseFile(accept: string): Promise<File | null> {
+function simpleChooseFile(
+  dotExts: `.${string}`[],
+  description: string = '所有支持的文件',
+  id?: string,
+): Promise<File | null> {
+  if (!fsApiAvaliable) return simpleChooseFileLegacy(dotExts.join(','))
+  return new Promise(async (resolve) => {
+    try {
+      const opts: OpenFilePickerOptions = {
+        types: [
+          {
+            description,
+            accept: { 'application/emll-editor-private': dotExts },
+          },
+        ],
+        excludeAcceptAllOption: true,
+        multiple: false,
+        id,
+      }
+      const [handle] = await (window as any).showOpenFilePicker(opts)
+      const file = await handle.getFile()
+      resolve(file)
+    } catch (e) {
+      console.error(e)
+      resolve(null)
+    }
+  })
+}
+
+function simpleChooseFileLegacy(accept: string): Promise<File | null> {
   return new Promise((resolve) => {
     const input = document.createElement('input')
     input.type = 'file'
@@ -25,9 +59,13 @@ export function simpleChooseFile(accept: string): Promise<File | null> {
   })
 }
 
-export async function simpleChooseTextFile(accept: string): Promise<TextFileResult | null> {
+export async function simpleChooseTextFile(
+  dotExts: `.${string}`[],
+  description: string = '所有支持的文件',
+  id?: string,
+): Promise<TextFileResult | null> {
   return new Promise(async (resolve) => {
-    const file = await simpleChooseFile(accept)
+    const file = await simpleChooseFile(dotExts, description, id)
     if (!file) return null
     const reader = new FileReader()
     reader.onload = () => {
@@ -40,23 +78,55 @@ export async function simpleChooseTextFile(accept: string): Promise<TextFileResu
   })
 }
 
-export function simpleSaveFile(fileName: string, file: Blob | File) {
-  const url = URL.createObjectURL(file)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = fileName
-  a.style.display = 'none'
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  URL.revokeObjectURL(url)
+function simpleSaveFileLegacy(blob: Blob, name: string, dotExt: string) {
+  saveFile(blob, `${name}${dotExt}`)
 }
 
-export function simpleSaveTextFile(
-  fileName: string,
+export async function simpleSaveFile(
+  content: File | Blob,
+  suggestedName: string,
+  dotExts: `.${string}`[],
+  description: string = '所有支持的文件',
+  id?: string,
+): Promise<boolean> {
+  const blob = content instanceof Blob ? content : new Blob([content])
+  if (!fsApiAvaliable) {
+    simpleSaveFileLegacy(blob, suggestedName, dotExts[0]!)
+    return true
+  }
+  try {
+    const opts: SaveFilePickerOptions = {
+      suggestedName,
+      types: [
+        {
+          description,
+          accept: {
+            'application/emll-editor-private': dotExts,
+          },
+        },
+      ],
+      excludeAcceptAllOption: true,
+      id,
+    }
+
+    const handle = await (window as any).showSaveFilePicker(opts)
+    const writable = await handle.createWritable()
+    await writable.write(blob)
+    await writable.close()
+    return true
+  } catch (e) {
+    console.error(e)
+    return false
+  }
+}
+
+export async function simpleSaveTextFile(
   content: string,
-  mimeType: string = 'text/plain;charset=utf-8',
-) {
-  const blob = new Blob([content], { type: mimeType })
-  simpleSaveFile(fileName, blob)
+  suggestedName: string,
+  dotExts: `.${string}`[],
+  description: string = '所有支持的文件',
+  id?: string,
+): Promise<boolean> {
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
+  return simpleSaveFile(blob, suggestedName, dotExts, description, id)
 }
