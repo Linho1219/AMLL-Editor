@@ -65,6 +65,16 @@ input {
   }
 }
 
+.p-button.p-button {
+  transition:
+    background var(--p-button-transition-duration),
+    color var(--p-button-transition-duration),
+    opacity var(--p-button-transition-duration),
+    border-color var(--p-button-transition-duration),
+    outline-color var(--p-button-transition-duration),
+    box-shadow var(--p-button-transition-duration);
+}
+
 .p-inputgroupaddon {
   z-index: 1;
   &:has(.p-button:focus-visible) {
