@@ -380,6 +380,9 @@ useGlobalKeyboard('importFromClipboard', handleImportFromClipboard)
         display: none;
       }
     }
+    @media (display-mode: standalone) {
+      display: none;
+    }
   }
   .save-state-section {
     display: flex;

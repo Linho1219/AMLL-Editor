@@ -2,8 +2,28 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMLL Editor</title>
+    <meta name="application-title" content="AMLL Editor" />
+    <link rel="manifest" href="app.webmanifest" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
+    <meta name="darkreader-lock" />
+    <meta name="color-scheme" content="dark light" />
+    <style>
+      @media (prefers-color-scheme: light) {
+        html {
+          background-color: white;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        html {
+          background-color: #121212;
+        }
+      }
+    </style>
     <link
-      rel="icon "
+      rel="icon"
       type="image/svg+xml"
       href="/favicon-light.svg"
       media="(prefers-color-scheme: light)"
@@ -14,10 +34,6 @@
       href="/favicon-dark.svg"
       media="(prefers-color-scheme: dark)"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AMLL Editor</title>
-    <meta name="darkreader-lock" />
-    <meta name="color-scheme" content="dark light" />
   </head>
   <body>
     <div id="app"></div>

@@ -24,7 +24,7 @@ import Preview from './editor/preview/Preview.vue'
 import Player from './player/Player.vue'
 import FontLoader from './components/FontLoader.vue'
 import { editHistory } from '@states/services/history'
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, watch } from 'vue'
 import Sidebar from './sidebar/Sidebar.vue'
 import {
   emitGlobalKeyboard,
@@ -32,11 +32,12 @@ import {
   parseKeyEvent,
   shouldEscapeInInput,
 } from '../core/hotkey'
-import { Toast, useToast } from 'primevue'
+import { Toast, useToast, type ToastMessageOptions } from 'primevue'
 import { usePrefStore, useRuntimeStore } from '@states/stores'
 import { View } from '@core/types'
 import DropDataConfirmModal from './dialogs/DropDataConfirmModal.vue'
 import { fileState } from '@core/file'
+import { useMediaQuery } from '@vueuse/core'
 editHistory.init()
 editHistory.markSaved() // Empty state is considered saved
 
@@ -44,9 +45,23 @@ const prefStore = usePrefStore()
 const runtimeStore = useRuntimeStore()
 
 const toast = useToast()
-fileState.initDragListener((summary, detail, severity) => {
+const notifier = (summary: string, detail: string, severity: ToastMessageOptions['severity']) =>
   toast.add({ severity, summary, detail, life: 3000 })
-})
+
+fileState.initDragListener(notifier)
+fileState.initPwaLaunch(notifier)
+const isStandalone = useMediaQuery('(display-mode: standalone)')
+watch(
+  [isStandalone, fileState.displayFilenameComputed, editHistory.isDirty],
+  ([standalone, filename, isDirty]) => {
+    if (standalone && filename) {
+      if (isDirty) filename += '*'
+      document.title = filename
+      // App name pre/suffix will be added by the browser
+    } else document.title = 'AMLL Editor'
+  },
+  { immediate: true },
+)
 
 const modalDialogActivated = () => !!document.querySelector('.p-dialog-mask.p-overlay-mask')
 const handleRootKeydown = (e: KeyboardEvent) => {

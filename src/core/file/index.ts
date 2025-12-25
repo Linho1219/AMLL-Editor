@@ -126,7 +126,7 @@ const askForWrite = async (handle: FileHandle) => {
 }
 async function handleFile(result: FileReadResult) {
   const [, ext] = breakExtension(result.filename)
-  if (!allSupportedExt.has(`.${ext}`)) throw new Error('Unsupported file format.')
+  if (!allSupportedExt.has(`.${ext}`)) throw new Error('不支持的文件类型')
   if (ext === 'alp') await handleProjFile(result)
   else if (ext === 'ttml') await handleTTMLFile(result)
   else await handleMiscFile(result)
@@ -299,6 +299,23 @@ function initDragListener(notifier: Notifier) {
   })
 }
 
+function initPwaLaunch(notifier: Notifier) {
+  if (!('launchQueue' in window)) return
+  window.launchQueue.setConsumer(async (launchParams) => {
+    const [file] = launchParams.files.filter((f) => f instanceof FileSystemFileHandle)
+    if (!file) return notifier('文件打开失败', '未提供文件句柄', 'error')
+    const result = await getFileBackendAdapter(fileBackend).fsHandle(file)
+    if (!result) return notifier('文件打开失败', '无法获取提供的文件', 'error')
+    if (editHistory.isDirty && !(await checkDataDropConfirm())) return
+    try {
+      await handleFile(result)
+      notifier('成功加载文件', result.filename, 'success')
+    } catch (err) {
+      notifier('文件打开失败', String(err), 'error')
+    }
+  })
+}
+
 export const fileState = {
   openFile,
   openProjFile,
@@ -311,6 +328,7 @@ export const fileState = {
   createBlankProject,
   suggestName,
   initDragListener,
+  initPwaLaunch,
   createdAtComputed: readonly(createdAtRef),
   displayFilenameComputed: readonly(displayFilenameRef),
   readonlyComputed: readonly(readonlyRef),

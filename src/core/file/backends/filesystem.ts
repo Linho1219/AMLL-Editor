@@ -45,9 +45,18 @@ export const fileSystemBackend = defineFileBackend<FileSystemFileHandle>({
   },
 })
 
-registerFileBackendAdapter(fileSystemBackend, {
+registerFileBackendAdapter<FileSystemFileHandle>(fileSystemBackend, {
   async dragDrop(e: DragEvent) {
     const handle = await e.dataTransfer?.items[0]?.getAsFileSystemHandle()
+    if (!(handle instanceof FileSystemFileHandle)) return null
+    const file = await handle.getFile()
+    return {
+      handle,
+      filename: handle.name,
+      blob: file,
+    }
+  },
+  async fsHandle(handle: FileSystemHandle) {
     if (!(handle instanceof FileSystemFileHandle)) return null
     const file = await handle.getFile()
     return {

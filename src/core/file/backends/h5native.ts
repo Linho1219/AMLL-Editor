@@ -57,7 +57,7 @@ export const h5NativeBackend = defineFileBackend<H5NativeFileHandle>({
     }
   },
 })
-registerFileBackendAdapter(h5NativeBackend, {
+registerFileBackendAdapter<H5NativeFileHandle>(h5NativeBackend, {
   async dragDrop(e: DragEvent) {
     const file = e.dataTransfer?.files[0]
     if (!file) return null
@@ -66,5 +66,8 @@ registerFileBackendAdapter(h5NativeBackend, {
       filename: file.name,
       blob: file,
     }
+  },
+  async fsHandle(_handle: FileSystemHandle) {
+    return null
   },
 })
