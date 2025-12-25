@@ -326,7 +326,7 @@ useGlobalKeyboard('importFromClipboard', handleImportFromClipboard)
 <style lang="scss">
 .titlebar {
   display: flex;
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 0.5rem;
   gap: 0.8rem;
   .leftbar,
   .rightbar {

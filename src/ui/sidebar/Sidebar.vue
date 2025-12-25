@@ -89,16 +89,17 @@ function handleResizeStart(e: MouseEvent) {
   animation:
     sidebar-enter 0.4s cubic-bezier(0, 1, 0, 1),
     fade 0.3s;
+  margin: 0.5rem 0;
 }
 .sidebar-title {
+  height: 3.5rem;
   &.single {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.3rem 0.5rem 0.5rem 1rem;
+    padding: 0.3rem 0.5rem 0 1rem;
   }
   &.multiple {
-    margin-bottom: 0.25rem;
     --p-tabs-tab-padding: 0.9rem 0.6rem 0.9rem 1rem;
     --p-tabs-active-bar-height: 2px;
     --p-tabs-tablist-border-width: 0;
@@ -144,7 +145,8 @@ function handleResizeStart(e: MouseEvent) {
   flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 0.5rem 1rem;
+  padding: 0 0.8rem 0 1rem;
+  margin: 0.5rem 0 0.3rem;
 }
 .sidebar-resizer {
   position: absolute;

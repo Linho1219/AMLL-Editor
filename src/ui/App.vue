@@ -141,7 +141,6 @@ body {
   padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 main {
   height: 0;
@@ -152,8 +151,14 @@ main {
   flex: 1;
   overflow-x: hidden;
   position: relative;
-  .editor-scroller::-webkit-scrollbar {
-    width: 16px;
+
+  .editor-scroller {
+    &::-webkit-scrollbar {
+      width: 16px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-width: 5px;
+    }
   }
 }
 </style>

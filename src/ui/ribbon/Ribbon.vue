@@ -19,7 +19,7 @@ import { Card } from 'primevue'
 import ContentProcessGroup from './groups/ContentGroup.vue'
 import LineAttrGroup from './groups/LineAttrGroup.vue'
 import MarkGroup from './groups/MarkGroup.vue'
-import PerformanceGroup from './groups/PerformanceGroup.vue'
+// import PerformanceGroup from './groups/PerformanceGroup.vue'
 import TimeShiftGroup from './groups/TimeShiftGroup.vue'
 import ViewGroup from './groups/ViewGroup.vue'
 import WordAttrGroup from './groups/WordAttrGroup.vue'
@@ -37,6 +37,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
+nav {
+  z-index: 1;
+}
 .ribbon {
   border: 1px solid color-mix(in srgb, var(--p-zinc-600), transparent 85%);
   margin: 0 0.5rem;

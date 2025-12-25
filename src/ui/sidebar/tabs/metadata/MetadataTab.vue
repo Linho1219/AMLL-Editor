@@ -187,10 +187,6 @@ function search({ query }: { query: string }) {
 
 <style lang="scss">
 .metadata-panel {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
   .top-buttons {
     margin-top: 0.5rem;
     display: flex;
