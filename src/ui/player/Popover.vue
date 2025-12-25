@@ -1,6 +1,8 @@
 <template>
   <div class="audio-popover-pane">
-    <span class="audio-popover-label">音量</span>
+    <span class="audio-popover-label">
+      <i class="pi pi-volume-down audio-popover-icon"></i> 音量
+    </span>
     <Slider class="audio-popover-slider" :max="100" :min="0" v-model="volumeInputRef" />
     <InputGroup>
       <InputNumber
@@ -26,7 +28,7 @@
       </InputGroupAddon>
     </InputGroup>
 
-    <span class="audio-popover-label">速率</span>
+    <span class="audio-popover-label"> <i class="pi pi-forward audio-popover-icon"></i> 速率 </span>
     <Slider
       class="audio-popover-slider from-middle"
       :min="-DOMAIN"
@@ -120,6 +122,10 @@ const rateSliderRef = computed({
 }
 .audio-popover-label {
   font-size: 1.1rem;
+}
+.audio-popover-icon {
+  color: var(--p-navigation-item-icon-focus-color);
+  margin: 0 0.4rem;
 }
 .audio-popover-input .p-inputtext {
   font-size: 1rem !important;
