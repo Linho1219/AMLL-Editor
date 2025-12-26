@@ -17,11 +17,18 @@ import { fileSystemBackend } from './backends/filesystem'
 import { h5NativeBackend } from './backends/h5native'
 import { collectProjectData, makeProjectFile, mountProjectData, parseProjectFile } from './project'
 import { checkDataDropConfirm } from './shared'
-import { type FileHandle, type FileReadResult, getFileBackendAdapter } from './types'
+import {
+  type FileBackend,
+  type FileHandle,
+  type FileReadResult,
+  getFileBackendAdapter,
+} from './types'
 
 export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
 
-export const fileBackend = compatibilityMap.fileSystem ? fileSystemBackend : h5NativeBackend
+export const fileBackend: FileBackend = compatibilityMap.fileSystem
+  ? fileSystemBackend
+  : h5NativeBackend
 
 // Native format (*.alp) and TTML format (*.ttml) are the first-class supported formats
 // When save, they are written directly by default

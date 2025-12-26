@@ -2,6 +2,8 @@ import { computed, readonly, ref, shallowRef } from 'vue'
 
 import { usePrefStore } from '@states/stores'
 
+import { provideListener } from '@utils/provideListener'
+
 import { useNcmResolver } from './ncm'
 
 export function useAudioCtrl() {
@@ -13,15 +15,8 @@ export function useAudioCtrl() {
   const rawFileRef = shallowRef<File | null>(null)
   const filenameRef = ref<string | undefined>(undefined)
 
-  const loadedListeners = new Set<() => void>()
-  const onLoaded = (listener: () => void) => (
-    loadedListeners.add(listener),
-    () => loadedListeners.delete(listener)
-  )
-  const offLoaded = (listener: () => void) => {
-    loadedListeners.delete(listener)
-  }
-  const _dispatchLoaded = () => loadedListeners.forEach((listener) => listener())
+  const { on: onLoaded, off: offLoaded, _dispatch: _dispatchLoaded } = provideListener()
+  const { on: onLoadStart, off: offLoadStart, _dispatch: _dispatchLoadStart } = provideListener()
 
   function maintainMediaSession() {
     if (!('mediaSession' in navigator)) return
@@ -38,6 +33,7 @@ export function useAudioCtrl() {
 
   //#region File
   function mount(src: File) {
+    _dispatchLoadStart()
     rawFileRef.value = src
     if (src.name.endsWith('.ncm')) _mountNcm(src)
     else _mount(src)
@@ -173,6 +169,8 @@ export function useAudioCtrl() {
     audioEl: audioEl,
     onLoaded,
     offLoaded,
+    onLoadStart,
+    offLoadStart,
     mount,
     play,
     pause,

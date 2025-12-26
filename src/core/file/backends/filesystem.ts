@@ -1,11 +1,12 @@
 import { defineFileBackend, registerFileBackendAdapter } from '../types'
 
 export const fileSystemBackend = defineFileBackend<FileSystemFileHandle>({
-  async read(id, types) {
+  async read(id, types, startIn) {
     const [handle] = await showOpenFilePicker({
       types,
       excludeAcceptAllOption: true,
       id,
+      startIn,
     })
     const file = await handle.getFile()
     return {
@@ -26,12 +27,13 @@ export const fileSystemBackend = defineFileBackend<FileSystemFileHandle>({
     await writable.close()
     return handle.name
   },
-  async writeAs(id, types, suggestedBaseName, blobGenerator) {
+  async writeAs(id, types, suggestedBaseName, blobGenerator, startIn) {
     const handle = await showSaveFilePicker({
       types,
       suggestedName: suggestedBaseName,
       excludeAcceptAllOption: true,
       id,
+      startIn,
     })
     const blob = await blobGenerator(handle.name)
     const writable = await handle.createWritable()

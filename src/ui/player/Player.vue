@@ -4,7 +4,8 @@
       <Spectrogram v-if="showSpectrogram" :key="refresher" />
       <div class="player-toolbar">
         <Button
-          icon="pi pi-upload"
+          :icon="`pi ${loading ? 'pi-sync' : 'pi-upload'}`"
+          :disabled="loading"
           severity="secondary"
           @click="() => handleSelectFile()"
           v-tooltip="tipHotkey('选择音频文件', 'chooseMedia')"
@@ -61,6 +62,7 @@
 import { useDark, useFileDialog } from '@vueuse/core'
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 
+import { fileBackend } from '@core/file'
 import { useGlobalKeyboard } from '@core/hotkey'
 
 import { useStaticStore } from '@states/stores'
@@ -71,26 +73,51 @@ import { tipHotkey } from '@utils/generateTooltip'
 import PopoverPane from './Popover.vue'
 import Spectrogram from './Spectrogram.vue'
 import Waveform from './Waveform.vue'
-import { Button, Card, Popover } from 'primevue'
+import { Button, Card, Popover, useToast } from 'primevue'
 
 const { audio } = useStaticStore()
 const { amendedProgressComputed, lengthComputed, playingComputed, activatedRef } = audio
 const playPauseButton = useTemplateRef('playPauseButton')
 
-const { open: handleSelectFile, onChange: onFileChange } = useFileDialog({
-  accept: 'audio/*,.ncm',
-  multiple: false,
-})
-onFileChange((files) => {
-  const file = files?.[0]
-  if (!file) return
-  audio.mount(file)
-})
+const toast = useToast()
+
+const isUserAbortError = (e: unknown) => {
+  const err = e as Error
+  return (
+    err.message.includes('The user aborted a request') ||
+    err.message.includes('is not allowed by the user agent')
+  )
+}
+async function handleSelectFile() {
+  try {
+    loading.value = true
+    const result = await fileBackend.read(
+      'amll-editor-audio',
+      [{ description: '所有支持的音频', accept: { 'audio/*': ['.mp3', '.flac', '.wav', '.ncm'] } }],
+      'music',
+    )
+    audio.mount(new File([result.blob], result.filename))
+    // loading will be set to false on audio loaded event
+  } catch (e) {
+    loading.value = false
+    const detail = isUserAbortError(e) ? '文件访问被用户或平台拒绝' : String(e)
+    toast.add({
+      severity: 'error',
+      summary: '加载音频文件失败',
+      detail: detail,
+      life: 3000,
+    })
+  }
+}
 
 const refresher = ref(Symbol())
 const refresh = () => (refresher.value = Symbol())
 audio.onLoaded(refresh)
 onUnmounted(() => audio.offLoaded(refresh))
+
+const loading = ref(false)
+audio.onLoadStart(() => (loading.value = true))
+audio.onLoaded(() => (loading.value = false))
 
 useGlobalKeyboard('chooseMedia', () => handleSelectFile())
 useGlobalKeyboard('playPauseAudio', () => {
