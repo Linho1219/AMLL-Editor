@@ -41,6 +41,8 @@ export const hotkeyCommands = [
   'new',
   'exportToClipboard',
   'importFromClipboard',
+  'selectAllLines',
+  'selectAllSyls',
 ] as const
 
 export const hotkeyInputBlockList: HK.Key[] = [
@@ -88,6 +90,8 @@ export const getDefaultHotkeyMap = () =>
     new: k(Ctrl, Alt, 'n'),
     exportToClipboard: k(Ctrl, Alt, 'c'),
     importFromClipboard: k(Ctrl, Alt, 'v'),
+    selectAllLines: k(Ctrl, 'a'),
+    selectAllSyls: k(Alt, 'a'),
   })
 
 //#region Helpers

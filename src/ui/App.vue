@@ -23,7 +23,7 @@ import { fileState } from '@core/file'
 import { View } from '@core/types'
 
 import { editHistory } from '@states/services/history'
-import { usePrefStore, useRuntimeStore } from '@states/stores'
+import { useCoreStore, usePrefStore, useRuntimeStore } from '@states/stores'
 
 import FontLoader from './components/FontLoader.vue'
 import DropDataConfirmModal from './dialogs/DropDataConfirmModal.vue'
@@ -48,6 +48,7 @@ editHistory.markSaved() // Empty state is considered saved
 
 const prefStore = usePrefStore()
 const runtimeStore = useRuntimeStore()
+const coreStore = useCoreStore()
 
 const toast = useToast()
 const notifier = (summary: string, detail: string, severity: ToastMessageOptions['severity']) =>
@@ -108,6 +109,24 @@ const handleRootKeydown = (e: KeyboardEvent) => {
     }
     case 'switchToPreview': {
       runtimeStore.currentView = View.Preview
+      break
+    }
+    case 'selectAllLines': {
+      if (!runtimeStore.isContentView) break
+      if (runtimeStore.selectedLines.size === coreStore.lyricLines.length) {
+        runtimeStore.clearSelection()
+      } else {
+        runtimeStore.clearSelection()
+        runtimeStore.addLineToSelection(...coreStore.lyricLines)
+      }
+      break
+    }
+    case 'selectAllSyls': {
+      if (!runtimeStore.isContentView) break
+      const lines = [...runtimeStore.selectedLines]
+      for (const line of lines) {
+        runtimeStore.addSylToSelection(...line.syllables)
+      }
       break
     }
     default: {
