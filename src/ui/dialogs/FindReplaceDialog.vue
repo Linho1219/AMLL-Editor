@@ -189,7 +189,7 @@ import { tryRaf } from '@utils/tryRaf'
 import type { TimeoutHandle } from '@utils/types'
 
 import InputText from '@ui/components/InputText.vue'
-import AnimatedFold from '@ui/components/animatedFold.vue'
+import AnimatedFold from '@ui/components/AnimatedFold.vue'
 import { Button, Checkbox, Dialog, IftaLabel, RadioButton, ToggleSwitch } from 'primevue'
 import { useToast } from 'primevue/usetoast'
 
