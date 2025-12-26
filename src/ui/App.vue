@@ -5,9 +5,11 @@
     <KeepAlive>
       <Sidebar v-if="!runtimeStore.isPreviewView && runtimeStore.sidebarShown" />
     </KeepAlive>
-    <ContentEditor v-if="runtimeStore.isContentView" />
-    <TimingEditor v-else-if="runtimeStore.isTimingView" />
-    <Preview v-else-if="runtimeStore.isPreviewView" />
+    <div class="editor-shell">
+      <ContentEditor v-if="runtimeStore.isContentView" />
+      <TimingEditor v-else-if="runtimeStore.isTimingView" />
+      <Preview v-else-if="runtimeStore.isPreviewView" />
+    </div>
   </main>
   <Player />
   <Toast />
@@ -170,11 +172,25 @@ main {
   height: 0;
   flex: 1;
   display: flex;
+  animation: main-in 0.5s;
 }
-.editor {
+@keyframes main-in {
+  0%,
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.editor-shell {
   flex: 1;
   overflow-x: hidden;
   position: relative;
+  display: flex;
+  .editor {
+    flex: 1;
+  }
 
   .editor-scroller {
     &::-webkit-scrollbar {

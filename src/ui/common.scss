@@ -22,6 +22,8 @@ body {
   user-select: none;
   color: var(--p-text-color);
   --global-background: light-dark(white, #121212);
+  --global-ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --global-fast-ease: cubic-bezier(0, 1, 0, 1);
   background-color: var(--global-background);
 }
 
@@ -120,11 +122,11 @@ input {
 }
 .p-toast-message.p-toast-message {
   &-enter-active {
-    animation: pe-animate-toast-message-enter 300ms cubic-bezier(0.19, 1, 0.22, 1);
+    animation: pe-animate-toast-message-enter 300ms var(--global-ease);
   }
   &-leave-active {
-    animation: pe-animate-toast-leave 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    transition: 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    animation: pe-animate-toast-leave 800ms var(--global-ease);
+    transition: 800ms var(--global-ease);
   }
   &-leave-to .p-toast-message-content {
     padding: var(--p-toast-content-padding);

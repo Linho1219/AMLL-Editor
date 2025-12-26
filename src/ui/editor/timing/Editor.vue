@@ -2,7 +2,7 @@
   <div class="editor timing" data-escape-auto-blur @mousedown="handleMouseDown">
     <VList
       :data="coreStore.lyricLines"
-      class="editor-scroller"
+      class="editor-scroller editor-timing-scroller"
       #default="{ item: line, index: lineIndex }"
       ref="vscroll"
     >
@@ -286,5 +286,8 @@ onUnmounted(() => {
 <style lang="scss">
 .editor-scroller {
   height: 100%;
+}
+.editor-timing-scroller{
+  padding: 0.5rem 0
 }
 </style>
