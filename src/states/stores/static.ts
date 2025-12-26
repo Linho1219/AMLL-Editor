@@ -1,6 +1,7 @@
+import type { ScrollToIndexOpts } from 'virtua/unstable_core'
+
 import { useAudioCtrl } from '@core/audio'
 import type { LyricLine, LyricSyllable, View } from '@core/types'
-import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 
 const staticStore = {
   lineHooks: new Map<string, LineComponentActions>(),

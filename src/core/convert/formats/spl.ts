@@ -1,20 +1,17 @@
+import type { LyricLine, Persist } from '@core/types'
+
+import { coreCreate } from '@states/stores/core'
+
+import { ms2str, str2ms } from '@utils/formatTime'
+
+import MANIFEST from '../manifest.json'
+import type { Convert as CV } from '../types'
+
 // SPL, Salt Player Lyrics format
 // An extension of LRC format. Quite complicated.
 // Multiple line timestamps means repeat the same line
 // <> and [] are both supported for syllable timestamps
 // but when [] represents syllable timestamps, shouldn't be at the beginning: it will be treated as line timestamp
-
-import type { LyricLine, Persist } from '@core/types'
-import { ms2str, str2ms } from '@utils/formatTime'
-import { coreCreate } from '@states/stores/core'
-import type { Convert as CV } from '../types'
-import MANIFEST from '../manifest.json'
-
-export const splReg: CV.Format = {
-  ...MANIFEST.spl,
-  parser: parseSPL,
-  stringifier: stringifySPL,
-}
 
 // Format:
 // [mm:ss.xx]Line without syllable timestamps
@@ -24,6 +21,12 @@ export const splReg: CV.Format = {
 // [mm:ss.xx][mm:ss.xx][mm:ss.xx]Line without syllable timestamps, repeat several times
 // [mm:ss.xx]<mm:ss.xx>Syllable <mm:ss.xx>timestamp <mm:ss.xx>can[mm:ss.xx]
 // [mm:ss.xx]use [mm:ss.xx]both [mm:ss.xx]symbols [mm:ss.xx]
+
+export const splReg: CV.Format = {
+  ...MANIFEST.spl,
+  parser: parseSPL,
+  stringifier: stringifySPL,
+}
 
 export function parseSPL(spl: string): Persist {
   const lines = spl

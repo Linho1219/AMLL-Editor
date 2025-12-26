@@ -1,3 +1,21 @@
+// Import centralized FFT functionality
+/**
+ * Spectrogram plugin for wavesurfer.
+ */
+import BasePlugin, { type BasePluginEvents } from 'wavesurfer.js/dist/base-plugin.js'
+import createElementOrig from 'wavesurfer.js/dist/dom.js'
+import {
+  createWrapperClickHandler,
+  freqType,
+  getLabelFrequency,
+  hzToScale,
+  setupColorMap,
+  unitType,
+} from 'wavesurfer.js/dist/fft.js'
+
+// Import the worker using rollup-plugin-web-worker-loader
+import SpectrogramWorker from './worker?worker'
+
 /**
  * Spectrogram plugin
  *
@@ -24,27 +42,9 @@ const COLOR_LUT: [number, number, number, number][] = Array.from({ length: 256 }
   getIcyBlueColor(i / 255),
 )
 
-// Import centralized FFT functionality
-import {
-  hzToScale,
-  setupColorMap,
-  freqType,
-  unitType,
-  getLabelFrequency,
-  createWrapperClickHandler,
-} from 'wavesurfer.js/dist/fft.js'
-
-/**
- * Spectrogram plugin for wavesurfer.
- */
-import BasePlugin, { type BasePluginEvents } from 'wavesurfer.js/dist/base-plugin.js'
-import createElementOrig from 'wavesurfer.js/dist/dom.js'
 const createElement = createElementOrig as (
   ...args: Parameters<typeof createElementOrig>
 ) => HTMLElement
-
-// Import the worker using rollup-plugin-web-worker-loader
-import SpectrogramWorker from './worker?worker'
 
 export type SpectrogramPluginOptions = {
   /** Element in which to render */

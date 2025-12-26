@@ -40,8 +40,10 @@
 </template>
 
 <script setup lang="ts">
-import { Checkbox } from 'primevue'
-import RibbonGroup from '../RibbonGroupShell.vue'
 import { usePrefStore } from '@states/stores'
+
+import RibbonGroup from '../RibbonGroupShell.vue'
+import { Checkbox } from 'primevue'
+
 const prefStore = usePrefStore()
 </script>

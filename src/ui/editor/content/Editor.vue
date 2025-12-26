@@ -55,24 +55,28 @@
 </template>
 
 <script setup lang="ts">
-import Line from './Line.vue'
-import Syllable from './Syllable.vue'
-import { Button, ContextMenu } from 'primevue'
-import { nextTick, onBeforeUnmount, onMounted, onUnmounted, shallowRef, useTemplateRef } from 'vue'
-import { forceOutsideBlur } from '@utils/forceOutsideBlur'
-import WordInsertIndicator from './WordInsertIndicator.vue'
-import LineInsertIndicator from './LineInsertIndicator.vue'
-import EmptyTip from '@ui/components/EmptyTip.vue'
-import DragGhost from './DragGhost.vue'
-import type { MenuItem } from 'primevue/menuitem'
-import { VList } from 'virtua/vue'
-import { useGlobalKeyboard } from '@core/hotkey'
 import type { ScrollToIndexOpts } from 'virtua/unstable_core'
-import { alignLineEndTime, alignLineTime } from '@utils/alignLineSylTime'
-import { tryRaf } from '@utils/tryRaf'
+import { VList } from 'virtua/vue'
+import { nextTick, onBeforeUnmount, onMounted, onUnmounted, shallowRef, useTemplateRef } from 'vue'
+
+import { useGlobalKeyboard } from '@core/hotkey'
+import { type LyricLine, type LyricSyllable, View } from '@core/types'
+
 import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
-import { View, type LyricLine, type LyricSyllable } from '@core/types'
 import type { EditorComponentActions } from '@states/stores/static'
+
+import { alignLineEndTime, alignLineTime } from '@utils/alignLineSylTime'
+import { forceOutsideBlur } from '@utils/forceOutsideBlur'
+import { tryRaf } from '@utils/tryRaf'
+
+import DragGhost from './DragGhost.vue'
+import Line from './Line.vue'
+import LineInsertIndicator from './LineInsertIndicator.vue'
+import Syllable from './Syllable.vue'
+import WordInsertIndicator from './WordInsertIndicator.vue'
+import EmptyTip from '@ui/components/EmptyTip.vue'
+import { Button, ContextMenu } from 'primevue'
+import type { MenuItem } from 'primevue/menuitem'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()

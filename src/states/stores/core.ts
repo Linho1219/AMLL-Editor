@@ -1,9 +1,12 @@
-import { reactive } from 'vue'
-import { defineStore } from 'pinia'
-import { useRuntimeStore } from './runtime'
 import { nanoid } from 'nanoid'
-import { alignLineEndTime, alignLineStartTime } from '@utils/alignLineSylTime'
+import { defineStore } from 'pinia'
+import { reactive } from 'vue'
+
 import type { LyricLine, LyricSyllable, Metadata } from '@core/types'
+
+import { alignLineEndTime, alignLineStartTime } from '@utils/alignLineSylTime'
+
+import { useRuntimeStore } from './runtime'
 
 const newLine = (attrs: Partial<LyricLine> = {}) =>
   reactive<LyricLine>({

@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { editHistory } from '@states/services/history'
-import { useStaticStore } from '@states/stores'
-import { Button, Dialog } from 'primevue'
 import { watch } from 'vue'
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
+
+import { editHistory } from '@states/services/history'
+import { useStaticStore } from '@states/stores'
+
+import { Button, Dialog } from 'primevue'
+
 const staticStore = useStaticStore()
 const currResolver = shallowRef<null | ((value: boolean) => void)>(null)
 const visible = computed(() => currResolver.value !== null)

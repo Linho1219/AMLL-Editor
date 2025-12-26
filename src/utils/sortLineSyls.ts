@@ -1,4 +1,5 @@
 import type { LyricLine, LyricSyllable } from '@core/types'
+
 import { useCoreStore } from '@states/stores'
 
 export function sortIndex(a: number, b: number): [number, number] {

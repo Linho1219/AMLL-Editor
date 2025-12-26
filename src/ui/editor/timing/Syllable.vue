@@ -20,16 +20,25 @@
         {{ props.syllable.text }}
       </span>
     </div>
-    <Timestamp class="tsyl-timestamp" end v-model="props.syllable.endTime" v-tooltip="'音节结束时间'" />
+    <Timestamp
+      class="tsyl-timestamp"
+      end
+      v-model="props.syllable.endTime"
+      v-tooltip="'音节结束时间'"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import Timestamp from './Timestamp.vue'
 import { computed, nextTick, watch } from 'vue'
-import { tryRaf } from '@utils/tryRaf'
-import { View, type LyricLine, type LyricSyllable } from '@core/types'
+
+import { type LyricLine, type LyricSyllable, View } from '@core/types'
+
 import { usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
+
+import { tryRaf } from '@utils/tryRaf'
+
+import Timestamp from './Timestamp.vue'
 
 const props = defineProps<{
   syllable: LyricSyllable

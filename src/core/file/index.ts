@@ -1,19 +1,23 @@
-import { detectFormat, portFormatRegister, type Convert as CV } from '@core/convert'
-import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
 import { readonly, ref } from 'vue'
-import { collectProjectData, makeProjectFile, mountProjectData, parseProjectFile } from './project'
-import { collectPersist, applyPersist } from '@states/services/port'
+
+import { compatibilityMap } from '@core/compat'
+import { type Convert as CV, detectFormat, portFormatRegister } from '@core/convert'
+import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
+import FORMAT_MANIFEST from '@core/convert/manifest.json'
+import type { Persist } from '@core/types'
+
+import { editHistory } from '@states/services/history'
+import { applyPersist, collectPersist } from '@states/services/port'
+import { useCoreStore, useStaticStore } from '@states/stores'
+
 import { breakExtension } from '@utils/breakExtension'
 import type { ValueOf } from '@utils/types'
-import { editHistory } from '@states/services/history'
-import type { Persist } from '@core/types'
-import { checkDataDropConfirm } from './shared'
-import { useCoreStore, useStaticStore } from '@states/stores'
+
 import { fileSystemBackend } from './backends/filesystem'
-import { getFileBackendAdapter, type FileHandle, type FileReadResult } from './types'
-import { compatibilityMap } from '@core/compat'
 import { h5NativeBackend } from './backends/h5native'
-import FORMAT_MANIFEST from '@core/convert/manifest.json'
+import { collectProjectData, makeProjectFile, mountProjectData, parseProjectFile } from './project'
+import { checkDataDropConfirm } from './shared'
+import { type FileHandle, type FileReadResult, getFileBackendAdapter } from './types'
 
 export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
 

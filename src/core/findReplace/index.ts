@@ -1,11 +1,15 @@
-import type { FindReplace as FR } from './types'
-export type { FindReplace } from './types'
+import { type Reactive, computed, shallowRef, watch } from 'vue'
 
-import { computed, shallowRef, watch, type Reactive } from 'vue'
-import { useCoreStore, useRuntimeStore, usePrefStore, useStaticStore } from '@states/stores'
-import { tryRaf } from '@utils/tryRaf'
 import { View } from '@core/types'
+
+import { useCoreStore, usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
+
+import { tryRaf } from '@utils/tryRaf'
 import type { Equal, Expect, ValueOf } from '@utils/types'
+
+import type { FindReplace as FR } from './types'
+
+export type { FindReplace } from './types'
 
 const MAX_SEARCH_STEPS = 100000
 

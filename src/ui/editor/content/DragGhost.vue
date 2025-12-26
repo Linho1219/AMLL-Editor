@@ -16,14 +16,17 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useRuntimeStore } from '@states/stores'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
+
+import { useRuntimeStore } from '@states/stores'
 
 const pointerX = ref(0)
 const pointerY = ref(0)
 const runtimeStore = useRuntimeStore()
 const dragCount = computed(() =>
-  runtimeStore.isDraggingLine ? runtimeStore.selectedLines.size : runtimeStore.selectedSyllables.size,
+  runtimeStore.isDraggingLine
+    ? runtimeStore.selectedLines.size
+    : runtimeStore.selectedSyllables.size,
 )
 const dragText = computed(
   () =>

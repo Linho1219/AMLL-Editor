@@ -1,6 +1,7 @@
 import type { Equal, Expect } from '@utils/types'
 
 import type { ProjManifest_0_0 } from './0_0'
+
 export type { ProjManifest_0_0 } from './0_0'
 
 export const supportedProjManifestVersions = ['ALPv0.0'] as const

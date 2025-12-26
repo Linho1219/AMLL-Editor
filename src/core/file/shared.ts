@@ -1,5 +1,6 @@
 import { editHistory } from '@states/services/history'
 import { useStaticStore } from '@states/stores'
+
 const staticStore = useStaticStore()
 
 export async function checkDataDropConfirm() {

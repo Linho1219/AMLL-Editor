@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { View } from '@core/types'
-import { useRuntimeStore } from '@states/stores'
-import { SelectButton } from 'primevue'
 import { nextTick, ref, watch } from 'vue'
+
+import { View } from '@core/types'
+
+import { useRuntimeStore } from '@states/stores'
+
+import { SelectButton } from 'primevue'
 
 const runtimeStore = useRuntimeStore()
 

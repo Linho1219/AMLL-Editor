@@ -109,13 +109,16 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Checkbox, IftaLabel, Select } from 'primevue'
 import { reactive, ref } from 'vue'
+
+import engines, { type Syllabify as SL } from '@core/syllabify'
+import type { LyricLine } from '@core/types'
+
+import { useCoreStore, useRuntimeStore } from '@states/stores'
+
 import SplitTextRewriteEditor from './SyllabifyRewriteEditor.vue'
 import InputText from '@ui/components/InputText.vue'
-import engines, { type Syllabify as SL } from '@core/syllabify'
-import { useCoreStore, useRuntimeStore } from '@states/stores'
-import type { LyricLine } from '@core/types'
+import { Button, Checkbox, IftaLabel, Select } from 'primevue'
 
 const displayEngines: { label: string; hideLabel?: boolean; items: SL.Engine[] }[] = [
   {

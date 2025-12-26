@@ -1,11 +1,13 @@
-import type { HotKey as HK } from './types'
-export type { HotKey } from './types'
-export { getDefaultHotkeyMap } from './data'
-
 import mitt from 'mitt'
 import { onUnmounted } from 'vue'
-import { hotkeyInputBlockList } from './data'
+
 import { usePrefStore } from '@states/stores'
+
+import { hotkeyInputBlockList } from './data'
+import type { HotKey as HK } from './types'
+
+export type { HotKey } from './types'
+export { getDefaultHotkeyMap } from './data'
 
 const globalKeyboardEmit = mitt<{ [K in HK.Command]: undefined }>()
 export function useGlobalKeyboard(command: HK.Command, handler: () => void) {

@@ -8,8 +8,9 @@
   />
 </template>
 <script setup lang="ts">
-import { InputText, type InputTextProps } from 'primevue'
 import { onMounted, ref, shallowRef, useTemplateRef, watch } from 'vue'
+
+import { InputText, type InputTextProps } from 'primevue'
 
 defineProps</* @vue-ignore */ InputTextProps>()
 

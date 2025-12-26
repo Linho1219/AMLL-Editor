@@ -1,13 +1,16 @@
+import type { LyricLine, LyricSyllable, Metadata, Persist } from '@core/types'
+
+import { coreCreate } from '@states/stores/core'
+
+import { ms2str, str2ms as nullableStr2ms } from '@utils/formatTime'
+
+import MANIFEST from '../manifest.json'
+import type { Convert as CV } from '../types'
+
 // Frontend TTML parser and stringifier, following AMLL TTML Lyric Format
 // Source: https://github.com/Steve-xmh/amll-ttml-tool , Licensed under GPLv3
 // Minor changes were made to fit into this project structure.
 // See https://www.w3.org/TR/2018/REC-ttml1-20181108/
-
-import { ms2str, str2ms as nullableStr2ms } from '@utils/formatTime'
-import type { LyricLine, LyricSyllable, Metadata, Persist } from '@core/types'
-import { coreCreate } from '@states/stores/core'
-import type { Convert as CV } from '../types'
-import MANIFEST from '../manifest.json'
 
 export const ttmlReg: CV.Format = {
   ...MANIFEST.ttml,
@@ -519,7 +522,9 @@ export function stringifyTTML(ttmlLyric: Persist): string {
           let endTime = 0
 
           const firstWordIndex = bgLine.syllables.findIndex((w) => w.text.trim().length > 0)
-          const lastWordIndex = bgLine.syllables.map((w) => w.text.trim().length > 0).lastIndexOf(true)
+          const lastWordIndex = bgLine.syllables
+            .map((w) => w.text.trim().length > 0)
+            .lastIndexOf(true)
 
           for (const [sylIndex, word] of bgLine.syllables.entries()) {
             if (word.text.trim().length === 0) {

@@ -13,11 +13,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import type { LyricLine, LyricSyllable } from '@core/types'
-import { useRuntimeStore, useCoreStore, useStaticStore } from '@states/stores'
+
+import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
+
 import { alignLineEndTime, alignLineStartTime } from '@utils/alignLineSylTime'
 import { sortSyllables } from '@utils/sortLineSyls'
-import { ref } from 'vue'
+
 const runtimeStore = useRuntimeStore()
 const coreStore = useCoreStore()
 const staticStore = useStaticStore()

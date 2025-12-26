@@ -1,5 +1,6 @@
-import { getHotkeyStr, type HotKey as HK } from '@core/hotkey'
 import { escape } from 'lodash-es'
+
+import { type HotKey as HK, getHotkeyStr } from '@core/hotkey'
 
 export function tipHotkey(label: string | undefined, hotkeyCmd: HK.Command) {
   const hotkeyStr = getHotkeyStr(hotkeyCmd)

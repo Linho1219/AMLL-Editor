@@ -1,9 +1,12 @@
 import JSZip from 'jszip'
-import type { ProjPayload } from '.'
-import { supportedProjManifestVersions, type SupportedProjManifest } from './fileVer'
-import { supportedProjDataVersions, type SupportedProjData } from './dataVer'
+
 import type { Persist } from '@core/types'
+
 import { omitAttrs } from '@utils/omitAttrs'
+
+import type { ProjPayload } from '.'
+import { type SupportedProjData, supportedProjDataVersions } from './dataVer'
+import { type SupportedProjManifest, supportedProjManifestVersions } from './fileVer'
 
 export async function parseProjectFile(file: Blob): Promise<ProjPayload> {
   const zip = await JSZip.loadAsync(file)

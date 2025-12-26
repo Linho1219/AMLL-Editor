@@ -16,28 +16,33 @@
 </template>
 
 <script setup lang="ts">
-import Titlebar from './titlebar/Titlebar.vue'
-import Ribbon from './ribbon/Ribbon.vue'
-import ContentEditor from './editor/content/Editor.vue'
-import TimingEditor from './editor/timing/Editor.vue'
-import Preview from './editor/preview/Preview.vue'
-import Player from './player/Player.vue'
-import FontLoader from './components/FontLoader.vue'
-import { editHistory } from '@states/services/history'
+import { useMediaQuery } from '@vueuse/core'
 import { onMounted, onUnmounted, watch } from 'vue'
+
+import { fileState } from '@core/file'
+import { View } from '@core/types'
+
+import { editHistory } from '@states/services/history'
+import { usePrefStore, useRuntimeStore } from '@states/stores'
+
+import FontLoader from './components/FontLoader.vue'
+import DropDataConfirmModal from './dialogs/DropDataConfirmModal.vue'
+import ContentEditor from './editor/content/Editor.vue'
+import Preview from './editor/preview/Preview.vue'
+import TimingEditor from './editor/timing/Editor.vue'
+import Player from './player/Player.vue'
+import Ribbon from './ribbon/Ribbon.vue'
 import Sidebar from './sidebar/Sidebar.vue'
+import Titlebar from './titlebar/Titlebar.vue'
+import { Toast, type ToastMessageOptions, useToast } from 'primevue'
+
 import {
   emitGlobalKeyboard,
   matchHotkeyInMap,
   parseKeyEvent,
   shouldEscapeInInput,
 } from '../core/hotkey'
-import { Toast, useToast, type ToastMessageOptions } from 'primevue'
-import { usePrefStore, useRuntimeStore } from '@states/stores'
-import { View } from '@core/types'
-import DropDataConfirmModal from './dialogs/DropDataConfirmModal.vue'
-import { fileState } from '@core/file'
-import { useMediaQuery } from '@vueuse/core'
+
 editHistory.init()
 editHistory.markSaved() // Empty state is considered saved
 

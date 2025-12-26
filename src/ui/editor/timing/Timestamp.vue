@@ -16,9 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import { ms2str, str2ms } from '@utils/formatTime'
-import InputText from '@ui/components/InputText.vue'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
+
+import { ms2str, str2ms } from '@utils/formatTime'
+
+import InputText from '@ui/components/InputText.vue'
 
 const props = defineProps<{
   begin?: boolean

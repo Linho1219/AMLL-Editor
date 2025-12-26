@@ -76,26 +76,29 @@
 </template>
 
 <script setup lang="ts">
-import { Button, SplitButton, useToast } from 'primevue'
-import { useRuntimeStore } from '@states/stores'
 import { computed, ref } from 'vue'
-import type { MenuItem } from 'primevue/menuitem'
 
-import { editHistory } from '@states/services/history'
+import { compatibilityMap } from '@core/compat'
+import { portFormatRegister } from '@core/convert'
 import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
-
-import FromTextModal from '@ui/dialogs/FromTextModal.vue'
-import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
-import { tipHotkey } from '@utils/generateTooltip'
-import { SidebarKey } from '@ui/sidebar'
-
 import { fileState as FS, simpleSaveTextFile } from '@core/file'
 import { getHotkeyStr, useGlobalKeyboard } from '@core/hotkey'
+
+import { editHistory } from '@states/services/history'
 import { collectPersist } from '@states/services/port'
+import { useRuntimeStore } from '@states/stores'
+
+import { tipHotkey } from '@utils/generateTooltip'
+
+import { SidebarKey } from '@ui/sidebar'
+
 import ViewSwitcher from './ViewSwitcher.vue'
-import { portFormatRegister } from '@core/convert'
-import { compatibilityMap } from '@core/compat'
 import TieredMenuItem from '@ui/components/TieredMenuItem.vue'
+import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
+import FromTextModal from '@ui/dialogs/FromTextModal.vue'
+import { Button, SplitButton, useToast } from 'primevue'
+import type { MenuItem } from 'primevue/menuitem'
+
 const {
   displayFilenameComputed: filename,
   readonlyComputed,

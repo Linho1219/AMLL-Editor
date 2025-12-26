@@ -35,14 +35,20 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from 'primevue'
-import RibbonGroup from '../RibbonGroupShell.vue'
-import { SidebarKey } from '@ui/sidebar'
-import { useGlobalKeyboard } from '@core/hotkey'
-import { tipDesc } from '@utils/generateTooltip'
-import FindReplaceDialog from '@ui/dialogs/FindReplaceDialog.vue'
 import { ref } from 'vue'
+
+import { useGlobalKeyboard } from '@core/hotkey'
+
 import { useRuntimeStore } from '@states/stores'
+
+import { tipDesc } from '@utils/generateTooltip'
+
+import { SidebarKey } from '@ui/sidebar'
+
+import RibbonGroup from '../RibbonGroupShell.vue'
+import FindReplaceDialog from '@ui/dialogs/FindReplaceDialog.vue'
+import { Button } from 'primevue'
+
 const runtimeStore = useRuntimeStore()
 
 useGlobalKeyboard('batchSplitText', () => {

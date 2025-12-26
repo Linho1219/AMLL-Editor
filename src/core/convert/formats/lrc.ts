@@ -1,3 +1,12 @@
+import type { LyricLine, Persist } from '@core/types'
+
+import { coreCreate } from '@states/stores/core'
+
+import { str2ms } from '@utils/formatTime'
+
+import MANIFEST from '../manifest.json'
+import type { Convert as CV } from '../types'
+
 // Basic LRC parser and stringifier
 // LRC is a common lyric format used by many music players
 // By 'basic', we mean it only supports line-level timestamps, not syllable-level timestamps
@@ -13,12 +22,6 @@
 // [02:01.079]Get in the line, to dream alive
 // [02:03.552]In our souls, do we know?
 // [02:06.103][02:08.916][02:11.135]On the journey
-
-import type { LyricLine, Persist } from '@core/types'
-import { str2ms } from '@utils/formatTime'
-import { coreCreate } from '@states/stores/core'
-import type { Convert as CV } from '../types'
-import MANIFEST from '../manifest.json'
 
 export const lrcReg: CV.Format = {
   ...MANIFEST.lrc,

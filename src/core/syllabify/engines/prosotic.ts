@@ -1,10 +1,10 @@
-import type { Syllabify as SL } from '..'
-
-import nlp from 'compromise/tokenize'
 import nlpSpeech from 'compromise-speech'
+import nlp from 'compromise/tokenize'
+
+import type { Syllabify as SL } from '..'
+import { splitTextByLengths } from '../shared'
 import { basicSplit } from './basic'
 import { compromiseSplitCore } from './compromise'
-import { splitTextByLengths } from '../shared'
 
 let dictCache: Map<string, 0 | number[]> | null = null
 export async function prosoticSplit(

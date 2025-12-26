@@ -47,10 +47,13 @@
 </template>
 
 <script setup lang="ts">
-import { useRuntimeStore, usePrefStore } from '@states/stores'
 import { computed } from 'vue'
-import { sidebarRegs } from '.'
+
+import { usePrefStore, useRuntimeStore } from '@states/stores'
+
 import { Button, Tab, TabList, Tabs } from 'primevue'
+
+import { sidebarRegs } from '.'
 
 const runtimeStore = useRuntimeStore()
 const prefStore = usePrefStore()

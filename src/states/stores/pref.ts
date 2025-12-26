@@ -1,5 +1,6 @@
-import { reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
+import { reactive, ref } from 'vue'
+
 import { getDefaultHotkeyMap } from '@core/hotkey'
 
 export const usePrefStore = defineStore('preference', () => {

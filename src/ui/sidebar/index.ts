@@ -1,7 +1,8 @@
-import SplitTextTab from './tabs/syllabify/Syllabify.vue'
+import type { ValueOf } from '@utils/types'
+
 import MetadataTab from './tabs/metadata/MetadataTab.vue'
 import PreferenceTab from './tabs/preference/PreferenceTab.vue'
-import type { ValueOf } from '@utils/types'
+import SplitTextTab from './tabs/syllabify/Syllabify.vue'
 
 export const SidebarKey = {
   SplitText: 'SplitText',

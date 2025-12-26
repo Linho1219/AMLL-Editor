@@ -1,20 +1,19 @@
-import { createApp } from 'vue'
+import FloatingVue from 'floating-vue'
 import { createPinia } from 'pinia'
+import { createApp } from 'vue'
 
+import { definePreset } from '@primeuix/themes'
+import Aura from '@primeuix/themes/aura'
+import App from '@ui/App.vue'
 import PrimeVue from 'primevue/config'
 import FocusTrap from 'primevue/focustrap'
 import KeyFilter from 'primevue/keyfilter'
 import ToastService from 'primevue/toastservice'
-import Aura from '@primeuix/themes/aura'
-import { definePreset } from '@primeuix/themes'
-import 'primeicons/primeicons.css'
 
-import FloatingVue from 'floating-vue'
-import 'floating-vue/dist/style.css'
-
-import App from '@ui/App.vue'
-import '@ui/common.scss'
 import '@assets/fonts/index.scss'
+import '@ui/common.scss'
+import 'floating-vue/dist/style.css'
+import 'primeicons/primeicons.css'
 
 const app = createApp(App)
 

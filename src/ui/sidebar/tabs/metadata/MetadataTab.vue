@@ -108,10 +108,13 @@
 
 <script setup lang="ts">
 import { computed, onMounted, shallowRef, useTemplateRef } from 'vue'
-import { amllMetaTemplate, lrcMetaTemplate, type MetadataTemplate } from './templates'
-import { AutoComplete, Button, Divider, IftaLabel, InputText, Select } from 'primevue'
+
 import { useCoreStore } from '@states/stores'
+
 import MultiInputText from '@ui/components/MultiInputText.vue'
+import { AutoComplete, Button, Divider, IftaLabel, InputText, Select } from 'primevue'
+
+import { type MetadataTemplate, amllMetaTemplate, lrcMetaTemplate } from './templates'
 
 const metadataTemplates: Readonly<MetadataTemplate>[] = [amllMetaTemplate, lrcMetaTemplate]
 const currentTemplate = shallowRef<Readonly<MetadataTemplate> | undefined>(metadataTemplates[0])

@@ -12,8 +12,9 @@
 </template>
 
 <script setup lang="ts">
+import { useFps, useMemory } from '@vueuse/core'
+
 import RibbonGroup from '../RibbonGroupShell.vue'
-import { useMemory, useFps } from '@vueuse/core'
 
 const fps = useFps()
 

@@ -27,13 +27,17 @@
 </template>
 
 <script setup lang="ts">
-import { Button, InputNumber } from 'primevue'
-import RibbonGroup from '../RibbonGroupShell.vue'
-import { usePrefStore } from '@states/stores'
-import BatchTimeShiftDialog from '@ui/dialogs/BatchTimeShiftDialog.vue'
 import { ref } from 'vue'
-import { tipDesc } from '@utils/generateTooltip'
+
 import { useGlobalKeyboard } from '@core/hotkey'
+
+import { usePrefStore } from '@states/stores'
+
+import { tipDesc } from '@utils/generateTooltip'
+
+import RibbonGroup from '../RibbonGroupShell.vue'
+import BatchTimeShiftDialog from '@ui/dialogs/BatchTimeShiftDialog.vue'
+import { Button, InputNumber } from 'primevue'
 
 const prefStore = usePrefStore()
 const batchShiftDialogVisible = ref(false)

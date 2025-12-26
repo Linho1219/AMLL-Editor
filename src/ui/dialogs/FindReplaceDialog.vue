@@ -185,17 +185,21 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Checkbox, Dialog, IftaLabel, RadioButton, ToggleSwitch } from 'primevue'
-import { computed, readonly, ref, useTemplateRef, watch } from 'vue'
-import { useToast } from 'primevue/usetoast'
 import { escapeRegExp } from 'lodash-es'
-import { useRuntimeStore } from '@states/stores'
+import { computed, readonly, ref, useTemplateRef, watch } from 'vue'
+
 import { useFindReplaceEngine } from '@core/findReplace'
 import { useGlobalKeyboard } from '@core/hotkey'
+
+import { useRuntimeStore } from '@states/stores'
+
+import { sortSyllables } from '@utils/sortLineSyls'
 import { tryRaf } from '@utils/tryRaf'
 import type { TimeoutHandle } from '@utils/types'
-import { sortSyllables } from '@utils/sortLineSyls'
+
 import InputText from '@ui/components/InputText.vue'
+import { Button, Checkbox, Dialog, IftaLabel, RadioButton, ToggleSwitch } from 'primevue'
+import { useToast } from 'primevue/usetoast'
 
 const [visible] = defineModel<boolean>({ required: true })
 

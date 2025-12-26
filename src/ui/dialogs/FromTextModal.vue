@@ -117,13 +117,16 @@
 </template>
 
 <script setup lang="ts">
-import { Button, Checkbox, Dialog, Select } from 'primevue'
-import { computed, ref, shallowRef, useTemplateRef, watch, type ShallowRef } from 'vue'
-import CodeMirror from '@ui/components/CodeMirror.vue'
+import { type ShallowRef, computed, ref, shallowRef, useTemplateRef, watch } from 'vue'
+
 import { parseInterleavedPlainText, parseSeparatePlainText } from '@core/convert/formats/paintext'
-import LineOrderInput from './LineOrderInput.vue'
-import { useCoreStore } from '@states/stores'
 import { fileState as FS } from '@core/file'
+
+import { useCoreStore } from '@states/stores'
+
+import LineOrderInput from './LineOrderInput.vue'
+import CodeMirror from '@ui/components/CodeMirror.vue'
+import { Button, Checkbox, Dialog, Select } from 'primevue'
 
 const [visible] = defineModel<boolean>({ required: true })
 const originalInput = ref<string>('')

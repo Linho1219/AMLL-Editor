@@ -1,6 +1,6 @@
-import type { Syllabify as SL } from '..'
-
 import syllabify from 'syllabify'
+
+import type { Syllabify as SL } from '..'
 import { basicSplit } from './basic'
 
 export const syllabifySplit = async (

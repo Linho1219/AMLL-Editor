@@ -38,17 +38,21 @@
 </template>
 
 <script setup lang="ts">
+import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 import { VList } from 'virtua/vue'
+import { onBeforeUnmount, onMounted, onUnmounted, useTemplateRef } from 'vue'
+
+import { useGlobalKeyboard } from '@core/hotkey'
+import { type LyricLine, type LyricSyllable, View } from '@core/types'
+
+import { useCoreStore, usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
+import type { EditorComponentActions } from '@states/stores/static'
+
+import { tryRaf } from '@utils/tryRaf'
+
 import Line from './Line.vue'
 import Syllable from './Syllable.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
-import { onBeforeUnmount, onMounted, onUnmounted, useTemplateRef } from 'vue'
-import { useRuntimeStore, useCoreStore, useStaticStore, usePrefStore } from '@states/stores'
-import { useGlobalKeyboard } from '@core/hotkey'
-import type { ScrollToIndexOpts } from 'virtua/unstable_core'
-import { tryRaf } from '@utils/tryRaf'
-import { View, type LyricLine, type LyricSyllable } from '@core/types'
-import type { EditorComponentActions } from '@states/stores/static'
 
 const coreStore = useCoreStore()
 const runtimeStore = useRuntimeStore()

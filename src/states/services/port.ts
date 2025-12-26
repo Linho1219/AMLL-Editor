@@ -1,7 +1,10 @@
-import type { MetadataKey, Persist } from '@core/types'
-import { editHistory } from './history'
-import { useCoreStore, useRuntimeStore } from '@states/stores'
 import { cloneDeep } from 'lodash-es'
+
+import type { MetadataKey, Persist } from '@core/types'
+
+import { useCoreStore, useRuntimeStore } from '@states/stores'
+
+import { editHistory } from './history'
 
 export function applyPersist(data: Persist) {
   data = cloneDeep(data)

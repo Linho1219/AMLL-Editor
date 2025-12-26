@@ -1,8 +1,12 @@
-import { computed, nextTick, reactive, ref, toRaw, watch } from 'vue'
 import cloneDeep from 'lodash-es/cloneDeep'
-import { tryRaf } from '@utils/tryRaf'
+import { computed, nextTick, reactive, ref, toRaw, watch } from 'vue'
+
 import type { LyricLine, LyricSyllable, RuntimeSnapShot, Snapshot } from '@core/types'
+
 import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
+
+import { tryRaf } from '@utils/tryRaf'
+
 const staticStore = useStaticStore()
 
 const snapshotList = new Map<number, Snapshot>()

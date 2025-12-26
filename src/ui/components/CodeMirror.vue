@@ -3,27 +3,27 @@
 </template>
 
 <script setup lang="ts">
+import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
+import { highlightSelectionMatches } from '@codemirror/search'
 import {
-  type Extension,
   Compartment,
   EditorState,
+  type Extension,
   StateEffect,
   StateField,
 } from '@codemirror/state'
 import {
   Decoration,
   EditorView,
-  lineNumbers,
   ViewPlugin,
   ViewUpdate,
+  crosshairCursor,
   drawSelection,
   keymap,
-  crosshairCursor,
+  lineNumbers,
   rectangularSelection,
 } from '@codemirror/view'
 import { nextTick, onMounted, onUnmounted, shallowRef, useTemplateRef, watch } from 'vue'
-import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
-import { highlightSelectionMatches } from '@codemirror/search'
 
 const [content] = defineModel<string>('content')
 const [scrollTop] = defineModel<number>('scrollTop')

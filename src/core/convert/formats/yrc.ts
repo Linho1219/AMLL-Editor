@@ -1,3 +1,10 @@
+import type { LyricLine, Persist } from '@core/types'
+
+import { coreCreate } from '@states/stores/core'
+
+import MANIFEST from '../manifest.json'
+import type { Convert as CV } from '../types'
+
 // YRC parser and stringifier
 // YRC is a lyric format used by NetEase Cloud Music
 
@@ -8,11 +15,6 @@
 // Example:
 // [190871,1984](190871,361,0)For(0,0,0) (191232,172,0)the(0,0,0) (191404,376,0)first(0,0,0) (191780,1075,0)time
 // [193459,4198](193459,412,0)What's(0,0,0) (193871,574,0)past(0,0,0) (194445,506,0)is(0,0,0) (194951,2706,0)past
-
-import type { LyricLine, Persist } from '@core/types'
-import { coreCreate } from '@states/stores/core'
-import type { Convert as CV } from '../types'
-import MANIFEST from '../manifest.json'
 
 export const yrcReg: CV.Format = {
   ...MANIFEST.yrc,

@@ -32,9 +32,10 @@
 </template>
 
 <script setup lang="ts">
-import { InputNumber } from 'primevue'
 import { computed, ref, watch } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
+
+import { InputNumber } from 'primevue'
 
 const props = defineProps<{
   transEnabled: boolean

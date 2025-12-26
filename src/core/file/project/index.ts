@@ -1,7 +1,9 @@
-import type { Persist } from '@core/types'
-import { collectPersist, applyPersist } from '@states/services/port'
-import { usePrefStore, useStaticStore } from '@states/stores'
 import { toRaw } from 'vue'
+
+import type { Persist } from '@core/types'
+
+import { applyPersist, collectPersist } from '@states/services/port'
+import { usePrefStore, useStaticStore } from '@states/stores'
 
 export { makeProjectFile } from './make'
 export { parseProjectFile } from './parse'

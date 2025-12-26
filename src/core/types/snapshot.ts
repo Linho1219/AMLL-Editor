@@ -1,5 +1,5 @@
-import type { View } from './runtime'
 import type { LyricLine, Metadata } from './core'
+import type { View } from './runtime'
 
 export interface RuntimeSnapShot {
   currentView: View

@@ -10,10 +10,14 @@ import { onMounted, onUnmounted, useTemplateRef } from 'vue'
 import WaveSurfer from 'wavesurfer.js'
 import HoverPlugin from 'wavesurfer.js/dist/plugins/hover.esm.js'
 import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions.js'
-import SpectrogramPlugin from './spectrogramPlugin/index.ts'
 import ZoomPlugin from 'wavesurfer.js/dist/plugins/zoom.js'
+
 import { useStaticStore } from '@states/stores/static.ts'
+
 import { ms2str } from '@utils/formatTime.ts'
+
+import SpectrogramPlugin from './spectrogramPlugin/index.ts'
+
 const spectrogramEl = useTemplateRef('spectrogramEl')
 const primaryColor = useCssVar('--p-primary-color')
 

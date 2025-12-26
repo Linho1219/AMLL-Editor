@@ -1,5 +1,6 @@
-import { compatibilityMap } from '@core/compat'
 import saveFile from 'save-file'
+
+import { compatibilityMap } from '@core/compat'
 
 const fsApiAvaliable = compatibilityMap.fileSystem
 

@@ -68,12 +68,14 @@
 </template>
 
 <script setup lang="ts">
-import { fileState as FS, simpleChooseTextFile } from '@core/file'
-import { Button, Dialog, Listbox } from 'primevue'
 import { ref } from 'vue'
+
+import { type Convert as CV, portFormatRegister } from '@core/convert'
+import { fileState as FS, simpleChooseTextFile } from '@core/file'
+
 import CodeMirror from '@ui/components/CodeMirror.vue'
-import { portFormatRegister, type Convert as CV } from '@core/convert'
 import EmptyTip from '@ui/components/EmptyTip.vue'
+import { Button, Dialog, Listbox } from 'primevue'
 
 const [visible] = defineModel<boolean>({ required: true })
 

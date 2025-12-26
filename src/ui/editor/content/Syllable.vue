@@ -49,7 +49,6 @@
 </template>
 <script setup lang="ts">
 import { useFocus } from '@vueuse/core'
-import InputText from '@ui/components/InputText.vue'
 import {
   computed,
   nextTick,
@@ -60,13 +59,19 @@ import {
   useTemplateRef,
   watch,
 } from 'vue'
-import { sortIndex } from '@utils/sortLineSyls'
+
+import type { LyricLine, LyricSyllable } from '@core/types'
+
+import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
+import type { SylComponentActions } from '@states/stores/static'
+
 import { forceOutsideBlur } from '@utils/forceOutsideBlur'
+import { sortIndex } from '@utils/sortLineSyls'
 import { digit2Sup } from '@utils/toSupSub'
 import type { TimeoutHandle } from '@utils/types'
-import { useRuntimeStore, useCoreStore, useStaticStore } from '@states/stores'
-import type { LyricLine, LyricSyllable } from '@core/types'
-import type { SylComponentActions as SylComponentActions } from '@states/stores/static'
+
+import InputText from '@ui/components/InputText.vue'
+
 const runtimeStore = useRuntimeStore()
 const coreStore = useCoreStore()
 const staticStore = useStaticStore()
@@ -114,7 +119,10 @@ function handleMousedown(e: MouseEvent) {
       const [start, end] = sortIndex(coreStore.lyricLines.indexOf(lastTouchedLine), props.lineIndex)
       runtimeStore.selectLine(...coreStore.lyricLines.slice(start, end + 1))
     } else {
-      const [start, end] = sortIndex(lastTouchedLine.syllables.indexOf(lastTouchedWord), props.index)
+      const [start, end] = sortIndex(
+        lastTouchedLine.syllables.indexOf(lastTouchedWord),
+        props.index,
+      )
       const affectedWords = props.parent.syllables.slice(start, end + 1)
       if (isSelected.value) runtimeStore.removeSylFromSelection(...affectedWords)
       else runtimeStore.addSylToSelection(...affectedWords)
@@ -217,7 +225,10 @@ function handleKeydown(event: KeyboardEvent) {
     }
     case 'ArrowRight': {
       // If at end, focus next syllable
-      if (el.selectionStart !== el.value.length || props.index === props.parent.syllables.length - 1)
+      if (
+        el.selectionStart !== el.value.length ||
+        props.index === props.parent.syllables.length - 1
+      )
         return
       event.preventDefault()
       const nextSyl = props.parent.syllables[props.index + 1]
@@ -233,7 +244,8 @@ function handleKeydown(event: KeyboardEvent) {
       // handle later in compositionend
       const breakIndex = el.selectionStart || 0
       const totDuration = props.syllable.endTime - props.syllable.startTime
-      const breakTime = props.syllable.startTime + (totDuration * breakIndex) / (el.value.length || 1)
+      const breakTime =
+        props.syllable.startTime + (totDuration * breakIndex) / (el.value.length || 1)
       const newSyllable = coreStore.newSyllable({
         text: el.value.slice(breakIndex),
         startTime: breakTime,

@@ -64,9 +64,11 @@
 </template>
 
 <script setup lang="ts">
-import { useStaticStore } from '@states/stores'
-import { Button, InputGroup, InputGroupAddon, InputNumber, Slider } from 'primevue'
 import { computed, ref, watch } from 'vue'
+
+import { useStaticStore } from '@states/stores'
+
+import { Button, InputGroup, InputGroupAddon, InputNumber, Slider } from 'primevue'
 
 const audio = useStaticStore().audio
 const { volumeRef, playbackRateRef } = audio

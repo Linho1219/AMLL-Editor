@@ -1,9 +1,12 @@
 import JSZip from 'jszip'
-import { latestProjManifestVersion, type LatestProjManifest } from './fileVer'
-import { latestProjDataVersion, type LatestProjData } from './dataVer'
-import type { ProjPayload } from '.'
+
 import type { Persist } from '@core/types'
+
 import { omitAttrs } from '@utils/omitAttrs'
+
+import type { ProjPayload } from '.'
+import { type LatestProjData, latestProjDataVersion } from './dataVer'
+import { type LatestProjManifest, latestProjManifestVersion } from './fileVer'
 
 const DATA_FILENAME = 'data.json'
 const FILE_VERSION = latestProjManifestVersion

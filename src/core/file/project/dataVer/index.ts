@@ -1,9 +1,9 @@
 import type { Equal, Expect } from '@utils/types'
 
 import type { ProjData_0_0 } from './0_0'
-export type { ProjData_0_0 } from './0_0'
-
 import type { ProjData_0_1 } from './0_1'
+
+export type { ProjData_0_0 } from './0_0'
 export type { ProjData_0_1 } from './0_1'
 
 export const supportedProjDataVersions = ['ALDv0.0', 'ALDv0.1'] as const

@@ -28,16 +28,23 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from 'primevue'
-import RibbonGroup from '../RibbonGroupShell.vue'
-import { useRuntimeStore, useCoreStore } from '@states/stores'
 import { computed } from 'vue'
+
 import { useGlobalKeyboard } from '@core/hotkey'
+
+import { useCoreStore, useRuntimeStore } from '@states/stores'
+
 import { tipDesc } from '@utils/generateTooltip'
+
+import RibbonGroup from '../RibbonGroupShell.vue'
+import { Button } from 'primevue'
+
 const runtimeStore = useRuntimeStore()
 
 const focusingSet = computed(() =>
-  runtimeStore.selectedSyllables.size > 0 ? runtimeStore.selectedSyllables : runtimeStore.selectedLines,
+  runtimeStore.selectedSyllables.size > 0
+    ? runtimeStore.selectedSyllables
+    : runtimeStore.selectedLines,
 )
 const bookmarkAdd = computed(
   () => actionDisabled.value || [...focusingSet.value].some((item) => !item.bookmarked),

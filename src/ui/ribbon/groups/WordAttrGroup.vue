@@ -77,12 +77,15 @@
 </template>
 
 <script setup lang="ts">
-import RibbonGroup from '../RibbonGroupShell.vue'
-import { itemTimeInput } from '../common'
-import InputText from '@ui/components/InputText.vue'
 import { computed } from 'vue'
-import { useRuntimeStore, useCoreStore } from '@states/stores'
+
+import { useCoreStore, useRuntimeStore } from '@states/stores'
+
+import RibbonGroup from '../RibbonGroupShell.vue'
+import InputText from '@ui/components/InputText.vue'
 import { Button, InputGroup, InputGroupAddon, InputNumber, Slider } from 'primevue'
+
+import { itemTimeInput } from '../common'
 
 const runtimeStore = useRuntimeStore()
 const coreStore = useCoreStore()

@@ -1,4 +1,5 @@
 import { escapeRegExp } from 'lodash-es'
+
 import type { Syllabify as SL } from '..'
 
 function isCJK(char: string | undefined): char is string {

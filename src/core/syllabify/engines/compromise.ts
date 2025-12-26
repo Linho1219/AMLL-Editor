@@ -1,7 +1,7 @@
-import type { Syllabify as SL } from '..'
-
-import nlp from 'compromise/tokenize'
 import nlpSpeech from 'compromise-speech'
+import nlp from 'compromise/tokenize'
+
+import type { Syllabify as SL } from '..'
 import { basicSplit } from './basic'
 
 export function compromiseSplitCore(nlp: any, token: string): string[] {

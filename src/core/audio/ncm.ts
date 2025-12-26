@@ -1,4 +1,5 @@
 import { ref, shallowRef, watch } from 'vue'
+
 import NcmResolveWorker from '@vendors/ncm/ncm.worker.js?worker'
 
 export function useNcmResolver() {

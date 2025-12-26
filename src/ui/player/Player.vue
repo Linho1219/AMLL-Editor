@@ -58,15 +58,19 @@
 
 <script setup lang="ts">
 import { useDark, useFileDialog } from '@vueuse/core'
-import { Button, Card, Popover } from 'primevue'
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
+
+import { useGlobalKeyboard } from '@core/hotkey'
+
+import { useStaticStore } from '@states/stores'
+
+import { ms2str } from '@utils/formatTime'
+import { tipHotkey } from '@utils/generateTooltip'
+
 import PopoverPane from './Popover.vue'
 import Spectrogram from './Spectrogram.vue'
-import { ms2str } from '@utils/formatTime'
 import Waveform from './Waveform.vue'
-import { useGlobalKeyboard } from '@core/hotkey'
-import { tipHotkey } from '@utils/generateTooltip'
-import { useStaticStore } from '@states/stores'
+import { Button, Card, Popover } from 'primevue'
 
 const { audio } = useStaticStore()
 const { amendedProgressComputed, lengthComputed, playingComputed, activatedRef } = audio

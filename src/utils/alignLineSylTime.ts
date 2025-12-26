@@ -1,6 +1,7 @@
 import type { LyricLine, LyricSyllable } from '@core/types'
 
-const isSyllableTimed = (syl: LyricSyllable) => !!((syl.startTime || syl.endTime) && syl.text.trim())
+const isSyllableTimed = (syl: LyricSyllable) =>
+  !!((syl.startTime || syl.endTime) && syl.text.trim())
 
 /** Set line's startTime as the startTime of its first syllable */
 export function alignLineStartTime(line: LyricLine) {

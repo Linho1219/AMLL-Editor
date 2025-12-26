@@ -2,9 +2,7 @@
  * Web Worker for Windowed Spectrogram Plugin
  * Handles FFT calculations for frequency analysis
  */
-
 // Modified by @Linho1219
-
 // Import centralized FFT functionality
 import FFT from 'wavesurfer.js/dist/fft.js'
 

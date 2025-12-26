@@ -1,5 +1,6 @@
-import { defineFileBackend, registerFileBackendAdapter } from '../types'
 import saveFile from 'save-file'
+
+import { defineFileBackend, registerFileBackendAdapter } from '../types'
 
 interface H5NativeFileHandle {
   filename: string

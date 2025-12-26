@@ -20,11 +20,14 @@
 </template>
 
 <script setup lang="ts">
-import { useStaticStore } from '@states/stores'
-import { ms2str } from '@utils/formatTime'
 import { useCssVar } from '@vueuse/core'
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
 import WaveSurfer from 'wavesurfer.js'
+
+import { useStaticStore } from '@states/stores'
+
+import { ms2str } from '@utils/formatTime'
+
 const { audio } = useStaticStore()
 
 const containerEl = useTemplateRef('container')

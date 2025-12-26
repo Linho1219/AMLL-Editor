@@ -48,10 +48,13 @@
 </template>
 
 <script setup lang="ts">
-import type { LyricLine, LyricSyllable } from '@core/types'
-import { useCoreStore, useRuntimeStore } from '@states/stores'
-import { Button, Dialog, InputNumber } from 'primevue'
 import { ref } from 'vue'
+
+import type { LyricLine, LyricSyllable } from '@core/types'
+
+import { useCoreStore, useRuntimeStore } from '@states/stores'
+
+import { Button, Dialog, InputNumber } from 'primevue'
 
 const [visible] = defineModel<boolean>({ required: true })
 
