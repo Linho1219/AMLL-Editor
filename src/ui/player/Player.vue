@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDark, useFileDialog } from '@vueuse/core'
+import { useDark } from '@vueuse/core'
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 
 import { fileBackend } from '@core/file'
@@ -117,7 +117,15 @@ onUnmounted(() => audio.offLoaded(refresh))
 
 const loading = ref(false)
 audio.onLoadStart(() => (loading.value = true))
-audio.onLoaded(() => (loading.value = false))
+audio.onLoaded(() => {
+  loading.value = false
+  toast.add({
+    severity: 'success',
+    summary: '成功加载音频',
+    detail: audio.filenameComputed.value,
+    life: 3000,
+  })
+})
 
 useGlobalKeyboard('chooseMedia', () => handleSelectFile())
 useGlobalKeyboard('playPauseAudio', () => {
