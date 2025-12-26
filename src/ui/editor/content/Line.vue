@@ -10,6 +10,7 @@
     }"
     @mousedown.stop="handleMouseDown"
     @click="handleClick"
+    @dblclick="handleDbClick"
     @dragstart="handleDragStart"
     @dragend="handleDragEnd"
     @contextmenu.stop="handleContext"
@@ -151,6 +152,9 @@ function handleClick(e: MouseEvent) {
   if (leftForClick && (e.ctrlKey || e.metaKey))
     if (isSelected.value) runtimeStore.removeLineFromSelection(props.line)
   leftForClick = false
+}
+function handleDbClick() {
+  runtimeStore.selectLine(props.line)
 }
 const dragGhostEl = useTemplateRef('dragGhostEl')
 function handleDragStart(e: DragEvent) {
