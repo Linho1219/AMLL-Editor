@@ -5,7 +5,7 @@ interface H5NativeFileHandle {
   filename: string
 }
 
-const extractDotExts = (types: FilePickerAcceptType[]): `.${string}`[] =>
+const extractDotExts = (types: FilePickerAcceptType[]): string[] =>
   types.flatMap(({ accept }) => (accept ? Object.values(accept).flat() : []))
 
 export const h5NativeBackend = defineFileBackend<H5NativeFileHandle>({

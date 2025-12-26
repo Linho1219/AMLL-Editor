@@ -5,7 +5,7 @@ import { splReg } from './formats/spl'
 import type { Convert } from './types'
 
 export function detectFormat(extension: string, content: string): Convert.Format {
-  const dotExt = `.${extension.toLowerCase()}` as `.${string}`
+  const dotExt = `.${extension.toLowerCase()}` as string
   const formatCandidates = portFormatRegister.filter((format) => format.accept.includes(dotExt))
   if (formatCandidates.length === 0)
     throw new Error('No format candidates found for the given file extension.')

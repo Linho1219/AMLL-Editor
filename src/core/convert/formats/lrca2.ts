@@ -13,15 +13,10 @@ import type { LyricLine, LyricSyllable, Persist } from '@core/types'
 import { ms2str, str2ms } from '@utils/formatTime'
 import { coreCreate } from '@states/stores/core'
 import type { Convert as CV } from '../types'
+import MANIFEST from '../manifest.json'
 
 export const lrcA2Reg: CV.Format = {
-  name: 'LRC A2 扩展',
-  description: '基于 LRC 的扩展格式，支持行时间戳和逐字时间戳，最早由 A2 Media Player 提出。',
-  accept: ['.lrc'],
-  example:
-    `[02:38.850]<02:38.850>syls <02:39.030>are <02:39.120>made <02:39.360>of <02:39.420>plastic<02:40.080>\n` +
-    `[02:40.080]<02:40.080>Come <02:40.290>back <02:40.470>like <02:40.680>elastic<02:41.370>`,
-  reference: [{ name: '维基百科', url: 'https://en.wikipedia.org/wiki/LRC_(file_format)' }],
+  ...MANIFEST.lrcA2,
   parser: parseLRCa2,
   stringifier: stringifyLRCa2,
 }

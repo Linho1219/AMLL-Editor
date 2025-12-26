@@ -1,0 +1,16 @@
+diff --git a/index.d.ts b/index.d.ts
+index f673c75b94af928cc5e564d8b4fad208dcde4309..6646a098e8e2be567c12cfa2dc58ba76349f046b 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -25,8 +25,9 @@ declare global {
+     };
+     type FileSystemHandleUnion = FileSystemFileHandle | FileSystemDirectoryHandle;
+ 
+-    type FileExtension = `.${string}`;
+-    type MIMEType = `${string}/${string}`;
++    /** Include dot */
++    type FileExtension = `.${string}` | string;
++    type MIMEType = `${string}/${string}` | string;
+ 
+     interface FilePickerAcceptType {
+         /**

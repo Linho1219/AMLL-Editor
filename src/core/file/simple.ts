@@ -10,7 +10,7 @@ interface TextFileResult {
 }
 
 function simpleChooseFile(
-  dotExts: `.${string}`[],
+  dotExts: string[],
   description: string = '所有支持的文件',
   id?: string,
 ): Promise<File | null> {
@@ -60,7 +60,7 @@ function simpleChooseFileLegacy(accept: string): Promise<File | null> {
 }
 
 export async function simpleChooseTextFile(
-  dotExts: `.${string}`[],
+  dotExts: string[],
   description: string = '所有支持的文件',
   id?: string,
 ): Promise<TextFileResult | null> {
@@ -85,7 +85,7 @@ function simpleSaveFileLegacy(blob: Blob, name: string, dotExt: string) {
 export async function simpleSaveFile(
   content: File | Blob,
   suggestedName: string,
-  dotExts: `.${string}`[],
+  dotExts: string[],
   description: string = '所有支持的文件',
   id?: string,
 ): Promise<boolean> {
@@ -123,7 +123,7 @@ export async function simpleSaveFile(
 export async function simpleSaveTextFile(
   content: string,
   suggestedName: string,
-  dotExts: `.${string}`[],
+  dotExts: string[],
   description: string = '所有支持的文件',
   id?: string,
 ): Promise<boolean> {

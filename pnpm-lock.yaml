@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@types/wicg-file-system-access':
+    hash: 97a31ed3b7db0c9c6558415233b2497a68d15500ffadcf641da1d05efeb04329
+    path: patches/@types__wicg-file-system-access.patch
+
 importers:
 
   .:
@@ -134,7 +139,7 @@ importers:
         version: 22.19.1
       '@types/wicg-file-system-access':
         specifier: ^2023.10.7
-        version: 2023.10.7
+        version: 2023.10.7(patch_hash=97a31ed3b7db0c9c6558415233b2497a68d15500ffadcf641da1d05efeb04329)
       '@vitejs/plugin-vue':
         specifier: ^6.0.2
         version: 6.0.2(vite@7.2.6(@types/node@22.19.1)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3))(vue@3.5.25(typescript@5.9.3))
@@ -2508,7 +2513,7 @@ snapshots:
 
   '@types/web-bluetooth@0.0.21': {}
 
-  '@types/wicg-file-system-access@2023.10.7': {}
+  '@types/wicg-file-system-access@2023.10.7(patch_hash=97a31ed3b7db0c9c6558415233b2497a68d15500ffadcf641da1d05efeb04329)': {}
 
   '@ungap/structured-clone@1.3.0': {}
 

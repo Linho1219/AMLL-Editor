@@ -8,16 +8,10 @@ import type { LyricLine, Persist } from '@core/types'
 import { ms2str, str2ms } from '@utils/formatTime'
 import { coreCreate } from '@states/stores/core'
 import type { Convert as CV } from '../types'
+import MANIFEST from '../manifest.json'
 
 export const splReg: CV.Format = {
-  name: '椒盐音乐逐字',
-  description:
-    '椒盐音乐的私有格式，基于 LRC 扩展，支持行时间戳和逐字时间戳，并支持翻译。由于规则繁杂，可能不完全可用。',
-  accept: ['.spl', '.lrc'],
-  example:
-    `[02:38.850]<02:38.850>Words <02:39.030>are <02:39.120>made <02:39.360>of <02:39.420>plastic[02:40.080]\n` +
-    `[02:40.080][02:40.080]Come [02:40.290]back [02:40.470]like [02:40.680]elastic[02:41.370]`,
-  reference: [{ name: '椒盐官方文档', url: 'https://moriafly.com/standards/spl.html' }],
+  ...MANIFEST.spl,
   parser: parseSPL,
   stringifier: stringifySPL,
 }

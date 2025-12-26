@@ -70,18 +70,5 @@
   "background_color": "#121212",
   "launch_handler": {
     "client_mode": "focus-existing"
-  },
-  "file_handlers": [
-    {
-      "action": "./",
-      "accept": {
-        "application/x-alp": [".alp"],
-        "application/ttml+xml": [".ttml"],
-        "application/lrc": [".lrc"],
-        "application/yrc": [".yrc"],
-        "application/qrc": [".qrc"],
-        "application/spl": [".spl"]
-      }
-    }
-  ]
+  }
 }

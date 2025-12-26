@@ -18,17 +18,10 @@ import type { LyricLine, Persist } from '@core/types'
 import { str2ms } from '@utils/formatTime'
 import { coreCreate } from '@states/stores/core'
 import type { Convert as CV } from '../types'
+import MANIFEST from '../manifest.json'
 
 export const lrcReg: CV.Format = {
-  name: '基本 LRC',
-  description:
-    '最常见的歌词格式。支持以行时间戳，不支持逐字时间戳。此处指基本 LRC 格式，若导入基于 LRC 的扩展格式，请选择对应扩展格式选项。',
-  accept: ['.lrc'],
-  example:
-    `[02:01.079]Get in the line, to dream alive\n` +
-    `[02:03.552]In our souls, do we know?\n` +
-    `[02:06.103][02:08.916][02:11.135]On the journey`,
-  reference: [{ name: '维基百科', url: 'https://wikipedia.org/wiki/LRC_(file_format)' }],
+  ...MANIFEST.lrc,
   parser: parseLRC,
   stringifier: stringifyLRC,
 }

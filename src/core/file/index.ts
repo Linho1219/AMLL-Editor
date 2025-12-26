@@ -1,5 +1,5 @@
-import { detectFormat, portFormatRegister } from '@core/convert'
-import { parseTTML, stringifyTTML, ttmlReg } from '@core/convert/formats/ttml'
+import { detectFormat, portFormatRegister, type Convert as CV } from '@core/convert'
+import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
 import { readonly, ref } from 'vue'
 import { collectProjectData, makeProjectFile, mountProjectData, parseProjectFile } from './project'
 import { collectPersist, applyPersist } from '@states/services/port'
@@ -13,6 +13,7 @@ import { fileSystemBackend } from './backends/filesystem'
 import { getFileBackendAdapter, type FileHandle, type FileReadResult } from './types'
 import { compatibilityMap } from '@core/compat'
 import { h5NativeBackend } from './backends/h5native'
+import FORMAT_MANIFEST from '@core/convert/manifest.json'
 
 export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
 
@@ -34,31 +35,22 @@ const allSupportedExt = new Set([
   '.alp',
   '.ttml',
   ...portFormatRegister.map((f) => f.accept).flat(),
-]) as Set<`.${string}`>
+]) as Set<string>
+const manifest2formats = (mItem: CV.FormatManifest): FilePickerAcceptType => ({
+  description: mItem.name,
+  accept: { [mItem.mime]: mItem.accept },
+})
 const allSupportedExtArr = [...allSupportedExt]
-const alpPickerType: FilePickerAcceptType[] = [
-  {
-    description: 'AMLL Editor 工程',
-    accept: { 'application/alp': ['.alp'] },
-  },
-]
-const ttmlPickerType: FilePickerAcceptType[] = [
-  {
-    description: ttmlReg.name,
-    accept: { 'application/ttml+xml': ['.ttml'] },
-  },
-]
+const alpPickerType: FilePickerAcceptType[] = [manifest2formats(FORMAT_MANIFEST.alp)]
+const ttmlPickerType: FilePickerAcceptType[] = [manifest2formats(FORMAT_MANIFEST.ttml)]
 const allPickerTypes: FilePickerAcceptType[] = [
   {
     description: '所有支持的格式',
-    accept: { 'application/alp': allSupportedExtArr },
+    accept: { 'application/x-amll-editor-allsupported': allSupportedExtArr },
   },
   ...alpPickerType,
   ...ttmlPickerType,
-  ...portFormatRegister.map((format) => ({
-    description: format.name,
-    accept: { [`text/${format.accept[0]}`]: format.accept },
-  })),
+  ...portFormatRegister.map(manifest2formats),
 ]
 
 let currHandle: FileHandle | null = null

@@ -7,25 +7,10 @@ import { ms2str, str2ms as nullableStr2ms } from '@utils/formatTime'
 import type { LyricLine, LyricSyllable, Metadata, Persist } from '@core/types'
 import { coreCreate } from '@states/stores/core'
 import type { Convert as CV } from '../types'
+import MANIFEST from '../manifest.json'
 
 export const ttmlReg: CV.Format = {
-  name: 'AMLL TTML',
-  description: '基于 W3C TTML 标准的歌词格式，遵循 AMLL TTML 歌词格式规范。',
-  accept: ['.ttml'],
-  reference: [
-    {
-      name: 'AMLL TTML DB 歌词文件规范',
-      url: 'https://github.com/Steve-xmh/amll-ttml-db/blob/main/instructions/ttml-specification.md',
-    },
-    {
-      name: '维基百科',
-      url: 'https://wikipedia.org/wiki/Timed_Text_Markup_Language',
-    },
-    {
-      name: 'W3C TTML 1.0 规范',
-      url: 'https://www.w3.org/TR/2018/REC-ttml1-20181108/',
-    },
-  ],
+  ...MANIFEST.ttml,
   parser: parseTTML,
   stringifier: stringifyTTML,
 }

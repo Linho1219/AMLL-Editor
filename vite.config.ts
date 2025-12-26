@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import packageJSON from './package.json'
+import { manifestPlugin } from './pipelines/webManifest/plugin'
 
 const aliasRelMap: Record<string, string> = {
   '@core': './src/core',
@@ -39,6 +40,7 @@ function viteStaticCopyPyodide(isDev: boolean) {
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [
+    manifestPlugin(),
     viteStaticCopyPyodide(mode === 'development'),
     vue(),
     visualizer({
