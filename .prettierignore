@@ -3,3 +3,4 @@
 /src/vendors/**/*.d.ts
 /LICENSE
 *.dict.json
+/dist
