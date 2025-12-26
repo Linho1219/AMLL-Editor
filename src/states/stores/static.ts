@@ -1,6 +1,5 @@
 import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 
-import { useAudioCtrl } from '@core/audio'
 import type { LyricLine, LyricSyllable, View } from '@core/types'
 
 const staticStore = {
@@ -8,7 +7,6 @@ const staticStore = {
   syllableHooks: new Map<string, SylComponentActions>(),
   editorHook: null as null | EditorComponentActions,
   closeContext: null as null | (() => void),
-  audio: useAudioCtrl(),
   lastTouchedLine: null as LyricLine | null,
   lastTouchedSyl: null as LyricSyllable | null,
   touchLineWord,

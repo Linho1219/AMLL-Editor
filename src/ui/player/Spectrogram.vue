@@ -12,7 +12,7 @@ import HoverPlugin from 'wavesurfer.js/dist/plugins/hover.esm.js'
 import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions.js'
 import ZoomPlugin from 'wavesurfer.js/dist/plugins/zoom.js'
 
-import { useStaticStore } from '@states/stores/static.ts'
+import { audioEngine } from '@core/audio/index.ts'
 
 import { ms2str } from '@utils/formatTime.ts'
 
@@ -20,8 +20,6 @@ import SpectrogramPlugin from './spectrogramPlugin/index.ts'
 
 const spectrogramEl = useTemplateRef('spectrogramEl')
 const primaryColor = useCssVar('--p-primary-color')
-
-const { audio } = useStaticStore()
 
 let wsInstance: WaveSurfer | null = null
 let rgInstance: RegionsPlugin | null = null
@@ -31,7 +29,7 @@ onMounted(() => {
   const regions = RegionsPlugin.create()
   rgInstance = regions
   wsInstance = WaveSurfer.create({
-    media: audio.audioEl,
+    media: audioEngine.audioEl,
     container: spectrogramEl.value,
     height: spectrogramEl.value.clientHeight * (1 - spectrogramHeightRatio),
     waveColor: primaryColor.value,

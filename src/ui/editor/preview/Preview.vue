@@ -25,6 +25,8 @@
 import { LyricPlayer } from '@applemusic-like-lyrics/vue'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
+import { audioEngine } from '@core/audio'
+
 import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
 
 import { tryRaf } from '@utils/tryRaf'
@@ -34,9 +36,7 @@ import { Button } from 'primevue'
 import '@applemusic-like-lyrics/core/style.css'
 
 const coreStore = useCoreStore()
-const {
-  audio: { progressComputed, playingComputed, amendedProgressComputed, seek },
-} = useStaticStore()
+const { progressComputed, playingComputed, amendedProgressComputed, seek } = audioEngine
 interface AMLLLyricLine {
   words: AMLLLyricWord[]
   translatedLyric: string

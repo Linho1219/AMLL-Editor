@@ -66,12 +66,11 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 
-import { useStaticStore } from '@states/stores'
+import { audioEngine } from '@core/audio'
 
 import { Button, InputGroup, InputGroupAddon, InputNumber, Slider } from 'primevue'
 
-const audio = useStaticStore().audio
-const { volumeRef, playbackRateRef } = audio
+const { volumeRef, playbackRateRef } = audioEngine
 
 const volumeInputRef = ref<number | undefined>(Math.round(volumeRef.value * 100))
 const rateInputRef = ref<number | undefined>(parseFloat(playbackRateRef.value.toFixed(2)))

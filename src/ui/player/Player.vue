@@ -19,7 +19,7 @@
         <Popover ref="popover"> <PopoverPane /> </Popover>
         <Button
           :icon="playingComputed ? 'pi pi-pause' : 'pi pi-play'"
-          @click="audio.togglePlay()"
+          @click="audioEngine.togglePlay()"
           :disabled="!activatedRef"
           v-tooltip="tipHotkey(playingComputed ? '暂停' : '播放', 'playPauseAudio')"
           ref="playPauseButton"
@@ -46,7 +46,7 @@
             </div>
           </div>
         </div>
-        <Waveform :audio="audio" />
+        <Waveform :audio="audioEngine" />
         <Button
           icon="pi pi-chart-bar"
           :severity="showSpectrogram ? 'primary' : 'secondary'"
@@ -62,10 +62,9 @@
 import { useDark } from '@vueuse/core'
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 
+import { audioEngine } from '@core/audio'
 import { fileBackend } from '@core/file'
 import { useGlobalKeyboard } from '@core/hotkey'
-
-import { useStaticStore } from '@states/stores'
 
 import { ms2str } from '@utils/formatTime'
 import { tipHotkey } from '@utils/generateTooltip'
@@ -75,8 +74,7 @@ import Spectrogram from './Spectrogram.vue'
 import Waveform from './Waveform.vue'
 import { Button, Card, Popover, useToast } from 'primevue'
 
-const { audio } = useStaticStore()
-const { amendedProgressComputed, lengthComputed, playingComputed, activatedRef } = audio
+const { amendedProgressComputed, lengthComputed, playingComputed, activatedRef } = audioEngine
 const playPauseButton = useTemplateRef('playPauseButton')
 
 const toast = useToast()
@@ -96,7 +94,7 @@ async function handleSelectFile() {
       [{ description: '所有支持的音频', accept: { 'audio/*': ['.mp3', '.flac', '.wav', '.ncm'] } }],
       'music',
     )
-    audio.mount(new File([result.blob], result.filename))
+    audioEngine.mount(new File([result.blob], result.filename))
     // loading will be set to false on audio loaded event
   } catch (e) {
     loading.value = false
@@ -112,37 +110,37 @@ async function handleSelectFile() {
 
 const refresher = ref(Symbol())
 const refresh = () => (refresher.value = Symbol())
-audio.onLoaded(refresh)
-onUnmounted(() => audio.offLoaded(refresh))
+audioEngine.onLoaded(refresh)
+onUnmounted(() => audioEngine.offLoaded(refresh))
 
 const loading = ref(false)
-audio.onLoadStart(() => (loading.value = true))
-audio.onLoaded(() => {
+audioEngine.onLoadStart(() => (loading.value = true))
+audioEngine.onLoaded(() => {
   loading.value = false
   toast.add({
     severity: 'success',
     summary: '成功加载音频',
-    detail: audio.filenameComputed.value,
+    detail: audioEngine.filenameComputed.value,
     life: 3000,
   })
 })
 
 useGlobalKeyboard('chooseMedia', () => handleSelectFile())
 useGlobalKeyboard('playPauseAudio', () => {
-  if (activatedRef.value) audio.togglePlay()
+  if (activatedRef.value) audioEngine.togglePlay()
   if (playPauseButton.value) ((playPauseButton.value as any).$el as HTMLButtonElement).focus()
 })
 useGlobalKeyboard('seekBackward', () => {
-  audio.seekBy(-5000)
+  audioEngine.seekBy(-5000)
 })
 useGlobalKeyboard('seekForward', () => {
-  audio.seekBy(5000)
+  audioEngine.seekBy(5000)
 })
 useGlobalKeyboard('volumeDown', () => {
-  audio.volumeRef.value = Math.max(0, audio.volumeRef.value - 0.1)
+  audioEngine.volumeRef.value = Math.max(0, audioEngine.volumeRef.value - 0.1)
 })
 useGlobalKeyboard('volumeUp', () => {
-  audio.volumeRef.value = Math.min(1, audio.volumeRef.value + 0.1)
+  audioEngine.volumeRef.value = Math.min(1, audioEngine.volumeRef.value + 0.1)
 })
 
 const percentageRef = computed(() => {

@@ -24,11 +24,9 @@ import { useCssVar } from '@vueuse/core'
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
 import WaveSurfer from 'wavesurfer.js'
 
-import { useStaticStore } from '@states/stores'
+import { audioEngine } from '@core/audio'
 
 import { ms2str } from '@utils/formatTime'
-
-const { audio } = useStaticStore()
 
 const containerEl = useTemplateRef('container')
 const timeEl = useTemplateRef('timeEl')
@@ -61,7 +59,7 @@ function handleMouseMove(event: MouseEvent) {
   if (!containRect || !timeRect) return
   const x = clamp(event.clientX - containRect.left, 0, containRect.width)
   const percentage = x / containRect.width
-  const time = percentage * audio.lengthComputed.value
+  const time = percentage * audioEngine.lengthComputed.value
   cursorTimeRef.value = time
   cursorLeftPxRef.value = x
   timeAlignRev.value = x + timeRect.width > containRect.width
@@ -70,16 +68,16 @@ function handleMouseMove(event: MouseEvent) {
 }
 function handleMouseDown() {
   isMouseDown.value = true
-  playingWhenMouseDown = audio.playingComputed.value
-  if (playingWhenMouseDown) audio.pause()
+  playingWhenMouseDown = audioEngine.playingComputed.value
+  if (playingWhenMouseDown) audioEngine.pause()
   document.addEventListener('mousemove', handleDocumentMouseMove)
   document.addEventListener('mouseup', handleMouseUp)
 }
 function handleMouseUp() {
   if (!isMouseDown.value) return
   isMouseDown.value = false
-  audio.seek(cursorTimeRef.value)
-  if (playingWhenMouseDown) audio.play()
+  audioEngine.seek(cursorTimeRef.value)
+  if (playingWhenMouseDown) audioEngine.play()
   document.removeEventListener('mousemove', handleDocumentMouseMove)
   document.removeEventListener('mouseup', handleMouseUp)
 }
@@ -90,7 +88,7 @@ let wsInstance: WaveSurfer | null = null
 const createWs = () => {
   if (!wavesurferEl.value || !containerEl.value) return
   wsInstance = WaveSurfer.create({
-    media: audio.audioEl,
+    media: audioEngine.audioEl,
     container: wavesurferEl.value,
     height: containerEl.value.clientHeight,
     hideScrollbar: true,
@@ -107,11 +105,11 @@ const refresher = () => {
   wsInstance?.destroy()
   createWs()
 }
-audio.onLoaded(refresher)
+audioEngine.onLoaded(refresher)
 onBeforeUnmount(() => {
   wsInstance?.destroy()
   wsInstance = null
-  audio.offLoaded(refresher)
+  audioEngine.offLoaded(refresher)
 })
 </script>
 

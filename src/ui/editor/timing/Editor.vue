@@ -42,6 +42,7 @@ import type { ScrollToIndexOpts } from 'virtua/unstable_core'
 import { VList } from 'virtua/vue'
 import { onBeforeUnmount, onMounted, onUnmounted, useTemplateRef } from 'vue'
 
+import { audioEngine } from '@core/audio'
 import { useGlobalKeyboard } from '@core/hotkey'
 import { type LyricLine, type LyricSyllable, View } from '@core/types'
 
@@ -155,7 +156,7 @@ function isSylLastOfLine(line: LyricLine, syl: LyricSyllable) {
   return false
 }
 
-const { amendedProgressComputed } = staticStore.audio
+const { amendedProgressComputed } = audioEngine
 
 const prefStore = usePrefStore()
 useGlobalKeyboard('markBegin', () => {
@@ -250,18 +251,18 @@ useGlobalKeyboard('goNextSyl', () => {
 })
 useGlobalKeyboard('goNextSylnPlay', () => {
   const syl = shiftSyl(1)
-  if (syl && syl.startTime) staticStore.audio.seek(syl.startTime)
+  if (syl && syl.startTime) audioEngine.seek(syl.startTime)
 })
 useGlobalKeyboard('goPrevSyl', () => {
   shiftSyl(-1)
 })
 useGlobalKeyboard('goPrevSylnPlay', () => {
   const syl = shiftSyl(-1)
-  if (syl && syl.startTime) staticStore.audio.seek(syl.startTime)
+  if (syl && syl.startTime) audioEngine.seek(syl.startTime)
 })
 useGlobalKeyboard('playCurrSyl', () => {
   const syl = runtimeStore.getFirstSelectedSyl()
-  if (syl && syl.startTime) staticStore.audio.seek(syl.startTime)
+  if (syl && syl.startTime) audioEngine.seek(syl.startTime)
 })
 
 function handleMouseDown(e: MouseEvent) {
@@ -287,7 +288,7 @@ onUnmounted(() => {
 .editor-scroller {
   height: 100%;
 }
-.editor-timing-scroller{
-  padding: 0.5rem 0
+.editor-timing-scroller {
+  padding: 0.5rem 0;
 }
 </style>

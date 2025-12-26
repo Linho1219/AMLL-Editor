@@ -1,5 +1,6 @@
 import { readonly, ref } from 'vue'
 
+import { audioEngine } from '@core/audio'
 import { compatibilityMap } from '@core/compat'
 import { type Convert as CV, detectFormat, portFormatRegister } from '@core/convert'
 import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
@@ -8,7 +9,7 @@ import type { Persist } from '@core/types'
 
 import { editHistory } from '@states/services/history'
 import { applyPersist, collectPersist } from '@states/services/port'
-import { useCoreStore, useStaticStore } from '@states/stores'
+import { useCoreStore } from '@states/stores'
 
 import { breakExtension } from '@utils/breakExtension'
 import type { ValueOf } from '@utils/types'
@@ -218,7 +219,7 @@ function suggestName() {
   const coreStore = useCoreStore()
   const title = coreStore.metadata.find((m) => m.key === 'musicName' || m.key === 'ti')?.values[0]
   if (title) return title
-  const mediaFilename = useStaticStore().audio.filenameComputed.value
+  const mediaFilename = audioEngine.filenameComputed.value
   if (mediaFilename) {
     const [name] = breakExtension(mediaFilename)
     return name
@@ -304,7 +305,7 @@ function initDragListener(notifier: Notifier) {
     e.preventDefault()
     const [, ext] = breakExtension(file.name)
     if (possibleAudioExts.has(ext)) {
-      useStaticStore().audio.mount(file)
+      audioEngine.mount(file)
       return
     }
     if (!allSupportedExt.has(`.${ext}`))

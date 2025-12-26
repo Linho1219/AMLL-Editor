@@ -10,9 +10,9 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  class?: string;
-  folded?: boolean;
-}>();
+  class?: string
+  folded?: boolean
+}>()
 </script>
 
 <style lang="scss" scoped>

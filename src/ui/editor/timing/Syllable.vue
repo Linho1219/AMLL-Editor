@@ -32,6 +32,7 @@
 <script setup lang="ts">
 import { computed, nextTick, watch } from 'vue'
 
+import { audioEngine } from '@core/audio'
 import { type LyricLine, type LyricSyllable, View } from '@core/types'
 
 import { usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
@@ -54,12 +55,11 @@ const isSelected = computed(() => {
   return runtimeStore.selectedSyllables.has(props.syllable)
 })
 
-const audio = useStaticStore().audio
 const isActive = computed(
   () =>
     (props.syllable.startTime || props.syllable.endTime) &&
-    audio.amendedProgressComputed.value >= props.syllable.startTime &&
-    audio.amendedProgressComputed.value <= props.syllable.endTime,
+    audioEngine.amendedProgressComputed.value >= props.syllable.startTime &&
+    audioEngine.amendedProgressComputed.value <= props.syllable.endTime,
 )
 
 const emit = defineEmits<{

@@ -1,4 +1,4 @@
-export function provideListener<T=void>() {
+export function provideListener<T = void>() {
   const listeners = new Set<Listener>()
   type Listener = (e: T) => void
   const on = (listener: Listener) => (listeners.add(listener), () => listeners.delete(listener))

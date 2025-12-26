@@ -1,5 +1,6 @@
 import { toRaw } from 'vue'
 
+import { audioEngine } from '@core/audio'
 import type { Persist } from '@core/types'
 
 import { applyPersist, collectPersist } from '@states/services/port'
@@ -18,7 +19,7 @@ export function collectProjectData(createdAt?: Date): ProjPayload {
   const staticStore = useStaticStore()
   const prefStore = usePrefStore()
   const data = collectPersist()
-  const audioFile: File | null = toRaw(staticStore.audio.rawFileComputed.value)
+  const audioFile: File | null = toRaw(audioEngine.rawFileComputed.value)
   const payload: ProjPayload = { persist: data, createdAt }
   if (audioFile && prefStore.packAudioToProject) {
     payload.audioFile = audioFile
@@ -28,5 +29,5 @@ export function collectProjectData(createdAt?: Date): ProjPayload {
 
 export function mountProjectData(payload: ProjPayload) {
   applyPersist(payload.persist)
-  if (payload.audioFile) useStaticStore().audio.mount(payload.audioFile)
+  if (payload.audioFile) audioEngine.mount(payload.audioFile)
 }
