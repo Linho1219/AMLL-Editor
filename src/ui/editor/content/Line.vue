@@ -413,6 +413,10 @@ function handleRomanGenerate() {
   grid-template-columns: 1fr 1fr;
   padding: 0.5rem;
   gap: 0.5rem;
+  align-items: stretch;
+  .p-floatlabel {
+    display: flex;
+  }
 }
 .cline-content {
   flex: 1;
