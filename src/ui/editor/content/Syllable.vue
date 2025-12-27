@@ -43,6 +43,7 @@
         @focus="handleFocus"
         @compositionend="handleCompositionEnd"
         @blur="props.syllable.text = inputModel"
+        data-syllable-field
       />
     </div>
   </div>

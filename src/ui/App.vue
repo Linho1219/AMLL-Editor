@@ -27,6 +27,8 @@ import { View } from '@core/types'
 import { editHistory } from '@states/services/history'
 import { useCoreStore, usePrefStore, useRuntimeStore } from '@states/stores'
 
+import { isInputEl } from '@utils/isInputEl'
+
 import FontLoader from './components/FontLoader.vue'
 import DropDataConfirmModal from './dialogs/DropDataConfirmModal.vue'
 import ContentEditor from './editor/content/Editor.vue'
@@ -77,7 +79,7 @@ const handleRootKeydown = (e: KeyboardEvent) => {
   if (!hotkey) return
   if (shouldEscapeInInput(hotkey)) {
     if (e.target !== document.body && e.target instanceof HTMLInputElement) {
-      if (e.target.closest('input[type="text"], textarea, [contenteditable="true"]')) return
+      if (isInputEl(e.target)) return
       // Special handling for checkbox: Enter to toggle,
       // since space is taken by audio play/pause
       if (e.target.closest('input[type="checkbox"]') && e.code === 'Enter') {

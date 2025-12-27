@@ -86,7 +86,7 @@
           <div class="findreplace-range-title">匹配范围</div>
           <div class="findreplace-range-options">
             <div class="findreplace-range-option-item">
-              <Checkbox v-model="findInWords" inputId="findInWords" binary />
+              <Checkbox v-model="findInSyls" inputId="findInWords" binary />
               <label for="findInWords" class="findreplace-range-option-label">音节内容</label>
             </div>
             <div class="findreplace-range-option-item">
@@ -176,7 +176,7 @@
 </template>
 
 <script setup lang="ts">
-import { escapeRegExp } from 'lodash-es'
+import { escapeRegExp, find } from 'lodash-es'
 import { computed, readonly, ref, useTemplateRef, watch } from 'vue'
 
 import { useFindReplaceEngine } from '@core/findReplace'
@@ -184,6 +184,7 @@ import { useGlobalKeyboard } from '@core/hotkey'
 
 import { useRuntimeStore } from '@states/stores'
 
+import { isInputEl } from '@utils/isInputEl'
 import { sortSyllables } from '@utils/sortLineSyls'
 import { tryRaf } from '@utils/tryRaf'
 import type { TimeoutHandle } from '@utils/types'
@@ -204,7 +205,7 @@ const showOptions = ref(false)
 const findInput = ref('')
 const replaceInput = ref('')
 
-const findInWords = ref(true)
+const findInSyls = ref(true)
 const findInTranslations = ref(false)
 const findInRoman = ref(false)
 
@@ -232,7 +233,7 @@ const findInputInvalid = computed(() => {
   return false
 })
 const findRangeEmpty = computed(
-  () => !findInWords.value && !findInTranslations.value && !findInRoman.value,
+  () => !findInSyls.value && !findInTranslations.value && !findInRoman.value,
 )
 const actionDisabled = computed(() => findRangeEmpty.value || !compiledPattern.value)
 
@@ -243,6 +244,7 @@ watch(showOptions, (newVal) => {
     useRegex.value = false
     wrapSearch.value = true
     matchFullField.value = false
+    crossWordMatch.value = false
   }
 })
 watch(showReplace, (newVal) => {
@@ -253,7 +255,7 @@ const { handleFindNext, handleFindPrev, handleReplace, handleReplaceAll } = useF
   readonly({
     compiledPattern,
     replaceInput,
-    findInWords,
+    findInWords: findInSyls,
     findInTranslations,
     findInRoman,
     crossWordMatch,
@@ -269,22 +271,16 @@ const { handleFindNext, handleFindPrev, handleReplace, handleReplaceAll } = useF
 
 //#region Keyboard Shortcuts
 useGlobalKeyboard('find', () => {
-  if (visible.value && !showReplace.value) {
-    visible.value = false
-  } else {
-    if (!visible.value) visible.value = true
-    else focusFindInput()
-    showReplace.value = false
-  }
+  applyCurrentToFind()
+  if (!visible.value) visible.value = true
+  else focusFindInput()
+  showReplace.value = false
 })
 useGlobalKeyboard('replace', () => {
-  if (visible.value && showReplace.value) {
-    visible.value = false
-  } else {
-    if (!visible.value) visible.value = true
-    else focusFindInput()
-    showReplace.value = true
-  }
+  applyCurrentToFind()
+  if (!visible.value) visible.value = true
+  else focusFindInput()
+  showReplace.value = true
 })
 function handleFindInputKeydown(e: KeyboardEvent) {
   if (e.key === 'Enter' && !e.shiftKey) {
@@ -302,8 +298,62 @@ function handleReplaceInputKeydown(e: KeyboardEvent) {
   }
 }
 //#endregion
-
+const escapeRegOnUsing = (text: string) => (useRegex.value ? escapeRegExp(text) : text)
+function applyCurrentToFind() {
+  const nativeSel = window.getSelection()?.toString()
+  const activeEl = document.activeElement as HTMLElement | null
+  if (
+    nativeSel &&
+    activeEl &&
+    isInputEl(activeEl) &&
+    activeEl !== findInputComponent.value?.input &&
+    activeEl !== replaceInputComponent.value?.input
+  ) {
+    if (activeEl) {
+      if (activeEl.dataset.syllableField !== undefined) findInSyls.value = true
+      if (activeEl.dataset.lineFieldKey === 'translation') findInTranslations.value = true
+      if (activeEl.dataset.lineFieldKey === 'roman') findInRoman.value = true
+    }
+    const escapedSel = escapeRegOnUsing(nativeSel)
+    findInput.value = escapedSel
+    return
+  }
+  const sel = extractSylText() || extractLineText()
+  if (sel) {
+    findInSyls.value = true
+    findInput.value = escapeRegOnUsing(sel)
+    return
+  }
+  if (crossWordMatch.value || showReplace.value) return
+  const crossSel = extractSylText(true) || extractLineText(true)
+  if (crossSel) {
+    showOptions.value = true
+    crossWordMatch.value = true
+    findInSyls.value = true
+    findInput.value = escapeRegOnUsing(crossSel)
+    return
+  }
+}
+function extractSylText(forceCrossWordMatch: boolean = false): string | undefined {
+  if (crossWordMatch.value || forceCrossWordMatch)
+    return sortSyllables(...runtimeStore.selectedSyllables)
+      .map((s) => s.text)
+      .join('')
+      .trim()
+  if (runtimeStore.selectedSyllables.size !== 1) return
+  return runtimeStore.getFirstSelectedSyl()?.text.trim()
+}
+function extractLineText(forceCrossWordMatch: boolean = false): string | undefined {
+  if (!crossWordMatch.value && !forceCrossWordMatch) return
+  if (runtimeStore.selectedLines.size !== 1) return
+  return runtimeStore
+    .getFirstSelectedLine()!
+    .syllables.map((s) => s.text)
+    .join('')
+    .trim()
+}
 //#region Focus Management
+
 const focusFindInput = () => {
   tryRaf(() => {
     const inputEl = findInputComponent.value?.input
@@ -360,37 +410,26 @@ function handleDragLeave() {
   runtimeStore.canDrop = false
   runtimeStore.isDraggingCopy = false
 }
+function extractDropText() {
+  if (runtimeStore.isDraggingLine) return extractLineText()
+  else if (runtimeStore.isDraggingSyl) return extractSylText()
+}
 function handleDrop(where: 'find' | 'replace') {
   dragCounter = 0
   runtimeStore.canDrop = false
   runtimeStore.isDraggingCopy = false
-  let text = ''
-  if (crossWordMatch.value) {
-    if (!runtimeStore.isDragging) return
-    if (runtimeStore.isDraggingLine)
-      text = runtimeStore
-        .getFirstSelectedLine()!
-        .syllables.map((s) => s.text)
-        .join('')
-        .trim()
-    else
-      text = sortSyllables(...runtimeStore.selectedSyllables)
-        .map((s) => s.text)
-        .join('')
-        .trim()
-  } else {
-    if (!runtimeStore.isDraggingSyl || runtimeStore.selectedSyllables.size !== 1) return
-    text = (runtimeStore.getFirstSelectedSyl()?.text || '').trim()
-  }
-  if (!text.length) return
-  if (where === 'find') findInput.value = useRegex.value ? escapeRegExp(text) : text
+  const text = extractDropText()
+  if (!text) return
+  const escapedText = escapeRegOnUsing(text)
+  findInSyls.value = true
+  if (where === 'find') findInput.value = escapedText
   else replaceInput.value = text
-
-  requestAnimationFrame(() => {
-    const inputEl = (where === 'find' ? findInputComponent : replaceInputComponent).value?.input
+  const inputComponent = where === 'find' ? findInputComponent : replaceInputComponent
+  tryRaf(() => {
+    const inputEl = inputComponent.value?.input
     if (!inputEl) return
-    inputEl.focus()
-    inputEl.setSelectionRange(0, text.length)
+    inputEl.select()
+    return true
   })
 }
 //#endregion
