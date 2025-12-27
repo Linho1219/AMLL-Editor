@@ -5645,13 +5645,13 @@ pharmacy: phar-ma-cy
 exercises: e-xer-ci-ses
 intuition: in-tu-i-tion
 southwest: south-west
-superstar: su-pers-tar
+superstar: su-per-star
 considerate: con-si-de-rate
 difficulties: dif-fi-cul-ties
 breakthrough: break-through
 disappointing: di-sap-poin-ting
 unpredictable: un-pre-dic-ta-ble
-superstitious: su-pers-ti-tious
+superstitious: su-per-sti-tious
 Arab: A-rab
 manor: ma-nor
 kisser: kis-ser
@@ -8041,7 +8041,7 @@ confiscated: con-fis-ca-ted
 limitations: li-mi-ta-tions
 transported: trans-por-ted
 circumstance: cir-cums-tance
-superstition: su-pers-ti-tion
+superstition: su-per-sti-tion
 disrespectful: di-sres-pect-ful
 Congressional: Con-gres-sio-nal
 bono: bo-no
