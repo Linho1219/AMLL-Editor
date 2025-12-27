@@ -5931,7 +5931,7 @@ Correction: Cor-rec-tion
 foreigners: fo-reigners
 satellites: sa-tel-lites
 credibility: cre-di-bi-li-ty
-radioactive: ra-dio-ac-ti-ve
+radioactive: ra-di-o-ac-tive
 fingerprint: fin-ger-print
 broadcasting: broad-cas-ting
 cheeseburger: chee-se-burger
@@ -7716,7 +7716,7 @@ deliveries: de-li-veries
 melancholy: me-lanc-ho-ly
 undefeated: un-de-fea-ted
 admissions: ad-mis-sions
-treacherous: treac-he-rous
+treacherous: trea-che-rous
 Philippines: Phi-lip-pines
 constructive: cons-truc-tive
 discrimination: dis-cri-mi-na-tion
@@ -7980,7 +7980,7 @@ detonate: de-to-nate
 grinding: grin-ding
 prevented: pre-ven-ted
 commotion: com-mo-tion
-preaching: preac-hing
+preaching: prea-ching
 postcards: post-cards
 calculate: cal-cu-late
 communion: com-mu-nion
@@ -8087,7 +8087,7 @@ filmmaker: film-ma-ker
 charitable: cha-ri-ta-ble
 enchanting: enc-han-ting
 practising: prac-ti-sing
-cooperative: coo-pe-ra-ti-ve
+cooperative: co-o-pe-ra-tive
 pharmaceutical: phar-ma-ceu-ti-cal
 cosy: co-sy
 fiery: fi-e-ry
@@ -8503,7 +8503,7 @@ Underlay: Un-derlay
 specifics: spe-ci-fics
 examining: e-xa-mi-ning
 etiquette: e-ti-quette
-treachery: treac-he-ry
+treachery: trea-che-ry
 raspberry: rasp-ber-ry
 distinctly: dis-tinct-ly
 creativity: cre-a-ti-vi-ty
@@ -9205,7 +9205,7 @@ itinerary: i-ti-ne-ra-ry
 casserole: cas-se-role
 gunpowder: gun-pow-der
 lidocaine: li-do-caine
-lifeguard: li-feguard
+lifeguard: life-guard
 Alzheimer: Alz-hei-mer
 birthmark: birth-mark
 Bethlehem: Beth-le-hem
@@ -12251,7 +12251,7 @@ declaring: de-cla-ring
 struggles: strug-gles
 unrelated: un-re-la-ted
 imbalance: im-ba-lance
-intuitive: in-tui-ti-ve
+intuitive: in-tu-i-tive
 adversity: ad-ver-si-ty
 flashback: flash-back
 fugitives: fu-gi-tives
@@ -14850,7 +14850,7 @@ blabbing: blab-bing
 garments: gar-ments
 luminous: lu-mi-nous
 pristine: pris-tine
-reactive: re-acti-ve
+reactive: re-ac-tive
 unsavory: un-sa-vo-ry
 variable: va-ri-a-ble
 wheeling: whee-ling
@@ -15810,7 +15810,7 @@ whirling: whir-ling
 Enquirer: En-qui-rer
 factions: fac-tions
 bagpipes: bag-pipes
-breaches: breac-hes
+breaches: brea-ches
 lovesick: lo-vesick
 cackling: cac-kling
 Medicare: Me-di-care
@@ -16699,7 +16699,7 @@ contradictory: con-tra-dic-to-ry
 craftsmanship: craf-tsman-ship
 physiological: phy-sio-lo-gi-c-al
 substantially: subs-tan-tial-ly
-uncooperative: un-coo-pe-ra-ti-ve
+uncooperative: un-co-o-pe-ra-tive
 transatlantic: tran-sa-tlan-tic
 multinational: mul-ti-na-tio-nal
 fl: /
@@ -16907,7 +16907,7 @@ whirlpool: whirl-pool
 clamoring: cla-mo-ring
 feminists: fe-mi-nists
 hypnotize: hy-pno-tize
-proactive: proac-ti-ve
+proactive: pro-ac-tive
 chamomile: cha-mo-mile
 applicant: ap-pli-cant
 emissions: e-mis-sions
@@ -18581,7 +18581,7 @@ foothills: foo-thills
 bathhouse: bath-house
 Mongoloid: Mon-go-loid
 autopsies: au-to-psies
-preachers: preac-hers
+preachers: prea-chers
 jailbreak: jail-br-eak
 oppressor: op-pres-sor
 pessimist: pes-si-mist
@@ -19385,7 +19385,7 @@ swimmingly: swim-ming-ly
 unprovoked: un-pro-voked
 vertically: ver-ti-cally
 wisecracks: wi-secracks
-creatively: crea-ti-ve-ly
+creatively: cre-a-tive-ly
 cyberspace: cy-bers-pace
 editorials: e-di-to-ri-als
 fiberglass: fi-ber-glass
@@ -20281,7 +20281,7 @@ incessantly: in-ces-sant-ly
 inquisition: in-qui-si-tion
 mischievous: misc-hie-vous
 telephoning: te-le-pho-ning
-unreachable: un-reac-ha-ble
+unreachable: un-rea-cha-ble
 bullshitter: bulls-hitter
 diagnostics: dia-gnos-ti-cs
 instructive: ins-truc-tive
@@ -21279,7 +21279,7 @@ materialism: ma-te-ria-li-s-m
 nutritional: nu-tri-tio-nal
 friendliest: frien-dli-est
 planetarium: pla-ne-ta-ri-um
-retroactive: re-troac-ti-ve
+retroactive: re-tro-ac-tive
 simulations: si-mu-la-tions
 hydroponics: hy-dro-po-nics
 hyperactive: hy-pe-rac-tive
@@ -25312,7 +25312,7 @@ magnesia: ma-gne-sia
 Mounties: Moun-ties
 orgasmic: or-ga-smic
 postings: pos-tings
-preaches: preac-hes
+preaches: prea-ches
 readjust: read-ju-st
 reinvent: rein-ve-nt
 reprisal: re-pri-sal
@@ -25417,7 +25417,7 @@ motivator: mo-ti-va-tor
 outweighs: ou-tweighs
 palatable: pa-la-ta-ble
 proclaims: pro-claims
-reachable: reac-ha-ble
+reachable: rea-cha-ble
 reloading: re-loa-ding
 sprouting: sprou-ting
 tiptoeing: tip-toe-ing
@@ -25456,7 +25456,7 @@ sleazebag: slea-ze-bag
 sleepwalk: slee-pwalk
 unleashes: un-leas-hes
 birdhouse: bird-house
-breaching: breac-hing
+breaching: brea-ching
 bungalows: bun-ga-lows
 denigrate: de-ni-grate
 depletion: de-ple-tion
@@ -29029,7 +29029,7 @@ messier: mes-si-er
 ninnies: nin-nies
 nuptial: nup-tial
 parable: pa-ra-ble
-preachy: preac-hy
+preachy: prea-chy
 pursuer: pur-su-er
 pursues: pur-sues
 puzzler: puz-zler
@@ -29644,7 +29644,7 @@ implanting: im-plan-ting
 impounding: im-poun-ding
 insinuated: in-si-nua-t-ed
 intervenes: in-ter-venes
-intuitions: in-tui-tions
+intuitions: in-tu-i-tions
 levitation: le-vi-ta-tion
 lumberyard: lum-be-ryard
 menopausal: me-no-pau-sal
@@ -31253,9 +31253,9 @@ inordinately: i-nor-di-nate-ly
 longstanding: longs-tan-ding
 loudspeakers: louds-pea-kers
 malnourished: mal-nou-rished
-overreaching: o-ver-reac-hing
+overreaching: o-ver-rea-ching
 overthrowing: o-ver-thro-wing
-preemptively: preemp-ti-ve-ly
+preemptively: pre-emp-tive-ly
 preparedness: pre-pa-red-ness
 prepubescent: pre-pu-bes-cent
 safeguarding: sa-fe-guarding
@@ -34646,7 +34646,7 @@ oversensitive: o-ver-sen-si-tive
 paediatrician: pae-dia-tri-ci-an
 preprogrammed: pre-pro-grammed
 reintegrating: rein-te-gra-ting
-retroactively: re-troac-ti-ve-ly
+retroactively: re-tro-ac-tive-ly
 revolutionise: re-vo-lu-tio-nise
 statesmanship: sta-te-smanship
 subcontracted: sub-con-trac-ted
@@ -36600,7 +36600,7 @@ indefinable: in-de-fi-na-ble
 inflections: in-flec-tions
 instigation: ins-ti-ga-tion
 intermingle: in-ter-min-gle
-intuitively: in-tui-ti-ve-ly
+intuitively: in-tu-i-tive-ly
 judiciously: ju-di-cious-ly
 locomotives: lo-co-mo-tives
 manoeuvring: ma-noe-uvring
@@ -42564,7 +42564,7 @@ molybdenum: mo-lyb-de-num
 mongoloids: mon-go-loids
 monopolise: mo-no-po-lise
 mortuaries: mor-tua-ri-es
-motiveless: moti-ve-less
+motiveless: mo-tive-less
 multilevel: mul-ti-le-vel
 mushroomed: mus-hroomed
 narratives: nar-ra-tives
@@ -42585,7 +42585,7 @@ outnumbers: ou-tnum-bers
 outperform: out-per-form
 overfilled: o-verfilled
 overruling: o-ver-ru-ling
-palliative: pal-lia-ti-ve
+palliative: pal-li-a-tive
 paperclips: pa-perclips
 Paraguayan: Pa-ra-gua-yan
 paralytics: pa-ra-ly-tics
@@ -43225,7 +43225,7 @@ likeability: li-kea-bi-li-ty
 mechanistic: mec-ha-nis-tic
 mistrustful: mis-trust-ful
 nasturtiums: nas-tur-tiums
-nonreactive: non-reac-ti-ve
+nonreactive: non-re-ac-tive
 pantheistic: pan-theis-t-ic
 peccadillos: pec-ca-dil-los
 perambulate: pe-ram-bu-late
@@ -43784,7 +43784,7 @@ schistosomiasis: schis-to-so-mia-sis
 sympathomimetic: sym-pa-tho-mi-me-tic
 astrobiologists: as-tro-bio-lo-gists
 succinylcholine: suc-ci-nylc-ho-line
-counterintuitive: coun-te-rin-tui-tive
+counterintuitive: coun-ter-in-tu-i-tive
 dissatisfactions: dis-sa-tis-fac-tions
 electromagnetism: e-lec-tro-ma-gne-ti-sm
 environmentalism: en-vi-ron-men-ta-li-sm
@@ -46012,7 +46012,7 @@ instable: ins-ta-ble
 instants: ins-tants
 integers: in-te-gers
 intercut: in-tercut
-intuited: in-tui-ted
+intuited: in-tu-i-ted
 islander: i-slan-der
 isotonic: i-so-to-nic
 Jacobean: Ja-co-be-an
@@ -48138,7 +48138,7 @@ unassailed: u-nas-sailed
 unbleached: un-bleached
 unconfined: un-con-fined
 unconsoled: un-con-soled
-uncreative: un-crea-ti-ve
+uncreative: un-cre-a-tive
 uncredited: un-cre-dited
 uncritical: un-cri-ti-cal
 undershoot: un-dershoot
@@ -48824,7 +48824,7 @@ trademarked: tra-demarked
 traffickers: traf-fic-kers
 transacting: tran-sac-ting
 transpiring: trans-pi-ring
-treacheries: treac-heries
+treacheries: trea-cheries
 trepanation: tre-pa-na-tion
 tribulation: tri-bu-la-tion
 Triceratops: Tri-ce-ra-tops
@@ -49525,7 +49525,7 @@ transmittable: tran-smit-ta-ble
 transpersonal: trans-per-so-nal
 transportable: trans-por-ta-ble
 transthoracic: trans-tho-ra-cic
-treacherously: treac-he-rously
+treacherously: trea-che-rously
 Unadventurous: U-na-dven-turous
 uncompromised: un-com-pro-mised
 unconsecrated: un-con-se-crated
