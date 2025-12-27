@@ -16,7 +16,7 @@
       draggable="true"
       @mousedown="handleMousedown"
       @click="handleClick"
-      @dblclick="handleDbClick"
+      @dblclick.stop="handleDbClick"
       @dragstart="handleDragStart"
       @dragend="handleDragEnd"
     >
@@ -27,7 +27,7 @@
         {{ props.syllable.placeholdingBeat }}
       </div>
     </div>
-    <div class="csyl-input-shell" :class="{ focused: focused }">
+    <div class="csyl-input-shell" :class="{ focused }">
       <div class="csyl-input-widthcontrol csyl-input-alike">
         {{ widthController }}
       </div>
@@ -95,6 +95,9 @@ watch(
 watch(inputModel, (val) => {
   if (!focused.value) props.syllable.text = val
 })
+function handleDbClick() {
+  inputEl.value?.select()
+}
 
 // Selection
 const touch = () => {
@@ -136,9 +139,6 @@ function handleMousedown(e: MouseEvent) {
 function handleClick(e: MouseEvent) {
   if (leftForClick && (e.ctrlKey || e.metaKey)) runtimeStore.removeSylFromSelection(props.syllable)
   leftForClick = false
-}
-function handleDbClick() {
-  inputEl.value?.select()
 }
 function handleFocus() {
   if (isSelected.value && runtimeStore.selectedSyllables.size === 1) return
