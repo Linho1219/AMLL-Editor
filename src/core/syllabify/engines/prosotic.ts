@@ -27,8 +27,16 @@ export async function prosoticSplit(
       const lengths = dict.get(key)!
       if (!lengths) return [part]
       return splitTextByLengths(part, lengths)
-    } else {
-      return compromiseSplitCore(nlpWithPlg, part)
     }
+    if (key.endsWith('in')) {
+      // handle g dropping cases like "runnin", "singin"
+      const altKey = key + 'g'
+      if (dict.has(altKey)) {
+        const lengths = dict.get(altKey)!
+        if (!lengths) return [part]
+        return splitTextByLengths(part, lengths)
+      }
+    }
+    return compromiseSplitCore(nlpWithPlg, part)
   })
 }
