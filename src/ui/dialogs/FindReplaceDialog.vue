@@ -84,10 +84,14 @@
       <div class="findreplace-params">
         <div class="findreplace-range">
           <div class="findreplace-range-title">匹配范围</div>
-          <div class="findreplace-range-options">
+          <div class="findreplace-range-options" :class="{ 'two-cols': prefStore.showSylLvlRoman }">
             <div class="findreplace-range-option-item">
               <Checkbox v-model="findInSyls" inputId="findInWords" binary />
               <label for="findInWords" class="findreplace-range-option-label">音节内容</label>
+            </div>
+            <div class="findreplace-range-option-item" v-if="prefStore.showSylLvlRoman">
+              <Checkbox v-model="findInSylRomanModel" inputId="findInSylRoman" binary />
+              <label for="findInSylRoman" class="findreplace-range-option-label">音节音译</label>
             </div>
             <div class="findreplace-range-option-item">
               <Checkbox v-model="findInTranslations" inputId="findInTranslations" binary />
@@ -95,7 +99,9 @@
             </div>
             <div class="findreplace-range-option-item">
               <Checkbox v-model="findInRoman" inputId="findInRoman" binary />
-              <label for="findInRoman" class="findreplace-range-option-label">音译</label>
+              <label for="findInRoman" class="findreplace-range-option-label">{{
+                prefStore.showSylLvlRoman ? '行音译' : '音译'
+              }}</label>
             </div>
           </div>
         </div>
@@ -182,7 +188,7 @@ import { computed, readonly, ref, useTemplateRef, watch } from 'vue'
 import { useFindReplaceEngine } from '@core/findReplace'
 import { useGlobalKeyboard } from '@core/hotkey'
 
-import { useRuntimeStore } from '@states/stores'
+import { usePrefStore, useRuntimeStore } from '@states/stores'
 
 import { isInputEl } from '@utils/isInputEl'
 import { sortSyllables } from '@utils/sortLineSyls'
@@ -197,6 +203,7 @@ import { useToast } from 'primevue/usetoast'
 const [visible] = defineModel<boolean>({ required: true })
 
 const runtimeStore = useRuntimeStore()
+const prefStore = usePrefStore()
 const toast = useToast()
 
 const showReplace = ref(false)
@@ -206,8 +213,10 @@ const findInput = ref('')
 const replaceInput = ref('')
 
 const findInSyls = ref(true)
+const findInSylRomanModel = ref(false)
 const findInTranslations = ref(false)
 const findInRoman = ref(false)
+const findInSylRoman = computed(() => prefStore.showSylLvlRoman && findInSylRomanModel.value)
 
 const matchCase = ref(false)
 const matchWholeWord = ref(false)
@@ -255,7 +264,8 @@ const { handleFindNext, handleFindPrev, handleReplace, handleReplaceAll } = useF
   readonly({
     compiledPattern,
     replaceInput,
-    findInWords: findInSyls,
+    findInSyls,
+    findInSylRoman,
     findInTranslations,
     findInRoman,
     crossWordMatch,
@@ -311,25 +321,38 @@ const escapeRegOnUsing = (text: string) => (useRegex.value ? escapeRegExp(text) 
 function applyCurrentToFind() {
   const nativeSel = window.getSelection()?.toString()
   const activeEl = document.activeElement as HTMLElement | null
+  let inputSel = nativeSel
   if (
-    nativeSel &&
     activeEl &&
     isInputEl(activeEl) &&
     activeEl !== findInputComponent.value?.input &&
     activeEl !== replaceInputComponent.value?.input
   ) {
-    if (activeEl) {
+    if (activeEl)
       if (activeEl.dataset.syllableField !== undefined) {
         findInSyls.value = true
         disableCrossMatch()
+        inputSel ||= (activeEl as HTMLInputElement).value
+      } else if (activeEl.dataset.syllableRomanField !== undefined) {
+        findInSylRomanModel.value = true
+        disableCrossMatch()
+        inputSel ||= (activeEl as HTMLInputElement).value
+      } else if (activeEl.dataset.lineFieldKey === 'translation') {
+        findInTranslations.value = true
+        inputSel ||= (activeEl as HTMLInputElement).value
+      } else if (activeEl.dataset.lineFieldKey === 'roman') {
+        findInRoman.value = true
+        inputSel ||= (activeEl as HTMLInputElement).value
       }
-      if (activeEl.dataset.lineFieldKey === 'translation') findInTranslations.value = true
-      if (activeEl.dataset.lineFieldKey === 'roman') findInRoman.value = true
+    inputSel = inputSel?.trim()
+    console.log('applyCurrentToFind', { nativeSel, inputSel, activeEl })
+    if (inputSel) {
+      const escapedSel = escapeRegOnUsing(inputSel)
+      findInput.value = escapedSel
+      return
     }
-    const escapedSel = escapeRegOnUsing(nativeSel)
-    findInput.value = escapedSel
-    return
   }
+
   const sel = extractSylText()
   if (sel) {
     disableCrossMatch()
@@ -523,9 +546,14 @@ function handleDrop(where: 'find' | 'replace') {
   flex-shrink: 0;
 }
 .findreplace-range-options {
-  display: flex;
-  gap: 1.2rem;
+  display: grid;
+  row-gap: 0.4rem;
+  column-gap: 1.2rem;
   align-items: center;
+  grid-template-columns: auto auto auto;
+  &.two-cols {
+    grid-template-columns: auto auto;
+  }
 }
 .findreplace-range-option-item {
   display: flex;

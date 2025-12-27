@@ -60,7 +60,7 @@
         @focus="handleFocus"
         @blur="flushRomanModel"
         @compositionend="hijackCompositionBackquote"
-        data-syllable-field
+        data-syllable-roman-field
       />
     </div>
   </div>
@@ -489,6 +489,21 @@ function __focusGivenInput(
     elRef.value.setSelectionRange(cursor, cursor)
   } else elRef.value.setSelectionRange(position, position)
 }
+function __hightLightGivenInput(elRef: Ref<Maybe<HTMLInputElement>>) {
+  if (!elRef.value) return
+  document.querySelectorAll('.p-inputtext[data-highlight]').forEach((el) => {
+    delete (el as HTMLInputElement).dataset.highlight
+  })
+  const el = elRef.value
+  if (highlightTimeout !== undefined) clearTimeout(highlightTimeout)
+  delete el.dataset.highlight
+  void el.offsetHeight
+  el.dataset.highlight = ''
+  highlightTimeout = setTimeout(() => {
+    delete el.dataset.highlight
+    highlightTimeout = undefined
+  }, 2000)
+}
 const hooks: SylComponentActions = {
   focusInput: (position = undefined) => {
     __focusGivenInput(focused, inputEl, position)
@@ -496,21 +511,8 @@ const hooks: SylComponentActions = {
   focusRomanInput: (position = undefined) => {
     __focusGivenInput(romanFocused, romanInputEl, position)
   },
-  hightLightInput: () => {
-    if (!inputEl.value) return
-    document.querySelectorAll('.p-inputtext[data-highlight]').forEach((el) => {
-      delete (el as HTMLInputElement).dataset.highlight
-    })
-    const el = inputEl.value
-    if (highlightTimeout !== undefined) clearTimeout(highlightTimeout)
-    delete el.dataset.highlight
-    void el.offsetHeight
-    el.dataset.highlight = ''
-    highlightTimeout = setTimeout(() => {
-      delete el.dataset.highlight
-      highlightTimeout = undefined
-    }, 2000)
-  },
+  hightLightInput: () => __hightLightGivenInput(inputEl),
+  hightLightRoman: () => __hightLightGivenInput(romanInputEl),
 }
 onMounted(() => {
   staticStore.syllableHooks.set(props.syllable.id, hooks)
