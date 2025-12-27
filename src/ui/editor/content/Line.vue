@@ -67,15 +67,33 @@
       <div class="cline-secondary" ref="secondaryInputShellEl">
         <template v-for="f in orderedFields" :key="f.key">
           <FloatLabel variant="on">
-            <InputText
-              fluid
-              v-model.lazy="props.line[f.model]"
-              @focus="handleFocus"
-              @mousedown.stop
-              @click.stop
-              @dragstart.stop
-              :data-line-field-key="f.key"
-            />
+            <InputGroup>
+              <InputText
+                fluid
+                v-model.lazy="props.line[f.model]"
+                @focus="handleFocus"
+                @mousedown.stop
+                @click.stop
+                @dragstart.stop
+                :data-line-field-key="f.key"
+              />
+              <template v-if="f.key === 'roman' && prefStore.showSylLvlRoman">
+                <InputGroupAddon>
+                  <Button
+                    icon="pi pi-sort-amount-up"
+                    severity="secondary"
+                    @click="handleRomanApply"
+                  />
+                </InputGroupAddon>
+                <InputGroupAddon>
+                  <Button
+                    icon="pi pi-sort-amount-down"
+                    severity="secondary"
+                    @click="handleRomanGenerate"
+                  />
+                </InputGroupAddon>
+              </template>
+            </InputGroup>
             <label>{{ f.label }}</label>
           </FloatLabel>
         </template>
@@ -98,7 +116,7 @@ import { sortIndex } from '@utils/sortLineSyls'
 import type { TimeoutHandle } from '@utils/types'
 
 import InputText from '@ui/components/InputText.vue'
-import { Button, FloatLabel } from 'primevue'
+import { Button, FloatLabel, InputGroup, InputGroupAddon } from 'primevue'
 
 const props = defineProps<{
   line: LyricLine
@@ -251,6 +269,25 @@ onUnmounted(() => {
   if (staticStore.lineHooks.get(props.line.id) === lineHooks)
     staticStore.lineHooks.delete(props.line.id)
 })
+
+function handleRomanApply() {
+  if (!prefStore.showSylLvlRoman || !props.line.syllables.length) return
+  const romans = props.line.romanization.split(/[\s,']+/)
+  for (const syl of props.line.syllables) {
+    if (!romans.length) break
+    if (!syl.text.trim()) continue
+    const sylRomans = romans.splice(0, syl.placeholdingBeat + 1)
+    syl.romanization = sylRomans.join(' ')
+  }
+  if (romans.length > 0) props.line.syllables.at(-1)!.romanization += ' ' + romans.join(' ')
+}
+function handleRomanGenerate() {
+  if (!prefStore.showSylLvlRoman || !props.line.syllables.length) return
+  const generatedRomans = props.line.syllables
+    .map((syl) => syl.romanization)
+    .filter((r) => r.trim())
+  props.line.romanization = generatedRomans.join(' ').replace(/\s+/g, ' ')
+}
 </script>
 
 <style lang="scss">

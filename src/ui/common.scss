@@ -318,3 +318,7 @@ hr {
     opacity: 0;
   }
 }
+
+.p-floatlabel-on > label {
+  z-index: 3;
+}
