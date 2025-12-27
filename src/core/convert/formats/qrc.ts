@@ -9,7 +9,7 @@ import type { Convert as CV } from '../types'
 // QRC is a lyric format used by QQ Music
 
 // Format:
-// [line1Start,line1Duration](syl1Start,syl1Duration)syl1(syl2Start,syl2Duration)syl2...\n
+// [line1Start,line1Duration]syl1(syl1Start,syl1Duration)syl2(syl2Start,syl2Duration)...\n
 // [line2Start,line2Duration]...
 
 // Example:
@@ -35,13 +35,20 @@ export function parseQRC(qrc: string) {
 
       const sylPattern = /([^\(]*)\((\d+),(\d+)\)/g
       const sylMatches = lineStr.slice(lMatchStr.length).matchAll(sylPattern)
-      const syls = [...sylMatches].map((match) => {
-        const [, wText, wStartStr, wDurStr] = match
-        return coreCreate.newSyllable({
-          text: wText,
-          startTime: Number(wStartStr),
-          endTime: Number(wStartStr) + Number(wDurStr),
-        })
+      const syls = [...sylMatches].flatMap((match) => {
+        const [, sText, sStartStr, sDurStr] = match
+        if (sStartStr === undefined || sDurStr === undefined || sText === undefined) return []
+        const trimedText = sText.trim()
+        const syls = [
+          coreCreate.newSyllable({
+            text: trimedText,
+            startTime: Number(sStartStr),
+            endTime: Number(sStartStr) + Number(sDurStr),
+          }),
+        ]
+        if (sText.startsWith(' ')) syls.unshift(coreCreate.newSyllable({ text: ' ' }))
+        if (sText.endsWith(' ')) syls.push(coreCreate.newSyllable({ text: ' ' }))
+        return syls
       })
 
       return coreCreate.newLine({
