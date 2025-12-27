@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 
 import { ms2str, str2ms } from '@utils/formatTime'
+import type { Maybe } from '@utils/types'
 
 export type BooleanKeys<T> = {
   [K in keyof T]: T[K] extends boolean ? K : never
@@ -40,7 +41,7 @@ export function itemTimeInput<T extends { startTime: number; endTime: number }>(
   const setOnlyOne = computed(() => itemSet.size === 1)
   const setFirstItem = computed(() => itemSet.values().next().value)
   const getTimeComputed = (timeKey: 'startTime' | 'endTime') =>
-    computed<string | null | undefined>({
+    computed<Maybe<string>>({
       get() {
         if (!setFirstItem.value) return '' // empty set
         if (setOnlyOne.value) return ms2str(setFirstItem.value[timeKey])

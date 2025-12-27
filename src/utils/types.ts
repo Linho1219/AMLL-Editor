@@ -15,4 +15,4 @@ export type Expect<T extends true> = T
 
 export type UnionKeys<T extends object> = T extends any ? keyof T : never
 
-export type SimpleType = string | number | boolean | bigint | symbol | null | undefined
+export type Maybe<T> = T | null | undefined

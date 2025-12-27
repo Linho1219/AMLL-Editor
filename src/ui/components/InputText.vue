@@ -10,6 +10,8 @@
 <script setup lang="ts">
 import { onMounted, ref, shallowRef, useTemplateRef, watch } from 'vue'
 
+import type { Maybe } from '@utils/types'
+
 import { InputText, type InputTextProps } from 'primevue'
 
 defineProps</* @vue-ignore */ InputTextProps>()
@@ -21,9 +23,9 @@ onMounted(() => (inputEl.value = (inputComponent.value as any).$el as HTMLInputE
 defineExpose({ input: inputEl })
 
 // better v-model handling with modifiers
-const [model, modifiers] = defineModel<string | null | undefined>()
-const innerModel = ref<string | null | undefined>(model.value)
-function processor(val: string | null | undefined) {
+const [model, modifiers] = defineModel<Maybe<string>>()
+const innerModel = ref<Maybe<string>>(model.value)
+function processor(val: Maybe<string>) {
   if (modifiers.trim) val = val?.trim()
   return val
 }

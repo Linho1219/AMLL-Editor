@@ -26,6 +26,7 @@ export interface LineComponentActions {
 }
 export interface SylComponentActions {
   focusInput: (position?: number) => void
+  focusRomanInput: (position?: number) => void
   hightLightInput: () => void
 }
 export interface EditorComponentActions {

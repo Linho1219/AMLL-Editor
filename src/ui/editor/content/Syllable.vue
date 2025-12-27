@@ -56,7 +56,7 @@
         class="csyl-roman-input"
         size="small"
         v-model="romanModel"
-        @keydown="handleKeydown"
+        @keydown="handleRomanKeydown"
         @focus="handleFocus"
         @blur="flushRomanModel"
         data-syllable-field
@@ -67,6 +67,7 @@
 <script setup lang="ts">
 import { useFocus } from '@vueuse/core'
 import {
+  type Ref,
   computed,
   nextTick,
   onMounted,
@@ -87,7 +88,7 @@ import { forceOutsideBlur } from '@utils/forceOutsideBlur'
 import { sortIndex } from '@utils/sortLineSyls'
 import { toLazyModel } from '@utils/toLazyModel'
 import { digit2Sup } from '@utils/toSupSub'
-import type { TimeoutHandle } from '@utils/types'
+import type { Maybe, TimeoutHandle } from '@utils/types'
 
 import InputText from '@ui/components/InputText.vue'
 
@@ -266,6 +267,24 @@ function handleKeydown(event: KeyboardEvent) {
       nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusInput(0))
       return
     }
+    case 'Tab': {
+      // Focus next/prev syllable
+      event.preventDefault()
+      const delta = event.shiftKey ? -1 : 1
+      const nextSyl =
+        props.parent.syllables[props.index + delta] ??
+        coreStore.lyricLines[props.lineIndex + delta]?.syllables.at(delta > 0 ? 0 : -1)
+      if (!nextSyl) return
+      nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusInput())
+      return
+    }
+    case 'ArrowDown': {
+      // Focus romanization input
+      if (!prefStore.showSylLvlRoman) return
+      event.preventDefault()
+      nextTick(() => romanInputEl.value?.select())
+      return
+    }
     case 'Backquote': {
       // Break syllable at cursor
       if (event.shiftKey || event.ctrlKey || event.metaKey || event.altKey) return
@@ -290,6 +309,49 @@ function handleKeydown(event: KeyboardEvent) {
     }
   }
 }
+function handleRomanKeydown(event: KeyboardEvent) {
+  switch (event.code) {
+    case 'ArrowUp': {
+      // Focus syllable input
+      event.preventDefault()
+      nextTick(() => inputEl.value?.select())
+      return
+    }
+    case 'ArrowLeft': {
+      // If at start, focus previous syllable's romanization
+      if (romanInputEl.value?.selectionStart !== 0 || props.index === 0) return
+      event.preventDefault()
+      const prevSyl = props.parent.syllables[props.index - 1]
+      if (!prevSyl) return
+      nextTick(() => staticStore.syllableHooks.get(prevSyl.id)?.focusRomanInput(-1))
+      return
+    }
+    case 'ArrowRight': {
+      // If at end, focus next syllable's romanization
+      if (
+        romanInputEl.value?.selectionStart !== romanInputEl.value?.value.length ||
+        props.index === props.parent.syllables.length - 1
+      )
+        return
+      event.preventDefault()
+      const nextSyl = props.parent.syllables[props.index + 1]
+      if (!nextSyl) return
+      nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusRomanInput(0))
+      return
+    }
+    case 'Tab': {
+      // Focus next/prev syllable's romanization
+      event.preventDefault()
+      const delta = event.shiftKey ? -1 : 1
+      const nextSyl =
+        props.parent.syllables[props.index + delta] ??
+        coreStore.lyricLines[props.lineIndex + delta]?.syllables.at(delta > 0 ? 0 : -1)
+      if (!nextSyl) return
+      nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusRomanInput())
+      return
+    }
+  }
+}
 function handleCompositionEnd(_e: CompositionEvent) {
   const pos = inputEl.value?.selectionStart || 0
   const lastChar = inputModel.value.charAt(pos - 1)
@@ -301,19 +363,29 @@ function handleCompositionEnd(_e: CompositionEvent) {
 
 // Register hooks
 let highlightTimeout: TimeoutHandle | undefined = undefined
+function __focusGivenInput(
+  focusRef: Ref<boolean>,
+  elRef: Ref<Maybe<HTMLInputElement>>,
+  position?: number,
+) {
+  focusRef.value = true
+  if (!elRef.value) {
+    console.warn('Input element not found')
+    return
+  }
+  if (position === undefined || Number.isNaN(position)) elRef.value.select()
+  else if (position < 0) {
+    const length = elRef.value.value.length
+    const cursor = length + position + 1
+    elRef.value.setSelectionRange(cursor, cursor)
+  } else elRef.value.setSelectionRange(position, position)
+}
 const hooks: SylComponentActions = {
   focusInput: (position = undefined) => {
-    focused.value = true
-    if (!inputEl.value) {
-      console.warn('Input element not found')
-      return
-    }
-    if (position === undefined || Number.isNaN(position)) inputEl.value.select()
-    else if (position < 0) {
-      const length = props.syllable.text.length
-      const cursor = length + position + 1
-      inputEl.value.setSelectionRange(cursor, cursor)
-    } else inputEl.value.setSelectionRange(position, position)
+    __focusGivenInput(focused, inputEl, position)
+  },
+  focusRomanInput: (position = undefined) => {
+    __focusGivenInput(romanFocused, romanInputEl, position)
   },
   hightLightInput: () => {
     if (!inputEl.value) return
