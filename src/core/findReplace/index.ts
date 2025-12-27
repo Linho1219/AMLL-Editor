@@ -1,4 +1,4 @@
-import { type Reactive, computed, shallowRef, watch } from 'vue'
+import { type Reactive, computed, nextTick, shallowRef, watch } from 'vue'
 
 import { View } from '@core/types'
 
@@ -71,9 +71,17 @@ export function useFindReplaceEngine(
     return { lineIndex, field: PF.Whole }
   }
   const currPos = shallowRef<FR.AbstractPos | null>(null)
+  let isTriggeredBySelf = false
   watch(
     [() => runtimeStore.selectedLines, () => runtimeStore.selectedSyllables],
-    () => (currPos.value = getCurrPos()),
+    () =>
+      nextTick(() => {
+        if (isTriggeredBySelf) {
+          isTriggeredBySelf = false
+          return
+        }
+        currPos.value = getCurrPos()
+      }),
     { immediate: true, deep: true },
   )
 
@@ -242,6 +250,7 @@ export function useFindReplaceEngine(
     }
   }
   function focusPosInEditor(pos: FR.AbstractPos) {
+    isTriggeredBySelf = true
     let shouldSwitchToContent = false
     switch (pos.field) {
       case PF.Whole: {

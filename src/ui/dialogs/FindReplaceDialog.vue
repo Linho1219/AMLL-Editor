@@ -45,7 +45,7 @@
           @dragenter="handleDragEnter"
           @dragleave="handleDragLeave"
           @dragover="handleDragOver"
-          @drop="() => handleDrop('find')"
+          @drop.prevent="() => handleDrop('find')"
         >
           <IftaLabel>
             <InputText
@@ -66,7 +66,7 @@
             @dragenter="handleDragEnter"
             @dragleave="handleDragLeave"
             @dragover="handleDragOver"
-            @drop="() => handleDrop('replace')"
+            @drop.prevent="() => handleDrop('replace')"
           >
             <IftaLabel>
               <InputText
@@ -176,7 +176,7 @@
 </template>
 
 <script setup lang="ts">
-import { escapeRegExp, find } from 'lodash-es'
+import { escapeRegExp } from 'lodash-es'
 import { computed, readonly, ref, useTemplateRef, watch } from 'vue'
 
 import { useFindReplaceEngine } from '@core/findReplace'
@@ -298,6 +298,15 @@ function handleReplaceInputKeydown(e: KeyboardEvent) {
   }
 }
 //#endregion
+
+function enableCrossMatch() {
+  showOptions.value = true
+  crossWordMatch.value = true
+  matchFullField.value = false
+}
+function disableCrossMatch() {
+  crossWordMatch.value = false
+}
 const escapeRegOnUsing = (text: string) => (useRegex.value ? escapeRegExp(text) : text)
 function applyCurrentToFind() {
   const nativeSel = window.getSelection()?.toString()
@@ -310,7 +319,10 @@ function applyCurrentToFind() {
     activeEl !== replaceInputComponent.value?.input
   ) {
     if (activeEl) {
-      if (activeEl.dataset.syllableField !== undefined) findInSyls.value = true
+      if (activeEl.dataset.syllableField !== undefined) {
+        findInSyls.value = true
+        disableCrossMatch()
+      }
       if (activeEl.dataset.lineFieldKey === 'translation') findInTranslations.value = true
       if (activeEl.dataset.lineFieldKey === 'roman') findInRoman.value = true
     }
@@ -318,24 +330,24 @@ function applyCurrentToFind() {
     findInput.value = escapedSel
     return
   }
-  const sel = extractSylText() || extractLineText()
+  const sel = extractSylText()
   if (sel) {
+    disableCrossMatch()
     findInSyls.value = true
     findInput.value = escapeRegOnUsing(sel)
     return
   }
-  if (crossWordMatch.value || showReplace.value) return
+  if (showReplace.value) return
   const crossSel = extractSylText(true) || extractLineText(true)
   if (crossSel) {
-    showOptions.value = true
-    crossWordMatch.value = true
+    enableCrossMatch()
     findInSyls.value = true
     findInput.value = escapeRegOnUsing(crossSel)
     return
   }
 }
-function extractSylText(forceCrossWordMatch: boolean = false): string | undefined {
-  if (crossWordMatch.value || forceCrossWordMatch)
+function extractSylText(crossWordMatch: boolean = false): string | undefined {
+  if (crossWordMatch)
     return sortSyllables(...runtimeStore.selectedSyllables)
       .map((s) => s.text)
       .join('')
@@ -343,8 +355,8 @@ function extractSylText(forceCrossWordMatch: boolean = false): string | undefine
   if (runtimeStore.selectedSyllables.size !== 1) return
   return runtimeStore.getFirstSelectedSyl()?.text.trim()
 }
-function extractLineText(forceCrossWordMatch: boolean = false): string | undefined {
-  if (!crossWordMatch.value && !forceCrossWordMatch) return
+function extractLineText(crossWordMatch: boolean = false): string | undefined {
+  if (!crossWordMatch) return
   if (runtimeStore.selectedLines.size !== 1) return
   return runtimeStore
     .getFirstSelectedLine()!
@@ -395,11 +407,7 @@ function handleDragEnter() {
   dragCounter++
 }
 function handleDragOver(e: DragEvent) {
-  if (crossWordMatch.value) {
-    if (!runtimeStore.isDragging) return
-  } else {
-    if (!runtimeStore.isDraggingSyl || runtimeStore.selectedSyllables.size !== 1) return
-  }
+  if (!runtimeStore.isDragging) return
   e.preventDefault()
   runtimeStore.canDrop = true
   runtimeStore.isDraggingCopy = true
@@ -411,19 +419,23 @@ function handleDragLeave() {
   runtimeStore.isDraggingCopy = false
 }
 function extractDropText() {
-  if (runtimeStore.isDraggingLine) return extractLineText()
-  else if (runtimeStore.isDraggingSyl) return extractSylText()
+  if (runtimeStore.isDraggingLine) return { text: extractLineText(true), cross: true }
+  if (runtimeStore.selectedSyllables.size > 1) return { text: extractSylText(true), cross: true }
+  return { text: extractSylText(), cross: false }
 }
 function handleDrop(where: 'find' | 'replace') {
   dragCounter = 0
   runtimeStore.canDrop = false
   runtimeStore.isDraggingCopy = false
-  const text = extractDropText()
+  const { text, cross } = extractDropText()
   if (!text) return
+  findInSyls.value = true
   const escapedText = escapeRegOnUsing(text)
   findInSyls.value = true
   if (where === 'find') findInput.value = escapedText
   else replaceInput.value = text
+  if (cross) enableCrossMatch()
+  else disableCrossMatch()
   const inputComponent = where === 'find' ? findInputComponent : replaceInputComponent
   tryRaf(() => {
     const inputEl = inputComponent.value?.input
