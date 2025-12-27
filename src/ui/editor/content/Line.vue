@@ -83,6 +83,7 @@
                     icon="pi pi-sort-amount-up"
                     severity="secondary"
                     @click="handleRomanApply"
+                    v-tooltip="'应用至逐字音译'"
                   />
                 </InputGroupAddon>
                 <InputGroupAddon>
@@ -90,6 +91,7 @@
                     icon="pi pi-sort-amount-down"
                     severity="secondary"
                     @click="handleRomanGenerate"
+                    v-tooltip="'从逐字音译生成'"
                   />
                 </InputGroupAddon>
               </template>
