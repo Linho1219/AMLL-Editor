@@ -274,8 +274,10 @@ function handleRomanApply() {
   if (!prefStore.showSylLvlRoman || !props.line.syllables.length) return
   const romans = props.line.romanization.split(/[\s,']+/)
   for (const syl of props.line.syllables) {
-    if (!romans.length) break
-    if (!syl.text.trim()) continue
+    if (!romans.length || !syl.text.trim()) {
+      syl.romanization = ''
+      continue
+    }
     const sylRomans = romans.splice(0, syl.placeholdingBeat + 1)
     syl.romanization = sylRomans.join(' ')
   }
