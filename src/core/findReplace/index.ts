@@ -19,6 +19,8 @@ const PF = {
   MultiSyllable: 'MULTISYL',
   Translation: 'TRANSLATION',
   Roman: 'ROMAN',
+  SylRoman: 'SYLROMAN',
+  MultiSylRoman: 'MULTISYLROMAN',
 } as const
 type PF = ValueOf<typeof PF>
 type LineField = typeof PF.Translation | typeof PF.Roman
@@ -85,6 +87,8 @@ export function useFindReplaceEngine(
     { immediate: true, deep: true },
   )
 
+  // Order:
+  // Whole -> (Syllable -> SylRoman)*n -> <FirstSecField> -> <LastSecField> -> Whole(next line)
   function getNextPos(nullablePos: FR.AbstractPos | null): FR.Pos | null {
     if (!coreStore.lyricLines.length) return null
     const pos = nullablePos ?? { lineIndex: 0, field: PF.Whole }
@@ -113,12 +117,60 @@ export function useFindReplaceEngine(
     switch (pos.field) {
       case PF.Whole:
         return getFirstPosOfLine(pos.lineIndex)
-      case PF.Syllable:
+      case PF.Syllable: {
+        if (state.crossWordMatch) {
+          const currLine = coreStore.lyricLines[pos.lineIndex]!
+          return {
+            lineIndex: pos.lineIndex,
+            field: PF.MultiSyllable,
+            startSylIndex: pos.sylIndex,
+            endSylIndex: currLine.syllables.length - 1,
+          }
+        }
+        return {
+          lineIndex: pos.lineIndex,
+          field: PF.SylRoman,
+          sylIndex: pos.sylIndex,
+        }
+      }
       case PF.MultiSyllable: {
+        if (state.crossWordMatch)
+          return {
+            lineIndex: pos.lineIndex,
+            field: PF.MultiSylRoman,
+            startSylIndex: pos.startSylIndex,
+            endSylIndex: pos.endSylIndex,
+          }
+        return {
+          lineIndex: pos.lineIndex,
+          field: PF.SylRoman,
+          sylIndex: pos.startSylIndex,
+        }
+      }
+      case PF.SylRoman: {
         const currLine = coreStore.lyricLines[pos.lineIndex]!
-        const currentWordIndex = pos.field === PF.Syllable ? pos.sylIndex : pos.endSylIndex
-        const nextWordIndex = currentWordIndex + 1
-        if (nextWordIndex >= currLine.syllables.length)
+        if (pos.sylIndex + 1 >= currLine.syllables.length) {
+          return {
+            lineIndex: pos.lineIndex,
+            field: firstSecField,
+          }
+        }
+        if (state.crossWordMatch)
+          return {
+            lineIndex: pos.lineIndex,
+            field: PF.MultiSyllable,
+            startSylIndex: pos.sylIndex + 1,
+            endSylIndex: currLine.syllables.length - 1,
+          }
+        return {
+          lineIndex: pos.lineIndex,
+          field: PF.Syllable,
+          sylIndex: pos.sylIndex + 1,
+        }
+      }
+      case PF.MultiSylRoman: {
+        const currLine = coreStore.lyricLines[pos.lineIndex]!
+        if (pos.endSylIndex + 1 >= currLine.syllables.length)
           return {
             lineIndex: pos.lineIndex,
             field: firstSecField,
@@ -127,13 +179,13 @@ export function useFindReplaceEngine(
           return {
             lineIndex: pos.lineIndex,
             field: PF.MultiSyllable,
-            startSylIndex: nextWordIndex,
+            startSylIndex: pos.endSylIndex + 1,
             endSylIndex: currLine.syllables.length - 1,
           }
         return {
           lineIndex: pos.lineIndex,
           field: PF.Syllable,
-          sylIndex: nextWordIndex,
+          sylIndex: pos.endSylIndex + 1,
         }
       }
       case firstSecField:
@@ -143,11 +195,14 @@ export function useFindReplaceEngine(
         }
       case lastSecField:
         return getFirstPosOfLine(pos.lineIndex + 1)
+
       default:
         throw new Error('Unreachable: Invalid AbstractPos field.')
     }
   }
 
+  // Order:
+  // Whole -> <LastSecField> -> <FirstSecField> -> (SylRoman -> Syllable)*n -> Whole(prev line)
   function getPrevPos(nullablePos: FR.AbstractPos | null): FR.Pos | null {
     if (!coreStore.lyricLines.length) return null
     const pos = nullablePos ?? {
@@ -177,16 +232,44 @@ export function useFindReplaceEngine(
         if (state.crossWordMatch)
           return {
             lineIndex: pos.lineIndex,
-            field: PF.MultiSyllable,
+            field: PF.MultiSylRoman,
             startSylIndex: 0,
             endSylIndex: prevWordIndex,
           }
         else
           return {
             lineIndex: pos.lineIndex,
-            field: PF.Syllable,
+            field: PF.SylRoman,
             sylIndex: prevWordIndex,
           }
+      }
+      case PF.SylRoman: {
+        if (state.crossWordMatch && pos.sylIndex !== 0)
+          return {
+            field: PF.MultiSylRoman,
+            lineIndex: pos.lineIndex,
+            startSylIndex: 0,
+            endSylIndex: pos.sylIndex,
+          }
+        return {
+          lineIndex: pos.lineIndex,
+          field: PF.Syllable,
+          sylIndex: pos.sylIndex,
+        }
+      }
+      case PF.MultiSylRoman: {
+        if (state.crossWordMatch)
+          return {
+            field: PF.MultiSyllable,
+            lineIndex: pos.lineIndex,
+            startSylIndex: pos.startSylIndex,
+            endSylIndex: pos.endSylIndex,
+          }
+        return {
+          lineIndex: pos.lineIndex,
+          field: PF.Syllable,
+          sylIndex: pos.endSylIndex,
+        }
       }
       case lastSecField:
         return {
@@ -199,13 +282,13 @@ export function useFindReplaceEngine(
         if (state.crossWordMatch)
           return {
             lineIndex: pos.lineIndex,
-            field: PF.MultiSyllable,
+            field: PF.MultiSylRoman,
             startSylIndex: 0,
             endSylIndex: currLine.syllables.length - 1,
           }
         return {
           lineIndex: pos.lineIndex,
-          field: PF.Syllable,
+          field: PF.SylRoman,
           sylIndex: currLine.syllables.length - 1,
         }
       }
@@ -215,7 +298,11 @@ export function useFindReplaceEngine(
   }
 
   function checkPosInRange(pos: FR.Pos): boolean {
-    if (pos.field === PF.Syllable && !state.findInWords) return false
+    if (pos.field === PF.Syllable && !state.findInSyls) return false
+    if (pos.field === PF.MultiSyllable && (!state.findInSyls || !state.crossWordMatch)) return false
+    if (pos.field === PF.SylRoman && !state.findInSylRoman) return false
+    if (pos.field === PF.MultiSylRoman && (!state.findInSylRoman || !state.crossWordMatch))
+      return false
     if (pos.field === PF.Translation && !state.findInTranslations) return false
     if (pos.field === PF.Roman && !state.findInRoman) return false
     return true
@@ -226,8 +313,14 @@ export function useFindReplaceEngine(
     let stepCount = 0
     return (pos: FR.AbstractPos | null, forceDisableWrap = false): FR.Pos | null => {
       while (true) {
-        if (stepCount++ > MAX_SEARCH_STEPS)
+        if (stepCount++ > MAX_SEARCH_STEPS) {
+          notifier({
+            severity: 'error',
+            summary: '搜索失败',
+            detail: '发生死循环。请前往反馈此问题。',
+          })
           throw new Error('Exceeded maximum search steps in getRangedJumpPos, aborting.')
+        }
         const nextPos = jumper(pos)
         if (nextPos) {
           if (wrappedBack) {
@@ -257,7 +350,8 @@ export function useFindReplaceEngine(
         runtimeStore.selectLine(coreStore.lyricLines[pos.lineIndex]!)
         break
       }
-      case PF.Syllable: {
+      case PF.Syllable:
+      case PF.SylRoman: {
         const line = coreStore.lyricLines[pos.lineIndex]!
         const syl = line.syllables[pos.sylIndex]!
         runtimeStore.selectLineSyl(line, syl)
@@ -266,12 +360,14 @@ export function useFindReplaceEngine(
           tryRaf(() => {
             const hook = staticStore.syllableHooks.get(syl.id)
             if (!hook) return
-            hook.hightLightInput()
+            if (pos.field === PF.Syllable) hook.hightLightInput()
+            else hook.hightLightRoman()
             return true
           })
         break
       }
-      case PF.MultiSyllable: {
+      case PF.MultiSyllable:
+      case PF.MultiSylRoman: {
         const line = coreStore.lyricLines[pos.lineIndex]!
         const syls = line.syllables.slice(pos.startSylIndex, pos.endSylIndex + 1)
         runtimeStore.selectLineSyl(line, ...syls)
@@ -319,6 +415,13 @@ export function useFindReplaceEngine(
           .slice(pos.startSylIndex, pos.endSylIndex + 1)
           .map((s) => s.text)
           .join('')
+      case PF.SylRoman:
+        return line.syllables[pos.sylIndex]!.romanization
+      case PF.MultiSylRoman:
+        return line.syllables
+          .slice(pos.startSylIndex, pos.endSylIndex + 1)
+          .map((s) => s.romanization)
+          .join(' ')
       case PF.Translation:
         return line.translation
       case PF.Roman:
@@ -330,7 +433,7 @@ export function useFindReplaceEngine(
     const fulltext = getPosText(pos)
     const match = fulltext.match(state.compiledPattern)
     if (!match) return null
-    if (pos.field !== PF.MultiSyllable) return pos
+    if (pos.field !== PF.MultiSyllable && pos.field !== PF.MultiSylRoman) return pos
     // For multiWord, return the real matched range
     const lineWords = coreStore.lyricLines[pos.lineIndex]!.syllables
     let charCount = 0
@@ -340,8 +443,9 @@ export function useFindReplaceEngine(
     const matchEndCh = matchStartCh + match[0].length
     for (let i = pos.startSylIndex; i <= pos.endSylIndex; i++) {
       const syl = lineWords[i]!
+      const text = pos.field === PF.MultiSyllable ? syl.text : syl.romanization + ' '
       const sylStart = charCount
-      const sylEnd = (charCount += syl.text.length)
+      const sylEnd = (charCount += text.length)
       if (sylStart <= match.index! && match.index! < sylEnd) matchStartWord = i
       if (sylStart < matchEndCh && matchEndCh <= sylEnd) {
         matchEndWord = i
@@ -354,17 +458,17 @@ export function useFindReplaceEngine(
     }
     return {
       lineIndex: pos.lineIndex,
-      field: PF.MultiSyllable,
+      field: pos.field,
       startSylIndex: matchStartWord,
       endSylIndex: matchEndWord,
     }
   }
-  function replacePosText(pos: FR.PosLine | FR.PosSyl, replaceText: string) {
+  function replacePosText(pos: FR.ReplaceablePos, replaceText: string) {
     const pattern = compiledPatternGlobal.value
     if (!pattern) return false
     const line = coreStore.lyricLines[pos.lineIndex]!
     let changed = false
-    if (pos.field === PF.Syllable && state.findInWords) {
+    if (pos.field === PF.Syllable && state.findInSyls) {
       const syl = line.syllables[pos.sylIndex]!
       const replaced = syl.text.replace(pattern, replaceText)
       changed = syl.text !== replaced
@@ -377,6 +481,11 @@ export function useFindReplaceEngine(
       const replaced = line.romanization.replace(pattern, replaceText)
       changed = line.romanization !== replaced
       if (changed) line.romanization = replaced
+    } else if (pos.field === PF.SylRoman && state.findInSylRoman) {
+      const syl = line.syllables[pos.sylIndex]!
+      const replaced = syl.romanization.replace(pattern, replaceText)
+      changed = syl.romanization !== replaced
+      if (changed) syl.romanization = replaced
     }
     return changed
   }
@@ -385,26 +494,30 @@ export function useFindReplaceEngine(
       [PF.Whole]: direction === DR.Next ? -3 : 3,
       [PF.Syllable]: 0,
       [PF.MultiSyllable]: 0,
+      [PF.SylRoman]: 0,
+      [PF.MultiSylRoman]: 0,
       [PF.Translation]: prefStore.swapTranslateRoman ? 2 : 1,
       [PF.Roman]: prefStore.swapTranslateRoman ? 1 : 2,
     }
-    if (a.lineIndex !== b.lineIndex) return a.lineIndex - b.lineIndex
-    if ([a, b].every((p) => ([PF.Syllable, PF.MultiSyllable] as PF[]).includes(p.field))) {
-      const aa = a as FR.PosSyl | FR.PosMultiWord
-      const bb = b as FR.PosSyl | FR.PosMultiWord
-      const [aStart, aEnd] =
-        aa.field === PF.MultiSyllable
-          ? [aa.startSylIndex, aa.endSylIndex]
-          : [aa.sylIndex, aa.sylIndex]
-      const [bStart, bEnd] =
-        bb.field === PF.MultiSyllable
-          ? [bb.startSylIndex, bb.endSylIndex]
-          : [bb.sylIndex, bb.sylIndex]
-      if (aEnd < bStart) return -1
-      if (aStart > bEnd) return 1
-      return 0
+    const sylOrder: Record<FR.InlinePos['field'], number> = {
+      [PF.Syllable]: -1,
+      [PF.MultiSyllable]: -1,
+      [PF.SylRoman]: 1,
+      [PF.MultiSylRoman]: 1,
     }
-    return fieldOrder[a.field] - fieldOrder[b.field]
+    if (a.lineIndex !== b.lineIndex) return a.lineIndex - b.lineIndex
+    if (fieldOrder[a.field] !== fieldOrder[b.field])
+      return fieldOrder[a.field] - fieldOrder[b.field]
+    const aa = a as FR.InlinePos
+    const bb = b as FR.InlinePos
+    const [aStart, aEnd] =
+      'startSylIndex' in aa ? [aa.startSylIndex, aa.endSylIndex] : [aa.sylIndex, aa.sylIndex]
+    const [bStart, bEnd] =
+      'startSylIndex' in bb ? [bb.startSylIndex, bb.endSylIndex] : [bb.sylIndex, bb.sylIndex]
+    if (aEnd < bStart) return -1
+    if (aStart > bEnd) return 1
+
+    return sylOrder[aa.field] - sylOrder[bb.field]
   }
 
   function handleFind(direction: FR.Dir, noAlert = false) {
@@ -458,6 +571,7 @@ export function useFindReplaceEngine(
       currPos.value &&
       currPos.value.field !== PF.Whole &&
       currPos.value.field !== PF.MultiSyllable &&
+      currPos.value.field !== PF.MultiSylRoman &&
       isPosMatch(currPos.value)
     ) {
       replacePosText(currPos.value, replacement)
@@ -471,7 +585,7 @@ export function useFindReplaceEngine(
     const rangedJumpPos = getRangedJumpPos(DR.Next, null)
     for (let pos = rangedJumpPos(null); pos; pos = rangedJumpPos(pos)) {
       if (!isPosMatch(pos)) continue
-      if (pos.field === PF.MultiSyllable)
+      if (pos.field === PF.MultiSyllable || pos.field === PF.MultiSylRoman)
         throw new Error('Unreachable: multiWord should have been disabled in replacing.')
       counter += replacePosText(pos, state.replaceInput) ? 1 : 0
     }

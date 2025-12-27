@@ -28,6 +28,7 @@ export interface SylComponentActions {
   focusInput: (position?: number) => void
   focusRomanInput: (position?: number) => void
   hightLightInput: () => void
+  hightLightRoman: () => void
 }
 export interface EditorComponentActions {
   view: View

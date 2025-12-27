@@ -2,7 +2,8 @@ export namespace FindReplace {
   export interface State {
     compiledPattern: RegExp | null
     replaceInput: string
-    findInWords: boolean
+    findInSyls: boolean
+    findInSylRoman: boolean
     findInTranslations: boolean
     findInRoman: boolean
     crossWordMatch: boolean
@@ -33,12 +34,23 @@ export namespace FindReplace {
     field: 'SYLLABLE'
     sylIndex: number
   }
-  export interface PosMultiWord extends PosBasic {
+  export interface PosMultiSyl extends PosBasic {
     field: 'MULTISYL'
     startSylIndex: number
     endSylIndex: number
   }
-  export type Pos = PosLine | PosSyl | PosMultiWord
+  export interface PosSylRoman extends PosBasic {
+    field: 'SYLROMAN'
+    sylIndex: number
+  }
+  export interface PosMultiSylRoman extends PosBasic {
+    field: 'MULTISYLROMAN'
+    startSylIndex: number
+    endSylIndex: number
+  }
+  export type Pos = PosLine | PosSyl | PosMultiSyl | PosSylRoman | PosMultiSylRoman
   export type AbstractPos = PosWhole | Pos
+  export type ReplaceablePos = PosSyl | PosSylRoman | PosLine
+  export type InlinePos = PosSyl | PosSylRoman | PosMultiSyl | PosMultiSylRoman
   export type Dir = 'next' | 'prev'
 }
