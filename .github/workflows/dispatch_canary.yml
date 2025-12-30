@@ -1,0 +1,13 @@
+name: Dispatch Beta Deploy
+on:
+  workflow_dispatch:
+jobs:
+  Dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deploy
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.BETA_REPO_PAT }}
+          repository: Linho1219/AMLL-Editor-BetaDeploy
+          event-type: source-updated
