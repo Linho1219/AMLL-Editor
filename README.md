@@ -2,10 +2,13 @@
 
 # AMLL Editor
 
-基于 Vue 的开源逐音节歌词编辑器。<br>
+基于 Vue 的开源逐音节歌词编辑器。  
 目标成为 [AMLL TTML Tool](https://github.com/Steve-xmh/amll-ttml-tool) 的继任者，可与 [AMLL](https://github.com/Steve-xmh/applemusic-like-lyrics) 生态协作。
 
 暂处于早期开发阶段。
+
+访问稳定版：<https://editor.amll.dev/>  
+开发分支部署：<https://beta-editor.amll.dev/>
 
 ## License
 
