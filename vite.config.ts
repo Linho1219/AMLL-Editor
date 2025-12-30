@@ -1,11 +1,11 @@
 import vue from '@vitejs/plugin-vue'
-import { dirname, join } from 'node:path'
 import { URL, fileURLToPath } from 'node:url'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 import packageJSON from './package.json'
+import { iconSetPlugin } from './pipelines/iconSet/plugin'
+import { viteStaticCopyPyodide } from './pipelines/pyodide/plugin'
 import { manifestPlugin } from './pipelines/webManifest/plugin'
 
 const aliasRelMap: Record<string, string> = {
@@ -21,26 +21,11 @@ for (const [key, relPath] of Object.entries(aliasRelMap)) {
   aliasMap[key] = fileURLToPath(new URL(relPath, import.meta.url))
 }
 
-const PYODIDE_EXCLUDE_DEV = ['!**/*.{md,html}', '!**/*.d.ts', '!**/*.whl', '!**/node_modules']
-const PYODIDE_EXCLUDE_PROD = PYODIDE_EXCLUDE_DEV.concat(['!**/*.map'])
-function viteStaticCopyPyodide(isDev: boolean) {
-  const pyodideDir = dirname(fileURLToPath(import.meta.resolve('pyodide')))
-  return viteStaticCopy({
-    targets: [
-      {
-        src: [join(pyodideDir, '*').replace(/\\/g, '/')].concat(
-          isDev ? PYODIDE_EXCLUDE_DEV : PYODIDE_EXCLUDE_PROD,
-        ),
-        dest: 'assets',
-      },
-    ],
-  })
-}
-
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [
     manifestPlugin(),
+    iconSetPlugin(),
     viteStaticCopyPyodide(mode === 'development'),
     vue(),
     visualizer({

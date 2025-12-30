@@ -1,4 +1,4 @@
-<img src="./public/brand.svg" width="80px" />
+<img src="./icons/normal/brand.svg" width="80px" />
 
 # AMLL Editor
 
