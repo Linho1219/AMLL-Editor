@@ -64,6 +64,7 @@
     "@types/wicg-file-system-access": "^2023.10.7",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vue/tsconfig": "^0.8.1",
+    "dotenv": "^17.2.3",
     "knip": "^5.71.0",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.7.4",

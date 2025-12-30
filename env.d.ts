@@ -47,3 +47,13 @@ interface LaunchParams {
   readonly files: FileSystemHandle[]
   readonly targetURL: string | null
 }
+
+interface ImportMetaEnv {
+  readonly MODE: 'production' | 'development'
+  readonly BASE_URL: string
+  readonly PROD: boolean
+  readonly DEV: boolean
+  readonly SSR: boolean
+
+  readonly VITE_BUILD_CHANNEL: 'STABLE' | 'BETA' | undefined
+}

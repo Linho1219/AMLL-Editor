@@ -61,6 +61,7 @@ const notifier = (summary: string, detail: string, severity: ToastMessageOptions
 fileState.initDragListener(notifier)
 fileState.initPwaLaunch(notifier)
 const isStandalone = useMediaQuery('(display-mode: standalone)')
+const appName = import.meta.env.VITE_BUILD_CHANNEL === 'BETA' ? 'AMLL Editor BETA' : 'AMLL Editor'
 watch(
   [isStandalone, fileState.displayFilenameComputed, editHistory.isDirty],
   ([standalone, filename, isDirty]) => {
@@ -68,7 +69,7 @@ watch(
       if (isDirty) filename += '*'
       document.title = filename
       // App name pre/suffix will be added by the browser
-    } else document.title = 'AMLL Editor'
+    } else document.title = appName
   },
   { immediate: true },
 )

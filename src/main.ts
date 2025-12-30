@@ -2,6 +2,8 @@ import FloatingVue from 'floating-vue'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
+import { makePrimeColorSet } from '@utils/makePrimeColorSet'
+
 import { definePreset } from '@primeuix/themes'
 import Aura from '@primeuix/themes/aura'
 import App from '@ui/App.vue'
@@ -22,10 +24,16 @@ const app = createApp(App)
 
 app.use(createPinia())
 
+const betaPrimaryColorToken = 'orange'
+
 app.use(PrimeVue, {
   theme: {
     preset: definePreset(Aura, {
       semantic: {
+        primary:
+          import.meta.env.VITE_BUILD_CHANNEL === 'BETA'
+            ? makePrimeColorSet(betaPrimaryColorToken)
+            : undefined,
         colorScheme: {
           light: {
             content: {

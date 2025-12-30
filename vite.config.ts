@@ -1,9 +1,10 @@
-import { dirname, join } from 'node:path'
-import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { dirname, join } from 'node:path'
+import { URL, fileURLToPath } from 'node:url'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+
 import packageJSON from './package.json'
 import { manifestPlugin } from './pipelines/webManifest/plugin'
 

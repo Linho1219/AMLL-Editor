@@ -146,6 +146,9 @@ importers:
       '@vue/tsconfig':
         specifier: ^0.8.1
         version: 0.8.1(typescript@5.9.3)(vue@3.5.25(typescript@5.9.3))
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
       knip:
         specifier: ^5.71.0
         version: 5.71.0(@types/node@22.19.1)(typescript@5.9.3)
@@ -1131,6 +1134,10 @@ packages:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
     engines: {node: '>=0.10'}
     hasBin: true
+
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+    engines: {node: '>=12'}
 
   dtype@2.0.0:
     resolution: {integrity: sha512-s2YVcLKdFGS0hpFqJaTwscsyt0E8nNFdmo73Ocd81xNPj4URI4rj6D60A+vFMIw7BXWlb4yRkEwfBqcZzPGiZg==}
@@ -2916,6 +2923,8 @@ snapshots:
 
   detect-libc@1.0.3:
     optional: true
+
+  dotenv@17.2.3: {}
 
   dtype@2.0.0: {}
 
