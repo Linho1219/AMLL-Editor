@@ -1,6 +1,6 @@
 import type { Compatibility as CP } from '..'
 
-const clipboardInfo: CP.CompatibilityInfo = {
+const clipboardInfo = {
   key: 'clipboard',
   name: '剪贴板 API',
   description:
@@ -9,7 +9,7 @@ const clipboardInfo: CP.CompatibilityInfo = {
   referenceUrls: [
     { label: 'Can I Use: async-clipboard', url: 'https://caniuse.com/async-clipboard' },
   ],
-}
+} as const satisfies CP.CompatibilityInfo
 
 const meet =
   window.isSecureContext &&
@@ -24,8 +24,8 @@ function findWhy(): string | undefined {
 }
 const why = findWhy()
 
-export const clipboardItem: CP.CompatibilityItem = {
+export const clipboardItem = {
   ...clipboardInfo,
   meet,
   why,
-}
+} as const satisfies CP.CompatibilityItem

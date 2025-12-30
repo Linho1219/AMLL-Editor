@@ -1,6 +1,6 @@
 import type { Compatibility as CP } from '..'
 
-const fileSystemInfo: CP.CompatibilityInfo = {
+const fileSystemInfo = {
   key: 'fileSystem',
   name: '文件系统 API',
   description:
@@ -12,7 +12,7 @@ const fileSystemInfo: CP.CompatibilityInfo = {
       url: 'https://caniuse.com/mdn-api_window_showopenfilepicker',
     },
   ],
-}
+} as const satisfies CP.CompatibilityInfo
 
 const meet =
   window.isSecureContext && 'showOpenFilePicker' in window && 'showSaveFilePicker' in window
@@ -24,8 +24,8 @@ function findWhy(): string | undefined {
 }
 const why = findWhy()
 
-export const fileSystemItem: CP.CompatibilityItem = {
+export const fileSystemItem = {
   ...fileSystemInfo,
   meet,
   why,
-}
+} as const satisfies CP.CompatibilityItem
