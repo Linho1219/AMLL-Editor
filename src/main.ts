@@ -24,16 +24,13 @@ const app = createApp(App)
 
 app.use(createPinia())
 
-const betaPrimaryColorToken = 'orange'
+const primaryColorToken = import.meta.env.VITE_BUILD_CHANNEL === 'BETA' ? 'orange' : 'emerald'
 
 app.use(PrimeVue, {
   theme: {
     preset: definePreset(Aura, {
       semantic: {
-        primary:
-          import.meta.env.VITE_BUILD_CHANNEL === 'BETA'
-            ? makePrimeColorSet(betaPrimaryColorToken)
-            : undefined,
+        primary: makePrimeColorSet(primaryColorToken),
         colorScheme: {
           light: {
             content: {
