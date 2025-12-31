@@ -16,8 +16,8 @@ export function makeProjectFile({ persist: data, createdAt, audioFile }: ProjPay
   const zip = new JSZip()
 
   const manifest: LatestProjManifest = {
-    createdBy: 'AMLL Editor',
-    editorVersion: __VERSION__,
+    createdBy: __APP_DISPLAY_NAME__,
+    editorVersion: __APP_VERSION__,
     fileVersion: FILE_VERSION,
     createdAt: new Date().toISOString(),
     modifiedAt: new Date().toISOString(),

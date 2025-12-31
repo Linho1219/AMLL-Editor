@@ -1,5 +1,6 @@
 {
   "name": "amll-editor",
+  "displayName": "AMLL Editor",
   "version": "0.0.0",
   "private": true,
   "license": "AGPL-3.0-only",
@@ -7,6 +8,7 @@
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
+  "repository": "https://github.com/Linho1219/AMLL-Editor",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

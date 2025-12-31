@@ -28,7 +28,10 @@ async function handleReset() {
   }
 }
 
-const isBeta = import.meta.env.VITE_BUILD_CHANNEL === 'BETA'
+function openGithubRepo() {
+  window.open(__REPO_URL__, '_blank')
+}
+const displayName = __APP_DISPLAY_NAME__
 </script>
 
 <template>
@@ -137,7 +140,7 @@ const isBeta = import.meta.env.VITE_BUILD_CHANNEL === 'BETA'
     </div>
     <div class="pref-group">
       <div class="pref-group-title">关于</div>
-      <PrefItem :label="`关于 AMLL Editor ${isBeta ? 'BETA' : ''}`" desc="打开软件版本信息窗口">
+      <PrefItem :label="`关于 ${displayName}`" desc="打开软件版本信息窗口">
         <Button
           severity="secondary"
           label="关于"
@@ -145,6 +148,9 @@ const isBeta = import.meta.env.VITE_BUILD_CHANNEL === 'BETA'
           iconPos="right"
           @click="runtimeStore.dialogShown.about = !runtimeStore.dialogShown.about"
         />
+      </PrefItem>
+      <PrefItem label="GitHub 仓库" desc="访问源代码仓库页面">
+        <Button severity="secondary" label="打开" icon="pi pi-github" @click="openGithubRepo()" />
       </PrefItem>
     </div>
   </div>

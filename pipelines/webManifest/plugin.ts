@@ -7,7 +7,7 @@ const VIRTUAL_MANIFEST_FILENAME = 'app.webmanifest'
 const VIRTUAL_MANIFEST_PATH = `/${VIRTUAL_MANIFEST_FILENAME}`
 
 const SUFFIX = process.env.VITE_BUILD_CHANNEL === 'BETA' ? ' BETA' : ''
-const INJECTED_HEAD = /*html*/ `
+const INJECTED_HEAD = /* html */ `
   <link rel="manifest" href="${VIRTUAL_MANIFEST_PATH}">
   <title>AMLL Editor${SUFFIX}</title>
   <meta name="application-title" content="AMLL Editor${SUFFIX}" />

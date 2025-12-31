@@ -80,7 +80,11 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: { alias: aliasMap },
   define: {
-    __VERSION__: JSON.stringify(packageJSON.version),
+    __APP_VERSION__: JSON.stringify(packageJSON.version),
+    __REPO_URL__: JSON.stringify(packageJSON.repository),
+    __APP_DISPLAY_NAME__: JSON.stringify(
+      packageJSON.displayName + (process.env.VITE_BUILD_CHANNEL === 'BETA' ? ` BETA` : ''),
+    ),
   },
   optimizeDeps: { exclude: ['pyodide'] },
 }))

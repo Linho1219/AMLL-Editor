@@ -40,7 +40,7 @@ export function savePreference(data: PreferenceSchema) {
     }
   }
   const payload: PersistedPref = {
-    appVersion: __VERSION__,
+    appVersion: __APP_VERSION__,
     prefVersion: PREF_VERSION,
     data: prunedData,
   }

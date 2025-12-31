@@ -21,7 +21,7 @@ function maintainMediaSession() {
   if (!('mediaSession' in navigator)) return
   navigator.mediaSession.metadata = new MediaMetadata({
     title: filenameRef.value ?? 'Unknown',
-    artist: 'AMLL Editor',
+    artist: __APP_DISPLAY_NAME__,
     album: '',
     artwork: [],
   })
