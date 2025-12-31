@@ -60,6 +60,13 @@ const displayName = __APP_DISPLAY_NAME__
         :max="5000"
         placeholder="100"
       />
+      <PrefSwitchItem
+        pref-key="ttmlAsDefault"
+        label="以 TTML 为默认格式"
+        desc="新建和保存文档时默认使用 TTML 而非 ALP 格式"
+        :disabled="!compatibilityMap.fileSystem"
+        experimental
+      />
     </div>
     <div class="pref-group">
       <div class="pref-group-title">按键</div>

@@ -69,7 +69,7 @@ let currHandle: FileHandle | null = null
 let currBackingFmt: BackingFmt = BackingFmt.ALP
 const createdAtRef = ref<Date | null>(null)
 const readonlyRef = ref<boolean>(true)
-const displayFilenameRef = ref<string>('未命名.alp')
+const displayFilenameRef = ref<string>('')
 const savedAtRef = ref<Date | null>(null)
 
 interface FileState {
@@ -83,7 +83,7 @@ interface FileState {
 function setFileState(state: Partial<FileState> | null) {
   if (!state) state = {}
   currHandle = state.handle ?? null
-  currBackingFmt = state.currBackingFmt ?? BackingFmt.ALP
+  currBackingFmt = state.currBackingFmt ?? currBackingFmt
   createdAtRef.value = state.createdAt ?? null
   displayFilenameRef.value = state.displayFilename ?? '未命名.alp'
   readonlyRef.value = state.isReadonly ?? true
@@ -169,19 +169,21 @@ async function handleMiscFile(result: FileReadResult) {
   const format = detectFormat(ext, text)
   const data = format.parser(text)
   applyPersist(data)
+  const prefStore = usePrefStore()
   setFileState({
-    currBackingFmt: BackingFmt.ALP,
+    currBackingFmt: prefStore.ttmlAsDefault ? BackingFmt.TTML : BackingFmt.ALP,
     createdAt: new Date(),
-    displayFilename: `${name}.alp`,
+    displayFilename: `${name}.${prefStore.ttmlAsDefault ? 'ttml' : 'alp'}`,
   })
 }
 async function importPersist(data: Persist, name: string = '未命名') {
+  const prefStore = usePrefStore()
   if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
   applyPersist(data)
   setFileState({
-    currBackingFmt: BackingFmt.ALP,
+    currBackingFmt: prefStore.ttmlAsDefault ? BackingFmt.TTML : BackingFmt.ALP,
     createdAt: new Date(),
-    displayFilename: `${name}.alp`,
+    displayFilename: `${name}.${prefStore.ttmlAsDefault ? 'ttml' : 'alp'}`,
   })
 }
 async function createBlankProject() {
@@ -258,7 +260,11 @@ async function __saveAsFile(types: FilePickerAcceptType[]) {
   return filename
 }
 async function saveAsFile() {
-  return await __saveAsFile([...alpPickerType, ...ttmlPickerType])
+  const prefStore = usePrefStore()
+  const types = prefStore.ttmlAsDefault
+    ? [...ttmlPickerType, ...alpPickerType]
+    : [...alpPickerType, ...ttmlPickerType]
+  return await __saveAsFile(types)
 }
 async function saveAsTTMLFile() {
   return await __saveAsFile(ttmlPickerType)

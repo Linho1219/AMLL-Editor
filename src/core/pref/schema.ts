@@ -8,6 +8,7 @@ export interface PreferenceSchema {
   autoSaveEnabled: boolean
   autoSaveIntervalMinutes: number
   packAudioToProject: boolean
+  ttmlAsDefault: boolean
   // Shortcuts
   macStyleShortcuts: boolean
   hotkeyMap: HotKey.Map
@@ -30,6 +31,7 @@ export const getDefaultPref = (): PreferenceSchema => ({
   autoSaveEnabled: true,
   autoSaveIntervalMinutes: 3,
   packAudioToProject: true,
+  ttmlAsDefault: false,
   macStyleShortcuts: isAppleDevice(),
   hotkeyMap: getDefaultHotkeyMap(),
   audioSeekingStepMs: 5000,

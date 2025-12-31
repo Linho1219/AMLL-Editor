@@ -60,8 +60,10 @@ const toast = useToast()
 const notifier = (summary: string, detail: string, severity: ToastMessageOptions['severity']) =>
   toast.add({ severity, summary, detail, life: 3000 })
 
+fileState.createBlankProject()
 fileState.initDragListener(notifier)
 fileState.initPwaLaunch(notifier)
+
 const isStandalone = useMediaQuery('(display-mode: standalone)')
 watch(
   [isStandalone, fileState.displayFilenameComputed, editHistory.isDirty],
