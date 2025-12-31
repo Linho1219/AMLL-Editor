@@ -15,9 +15,6 @@
         </template>
       </SplitButton>
 
-      <FromOtherFormatModal v-model="showImportFromOtherFormatModal" />
-      <FromTextModal v-model="showImportFromTextModal" />
-
       <Button
         icon="pi pi-cog"
         variant="text"
@@ -91,8 +88,6 @@ import { SidebarKey } from '@ui/sidebar'
 
 import ViewSwitcher from './ViewSwitcher.vue'
 import TieredMenuItem from '@ui/components/TieredMenuItem.vue'
-import FromOtherFormatModal from '@ui/dialogs/FromOtherFormatModal.vue'
-import FromTextModal from '@ui/dialogs/FromTextModal.vue'
 import { Button, SplitButton } from 'primevue'
 
 import { useTitlebarFileLogics } from './fileLogics'
@@ -112,8 +107,6 @@ const savedAtComputed = computed(() => {
   return date.toTimeString().split(' ')[0]
 })
 
-const showImportFromTextModal = ref(false)
-const showImportFromOtherFormatModal = ref(false)
 const openWorking = ref(false)
 const saveWorking = ref(false)
 
@@ -127,8 +120,6 @@ const {
   openMenuItems,
   saveMenuItems,
 } = useTitlebarFileLogics({
-  showImportFromOtherFormatModal,
-  showImportFromTextModal,
   openWorking,
   saveWorking,
 })

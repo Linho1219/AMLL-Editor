@@ -124,8 +124,8 @@ import { fileState as FS } from '@core/file'
 
 import { useCoreStore } from '@states/stores'
 
-import LineOrderInput from './LineOrderInput.vue'
 import CodeMirror from '@ui/components/CodeMirror.vue'
+import LineOrderInput from '@ui/components/LineOrderInput.vue'
 import { Button, Checkbox, Dialog, Select } from 'primevue'
 
 const [visible] = defineModel<boolean>({ required: true })

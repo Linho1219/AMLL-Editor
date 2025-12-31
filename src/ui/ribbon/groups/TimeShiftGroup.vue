@@ -16,13 +16,12 @@
       icon="pi pi-sliders-h"
       label="批量时移"
       size="small"
-      :severity="batchShiftDialogVisible ? undefined : 'secondary'"
-      @click="batchShiftDialogVisible = !batchShiftDialogVisible"
+      :severity="runtimeStore.dialogShown.batchTimeShift ? undefined : 'secondary'"
+      @click="runtimeStore.dialogShown.batchTimeShift = !runtimeStore.dialogShown.batchTimeShift"
       v-tooltip="
         tipDesc('批量时移', '打开批量时移对话框，调整多个音节或行的时间戳。', 'batchTimeShift')
       "
     />
-    <BatchTimeShiftDialog v-model="batchShiftDialogVisible" />
   </RibbonGroup>
 </template>
 
@@ -31,18 +30,17 @@ import { ref } from 'vue'
 
 import { useGlobalKeyboard } from '@core/hotkey'
 
-import { usePrefStore } from '@states/stores'
+import { usePrefStore, useRuntimeStore } from '@states/stores'
 
 import { tipDesc } from '@utils/generateTooltip'
 
 import RibbonGroup from '../RibbonGroupShell.vue'
-import BatchTimeShiftDialog from '@ui/dialogs/BatchTimeShiftDialog.vue'
 import { Button, InputNumber } from 'primevue'
 
 const prefStore = usePrefStore()
-const batchShiftDialogVisible = ref(false)
+const runtimeStore = useRuntimeStore()
 
 useGlobalKeyboard('batchTimeShift', () => {
-  batchShiftDialogVisible.value = !batchShiftDialogVisible.value
+  runtimeStore.dialogShown.batchTimeShift = !runtimeStore.dialogShown.batchTimeShift
 })
 </script>

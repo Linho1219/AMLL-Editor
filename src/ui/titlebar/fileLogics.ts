@@ -7,24 +7,19 @@ import { fileState as FS, simpleSaveTextFile } from '@core/file'
 import { getHotkeyStr } from '@core/hotkey'
 
 import { collectPersist } from '@states/services/port'
+import { useRuntimeStore } from '@states/stores'
 
 import { useToast } from 'primevue'
 import type { MenuItem } from 'primevue/menuitem'
 
 interface TitlebarFileLogicsState {
-  showImportFromTextModal: Ref<boolean>
-  showImportFromOtherFormatModal: Ref<boolean>
   openWorking: Ref<boolean>
   saveWorking: Ref<boolean>
 }
 
-export function useTitlebarFileLogics({
-  showImportFromOtherFormatModal,
-  showImportFromTextModal,
-  openWorking,
-  saveWorking,
-}: TitlebarFileLogicsState) {
+export function useTitlebarFileLogics({ openWorking, saveWorking }: TitlebarFileLogicsState) {
   const toast = useToast()
+  const runtimeStore = useRuntimeStore()
   const successTip = (summary: string, detail?: string) => {
     toast.add({ severity: 'success', summary, detail, life: 3000 })
   }
@@ -155,12 +150,12 @@ export function useTitlebarFileLogics({
     {
       label: '导入纯文本',
       icon: 'pi pi-align-left',
-      command: () => (showImportFromTextModal.value = true),
+      command: () => (runtimeStore.dialogShown.fromText = true),
     },
     {
       label: '导入其他格式',
       icon: 'pi pi-paperclip',
-      command: () => (showImportFromOtherFormatModal.value = true),
+      command: () => (runtimeStore.dialogShown.fromOtherFormat = true),
     },
     { separator: true },
     {

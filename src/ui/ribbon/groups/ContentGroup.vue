@@ -26,17 +26,14 @@
       icon="pi pi-search"
       label="查找替换"
       size="small"
-      :severity="findReplaceVisible ? undefined : 'secondary'"
-      @click="findReplaceVisible = !findReplaceVisible"
+      :severity="runtimeStore.dialogShown.findReplace ? undefined : 'secondary'"
+      @click="runtimeStore.dialogShown.findReplace = !runtimeStore.dialogShown.findReplace"
       v-tooltip="tipDesc('查找替换', '打开查找替换对话框，在歌词中查找并替换文本。', 'find')"
     />
-    <FindReplaceDialog v-model="findReplaceVisible" />
   </RibbonGroup>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 import { useGlobalKeyboard } from '@core/hotkey'
 
 import { useRuntimeStore } from '@states/stores'
@@ -46,7 +43,6 @@ import { tipDesc } from '@utils/generateTooltip'
 import { SidebarKey } from '@ui/sidebar'
 
 import RibbonGroup from '../RibbonGroupShell.vue'
-import FindReplaceDialog from '@ui/dialogs/FindReplaceDialog.vue'
 import { Button } from 'primevue'
 
 const runtimeStore = useRuntimeStore()
@@ -57,6 +53,4 @@ useGlobalKeyboard('batchSplitText', () => {
 useGlobalKeyboard('metadata', () => {
   runtimeStore.toogleSidebar(SidebarKey.Metadata)
 })
-
-const findReplaceVisible = ref(false)
 </script>

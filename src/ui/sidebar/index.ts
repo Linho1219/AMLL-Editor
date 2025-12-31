@@ -1,3 +1,5 @@
+import type { Component } from 'vue'
+
 import type { ValueOf } from '@utils/types'
 
 import MetadataTab from './tabs/metadata/MetadataTab.vue'
@@ -14,7 +16,7 @@ export type SidebarKey = ValueOf<typeof SidebarKey>
 interface SidebarTab {
   key: SidebarKey
   title: string
-  component: any
+  component: Component
 }
 
 export const sidebarRegs = {

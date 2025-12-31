@@ -3,6 +3,7 @@ import { computed, reactive, ref, shallowReactive, watch } from 'vue'
 
 import { type LyricLine, type LyricSyllable, View } from '@core/types'
 
+import { type DialogKey, dialogRegs } from '@ui/dialogs'
 import type { SidebarKey } from '@ui/sidebar'
 
 import { useCoreStore } from './core'
@@ -33,6 +34,14 @@ export const useRuntimeStore = defineStore('runtime', () => {
     currentSidebarIndex.value = Math.min(currentSidebarIndex.value, length - 1)
   })
 
+  const dialogShown = reactive(
+    (() => {
+      const map = {} as Record<DialogKey, boolean>
+      for (const { key } of dialogRegs) map[key] = false
+      return map
+    })(),
+  )
+
   return {
     currentView,
     isContentView,
@@ -61,6 +70,7 @@ export const useRuntimeStore = defineStore('runtime', () => {
     openedSidebars,
     currentSidebarIndex,
     sidebarShown,
+    dialogShown,
     openSidebar,
     closeCurrentSidebar,
     toogleSidebar,

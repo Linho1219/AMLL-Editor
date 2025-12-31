@@ -1,4 +1,5 @@
 <template>
+  <FontLoader />
   <Titlebar />
   <Ribbon v-if="!runtimeStore.isPreviewView" />
   <main>
@@ -12,9 +13,9 @@
     </div>
   </main>
   <Player />
+  <DialogIndex />
   <Toast />
   <ConfirmDialog />
-  <FontLoader />
 </template>
 
 <script setup lang="ts">
@@ -30,6 +31,7 @@ import { useCoreStore, usePrefStore, useRuntimeStore, useStaticStore } from '@st
 import { isInputEl } from '@utils/isInputEl'
 
 import FontLoader from './components/FontLoader.vue'
+import DialogIndex from './dialogs/DialogIndex.vue'
 import ContentEditor from './editor/content/Editor.vue'
 import Preview from './editor/preview/Preview.vue'
 import TimingEditor from './editor/timing/Editor.vue'
