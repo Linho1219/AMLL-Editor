@@ -4,9 +4,20 @@
   </template>
 </template>
 <script setup lang="ts">
+import { watch } from 'vue'
+
 import { useRuntimeStore } from '@states/stores'
 
-import { dialogRegs } from '.'
+import { DialogKey, dialogRegs } from '.'
 
 const runtimeStore = useRuntimeStore()
+
+watch(
+  () => runtimeStore.isPreviewView,
+  (newVal) => {
+    if (newVal)
+      for (const key of Object.keys(runtimeStore.dialogShown))
+        runtimeStore.dialogShown[key as DialogKey] = false
+  },
+)
 </script>
