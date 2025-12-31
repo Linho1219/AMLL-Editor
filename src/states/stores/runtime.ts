@@ -145,9 +145,9 @@ export const useRuntimeStore = defineStore('runtime', () => {
     if (!openedSidebars.includes(key)) {
       openedSidebars.push(key)
       currentSidebarIndex.value = openedSidebars.length - 1
-    } else {
-      currentSidebarIndex.value = openedSidebars.indexOf(key)
-    }
+    } else currentSidebarIndex.value = openedSidebars.indexOf(key)
+
+    if (isPreviewView.value) currentView.value = View.Content
   }
   function closeCurrentSidebar() {
     openedSidebars.splice(currentSidebarIndex.value, 1)
