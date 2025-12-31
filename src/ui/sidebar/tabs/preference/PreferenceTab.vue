@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { type PreferenceSchema, getDefaultPref } from '@core/pref'
+
 import { usePrefStore, useStaticStore } from '@states/stores'
 
 import PrefItem from './PrefItem.vue'
@@ -15,6 +17,12 @@ async function handleReset() {
     acceptLabel: '重置',
     acceptIcon: 'pi pi-sync',
   })
+  if (!confirmed) return
+  const defaultPrefs = getDefaultPref()
+  for (const [_key, value] of Object.entries(defaultPrefs)) {
+    const key = _key as keyof PreferenceSchema
+    ;(prefStore as any)[key] = value
+  }
 }
 </script>
 
