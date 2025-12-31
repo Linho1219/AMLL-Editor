@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import type { PreferenceSchema } from '@core/pref'
+import { clamp } from 'lodash-es'
+import { computed } from 'vue'
+
+import { type PreferenceSchema, getDefaultPref } from '@core/pref'
 
 import { usePrefStore } from '@states/stores'
+
+import type { Maybe } from '@utils/types'
 
 import PrefItem from './PrefItem.vue'
 import { InputNumber } from 'primevue'
@@ -22,12 +27,21 @@ const props = defineProps<{
 }>()
 
 const prefStore = usePrefStore()
+
+const defaultValue = getDefaultPref()[props.prefKey]
+const model = computed({
+  get: () => prefStore[props.prefKey],
+  set: (value: Maybe<number>) => {
+    if (typeof value !== 'number') prefStore[props.prefKey] = defaultValue
+    else prefStore[props.prefKey] = clamp(value, props.min ?? -Infinity, props.max ?? Infinity)
+  },
+})
 </script>
 
 <template>
   <PrefItem :label :desc :disabled :experimental>
     <InputNumber
-      v-model="prefStore[props.prefKey]"
+      v-model="model"
       :min
       :max
       :disabled

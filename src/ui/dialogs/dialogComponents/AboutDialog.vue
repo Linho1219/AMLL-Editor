@@ -105,7 +105,6 @@ function handleOpenGithub() {
   }
   .description {
     margin: 1.2rem 0;
-    font-size: 1.1rem;
     line-height: 1.5;
     opacity: 0.9;
     p {

@@ -27,6 +27,7 @@ import WaveSurfer from 'wavesurfer.js'
 import { audioEngine } from '@core/audio'
 
 import { ms2str } from '@utils/formatTime'
+import { clamp } from 'lodash-es'
 
 const containerEl = useTemplateRef('container')
 const timeEl = useTemplateRef('timeEl')
@@ -40,7 +41,7 @@ const hoverCursorShown = ref(false)
 let containRect: DOMRect | null = null
 let timeRect: DOMRect | null = null
 
-const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max)
+
 function handleMounseEnter() {
   if (!containerEl.value || !timeEl.value) return
   containRect = containerEl.value.getBoundingClientRect()
