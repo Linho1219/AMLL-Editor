@@ -90,6 +90,15 @@ function setFileState(state: Partial<FileState> | null) {
   savedAtRef.value = state.savedAt ?? null
 }
 
+function useDefaultFormat(basename: string) {
+  const prefStore = usePrefStore()
+  const ext = prefStore.ttmlAsDefault ? 'ttml' : 'alp'
+  return {
+    displayFilename: `${basename}.${ext}`,
+    currBackingFmt: prefStore.ttmlAsDefault ? BackingFmt.TTML : BackingFmt.ALP,
+  }
+}
+
 /**
  * Handle opening of any known file format.
  * @throws User cancel; unsupported format; parsing errors.
@@ -169,21 +178,17 @@ async function handleMiscFile(result: FileReadResult) {
   const format = detectFormat(ext, text)
   const data = format.parser(text)
   applyPersist(data)
-  const prefStore = usePrefStore()
   setFileState({
-    currBackingFmt: prefStore.ttmlAsDefault ? BackingFmt.TTML : BackingFmt.ALP,
     createdAt: new Date(),
-    displayFilename: `${name}.${prefStore.ttmlAsDefault ? 'ttml' : 'alp'}`,
+    ...useDefaultFormat(name),
   })
 }
 async function importPersist(data: Persist, name: string = '未命名') {
-  const prefStore = usePrefStore()
   if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
   applyPersist(data)
   setFileState({
-    currBackingFmt: prefStore.ttmlAsDefault ? BackingFmt.TTML : BackingFmt.ALP,
     createdAt: new Date(),
-    displayFilename: `${name}.${prefStore.ttmlAsDefault ? 'ttml' : 'alp'}`,
+    ...useDefaultFormat(name),
   })
 }
 async function createBlankProject() {
