@@ -27,7 +27,7 @@ export interface PreferenceSchema {
 export const getDefaultPref = (): PreferenceSchema => ({
   maxUndoSteps: 100,
   autoSaveEnabled: true,
-  autoSaveIntervalMinutes: 5,
+  autoSaveIntervalMinutes: 3,
   packAudioToProject: true,
   macStyleShortcuts: isAppleDevice(),
   hotkeyMap: getDefaultHotkeyMap(),

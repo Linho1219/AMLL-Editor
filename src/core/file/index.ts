@@ -1,4 +1,4 @@
-import { readonly, ref } from 'vue'
+import { readonly, ref, watch } from 'vue'
 
 import { audioEngine } from '@core/audio'
 import { compatibilityMap } from '@core/compat'
@@ -9,10 +9,10 @@ import type { Persist } from '@core/types'
 
 import { editHistory } from '@states/services/history'
 import { applyPersist, collectPersist } from '@states/services/port'
-import { useCoreStore } from '@states/stores'
+import { useCoreStore, usePrefStore } from '@states/stores'
 
 import { breakExtension } from '@utils/breakExtension'
-import type { ValueOf } from '@utils/types'
+import type { TimeoutHandle, ValueOf } from '@utils/types'
 
 import { fileSystemBackend } from './backends/filesystem'
 import { h5NativeBackend } from './backends/h5native'
@@ -146,7 +146,7 @@ async function handleProjFile(result: FileReadResult) {
     displayFilename: filename,
   })
   editHistory.markSaved()
-  askForWrite(handle)
+  askForWrite(handle).then(scheduleAutoSave)
 }
 async function handleTTMLFile(result: FileReadResult) {
   const { handle, blob, filename } = result
@@ -160,7 +160,7 @@ async function handleTTMLFile(result: FileReadResult) {
     displayFilename: filename,
   })
   editHistory.markSaved()
-  askForWrite(handle)
+  askForWrite(handle).then(scheduleAutoSave)
 }
 async function handleMiscFile(result: FileReadResult) {
   const { blob, filename } = result
@@ -189,17 +189,16 @@ async function createBlankProject() {
   editHistory.markSaved()
 }
 
-/**
- * Save to backing format file
- * @throws user cancel; write errors.
- * @returns Filename
- */
-
 const blobGenerators: Record<BackingFmt, () => Promise<Blob>> = {
   ALP: async () => makeProjectFile(collectProjectData()),
   TTML: async () => new Blob([stringifyTTML(collectPersist())], { type: 'application/xml' }),
 }
 
+/**
+ * Save to backing format file
+ * @throws user cancel; write errors.
+ * @returns Filename
+ */
 async function saveFile() {
   if (!currHandle) {
     console.log('No file handle, invoking Save As...')
@@ -210,6 +209,7 @@ async function saveFile() {
   editHistory.markSaved()
   savedAtRef.value = new Date()
   readonlyRef.value = false
+  scheduleAutoSave()
   return filename
 }
 
@@ -254,6 +254,7 @@ async function __saveAsFile(types: FilePickerAcceptType[]) {
     savedAt: new Date(),
   })
   editHistory.markSaved()
+  scheduleAutoSave()
   return filename
 }
 async function saveAsFile() {
@@ -264,6 +265,21 @@ async function saveAsTTMLFile() {
 }
 async function saveAsProjectFile() {
   return await __saveAsFile(alpPickerType)
+}
+
+let autoSaveTimer: TimeoutHandle | undefined = undefined
+function scheduleAutoSave() {
+  if (autoSaveTimer) {
+    clearTimeout(autoSaveTimer)
+    autoSaveTimer = undefined
+  }
+  const prefStore = usePrefStore()
+  if (!prefStore.autoSaveEnabled || prefStore.autoSaveIntervalMinutes < 1) return
+  function doAutoSave() {
+    if (!editHistory.isDirty || readonlyRef.value) return scheduleAutoSave()
+    saveFile()
+  }
+  autoSaveTimer = setTimeout(doAutoSave, prefStore.autoSaveIntervalMinutes * 60 * 1000)
 }
 
 type Notifier = (
