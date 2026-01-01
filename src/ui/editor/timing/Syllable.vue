@@ -101,11 +101,13 @@ function handleTextDbClick() {
     inset -1px -1px 0 var(--tsyl-border-color),
     var(--tsyl-thick-border-color) inset -1px -1px 0 3px,
     var(--tsyl-thick-border-color) inset 0 0 0 3px;
+  transition: box-shadow 0.1s;
   &:hover {
     --tsyl-thick-border-color: color-mix(in srgb, var(--p-primary-color), transparent 75%);
   }
   &.selected {
     --tsyl-thick-border-color: var(--p-primary-color);
+    transition: none;
     .tsyl-timestamp {
       opacity: 1;
     }

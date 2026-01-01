@@ -302,12 +302,15 @@ onUnmounted(() => {
 
   --csyl-border-color: var(--p-inputtext-border-color);
   --csyl-head-bg: var(--c-border-color);
+  --csyl-trans-dur: 0.1s;
+  --csyl-remove-dur: 0.1s;
   border-radius: var(--p-inputtext-border-radius);
   background-color: var(--p-inputtext-background);
   box-shadow: var(--csyl-border-color) 0 0 0 1px inset;
   transition:
-    transform 0.1s,
-    opacity 0.1s;
+    transform var(--csyl-remove-dur),
+    opacity var(--csyl-remove-dur),
+    box-shadow var(--csyl-trans-dur);
   &:hover {
     --csyl-head-bg: var(--p-inputtext-border-color);
     --csyl-border-color: var(--p-inputtext-hover-border-color);
@@ -322,6 +325,7 @@ onUnmounted(() => {
     );
     color: var(--p-primary-contrast-color);
     z-index: 3;
+    --csyl-trans-dur: 0;
   }
   &.removing {
     opacity: 0.5;
@@ -339,6 +343,9 @@ onUnmounted(() => {
   box-shadow: var(--csyl-border-color) 0 1px 0;
   font-family: var(--font-monospace);
   position: relative;
+  transition:
+    background-color var(--csyl-trans-dur),
+    box-shadow var(--csyl-trans-dur);
 }
 .csyl-head-bookmark,
 .csyl-head-bars,
@@ -380,6 +387,7 @@ onUnmounted(() => {
   font-size: var(--p-inputtext-sm-font-size);
   height: var(--csyl-roman-height);
   box-shadow: 0 -1px 0 color-mix(in srgb, var(--csyl-border-color), transparent 30%);
+  transition: box-shadow var(--csyl-trans-dur);
 }
 .syl-roman-enabled .csyl-input-shell {
   border-radius: 0;
