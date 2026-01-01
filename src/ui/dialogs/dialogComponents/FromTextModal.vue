@@ -119,7 +119,7 @@
 <script setup lang="ts">
 import { type ShallowRef, computed, ref, shallowRef, useTemplateRef, watch } from 'vue'
 
-import { parseInterleavedPlainText, parseSeparatePlainText } from '@core/convert/formats/paintext'
+import { parseInterleavedPlainText, parseSeparatePlainText } from '@core/convert/paintext'
 import { fileState as FS } from '@core/file'
 
 import { useCoreStore } from '@states/stores'

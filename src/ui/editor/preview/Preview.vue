@@ -23,10 +23,12 @@
 </template>
 <script setup lang="ts">
 import { LyricPlayer } from '@applemusic-like-lyrics/vue'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, shallowRef, watch } from 'vue'
 
 import { audioEngine } from '@core/audio'
+import { type AMLLLine, convertToAMLL } from '@core/convert/amll'
 
+import { collectPersist } from '@states/services/port'
 import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
 
 import { tryRaf } from '@utils/tryRaf'
@@ -37,41 +39,17 @@ import '@applemusic-like-lyrics/core/style.css'
 
 const coreStore = useCoreStore()
 const { progressComputed, playingComputed, amendedProgressComputed, seek } = audioEngine
-interface AMLLLyricLine {
-  words: AMLLLyricWord[]
-  translatedLyric: string
-  romanLyric: string
-  isBG: boolean
-  isDuet: boolean
-  startTime: number
-  endTime: number
-}
-export interface AMLLLyricWord {
-  startTime: number
-  endTime: number
-  word: string
-  romanWord: string
-  obscene: boolean
-}
+
 const playerKey = ref(Symbol())
-const amllLyricLines = computed<AMLLLyricLine[]>(() => {
-  playerKey.value = Symbol() // AMLL cannot handle dynamic updates, so force re-mount
-  return coreStore.lyricLines.map((line) => ({
-    words: line.syllables.map((word) => ({
-      startTime: word.startTime,
-      endTime: word.endTime,
-      word: word.text,
-      romanWord: '',
-      obscene: false,
-    })),
-    translatedLyric: line.translation,
-    romanLyric: line.romanization,
-    isBG: line.background,
-    isDuet: line.duet,
-    startTime: line.startTime,
-    endTime: line.endTime,
-  }))
-})
+const amllLyricLines = shallowRef<AMLLLine[]>([])
+watch(
+  () => coreStore.lyricLines,
+  () => {
+    amllLyricLines.value = convertToAMLL(collectPersist())
+    playerKey.value = Symbol()
+  },
+  { immediate: true },
+)
 
 const jumpSeek = (line: any) => {
   if (!line?.line?.lyricLine?.startTime) return
