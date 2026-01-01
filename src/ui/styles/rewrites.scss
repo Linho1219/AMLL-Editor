@@ -59,7 +59,7 @@
   width: unset !important;
   transform: scale(0.1) !important;
   .p-radiobutton-checked .p-radiobutton-box & {
-    transform: scale(calc(var(--p-radiobutton-icon-size) / var(--p-radiobutton-width))) !important;
+    transform: scale(0.6) !important;
   }
 }
 
