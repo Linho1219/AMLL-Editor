@@ -111,9 +111,8 @@ const displayName = __APP_DISPLAY_NAME__
       <PrefSwitchItem
         pref-key="hideLineTiming"
         label="隐藏行时间戳"
-        desc="自动从音节生成行时间戳，暂未实现"
+        desc="自动从音节生成行时间戳"
         experimental
-        disabled
       />
       <PrefSwitchItem
         pref-key="autoConnectLineTimes"

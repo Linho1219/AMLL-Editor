@@ -37,7 +37,7 @@
         />
         <label for="ribbon-alwaysignorebg">始终忽略背景</label>
       </div>
-      <div class="kvgrid">
+      <div class="kvgrid" v-if="!prefStore.hideLineTiming">
         <span>开始时间</span>
         <InputText
           class="timeinput"

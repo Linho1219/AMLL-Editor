@@ -42,14 +42,24 @@
         />
       </div>
       <div class="tline-head-timestamps">
-        <Timestamp begin v-model="props.line.startTime" v-tooltip="'行起始时间'" />
+        <Timestamp
+          begin
+          v-model="props.line.startTime"
+          v-tooltip="'行起始时间'"
+          v-if="!prefStore.hideLineTiming"
+        />
         <span
           class="tline-index"
           @dblclick="props.line.ignoreInTiming = !props.line.ignoreInTiming"
           v-tooltip="tipMultiLine('行序号', '双击以切换时轴忽略状态')"
           >{{ props.index + 1 }}</span
         >
-        <Timestamp end v-model="props.line.endTime" v-tooltip="'行结束时间'" />
+        <Timestamp
+          end
+          v-model="props.line.endTime"
+          v-tooltip="'行结束时间'"
+          v-if="!prefStore.hideLineTiming"
+        />
       </div>
     </div>
     <div class="tline-content">
@@ -162,12 +172,25 @@ function handleMouseDown() {
   text-align: center;
   font-family: var(--font-monospace);
   position: relative;
-  height: auto;
-  line-height: 0;
-  padding: 0.6em 0.5rem;
-  width: fit-content;
-  margin: 0 auto;
+
+  height: 0;
+  flex: 1;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  padding: 0 0.3rem;
+  margin-left: -0.3rem;
+  min-width: 2ch;
+
   --ignore-line-bg: currentColor;
+
+  .tline-head-timestamps + & {
+    padding: 0.6em 0.5rem;
+    width: fit-content;
+    margin: 0 auto;
+  }
   .tline.pgmignored & {
     --ignore-line-bg: var(--p-primary-color);
   }
