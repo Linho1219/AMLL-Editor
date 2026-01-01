@@ -291,6 +291,8 @@ onUnmounted(() => {
 .csyl {
   height: var(--csyl-height);
   margin-right: var(--c-syl-gap);
+  position: relative;
+
   --p-inputtext-lg-font-size: 1.3rem;
   --p-inputtext-sm-font-size: 0.95rem;
   --p-inputtext-lg-padding-x: 0.6rem;
@@ -298,12 +300,11 @@ onUnmounted(() => {
   --p-inputtext-sm-padding-x: 0.4rem;
   --p-inputtext-sm-padding-y: 0.3rem;
 
-  position: relative;
-
   --csyl-border-color: var(--p-inputtext-border-color);
   --csyl-head-bg: var(--c-border-color);
   --csyl-trans-dur: 0.1s;
   --csyl-remove-dur: 0.1s;
+
   border-radius: var(--p-inputtext-border-radius);
   background-color: var(--p-inputtext-background);
   box-shadow: var(--csyl-border-color) 0 0 0 1px inset;
@@ -325,10 +326,13 @@ onUnmounted(() => {
     );
     color: var(--p-primary-contrast-color);
     z-index: 3;
+    transition:
+      transform var(--csyl-remove-dur),
+      opacity var(--csyl-remove-dur);
     --csyl-trans-dur: 0;
   }
   &.removing {
-    opacity: 0.5;
+    opacity: 0.4;
     transform: scale(0.9);
   }
 }
