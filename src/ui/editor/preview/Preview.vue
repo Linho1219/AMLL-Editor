@@ -48,7 +48,7 @@ watch(
     amllLyricLines.value = convertToAMLL(collectPersist())
     playerKey.value = Symbol()
   },
-  { immediate: true },
+  { immediate: true, deep: true },
 )
 
 const jumpSeek = (line: any) => {
