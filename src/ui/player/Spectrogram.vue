@@ -191,7 +191,7 @@ const handleWheel = (e: WheelEvent) => {
 .spectrogram-container {
   width: 100%;
   flex: none;
-  min-height: 12.5rem;
+  min-height: 120px;
   position: relative;
   overflow: hidden;
 }
