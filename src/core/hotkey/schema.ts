@@ -30,6 +30,7 @@ export const hotkeyCommandNames = {
   delete: '删除',
   selectAllLines: '全选所有行',
   selectAllSyls: '全选所有音节',
+  breakLine: '拆分行',
 
   goPrevLine: '上一行',
   goPrevSyl: '上一音节',
@@ -97,6 +98,7 @@ export const getDefaultHotkeyMap = () =>
     importFromClipboard: k(Ctrl, Alt, 'v'),
     selectAllLines: k(Ctrl, 'a'),
     selectAllSyls: k(Alt, 'a'),
+    breakLine: k('Enter'),
   })
 
 //#region Helpers

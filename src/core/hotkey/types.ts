@@ -1,4 +1,4 @@
-import type { hotkeyCommandNames } from './data'
+import type { hotkeyCommandNames } from './schema'
 
 export namespace HotKey {
   export type Command = keyof typeof hotkeyCommandNames

@@ -1,5 +1,6 @@
 import { type Ref, nextTick } from 'vue'
 
+import { getHotkeyStr } from '@core/hotkey'
 import type { LyricLine } from '@core/types'
 
 import { useCoreStore, useRuntimeStore, useStaticStore } from '@states/stores'
@@ -124,6 +125,7 @@ export function useContentCtxItems({ lineIndex, sylIndex }: ContentCtxStates) {
         coreStore.deleteLine(...runtimeStore.selectedLines)
         runtimeStore.clearSelection()
       },
+      tip: getHotkeyStr('delete'),
     },
   ]
   const sylMenuItems: MenuItem[] = [
@@ -165,6 +167,7 @@ export function useContentCtxItems({ lineIndex, sylIndex }: ContentCtxStates) {
         coreStore.lyricLines.splice(lineIndex.value + 1, 0, newLine)
         runtimeStore.selectLineSyl(newLine, sylsToMove[0]!)
       },
+      tip: getHotkeyStr('breakLine'),
     },
     {
       label: '删除音节',
@@ -174,6 +177,7 @@ export function useContentCtxItems({ lineIndex, sylIndex }: ContentCtxStates) {
         const parent = coreStore.lyricLines[lineIndex.value]!
         parent.syllables.splice(sylIndex.value, 1)
       },
+      tip: getHotkeyStr('delete'),
     },
   ]
 

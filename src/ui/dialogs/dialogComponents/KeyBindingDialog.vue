@@ -29,8 +29,7 @@
 <script setup lang="ts">
 import { nextTick, ref, useTemplateRef } from 'vue'
 
-import { hotkeyToString } from '@core/hotkey'
-import { hotkeyCommandNames } from '@core/hotkey/data'
+import { hotkeyCommandNames } from '@core/hotkey'
 import type { HotKey } from '@core/hotkey/types'
 
 import { usePrefStore } from '@states/stores'
@@ -39,14 +38,12 @@ import type { Equal, Expect } from '@utils/types'
 
 import HotKeyGroupInput from '@ui/components/HotKeyGroupInput.vue'
 import HotKeyPopup from '@ui/components/HotKeyPopup.vue'
-import { Dialog, Divider, InputText, Popover } from 'primevue'
+import { Dialog, Divider, Popover } from 'primevue'
 
 const prefStore = usePrefStore()
 const op = useTemplateRef('op')
 
 const [visible] = defineModel<boolean>({ required: true })
-
-const hotKeyCommands = Object.entries(hotkeyCommandNames) as [HotKey.Command, string][]
 
 const currentBindingCommand = ref<HotKey.Command | null>(null)
 function handleFieldClick(e: MouseEvent, command: HotKey.Command) {
@@ -82,6 +79,7 @@ const groupedCmdList = [
       'delete',
       'selectAllLines',
       'selectAllSyls',
+      'breakLine',
     ],
   },
   {

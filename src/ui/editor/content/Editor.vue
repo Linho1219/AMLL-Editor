@@ -43,7 +43,11 @@
         <LineInsertIndicator :index="lineIndex + 1" @contextmenu="handleLineInsertContext" />
       </div>
     </VList>
-    <ContextMenu ref="menu" :model="menuItems" />
+    <ContextMenu ref="menu" :model="menuItems">
+      <template #item="{ item, props }">
+        <TieredMenuItem :item="item" :binding="props" context />
+      </template>
+    </ContextMenu>
     <EmptyTip
       v-if="coreStore.lyricLines.length === 0"
       title="没有歌词行"
@@ -76,6 +80,7 @@ import type { EditorComponentActions } from '@states/stores/static'
 
 import { forceOutsideBlur } from '@utils/forceOutsideBlur'
 import { isInputEl } from '@utils/isInputEl'
+import { sortSyllables } from '@utils/sortLineSyls'
 import { tryRaf } from '@utils/tryRaf'
 
 import DragGhost from './DragGhost.vue'
@@ -84,6 +89,7 @@ import LineInsertIndicator from './LineInsertIndicator.vue'
 import Syllable from './Syllable.vue'
 import WordInsertIndicator from './SyllableInsertIndicator.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
+import TieredMenuItem from '@ui/components/TieredMenuItem.vue'
 import { Button, ContextMenu } from 'primevue'
 import type { MenuItem } from 'primevue/menuitem'
 
@@ -148,6 +154,22 @@ useGlobalKeyboard('delete', () => {
   if (runtimeStore.selectedSyllables.size) {
     coreStore.deleteSyllable(...runtimeStore.selectedSyllables)
   } else coreStore.deleteLine(...runtimeStore.selectedLines)
+})
+useGlobalKeyboard('breakLine', () => {
+  if (runtimeStore.selectedSyllables.size === 0) return
+  const syls = sortSyllables(...runtimeStore.selectedSyllables)
+  let currentLineIndex = 0
+  for (const syl of syls) {
+    while (!coreStore.lyricLines[currentLineIndex]?.syllables.includes(syl)) currentLineIndex++
+    const line = coreStore.lyricLines[currentLineIndex]
+    if (!line) return
+    const sylIndex = line.syllables.indexOf(syl)
+    const remainingSyls = line.syllables.splice(sylIndex)
+    const newLine = coreStore.newLine({ ...line, syllables: remainingSyls })
+    coreStore.lyricLines.splice(currentLineIndex + 1, 0, newLine)
+    currentLineIndex++
+  }
+  runtimeStore.selectSyllable(...syls)
 })
 
 // onBeforeUnmounted instead of onUnmounted: vscroll quits at unmounted phase

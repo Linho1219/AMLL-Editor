@@ -3,11 +3,11 @@ import { onUnmounted } from 'vue'
 
 import { usePrefStore } from '@states/stores'
 
-import { hotkeyInputBlockList } from './data'
+import { hotkeyInputBlockList } from './schema'
 import type { HotKey as HK } from './types'
 
 export type { HotKey } from './types'
-export { getDefaultHotkeyMap } from './data'
+export { getDefaultHotkeyMap, hotkeyCommandNames } from './schema'
 
 const globalKeyboardEmit = mitt<{ [K in HK.Command]: undefined }>()
 export function useGlobalKeyboard(command: HK.Command, handler: () => void) {
