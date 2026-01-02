@@ -1,7 +1,9 @@
 <template>
   <Card class="player">
     <template #content>
-      <Spectrogram v-show="showSpectrogram" :key="refresher" class="spectrogram-view" />
+      <KeepAlive>
+        <Spectrogram v-if="showSpectrogram" :key="refresher" class="spectrogram-view" />
+      </KeepAlive>
       <div class="player-toolbar">
         <Button
           :icon="`pi ${loading ? 'pi-sync' : 'pi-upload'}`"
