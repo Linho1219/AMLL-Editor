@@ -7,7 +7,7 @@
       height: `${height}px`,
     }"
   >
-    <canvas ref="canvasRef" :width="canvasWidth" :height="height"></canvas>
+    <canvas ref="canvasRef" :width="canvasWidth" :height="canvasHeight"></canvas>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ const props = defineProps<{
   width: number
   height: number
   canvasWidth: number
+  canvasHeight: number
   bitmap?: ImageBitmap | null
 }>()
 
@@ -28,7 +29,7 @@ const draw = () => {
   const ctx = canvasRef.value?.getContext('2d')
   if (!ctx || !props.bitmap) return
 
-  ctx.clearRect(0, 0, props.canvasWidth, props.height)
+  ctx.clearRect(0, 0, props.canvasWidth, props.canvasHeight)
   ctx.drawImage(props.bitmap, 0, 0)
 }
 
@@ -42,6 +43,7 @@ onMounted(draw)
   top: 0;
   overflow: hidden;
   pointer-events: none;
+  image-rendering: pixelated;
 }
 
 canvas {
