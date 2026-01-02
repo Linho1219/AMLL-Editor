@@ -11,13 +11,12 @@ import { editHistory } from '@states/services/history'
 import { applyPersist, collectPersist } from '@states/services/port'
 import { useCoreStore, usePrefStore } from '@states/stores'
 
-import { breakExtension } from '@utils/breakExtension'
 import type { TimeoutHandle, ValueOf } from '@utils/types'
 
 import { fileSystemBackend } from './backends/filesystem'
 import { h5NativeBackend } from './backends/h5native'
 import { collectProjectData, makeProjectFile, mountProjectData, parseProjectFile } from './project'
-import { checkDataDropConfirm } from './shared'
+import { breakExtension, checkDataDropConfirm } from './shared'
 import {
   type FileBackend,
   type FileHandle,
