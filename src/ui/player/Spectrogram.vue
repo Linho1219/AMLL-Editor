@@ -28,9 +28,13 @@
       />
     </div>
 
-    <div v-if="!audioEngine.audioBuffer" class="empty-state">
-      请先加载一个音频文件来渲染频谱图哦
-    </div>
+    <EmptyTip
+      v-if="!audioEngine.audioBuffer"
+      icon="pi pi-volume-off"
+      title="没有音频数据"
+      tip="加载音频文件后将渲染频谱图"
+      compact
+    />
   </div>
 </template>
 
@@ -44,6 +48,7 @@ import { useSpectrogramResize } from '@core/spectrogram/useSpectrogramResize'
 import { useSpectrogramWorker } from '@core/spectrogram/useSpectrogramWorker'
 
 import SpectrogramTile from './SpectrogramTile.vue'
+import EmptyTip from '@ui/components/EmptyTip.vue'
 
 const TILE_DURATION_S = 5
 const LOD_WIDTHS = [512, 1024, 2048, 4096, 8192]
@@ -231,14 +236,6 @@ const handleWheel = (e: WheelEvent) => {
   top: 0;
   left: 0;
   will-change: transform;
-}
-
-.empty-state {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #c2c2c2;
 }
 
 .resize-handle {
