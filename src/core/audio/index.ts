@@ -188,6 +188,9 @@ export const audioEngine = {
   volumeRef,
   playbackRateRef,
   activatedRef,
+  get audioBuffer() {
+    return audioBufferRef.value
+  },
   audioBufferComputed: readonly(audioBufferRef),
   filenameComputed: readonly(filenameRef),
   rawFileComputed: readonly(rawFileRef),

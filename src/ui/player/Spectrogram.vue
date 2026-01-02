@@ -1,126 +1,174 @@
 <template>
-  <div class="spectrogram" ref="spectrogramEl">
-    <span class="spectrogram-tooltip">等待频谱图装载…</span>
+  <div class="spectrogram-container" ref="containerEl" @wheel.prevent="handleWheel">
+    <div
+      class="spectrogram-content"
+      :style="{
+        width: `${totalContentWidth}px`,
+        transform: `translate3d(${-scrollLeft}px, 0, 0)`,
+      }"
+    >
+      <SpectrogramTile
+        v-for="tile in visibleTiles"
+        :key="tile.id"
+        :left="tile.left"
+        :width="tile.width"
+        :height="tile.height"
+        :canvas-width="tile.canvasWidth"
+        :bitmap="tile.bitmap"
+      />
+    </div>
+
+    <div v-if="!audioEngine.audioBuffer" class="empty-state">
+      请先加载一个音频文件来渲染频谱图哦
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useCssVar } from '@vueuse/core'
-import { onMounted, onUnmounted, useTemplateRef } from 'vue'
-import WaveSurfer from 'wavesurfer.js'
-import HoverPlugin from 'wavesurfer.js/dist/plugins/hover.esm.js'
-import RegionsPlugin from 'wavesurfer.js/dist/plugins/regions.js'
-import ZoomPlugin from 'wavesurfer.js/dist/plugins/zoom.js'
+import { useResizeObserver } from '@vueuse/core'
+import { computed, ref, shallowRef, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
 
-import { ms2str } from '@utils/formatTime.ts'
+import { generatePalette, getIcyBlueColor } from '@utils/colors'
 
-import SpectrogramPlugin from '../../vendors/wsSpectrogramPlugin/index.ts'
+import SpectrogramTile from './SpectrogramTile.vue'
 
-const spectrogramEl = useTemplateRef('spectrogramEl')
-const primaryColor = useCssVar('--p-primary-color')
+import { useSpectrogramWorker } from './useSpectrogramWorker'
 
-let wsInstance: WaveSurfer | null = null
-onMounted(() => {
-  if (!spectrogramEl.value) return
-  const spectrogramHeightRatio = 0.8
-  const regions = RegionsPlugin.create()
-  wsInstance = WaveSurfer.create({
-    media: audioEngine.audioEl,
-    container: spectrogramEl.value,
-    height: spectrogramEl.value.clientHeight * (1 - spectrogramHeightRatio),
-    waveColor: primaryColor.value,
-    progressColor: primaryColor.value,
-    cursorColor: primaryColor.value,
-    dragToSeek: true,
-    normalize: true,
-    cursorWidth: 0,
-    barHeight: 0.8,
-    sampleRate: 44100,
-    minPxPerSec: 100,
-    plugins: [
-      ZoomPlugin.create({
-        scale: 0.4,
-        maxZoom: 300,
-      }),
-      SpectrogramPlugin.create({
-        height: spectrogramEl.value.clientHeight * spectrogramHeightRatio,
-        fftSamples: 1024,
-        hopSize: 256,
-        frequencyMin: 1000,
-        frequencyMax: 22050,
-        minFreqThresOfMaxMagnitude: 8000,
-        gain: 6,
-        logRatio: 0.3,
-        noiseFloor: 2e-3,
-        windowFunc: 'rectangular',
-      }),
-      HoverPlugin.create({
-        formatTimeCallback: (v) => ms2str(v * 1000),
-        lineColor: primaryColor.value,
-        lineWidth: 1,
-        labelBackground: 'transparent',
-        labelPreferLeft: false,
-      }),
-      regions,
-    ],
-  })
+const TILE_DURATION_S = 5
+const LOD_WIDTHS = [512, 1024, 2048, 4096, 8192]
+
+const containerEl = ref<HTMLElement | null>(null)
+const containerWidth = ref(0)
+const scrollLeft = ref(0)
+// TODO: 从 store 获取
+const spectrogramHeight = ref(200)
+const zoom = ref(100)
+const gain = ref(3.0)
+const palette = ref<Uint8Array>(generatePalette(getIcyBlueColor))
+
+useResizeObserver(containerEl, (entries) => {
+  const entry = entries[0]
+  if (!entry) return
+  const { width, height } = entry.contentRect
+  containerWidth.value = width
+  spectrogramHeight.value = height
 })
-onUnmounted(() => wsInstance?.destroy())
+
+const audioBufferRef = computed(() => audioEngine.audioBuffer)
+const { requestTileIfNeeded, tileCache, lastTileTimestamp } = useSpectrogramWorker(
+  audioBufferRef,
+  palette,
+)
+
+const visibleTiles = shallowRef<
+  Array<{
+    id: string
+    left: number
+    width: number
+    height: number
+    canvasWidth: number
+    bitmap?: ImageBitmap
+  }>
+>([])
+
+const totalContentWidth = computed(() => {
+  const duration = audioEngine.audioBuffer?.duration || 0
+  return duration * zoom.value
+})
+
+const updateVisibleTiles = () => {
+  const buffer = audioEngine.audioBuffer
+  if (!buffer || containerWidth.value === 0) return
+
+  const pixelsPerSecond = zoom.value
+  const tileDisplayWidthPx = TILE_DURATION_S * pixelsPerSecond
+  const totalTiles = Math.ceil(buffer.duration / TILE_DURATION_S)
+
+  const viewStart = scrollLeft.value
+  const viewEnd = viewStart + containerWidth.value
+
+  const firstVisibleIndex = Math.floor(viewStart / tileDisplayWidthPx)
+  const lastVisibleIndex = Math.ceil(viewEnd / tileDisplayWidthPx)
+
+  const newVisibleTiles = []
+
+  for (let i = firstVisibleIndex - 2; i <= lastVisibleIndex + 2; i++) {
+    if (i < 0 || i >= totalTiles) continue
+
+    const targetLodWidth =
+      LOD_WIDTHS.find((w) => w >= tileDisplayWidthPx) ?? LOD_WIDTHS[LOD_WIDTHS.length - 1]!
+
+    const cacheId = `tile-${i}`
+    // TODO: 从 store 获取
+    const currentPaletteId = 'default'
+
+    requestTileIfNeeded({
+      tileIndex: i,
+      startTime: i * TILE_DURATION_S,
+      endTime: i * TILE_DURATION_S + TILE_DURATION_S,
+      gain: gain.value,
+      height: Math.floor(spectrogramHeight.value),
+      tileWidthPx: targetLodWidth,
+      paletteId: currentPaletteId,
+    })
+
+    const cacheEntry = tileCache.get(cacheId)
+
+    newVisibleTiles.push({
+      id: cacheId,
+      left: i * tileDisplayWidthPx,
+      width: tileDisplayWidthPx,
+      height: spectrogramHeight.value,
+      canvasWidth: targetLodWidth,
+      bitmap: cacheEntry?.bitmap,
+    })
+  }
+
+  visibleTiles.value = newVisibleTiles
+}
+
+watch(
+  [scrollLeft, zoom, containerWidth, spectrogramHeight, gain, lastTileTimestamp, audioBufferRef],
+  () => {
+    updateVisibleTiles()
+  },
+  { immediate: true },
+)
+
+const handleWheel = (e: WheelEvent) => {
+  const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
+
+  const maxScroll = Math.max(0, totalContentWidth.value - containerWidth.value)
+  const newScroll = scrollLeft.value + delta
+
+  scrollLeft.value = Math.max(0, Math.min(newScroll, maxScroll))
+}
 </script>
 
-<style lang="scss">
-.spectrogram {
-  cursor: text;
+<style lang="scss" scoped>
+.spectrogram-container {
+  width: 100%;
+  height: 100%;
   min-height: 12.5rem;
   position: relative;
-  ::part(canvases) {
-    opacity: 0.6;
-  }
-  ::part(progress) {
-    opacity: 0.9;
-  }
-  ::part(cursor) {
-    box-shadow:
-      0 0 0 1px var(--p-primary-color),
-      0 0 0 3px #0002;
-    will-change: left;
-  }
-  ::part(hover) {
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-    }
-  }
-  ::part(hover-label) {
-    padding: 0 0.5rem;
-    font-size: 1rem;
-    line-height: 2.5rem;
-    transition: none;
-    font-family: var(--font-monospace);
-    text-shadow: 0 0 5px var(--p-form-field-background);
-  }
-  ::part(region) {
-    box-shadow: 0 0 0 2px var(--p-primary-color);
-    margin: 0 1px;
-    background-color: var(--p-primary-color);
-    border-radius: 0;
-  }
-  ::part(region-handle) {
-    display: none;
-  }
-  ::part(region-content) {
-    color: white;
-    text-shadow: #0004 0 0 2px;
-    background-color: #0003;
-    margin-top: 2.5rem !important;
-  }
+  overflow: hidden;
 }
-.spectrogram-tooltip {
+
+.spectrogram-content {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.empty-state {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.6;
+  color: #c2c2c2;
 }
 </style>
