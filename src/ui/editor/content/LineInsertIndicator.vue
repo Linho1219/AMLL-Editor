@@ -108,7 +108,6 @@ function handleContext(e: MouseEvent) {
   box-sizing: content-box;
   height: 0.8rem;
   position: relative;
-  pointer-events: none;
   z-index: 3;
   &::before {
     content: '';
@@ -117,8 +116,9 @@ function handleContext(e: MouseEvent) {
     left: 0;
     right: 0;
     bottom: -0.6rem;
+    pointer-events: none;
   }
-  &.dragging {
+  &.dragging::before {
     pointer-events: auto;
   }
   &.dragover {
