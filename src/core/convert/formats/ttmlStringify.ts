@@ -21,8 +21,10 @@ export function stringifyTTML(ttmlLyric: Persist): string {
     arg1?: AcceptAttrs | AcceptContent,
     arg2?: AcceptAttrs | AcceptContent,
   ): Element {
-    const isAttrs = (v: any): v is AcceptAttrs => typeof v === 'object' && !Array.isArray(v)
-    const isContent = (v: any): v is AcceptContent => typeof v === 'string' || Array.isArray(v)
+    const isAttrs = (v: AcceptAttrs | AcceptContent | undefined): v is AcceptAttrs =>
+      typeof v === 'object' && !Array.isArray(v)
+    const isContent = (v: AcceptAttrs | AcceptContent | undefined): v is AcceptContent =>
+      typeof v === 'string' || Array.isArray(v)
     const el = doc.createElement(tag)
     const content = isContent(arg1) ? arg1 : isContent(arg2) ? arg2 : undefined
     const attrs = isAttrs(arg1) ? arg1 : isAttrs(arg2) ? arg2 : undefined

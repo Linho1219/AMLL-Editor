@@ -1,4 +1,4 @@
-import { readonly, ref, watch } from 'vue'
+import { readonly, ref } from 'vue'
 
 import { audioEngine } from '@core/audio'
 import { compatibilityMap } from '@core/compat'

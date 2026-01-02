@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, watch } from 'vue'
+import { computed, watch } from 'vue'
 
 import { audioEngine } from '@core/audio'
 import { type LyricLine, type LyricSyllable, View } from '@core/types'

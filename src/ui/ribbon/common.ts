@@ -6,7 +6,7 @@ import type { Maybe } from '@utils/types'
 export type BooleanKeys<T> = {
   [K in keyof T]: T[K] extends boolean ? K : never
 }[keyof T]
-export function attrCheckbox<T extends Object>(itemSet: ReadonlySet<T>, attr: BooleanKeys<T>) {
+export function attrCheckbox<T extends object>(itemSet: ReadonlySet<T>, attr: BooleanKeys<T>) {
   const indeterminate = ref(true)
   const checked = computed<boolean>({
     get() {
@@ -14,7 +14,7 @@ export function attrCheckbox<T extends Object>(itemSet: ReadonlySet<T>, attr: Bo
         indeterminate.value = true
         return false
       }
-      let first = itemSet.values().next().value![attr] as boolean
+      const first = itemSet.values().next().value![attr] as boolean
       if (itemSet.size === 1) {
         indeterminate.value = false
         return first

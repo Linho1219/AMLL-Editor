@@ -16,18 +16,16 @@ import { audioEngine } from '@core/audio/index.ts'
 
 import { ms2str } from '@utils/formatTime.ts'
 
-import SpectrogramPlugin from './spectrogramPlugin/index.ts'
+import SpectrogramPlugin from '../../vendors/wsSpectrogramPlugin/index.ts'
 
 const spectrogramEl = useTemplateRef('spectrogramEl')
 const primaryColor = useCssVar('--p-primary-color')
 
 let wsInstance: WaveSurfer | null = null
-let rgInstance: RegionsPlugin | null = null
 onMounted(() => {
   if (!spectrogramEl.value) return
   const spectrogramHeightRatio = 0.8
   const regions = RegionsPlugin.create()
-  rgInstance = regions
   wsInstance = WaveSurfer.create({
     media: audioEngine.audioEl,
     container: spectrogramEl.value,

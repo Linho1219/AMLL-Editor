@@ -191,8 +191,6 @@ export function parseTTML(ttmlText: string): Persist {
   ) {
     if (background) duet = lineEl.getAttribute('ttm:agent') !== mainAgentId
 
-    let haveBg = false
-
     const startTime = str2ms(lineEl.getAttribute('begin'))
     const endTime = str2ms(lineEl.getAttribute('end'))
 
@@ -227,7 +225,6 @@ export function parseTTML(ttmlText: string): Persist {
         if (wordEl.nodeName === 'span' && role) {
           if (role === 'x-bg') {
             parseLineElement(wordEl, true, line.duet, itunesKey)
-            haveBg = true
           } else if (role === 'x-translation') {
             // Use inline translation only if there is no Apple Music style translation
             line.translation ||= wordEl.textContent.trim()

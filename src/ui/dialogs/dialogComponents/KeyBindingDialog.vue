@@ -9,7 +9,7 @@
       <Divider v-if="index !== 0" />
       <div class="title">{{ group.title }}</div>
       <div class="list">
-        <template v-for="command in group.commands">
+        <template v-for="command in group.commands" :key="command">
           <label :for="command">{{ hotkeyCommandNames[command] }}</label>
           <HotKeyGroupInput
             v-model="prefStore.hotkeyMap[command]"

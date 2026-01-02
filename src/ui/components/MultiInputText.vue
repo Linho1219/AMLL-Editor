@@ -63,7 +63,7 @@
 
 <script setup lang="ts">
 import { nanoid } from 'nanoid'
-import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
+import { computed, ref, useTemplateRef, watch } from 'vue'
 
 import { tryRaf } from '@utils/tryRaf'
 
@@ -128,7 +128,7 @@ function handleInputKeydown(event: KeyboardEvent) {
     triggerUpdate()
   }
 }
-function handleInputBlur(event: FocusEvent) {
+function handleInputBlur(_event: FocusEvent) {
   const inputValue = inputText.value.trim()
   if (inputValue.length === 0) return
   addItem(inputValue)

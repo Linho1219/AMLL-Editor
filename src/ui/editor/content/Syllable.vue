@@ -67,7 +67,7 @@
 </template>
 <script setup lang="ts">
 import { useFocus } from '@vueuse/core'
-import { type Ref, computed, nextTick, onMounted, onUnmounted, useTemplateRef } from 'vue'
+import { type Ref, computed, onMounted, onUnmounted, useTemplateRef } from 'vue'
 
 import type { LyricLine, LyricSyllable } from '@core/types'
 
@@ -210,6 +210,7 @@ const placeholder = computed(() => {
     const upperCount = [...sylText.length.toString()].map(digit2Sup).join('')
     return `␣${upperCount}`
   }
+  return ''
 })
 const widthController = computed(() => {
   const sylText = inputModel.value

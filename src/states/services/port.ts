@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash-es'
 import { reactive, toRaw } from 'vue'
 
-import type { LyricLine, MetadataKey, Persist } from '@core/types'
+import type { LyricLine, Persist } from '@core/types'
 
 import { useCoreStore, usePrefStore, useRuntimeStore } from '@states/stores'
 

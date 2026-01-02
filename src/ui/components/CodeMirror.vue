@@ -103,7 +103,7 @@ const drawDropCursor = ViewPlugin.fromClass(
       this.measureReq = { read: this.readPos.bind(this), write: this.drawCursor.bind(this) }
     }
     update(update: ViewUpdate) {
-      let cursorPos = update.state.field(dropCursorPos)
+      const cursorPos = update.state.field(dropCursorPos)
       if (cursorPos == null) {
         if (this.cursor != null) {
           this.cursor?.remove()
@@ -123,11 +123,11 @@ const drawDropCursor = ViewPlugin.fromClass(
       }
     }
     readPos(): { left: number; top: number; height: number } | null {
-      let { view } = this
-      let pos = view.state.field(dropCursorPos)
-      let rect = pos != null && view.coordsAtPos(pos)
+      const { view } = this
+      const pos = view.state.field(dropCursorPos)
+      const rect = pos != null && view.coordsAtPos(pos)
       if (!rect) return null
-      let outer = view.scrollDOM.getBoundingClientRect()
+      const outer = view.scrollDOM.getBoundingClientRect()
       return {
         left: rect.left - outer.left + view.scrollDOM.scrollLeft * view.scaleX,
         top: rect.top - outer.top + view.scrollDOM.scrollTop * view.scaleY,
@@ -136,7 +136,7 @@ const drawDropCursor = ViewPlugin.fromClass(
     }
     drawCursor(pos: { left: number; top: number; height: number } | null) {
       if (this.cursor) {
-        let { scaleX, scaleY } = this.view
+        const { scaleX, scaleY } = this.view
         if (pos) {
           this.cursor.style.left = pos.left / scaleX + 'px'
           this.cursor.style.top = pos.top / scaleY + 'px'
@@ -214,7 +214,6 @@ onMounted(() => {
       ...(props.extensions || []),
     ].filter((e) => !!e),
   })
-  editorInstance.value
 })
 onUnmounted(() => {
   nextTick(() => editorInstance.value?.destroy())

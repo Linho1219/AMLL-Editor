@@ -33,7 +33,7 @@ import { type HotKey as HK, getDefaultHotkeyMap } from '@core/hotkey'
 import { usePrefStore } from '@states/stores'
 
 import HotKeyInput from './HotKeyInput.vue'
-import { Button, InputText } from 'primevue'
+import { Button } from 'primevue'
 
 const props = defineProps<{
   command: HK.Command

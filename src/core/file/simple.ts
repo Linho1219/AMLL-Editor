@@ -29,7 +29,8 @@ function simpleChooseFile(
         multiple: false,
         id,
       }
-      const [handle] = await (window as any).showOpenFilePicker(opts)
+      const [handle] = await window.showOpenFilePicker(opts)
+      if (!handle) return resolve(null)
       const file = await handle.getFile()
       resolve(file)
     } catch (e) {
