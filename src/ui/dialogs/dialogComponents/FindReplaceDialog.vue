@@ -242,7 +242,13 @@ const findInputInvalid = computed(() => {
   return false
 })
 const findRangeEmpty = computed(
-  () => !findInSyls.value && !findInTranslations.value && !findInRoman.value,
+  () =>
+    !(
+      findInSyls.value ||
+      findInTranslations.value ||
+      findInRoman.value ||
+      (prefStore.sylRomanEnabled && findInSylRomanModel.value)
+    ),
 )
 const actionDisabled = computed(() => findRangeEmpty.value || !compiledPattern.value)
 
