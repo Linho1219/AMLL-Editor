@@ -68,6 +68,18 @@ export function handleSylRomanInputKeydown(event: KeyboardEvent, state: Syllable
       )
       return
     }
+    case 'Delete': {
+      if (el.selectionStart !== el.value.length || el.selectionEnd !== el.value.length) return
+      const nextSyl = findNextSolidSyl(true)
+      if (!nextSyl) return
+      event.preventDefault()
+      const cursorPos = el.selectionStart
+      const shiftedRoman = shiftRoman(state.parent, state.index + 1)
+      if (!shiftedRoman) return
+      el.value += shiftedRoman
+      el.selectionStart = el.selectionEnd = cursorPos
+      return
+    }
     case 'Backquote': {
       event.preventDefault()
       const cursorPos = el.selectionStart || 0

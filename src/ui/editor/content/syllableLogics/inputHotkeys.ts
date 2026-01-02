@@ -15,9 +15,9 @@ export function handleSylInputKeydown(event: KeyboardEvent, state: SyllableState
     case 'Backspace': {
       // Combine with previous syllable
       if (state.index === 0 || el.selectionStart !== 0 || el.selectionEnd !== 0) return
-      event.preventDefault()
       const prevSyl = state.parent.syllables[state.index - 1]
       if (!prevSyl) return
+      event.preventDefault()
       const cursorPos = prevSyl.text.length
       prevSyl.text += el.value
       prevSyl.romanization = [prevSyl.romanization, state.syllable.romanization].join(' ').trim()
@@ -27,6 +27,30 @@ export function handleSylInputKeydown(event: KeyboardEvent, state: SyllableState
       state.parent.syllables.splice(state.index, 1)
       runtimeStore.selectLineSyl(state.parent, prevSyl)
       nextTick(() => staticStore.syllableHooks.get(prevSyl.id)?.focusInput(cursorPos))
+      return
+    }
+    case 'Delete': {
+      // Combine with next syllable
+      if (
+        state.index === state.parent.syllables.length - 1 ||
+        el.selectionStart !== el.value.length ||
+        el.selectionEnd !== el.value.length
+      )
+        return
+      event.preventDefault()
+      const nextSyl = state.parent.syllables[state.index + 1]
+      if (!nextSyl) return
+      const cursorPos = el.value.length
+      state.syllable.text += nextSyl.text
+      state.syllable.romanization = [state.syllable.romanization, nextSyl.romanization]
+        .join(' ')
+        .trim()
+      if (nextSyl.startTime && nextSyl.endTime) {
+        state.syllable.endTime = nextSyl.endTime
+      }
+      state.parent.syllables.splice(state.index + 1, 1)
+      runtimeStore.selectLineSyl(state.parent, state.syllable)
+      nextTick(() => staticStore.syllableHooks.get(state.syllable.id)?.focusInput(cursorPos))
       return
     }
     case 'ArrowLeft': {
