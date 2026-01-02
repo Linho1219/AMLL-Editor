@@ -27,8 +27,6 @@ export function useSpectrogramResize(options: UseSpectrogramResizeOptions) {
 
   const handleMouseUp = () => {
     isResizing.value = false
-    document.body.style.cursor = ''
-    document.body.style.userSelect = ''
     window.removeEventListener('mousemove', handleMouseMove)
     window.removeEventListener('mouseup', handleMouseUp)
   }
@@ -37,10 +35,6 @@ export function useSpectrogramResize(options: UseSpectrogramResizeOptions) {
     isResizing.value = true
     startY = e.clientY
     startHeight = height.value
-
-    document.body.style.cursor = 'ns-resize'
-    document.body.style.userSelect = 'none'
-
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseup', handleMouseUp)
   }

@@ -262,6 +262,9 @@ const handleWheel = (e: WheelEvent) => {
       background-color: var(--p-primary-color);
     }
   }
+  :root:has(&:active) * {
+    cursor: ns-resize;
+  }
 
   .handle-bar {
     width: 40px;
