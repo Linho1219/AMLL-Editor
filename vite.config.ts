@@ -16,7 +16,6 @@ const aliasRelMap: Record<string, string> = {
   '@utils': './src/utils',
   '@states': './src/states',
   '@vendors': './src/vendors',
-  '@workers': './src/workers',
 }
 const aliasMap: Record<string, string> = {}
 for (const [key, relPath] of Object.entries(aliasRelMap)) {

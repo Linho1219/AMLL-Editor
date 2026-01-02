@@ -39,13 +39,11 @@ import { useResizeObserver } from '@vueuse/core'
 import { computed, ref, shallowRef, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
-
-import { generatePalette, getIcyBlueColor } from '@utils/colors'
+import { generatePalette, getIcyBlueColor } from '@core/spectrogram/colors'
+import { useSpectrogramResize } from '@core/spectrogram/useSpectrogramResize'
+import { useSpectrogramWorker } from '@core/spectrogram/useSpectrogramWorker'
 
 import SpectrogramTile from './SpectrogramTile.vue'
-
-import { useSpectrogramResize } from './useSpectrogramResize'
-import { useSpectrogramWorker } from './useSpectrogramWorker'
 
 const TILE_DURATION_S = 5
 const LOD_WIDTHS = [512, 1024, 2048, 4096, 8192]

@@ -1,12 +1,13 @@
+import { type Ref, onUnmounted, ref, watch } from 'vue'
+
 import type {
   SpectrogramWorker as SpectrogramWorkerType,
   TileGenerationParams,
   WorkerResponse,
-} from '@workers/spectrogram'
-import SpectrogramWorker from '@workers/spectrogram.worker.ts?worker'
-import { type Ref, onUnmounted, ref, watch } from 'vue'
+} from '@core/spectrogram/workers/spectrogram'
 
-import { LRUCache } from '@utils/lru-cache'
+import { LRUCache } from './lruCache'
+import SpectrogramWorker from './workers/spectrogram.worker.ts?worker'
 
 const MAX_CACHED_TILES = 70
 
