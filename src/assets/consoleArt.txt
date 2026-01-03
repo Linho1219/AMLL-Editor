@@ -8,10 +8,10 @@
 喜欢您来！
 
 项目地址: https://github.com/Linho1219/AMLL-Editor
-　　　　　以 AGPLv3 only 许可证开源
+　　　　  以 AGPLv3 only 许可证开源
 
 友情链接: AMLL Homepage  https://amll.dev/
-　　　　　AMLL TTML DB   https://db.amll.dev/
-　　　　　AMLL TTML Tool https://tool.amll.dev/
+　　　　  AMLL TTML DB   https://db.amll.dev/
+　　　　  AMLL TTML Tool https://tool.amll.dev/
 
 另请注意: DevTools、插件、用户脚本均可能对性能有显著负面影响。
