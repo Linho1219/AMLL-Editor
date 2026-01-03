@@ -3,6 +3,9 @@
     class="spectrogram-container"
     ref="containerEl"
     @wheel.prevent="handleWheel"
+    @mousemove="handleMouseMove"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
     :style="{ height: displayHeight + 'px' }"
   >
     <div class="resize-handle" v-bind="resizeHandleProps">
@@ -12,8 +15,8 @@
     <div
       class="spectrogram-content"
       :style="{
-        width: `${totalContentWidth}px`,
-        transform: `translate3d(${-Math.round(scrollLeft)}px, 0, 0)`,
+        width: `${ctx.totalContentWidth.value}px`,
+        transform: `translate3d(${-Math.round(ctx.scrollLeft.value)}px, 0, 0)`,
       }"
     >
       <SpectrogramTile
@@ -42,6 +45,7 @@
 import { computed, ref, shallowRef, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
+import { useSpectrogramProvider } from '@core/spectrogram/SpectrogramContext'
 import { generatePalette, getIcyBlueColor } from '@core/spectrogram/colors'
 import { useSpectrogramInteraction } from '@core/spectrogram/useSpectrogramInteraction'
 import { useSpectrogramResize } from '@core/spectrogram/useSpectrogramResize'
@@ -57,6 +61,12 @@ const containerEl = ref<HTMLElement | null>(null)
 // TODO: 从 store 获取
 const gain = ref(3.0)
 const palette = ref<Uint8Array>(generatePalette(getIcyBlueColor))
+
+const audioBufferRef = computed(() => audioEngine.audioBuffer)
+const ctx = useSpectrogramProvider({ audioBuffer: audioBufferRef })
+
+const { handleWheel, handleMouseMove, handleMouseLeave, handleMouseEnter } =
+  useSpectrogramInteraction({ ctx, containerEl })
 
 const {
   height: displayHeight,
@@ -76,14 +86,6 @@ watch(isResizing, (resizing) => {
   }
 })
 
-const audioBufferRef = computed(() => audioEngine.audioBuffer)
-
-const { containerWidth, scrollLeft, zoom, totalContentWidth, handleWheel } =
-  useSpectrogramInteraction({
-    containerEl,
-    audioBuffer: audioBufferRef,
-  })
-
 const { requestTileIfNeeded, tileCache, lastTileTimestamp } = useSpectrogramWorker(
   audioBufferRef,
   palette,
@@ -102,15 +104,15 @@ interface VisibleTile {
 const visibleTiles = shallowRef<VisibleTile[]>([])
 
 const updateVisibleTiles = () => {
-  const buffer = audioEngine.audioBuffer
-  if (!buffer || containerWidth.value === 0) return
+  const duration = ctx.duration.value
+  if (duration === 0 || ctx.containerWidth.value === 0) return
 
-  const pixelsPerSecond = zoom.value
+  const pixelsPerSecond = ctx.zoom.value
   const tileDisplayWidthPx = TILE_DURATION_S * pixelsPerSecond
-  const totalTiles = Math.ceil(buffer.duration / TILE_DURATION_S)
+  const totalTiles = Math.ceil(duration / TILE_DURATION_S)
 
-  const viewStart = scrollLeft.value
-  const viewEnd = viewStart + containerWidth.value
+  const viewStart = ctx.scrollLeft.value
+  const viewEnd = viewStart + ctx.containerWidth.value
 
   const firstVisibleIndex = Math.floor(viewStart / tileDisplayWidthPx)
   const lastVisibleIndex = Math.ceil(viewEnd / tileDisplayWidthPx)
@@ -157,9 +159,9 @@ const updateVisibleTiles = () => {
 
 watch(
   [
-    scrollLeft,
-    zoom,
-    containerWidth,
+    ctx.scrollLeft,
+    ctx.zoom,
+    ctx.containerWidth,
     displayHeight,
     renderHeight,
     gain,

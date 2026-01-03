@@ -1,9 +1,11 @@
 import { useResizeObserver } from '@vueuse/core'
-import { type Ref, computed, onUnmounted, ref, watch } from 'vue'
+import { type Ref, onUnmounted, ref, watch } from 'vue'
+
+import type { SpectrogramContext } from './SpectrogramContext'
 
 interface UseSpectrogramInteractionOptions {
+  ctx: SpectrogramContext
   containerEl: Ref<HTMLElement | null>
-  audioBuffer: Ref<AudioBuffer | null>
 }
 
 const MIN_ZOOM = 10
@@ -11,14 +13,10 @@ const MAX_ZOOM = 1000
 const ZOOM_SENSITIVITY = 1.15
 const SMOOTHING_FACTOR = 0.27
 
-export function useSpectrogramInteraction({
-  containerEl,
-  audioBuffer,
-}: UseSpectrogramInteractionOptions) {
-  const containerWidth = ref(0)
-  const scrollLeft = ref(0)
+export function useSpectrogramInteraction({ ctx, containerEl }: UseSpectrogramInteractionOptions) {
+  const { scrollLeft, zoom, containerWidth, totalContentWidth, duration } = ctx
+
   const targetScrollLeft = ref(0)
-  const zoom = ref(100)
   const targetZoom = ref(100)
 
   let scrollAnimId = 0
@@ -27,16 +25,10 @@ export function useSpectrogramInteraction({
   let zoomAnchorTime = 0
   let zoomAnchorMouseX = 0
 
-  const totalContentWidth = computed(() => {
-    const duration = audioBuffer.value?.duration || 0
-    return duration * zoom.value
-  })
-
   useResizeObserver(containerEl, (entries) => {
     const entry = entries[0]
     if (!entry) return
-    const { width } = entry.contentRect
-    containerWidth.value = width
+    containerWidth.value = entry.contentRect.width
   })
 
   const startSmoothScroll = () => {
@@ -73,11 +65,7 @@ export function useSpectrogramInteraction({
       zoom.value += diff * SMOOTHING_FACTOR
 
       const newScroll = zoomAnchorTime * zoom.value - zoomAnchorMouseX
-
-      const maxScroll = Math.max(
-        0,
-        (audioBuffer.value?.duration || 0) * zoom.value - containerWidth.value,
-      )
+      const maxScroll = Math.max(0, totalContentWidth.value - containerWidth.value)
       const clampedScroll = Math.max(0, Math.min(newScroll, maxScroll))
 
       scrollLeft.value = clampedScroll
@@ -85,7 +73,6 @@ export function useSpectrogramInteraction({
 
       zoomAnimId = requestAnimationFrame(step)
     }
-
     step()
   }
 
@@ -93,12 +80,12 @@ export function useSpectrogramInteraction({
     if (e.ctrlKey) {
       if (!containerEl.value) return
       const rect = containerEl.value.getBoundingClientRect()
-      const mouseX = e.clientX - rect.left
+      const currentMouseX = e.clientX - rect.left
 
-      const timeAtCursor = (scrollLeft.value + mouseX) / zoom.value
+      const timeAtCursor = (scrollLeft.value + currentMouseX) / zoom.value
 
       zoomAnchorTime = timeAtCursor
-      zoomAnchorMouseX = mouseX
+      zoomAnchorMouseX = currentMouseX
 
       let newTarget = targetZoom.value
       if (e.deltaY < 0) {
@@ -126,12 +113,30 @@ export function useSpectrogramInteraction({
     }
   }
 
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!containerEl.value) return
+    const rect = containerEl.value.getBoundingClientRect()
+    ctx.mouseX.value = e.clientX - rect.left
+    if (!ctx.isHovering.value) {
+      ctx.isHovering.value = true
+    }
+  }
+
+  const handleMouseEnter = () => {
+    ctx.isHovering.value = true
+  }
+
+  const handleMouseLeave = () => {
+    ctx.isHovering.value = false
+    // ctx.mouseX.value = -1
+  }
+
   onUnmounted(() => {
     cancelAnimationFrame(scrollAnimId)
     cancelAnimationFrame(zoomAnimId)
   })
 
-  watch(audioBuffer, () => {
+  watch(duration, () => {
     scrollLeft.value = 0
     targetScrollLeft.value = 0
     zoom.value = 100
@@ -141,10 +146,9 @@ export function useSpectrogramInteraction({
   })
 
   return {
-    containerWidth,
-    scrollLeft,
-    zoom,
-    totalContentWidth,
     handleWheel,
+    handleMouseMove,
+    handleMouseEnter,
+    handleMouseLeave,
   }
 }
