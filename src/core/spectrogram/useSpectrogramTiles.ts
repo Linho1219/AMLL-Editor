@@ -20,19 +20,12 @@ export interface VisibleTile {
 interface UseSpectrogramTilesOptions {
   ctx: SpectrogramContext
   audioBuffer: Ref<AudioBuffer | null>
-  gain: Ref<number>
-  palette: Ref<Uint8Array>
 }
 
-export function useSpectrogramTiles({
-  ctx,
-  audioBuffer,
-  gain,
-  palette,
-}: UseSpectrogramTilesOptions) {
+export function useSpectrogramTiles({ ctx, audioBuffer }: UseSpectrogramTilesOptions) {
   const { requestTileIfNeeded, tileCache, lastTileTimestamp } = useSpectrogramWorker(
     audioBuffer,
-    palette,
+    ctx.palette,
   )
 
   const visibleTiles = shallowRef<VisibleTile[]>([])
@@ -52,8 +45,13 @@ export function useSpectrogramTiles({
     const lastVisibleIndex = Math.ceil(viewEnd / tileDisplayWidthPx)
 
     const newVisibleTiles: VisibleTile[] = []
+
     const renderH = ctx.renderHeight.value
     const displayH = ctx.displayHeight.value
+    const currentGain = ctx.gain.value
+
+    // TODO: 从 store 获取
+    const currentPaletteId = 'default'
 
     for (let i = firstVisibleIndex - 2; i <= lastVisibleIndex + 2; i++) {
       if (i < 0 || i >= totalTiles) continue
@@ -62,14 +60,12 @@ export function useSpectrogramTiles({
         LOD_WIDTHS.find((w) => w >= tileDisplayWidthPx) ?? LOD_WIDTHS[LOD_WIDTHS.length - 1]!
 
       const cacheId = `tile-${i}`
-      // TODO: 从 store 获取
-      const currentPaletteId = 'default'
 
       requestTileIfNeeded({
         tileIndex: i,
         startTime: i * TILE_DURATION_S,
         endTime: i * TILE_DURATION_S + TILE_DURATION_S,
-        gain: gain.value,
+        gain: currentGain,
         height: renderH,
         tileWidthPx: targetLodWidth,
         paletteId: currentPaletteId,
@@ -96,9 +92,10 @@ export function useSpectrogramTiles({
       ctx.scrollLeft,
       ctx.zoom,
       ctx.containerWidth,
+      ctx.gain,
+      ctx.palette,
       ctx.displayHeight,
       ctx.renderHeight,
-      gain,
       lastTileTimestamp,
       audioBuffer,
     ],

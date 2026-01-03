@@ -1,5 +1,7 @@
 import { type InjectionKey, type Ref, computed, inject, provide, ref } from 'vue'
 
+import { generatePalette, getIcyBlueColor } from '@core/spectrogram/colors'
+
 /**
  * `SpectrogramContext` 用于在不同组件中统一管理和共享状态，并自动处理复杂的坐标转换
  */
@@ -34,6 +36,23 @@ export interface SpectrogramContext {
   isHovering: Ref<boolean>
 
   /**
+   * 频谱图的增益值
+   */
+  gain: Ref<number>
+  /**
+   * 频谱图调色板数据
+   */
+  palette: Ref<Uint8Array>
+  /**
+   * 容器的 CSS 高度，用于 CSS 布局
+   */
+  displayHeight: Ref<number>
+  /**
+   * 瓦片的实际渲染高度，用于 Canvas
+   */
+  renderHeight: Ref<number>
+
+  /**
    * 音频总时长
    */
   duration: Ref<number>
@@ -63,14 +82,13 @@ export interface SpectrogramContext {
    * @see {@link zoom}
    */
   pixelsPerSecond: Ref<number>
+
   /**
-   * 容器的 CSS 高度，用于 CSS 布局
+   * 设置调色板数据的 Action
+   * @param colorGenerator 调色板生成器函数
+   * @returns 调色板 RGB 数据
    */
-  displayHeight: Ref<number>
-  /**
-   * 瓦片的实际渲染高度，用于 Canvas
-   */
-  renderHeight: Ref<number>
+  setPalette: (colorGenerator: (t: number) => [number, number, number]) => void
 }
 
 const SpectrogramContextKey: InjectionKey<SpectrogramContext> = Symbol('SpectrogramContext')
@@ -83,8 +101,18 @@ export function useSpectrogramProvider({ audioBuffer }: SpectrogramProviderOptio
   const scrollLeft = ref(0)
   const zoom = ref(100)
   const containerWidth = ref(0)
+
   const mouseX = ref(0)
   const isHovering = ref(false)
+
+  const gain = ref(3.0)
+  const palette = ref<Uint8Array>(generatePalette(getIcyBlueColor))
+  const displayHeight = ref(240)
+  const renderHeight = ref(240)
+
+  const setPalette = (colorGenerator: (t: number) => [number, number, number]) => {
+    palette.value = generatePalette(colorGenerator)
+  }
 
   const duration = computed(() => audioBuffer.value?.duration || 0)
 
@@ -107,23 +135,23 @@ export function useSpectrogramProvider({ audioBuffer }: SpectrogramProviderOptio
     return Math.max(0, Math.min(time, duration.value))
   })
 
-  const displayHeight = ref(240)
-  const renderHeight = ref(240)
-
   const context: SpectrogramContext = {
     scrollLeft,
     zoom,
     containerWidth,
     mouseX,
     isHovering,
+    gain,
+    palette,
+    displayHeight,
+    renderHeight,
     duration,
     totalContentWidth,
     viewStartTime,
     viewEndTime,
     hoverTime,
     pixelsPerSecond: zoom,
-    displayHeight,
-    renderHeight,
+    setPalette,
   }
 
   provide(SpectrogramContextKey, context)

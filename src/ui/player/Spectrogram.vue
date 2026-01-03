@@ -6,7 +6,7 @@
     @mousemove="handleMouseMove"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
-    :style="{ height: displayHeight + 'px' }"
+    :style="{ height: ctx.displayHeight.value + 'px' }"
   >
     <div class="resize-handle" v-bind="resizeHandleProps">
       <div class="handle-bar"></div>
@@ -37,7 +37,6 @@ import { computed, ref, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
 import { useSpectrogramProvider } from '@core/spectrogram/SpectrogramContext'
-import { generatePalette, getIcyBlueColor } from '@core/spectrogram/colors'
 import { useSpectrogramInteraction } from '@core/spectrogram/useSpectrogramInteraction'
 import { useSpectrogramResize } from '@core/spectrogram/useSpectrogramResize'
 import { useSpectrogramTiles } from '@core/spectrogram/useSpectrogramTiles'
@@ -46,10 +45,6 @@ import SpectrogramTile from './SpectrogramTile.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
 
 const containerEl = ref<HTMLElement | null>(null)
-// TODO: 从 store 获取
-const gain = ref(3.0)
-const palette = ref<Uint8Array>(generatePalette(getIcyBlueColor))
-
 const audioBufferRef = computed(() => audioEngine.audioBuffer)
 
 // 初始化 Context 状态源
@@ -64,7 +59,7 @@ const { handleWheel, handleMouseMove, handleMouseEnter, handleMouseLeave } =
 
 // 高度调整相关
 const {
-  height: displayHeight,
+  height: resizedHeight,
   isResizing,
   resizeHandleProps,
 } = useSpectrogramResize({
@@ -75,7 +70,7 @@ const {
 
 // 拖拽调整高度时只修改 CSS 高度，停止拖拽时再更新渲染分辨率以避免每帧重渲染的性能问题
 watch(
-  displayHeight,
+  resizedHeight,
   (h) => {
     ctx.displayHeight.value = h
     if (!isResizing.value) {
@@ -95,8 +90,6 @@ watch(isResizing, (resizing) => {
 const { visibleTiles } = useSpectrogramTiles({
   ctx,
   audioBuffer: audioBufferRef,
-  gain,
-  palette,
 })
 </script>
 
@@ -107,6 +100,7 @@ const { visibleTiles } = useSpectrogramTiles({
   min-height: 120px;
   position: relative;
   overflow: hidden;
+  contain: strict;
 }
 
 .spectrogram-content {
