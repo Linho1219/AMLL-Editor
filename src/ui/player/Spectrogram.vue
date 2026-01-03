@@ -33,7 +33,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { type Ref, computed, ref, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
 import { useSpectrogramProvider } from '@core/spectrogram/SpectrogramContext'
@@ -47,8 +48,30 @@ import EmptyTip from '@ui/components/EmptyTip.vue'
 const containerEl = ref<HTMLElement | null>(null)
 const audioBufferRef = computed(() => audioEngine.audioBuffer)
 
+const props = defineProps<{
+  gain?: number
+  zoom?: number
+  scrollLeft?: number
+  palette?: Uint8Array
+}>()
+
+const emit = defineEmits(['update:gain', 'update:zoom', 'update:scrollLeft', 'update:palette'])
+
+const gainRef = useVModel(props, 'gain', emit, { defaultValue: 3.0 }) as Ref<number>
+const zoomRef = useVModel(props, 'zoom', emit, { defaultValue: 100 }) as Ref<number>
+const scrollLeftRef = useVModel(props, 'scrollLeft', emit, { defaultValue: 0 }) as Ref<number>
+const paletteRef = props.palette
+  ? (useVModel(props, 'palette', emit) as Ref<Uint8Array>)
+  : undefined
+
 // 初始化 Context 状态源
-const ctx = useSpectrogramProvider({ audioBuffer: audioBufferRef })
+const ctx = useSpectrogramProvider({
+  audioBuffer: audioBufferRef,
+  initGain: gainRef,
+  initZoom: zoomRef,
+  initScrollLeft: scrollLeftRef,
+  initPalette: paletteRef,
+})
 
 // 初始化交互相关
 const { handleWheel, handleMouseMove, handleMouseEnter, handleMouseLeave } =

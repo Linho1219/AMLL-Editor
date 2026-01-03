@@ -95,18 +95,28 @@ const SpectrogramContextKey: InjectionKey<SpectrogramContext> = Symbol('Spectrog
 
 interface SpectrogramProviderOptions {
   audioBuffer: Ref<AudioBuffer | null>
+  initGain?: Ref<number>
+  initZoom?: Ref<number>
+  initScrollLeft?: Ref<number>
+  initPalette?: Ref<Uint8Array>
 }
 
-export function useSpectrogramProvider({ audioBuffer }: SpectrogramProviderOptions) {
-  const scrollLeft = ref(0)
-  const zoom = ref(100)
+export function useSpectrogramProvider({
+  audioBuffer,
+  initGain,
+  initZoom,
+  initScrollLeft,
+  initPalette,
+}: SpectrogramProviderOptions) {
   const containerWidth = ref(0)
 
   const mouseX = ref(0)
   const isHovering = ref(false)
 
-  const gain = ref(3.0)
-  const palette = ref<Uint8Array>(generatePalette(getIcyBlueColor))
+  const gain = initGain || ref(3.0)
+  const zoom = initZoom || ref(100)
+  const scrollLeft = initScrollLeft || ref(0)
+  const palette = initPalette || ref(generatePalette(getIcyBlueColor))
   const displayHeight = ref(240)
   const renderHeight = ref(240)
 
