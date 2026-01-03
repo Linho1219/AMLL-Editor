@@ -44,6 +44,10 @@ export interface SpectrogramContext {
    */
   palette: Ref<Uint8Array>
   /**
+   * 频谱图调色板的 ID
+   */
+  paletteId: Ref<string>
+  /**
    * 容器的 CSS 高度，用于 CSS 布局
    */
   displayHeight: Ref<number>
@@ -88,7 +92,7 @@ export interface SpectrogramContext {
    * @param colorGenerator 调色板生成器函数
    * @returns 调色板 RGB 数据
    */
-  setPalette: (colorGenerator: (t: number) => [number, number, number]) => void
+  setPalette: (name: string, colorGenerator: (t: number) => [number, number, number]) => void
 }
 
 const SpectrogramContextKey: InjectionKey<SpectrogramContext> = Symbol('SpectrogramContext')
@@ -116,11 +120,13 @@ export function useSpectrogramProvider({
   const gain = initGain || ref(3.0)
   const zoom = initZoom || ref(100)
   const scrollLeft = initScrollLeft || ref(0)
+  const paletteId = ref('icy-blue')
   const palette = initPalette || ref(generatePalette(getIcyBlueColor))
   const displayHeight = ref(240)
   const renderHeight = ref(240)
 
-  const setPalette = (colorGenerator: (t: number) => [number, number, number]) => {
+  const setPalette = (name: string, colorGenerator: (t: number) => [number, number, number]) => {
+    paletteId.value = name
     palette.value = generatePalette(colorGenerator)
   }
 
@@ -153,6 +159,7 @@ export function useSpectrogramProvider({
     isHovering,
     gain,
     palette,
+    paletteId,
     displayHeight,
     renderHeight,
     duration,

@@ -49,9 +49,7 @@ export function useSpectrogramTiles({ ctx, audioBuffer }: UseSpectrogramTilesOpt
     const renderH = ctx.renderHeight.value
     const displayH = ctx.displayHeight.value
     const currentGain = ctx.gain.value
-
-    // TODO: 从 store 获取
-    const currentPaletteId = 'default'
+    const currentPaletteId = ctx.paletteId.value
 
     for (let i = firstVisibleIndex - 2; i <= lastVisibleIndex + 2; i++) {
       if (i < 0 || i >= totalTiles) continue
@@ -94,6 +92,7 @@ export function useSpectrogramTiles({ ctx, audioBuffer }: UseSpectrogramTilesOpt
       ctx.containerWidth,
       ctx.gain,
       ctx.palette,
+      ctx.paletteId,
       ctx.displayHeight,
       ctx.renderHeight,
       lastTileTimestamp,
