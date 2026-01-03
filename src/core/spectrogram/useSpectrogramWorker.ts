@@ -4,7 +4,7 @@ import type {
   SpectrogramWorker as SpectrogramWorkerType,
   TileGenerationParams,
   WorkerResponse,
-} from '@core/spectrogram/workers/spectrogram'
+} from '@core/spectrogram/workers/types'
 
 import { LRUCache } from './lruCache'
 import SpectrogramWorker from './workers/spectrogram.worker.ts?worker'

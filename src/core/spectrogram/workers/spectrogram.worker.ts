@@ -4,7 +4,7 @@ import init, {
   initThreadPool,
 } from '@vendors/spectrogram'
 
-import type { SpectrogramWorkerScope } from './spectrogram'
+import type { SpectrogramWorkerScope } from './types'
 
 const ctx: SpectrogramWorkerScope = self as SpectrogramWorkerScope
 
