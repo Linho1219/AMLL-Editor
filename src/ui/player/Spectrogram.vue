@@ -33,11 +33,11 @@
 </template>
 
 <script setup lang="ts">
-import { syncRef, useVModel } from '@vueuse/core'
-import { type Ref, computed, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
 import { useSpectrogramProvider } from '@core/spectrogram/SpectrogramContext'
+import { generatePalette, getIcyBlueColor } from '@core/spectrogram/colors'
 import { useSpectrogramInteraction } from '@core/spectrogram/useSpectrogramInteraction'
 import { useSpectrogramResize } from '@core/spectrogram/useSpectrogramResize'
 import { useSpectrogramTiles } from '@core/spectrogram/useSpectrogramTiles'
@@ -46,35 +46,22 @@ import SpectrogramTile from './SpectrogramTile.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
 
 const containerEl = ref<HTMLElement | null>(null)
-const audioBufferRef = computed(() => audioEngine.audioBuffer)
+const { audioBufferComputed } = audioEngine
 
-const props = defineProps<{
-  gain?: number
-  zoom?: number
-  scrollLeft?: number
-  palette?: Uint8Array
-}>()
-
-const emit = defineEmits(['update:gain', 'update:zoom', 'update:scrollLeft'])
-
-const gainModel = useVModel(props, 'gain', emit, { defaultValue: 3.0 }) as Ref<number>
-const zoomModel = useVModel(props, 'zoom', emit, { defaultValue: 100 }) as Ref<number>
-const scrollLeftModel = useVModel(props, 'scrollLeft', emit, { defaultValue: 0 }) as Ref<number>
-
-const internalGain = ref(gainModel.value)
-const internalZoom = ref(zoomModel.value)
-const internalScrollLeft = ref(scrollLeftModel.value)
-
-syncRef(gainModel, internalGain)
-syncRef(zoomModel, internalZoom)
-syncRef(scrollLeftModel, internalScrollLeft)
+const [gainModel] = defineModel<number>('gain', { default: 3.0 })
+const [zoomModel] = defineModel<number>('zoom', { default: 100 })
+const [scrollLeftModel] = defineModel<number>('scrollLeft', { default: 0 })
+const [paletteModel] = defineModel<Uint8Array>('palette', {
+  default: generatePalette(getIcyBlueColor),
+})
 
 // 初始化 Context 状态源
 const ctx = useSpectrogramProvider({
-  audioBuffer: audioBufferRef,
-  initGain: internalGain,
-  initZoom: internalZoom,
-  initScrollLeft: internalScrollLeft,
+  audioBufferComputed,
+  gainModel,
+  zoomModel,
+  scrollLeftModel,
+  paletteModel,
 })
 
 // 初始化交互相关
@@ -116,7 +103,7 @@ watch(isResizing, (resizing) => {
 // 获取瓦片
 const { visibleTiles } = useSpectrogramTiles({
   ctx,
-  audioBuffer: audioBufferRef,
+  audioBuffer: audioBufferComputed,
 })
 </script>
 

@@ -1,4 +1,4 @@
-import { type InjectionKey, type Ref, computed, inject, provide, ref } from 'vue'
+import { type InjectionKey, type Ref, type ShallowRef, computed, inject, provide, ref } from 'vue'
 
 import { generatePalette, getIcyBlueColor } from '@core/spectrogram/colors'
 
@@ -99,30 +99,30 @@ export interface SpectrogramContext {
 const SpectrogramContextKey: InjectionKey<SpectrogramContext> = Symbol('SpectrogramContext')
 
 interface SpectrogramProviderOptions {
-  audioBuffer: Ref<AudioBuffer | null>
-  initGain?: Ref<number>
-  initZoom?: Ref<number>
-  initScrollLeft?: Ref<number>
-  initPalette?: Ref<Uint8Array>
+  audioBufferComputed: Readonly<ShallowRef<AudioBuffer | null>>
+  gainModel: Ref<number>
+  zoomModel: Ref<number>
+  scrollLeftModel: Ref<number>
+  paletteModel: Ref<Uint8Array>
 }
 
 export function useSpectrogramProvider({
-  audioBuffer,
-  initGain,
-  initZoom,
-  initScrollLeft,
-  initPalette,
+  audioBufferComputed,
+  gainModel,
+  zoomModel,
+  scrollLeftModel,
+  paletteModel,
 }: SpectrogramProviderOptions) {
   const containerWidth = ref(0)
 
   const mouseX = ref(0)
   const isHovering = ref(false)
 
-  const gain = initGain || ref(3.0)
-  const zoom = initZoom || ref(100)
-  const scrollLeft = initScrollLeft || ref(0)
+  const gain = gainModel
+  const zoom = zoomModel
+  const scrollLeft = scrollLeftModel.value ? scrollLeftModel : ref(0)
   const paletteId = ref('icy-blue')
-  const palette = initPalette || ref(generatePalette(getIcyBlueColor))
+  const palette = paletteModel?.value ? paletteModel : ref(generatePalette(getIcyBlueColor))
   const displayHeight = ref(240)
   const renderHeight = ref(240)
 
@@ -131,7 +131,7 @@ export function useSpectrogramProvider({
     palette.value = generatePalette(colorGenerator)
   }
 
-  const duration = computed(() => audioBuffer.value?.duration || 0)
+  const duration = computed(() => audioBufferComputed.value?.duration || 0)
 
   const totalContentWidth = computed(() => duration.value * zoom.value)
 
