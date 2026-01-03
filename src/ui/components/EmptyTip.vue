@@ -1,5 +1,5 @@
 <template>
-  <div class="empty-tip">
+  <div class="empty-tip" :class="{ compact: props.compact }">
     <i class="pi empty-tip-icon" :class="props.icon || 'pi-asterisk'"></i>
     <div class="empty-tip-title">{{ props.title || '当前视图无内容可显示' }}</div>
     <div class="empty-tip-tip" v-if="props.tip">{{ props.tip }}</div>
@@ -11,6 +11,7 @@ const props = defineProps<{
   title?: string
   tip?: string
   icon?: string
+  compact?: boolean
 }>()
 </script>
 
@@ -29,6 +30,9 @@ const props = defineProps<{
   align-items: center;
   gap: 0.5rem;
   color: light-dark(var(--p-zinc-500), var(--p-zinc-400));
+  &.compact {
+    gap: 0.3rem;
+  }
 }
 .pi.empty-tip-icon {
   font-size: 1.8rem;

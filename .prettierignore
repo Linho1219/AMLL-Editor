@@ -3,4 +3,5 @@
 /src/vendors/**/*.d.ts
 /LICENSE
 *.dict.json
+*.min.js
 /dist

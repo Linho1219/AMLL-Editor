@@ -1,7 +1,9 @@
 <template>
   <Card class="player">
     <template #content>
-      <Spectrogram v-if="showSpectrogram" :key="refresher" />
+      <KeepAlive>
+        <Spectrogram v-if="showSpectrogram" :key="refresher" class="spectrogram-view" />
+      </KeepAlive>
       <div class="player-toolbar">
         <Button
           :icon="`pi ${loading ? 'pi-sync' : 'pi-upload'}`"
@@ -247,9 +249,23 @@ const drawProgress = () => {
   border: 1px solid color-mix(in srgb, var(--p-zinc-600), transparent 85%);
   overflow: hidden;
   margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+
   .p-card-body {
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
+
+  .p-card-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
   .player-toolbar {
     display: flex;
     gap: 0.5rem;
