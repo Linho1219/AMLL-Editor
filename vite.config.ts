@@ -17,17 +17,23 @@ const aliasRelMap: Record<string, string> = {
   '@states': './src/states',
   '@vendors': './src/vendors',
 }
-const aliasMap: Record<string, string> = {}
-for (const [key, relPath] of Object.entries(aliasRelMap)) {
-  aliasMap[key] = fileURLToPath(new URL(relPath, import.meta.url))
-}
 
-const git = simpleGit()
+const defineObjMap: Record<string, string | number> = {
+  __APP_VERSION__: packageJSON.version,
+  __APP_COMMIT_HASH__: await simpleGit().revparse(['HEAD']),
+  __REPO_URL__: packageJSON.repository,
+  __BETA_DEPLOY_LOG_URL__: 'https://github.com/Linho1219/AMLL-Editor-BetaDeploy/actions',
+  __APP_DISPLAY_NAME__:
+    packageJSON.displayName + (process.env.VITE_BUILD_CHANNEL === 'BETA' ? ` BETA` : ''),
+  __APP_BUILD_TIMESTAMP__: Date.now(),
+  __AMLL_CORE_VERSION__: packageJSON.dependencies['@applemusic-like-lyrics/core'],
+  __AMLL_VUE_VERSION__: packageJSON.dependencies['@applemusic-like-lyrics/vue'],
+}
 
 console.log(`Current channel: ${process.env.VITE_BUILD_CHANNEL || 'UNSPECIFIED'}\n`)
 
 // https://vite.dev/config/
-export default defineConfig(async ({ mode }) => ({
+export default defineConfig(({ mode }) => ({
   plugins: [
     manifestPlugin(),
     iconSetPlugin(),
@@ -40,6 +46,19 @@ export default defineConfig(async ({ mode }) => ({
       filename: 'chunk-analysis.html',
     }),
   ],
+  worker: { format: 'es' },
+  resolve: {
+    alias: Object.fromEntries(
+      [...Object.entries(aliasRelMap)].map(([key, rel]) => [
+        key,
+        fileURLToPath(new URL(rel, import.meta.url)),
+      ]),
+    ),
+  },
+  define: Object.fromEntries(
+    [...Object.entries(defineObjMap)].map(([key, value]) => [key, JSON.stringify(value)]),
+  ),
+  optimizeDeps: { exclude: ['pyodide'] },
   build: {
     chunkSizeWarningLimit: 1024,
     rollupOptions: {
@@ -83,20 +102,4 @@ export default defineConfig(async ({ mode }) => ({
       ],
     },
   },
-  resolve: { alias: aliasMap },
-  define: {
-    __APP_VERSION__: JSON.stringify(packageJSON.version),
-    __APP_COMMIT_HASH__: JSON.stringify(await git.revparse(['HEAD'])),
-    __REPO_URL__: JSON.stringify(packageJSON.repository),
-    __BETA_DEPLOY_LOG_URL__: JSON.stringify(
-      'https://github.com/Linho1219/AMLL-Editor-BetaDeploy/actions',
-    ),
-    __APP_DISPLAY_NAME__: JSON.stringify(
-      packageJSON.displayName + (process.env.VITE_BUILD_CHANNEL === 'BETA' ? ` BETA` : ''),
-    ),
-    __APP_BUILD_TIMESTAMP__: JSON.stringify(Date.now()),
-    __AMLL_CORE_VERSION__: JSON.stringify(packageJSON.dependencies['@applemusic-like-lyrics/core']),
-    __AMLL_VUE_VERSION__: JSON.stringify(packageJSON.dependencies['@applemusic-like-lyrics/vue']),
-  },
-  optimizeDeps: { exclude: ['pyodide'] },
 }))

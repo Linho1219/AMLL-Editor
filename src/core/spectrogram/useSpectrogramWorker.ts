@@ -7,7 +7,7 @@ import type {
 } from '@core/spectrogram/workers/types'
 
 import { LRUCache } from './lruCache'
-import SpectrogramWorker from './workers/spectrogram.worker.ts?worker'
+import SpectrogramWorker from './workers/spectrogram.worker?worker'
 
 const MAX_CACHED_TILES = 70
 
