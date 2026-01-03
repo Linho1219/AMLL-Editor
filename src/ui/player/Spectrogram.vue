@@ -19,16 +19,7 @@
         transform: `translate3d(${-Math.round(ctx.scrollLeft.value)}px, 0, 0)`,
       }"
     >
-      <SpectrogramTile
-        v-for="{ id: key, left, width, height, canvasHeight, canvasWidth, bitmap } in visibleTiles"
-        :key
-        :left
-        :width
-        :height
-        :canvas-height
-        :canvas-width
-        :bitmap
-      />
+      <SpectrogramTile v-for="tile in visibleTiles" :key="tile.id" v-bind="tile" />
     </div>
 
     <EmptyTip
@@ -42,20 +33,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, shallowRef, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
 import { useSpectrogramProvider } from '@core/spectrogram/SpectrogramContext'
 import { generatePalette, getIcyBlueColor } from '@core/spectrogram/colors'
 import { useSpectrogramInteraction } from '@core/spectrogram/useSpectrogramInteraction'
 import { useSpectrogramResize } from '@core/spectrogram/useSpectrogramResize'
-import { useSpectrogramWorker } from '@core/spectrogram/useSpectrogramWorker'
+import { useSpectrogramTiles } from '@core/spectrogram/useSpectrogramTiles'
 
 import SpectrogramTile from './SpectrogramTile.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
-
-const TILE_DURATION_S = 5
-const LOD_WIDTHS = [512, 1024, 2048, 4096, 8192]
 
 const containerEl = ref<HTMLElement | null>(null)
 // TODO: 从 store 获取
@@ -63,11 +51,18 @@ const gain = ref(3.0)
 const palette = ref<Uint8Array>(generatePalette(getIcyBlueColor))
 
 const audioBufferRef = computed(() => audioEngine.audioBuffer)
+
+// 初始化 Context 状态源
 const ctx = useSpectrogramProvider({ audioBuffer: audioBufferRef })
 
-const { handleWheel, handleMouseMove, handleMouseLeave, handleMouseEnter } =
-  useSpectrogramInteraction({ ctx, containerEl })
+// 初始化交互相关
+const { handleWheel, handleMouseMove, handleMouseEnter, handleMouseLeave } =
+  useSpectrogramInteraction({
+    ctx,
+    containerEl,
+  })
 
+// 高度调整相关
 const {
   height: displayHeight,
   isResizing,
@@ -78,101 +73,23 @@ const {
   maxHeight: 600,
 })
 
+// 拖拽调整高度时只修改 CSS 高度，停止拖拽时再更新渲染分辨率以避免每帧重渲染的性能问题
 const renderHeight = ref(displayHeight.value)
-
 watch(isResizing, (resizing) => {
   if (!resizing) {
     renderHeight.value = displayHeight.value
   }
 })
 
-const { requestTileIfNeeded, tileCache, lastTileTimestamp } = useSpectrogramWorker(
-  audioBufferRef,
+// 获取瓦片
+const { visibleTiles } = useSpectrogramTiles({
+  ctx,
+  audioBuffer: audioBufferRef,
+  gain,
   palette,
-)
-
-interface VisibleTile {
-  id: string
-  left: number
-  width: number
-  height: number
-  canvasHeight: number
-  canvasWidth: number
-  bitmap?: ImageBitmap
-}
-
-const visibleTiles = shallowRef<VisibleTile[]>([])
-
-const updateVisibleTiles = () => {
-  const duration = ctx.duration.value
-  if (duration === 0 || ctx.containerWidth.value === 0) return
-
-  const pixelsPerSecond = ctx.zoom.value
-  const tileDisplayWidthPx = TILE_DURATION_S * pixelsPerSecond
-  const totalTiles = Math.ceil(duration / TILE_DURATION_S)
-
-  const viewStart = ctx.scrollLeft.value
-  const viewEnd = viewStart + ctx.containerWidth.value
-
-  const firstVisibleIndex = Math.floor(viewStart / tileDisplayWidthPx)
-  const lastVisibleIndex = Math.ceil(viewEnd / tileDisplayWidthPx)
-
-  const newVisibleTiles: VisibleTile[] = []
-
-  const renderH = renderHeight.value
-
-  for (let i = firstVisibleIndex - 2; i <= lastVisibleIndex + 2; i++) {
-    if (i < 0 || i >= totalTiles) continue
-
-    const targetLodWidth =
-      LOD_WIDTHS.find((w) => w >= tileDisplayWidthPx) ?? LOD_WIDTHS[LOD_WIDTHS.length - 1]!
-
-    const cacheId = `tile-${i}`
-    // TODO: 从 store 获取
-    const currentPaletteId = 'default'
-
-    requestTileIfNeeded({
-      tileIndex: i,
-      startTime: i * TILE_DURATION_S,
-      endTime: i * TILE_DURATION_S + TILE_DURATION_S,
-      gain: gain.value,
-      height: renderH,
-      tileWidthPx: targetLodWidth,
-      paletteId: currentPaletteId,
-    })
-
-    const cacheEntry = tileCache.get(cacheId)
-
-    newVisibleTiles.push({
-      id: cacheId,
-      left: i * tileDisplayWidthPx,
-      width: tileDisplayWidthPx,
-      height: displayHeight.value,
-      canvasHeight: renderH,
-      canvasWidth: targetLodWidth,
-      bitmap: cacheEntry?.bitmap,
-    })
-  }
-
-  visibleTiles.value = newVisibleTiles
-}
-
-watch(
-  [
-    ctx.scrollLeft,
-    ctx.zoom,
-    ctx.containerWidth,
-    displayHeight,
-    renderHeight,
-    gain,
-    lastTileTimestamp,
-    audioBufferRef,
-  ],
-  () => {
-    updateVisibleTiles()
-  },
-  { immediate: true },
-)
+  renderHeight,
+  displayHeight,
+})
 </script>
 
 <style lang="scss" scoped>
