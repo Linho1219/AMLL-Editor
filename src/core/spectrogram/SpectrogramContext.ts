@@ -1,18 +1,67 @@
 import { type InjectionKey, type Ref, computed, inject, provide, ref } from 'vue'
 
+/**
+ * `SpectrogramContext` 用于在不同组件中统一管理和共享状态，并自动处理复杂的坐标转换
+ */
 export interface SpectrogramContext {
+  /**
+   * 横向滚动距离
+   *
+   * 表示当前视口左侧距离整个频谱图最左侧（0秒）有多少像素
+   */
   scrollLeft: Ref<number>
+  /**
+   * 缩放层级
+   *
+   * 每秒钟占用多少像素，数值越大放得越大
+   */
   zoom: Ref<number>
+  /**
+   * 可视容器宽度
+   *
+   * 浏览器中那个 div 的实际物理宽度
+   */
   containerWidth: Ref<number>
+  /**
+   * 鼠标 X 坐标
+   *
+   * 相对于容器左侧的距离
+   */
   mouseX: Ref<number>
+  /**
+   * 鼠标当前是否正悬停在容器上
+   */
   isHovering: Ref<boolean>
 
+  /**
+   * 音频总时长
+   */
   duration: Ref<number>
 
+  /**
+   * Spectrogram.vue 的内容层 div 宽度，用来产生滚动效果
+   */
   totalContentWidth: Ref<number>
+  /**
+   * 视口起始时间
+   *
+   * 表示当前屏幕最左边对应的是音频的第几秒
+   */
   viewStartTime: Ref<number>
+  /**
+   * 视口结束时间
+   *
+   * 表示当前屏幕最右边对应的是音频的第几秒
+   */
   viewEndTime: Ref<number>
+  /**
+   * 鼠标指的是多少秒
+   */
   hoverTime: Ref<number>
+  /**
+   * zoom 的别名
+   * @see {@link zoom}
+   */
   pixelsPerSecond: Ref<number>
 }
 
