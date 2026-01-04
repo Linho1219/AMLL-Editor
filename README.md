@@ -10,6 +10,23 @@
 访问稳定版：<https://editor.amll.dev/>  
 开发分支部署：<https://beta-editor.amll.dev/>
 
+## 部署
+
+本项目部署在 Cloudflare Pages 上，你可以直接从上方的链接访问。
+
+若你希望自行部署，需要注意：频谱图功能需要跨站隔离（Cross Origin Isolation, COI）。因此服务端需要在响应时添加标头：
+
+```http
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+```
+
+本项目在构建产物中包含适用于 Cloudflare Pages 的 `_headers` 文件，用于自动配置所需的响应头。若你需要在其他平台部署（如 Vercel 等），请自行参考相应平台文档。
+
+GitHub Pages 不支持自定义响应头，因此无法原生满足跨站隔离要求。
+
+为此，本项目提供一个可选的兼容方案：当环境变量 `VITE_COI_WORKAROUND` 为真值时，将通过 Service Worker 模拟跨站隔离环境（解决方案来自 [gzuidhof/coi-serviceworker](https://github.com/gzuidhof/coi-serviceworker)）。该方案存在一定限制：启用后，页面在首次加载时会触发一次额外的自动刷新，刷新后 Service Worker 才会接管并生效。相应地，兼容性检查将延迟 3 秒触发，以等待 Service Worker 完成装载。
+
 ## License
 
 本项目以 GNU Affero General Public License v3.0 only 许可授权。
