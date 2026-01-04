@@ -17,8 +17,12 @@ const meet =
 function findWhy(): string | undefined {
   if (meet) return undefined
   if (!window.isSecureContext) return '未在安全上下文中运行。需要 HTTPS 或从本地回环访问。'
-  if (!window.crossOriginIsolated)
-    return '未启用跨源隔离 (COOP/COEP)。在不支持自定义 HTTP 标头的环境下，本项目应会自动通过 Service Worker 尝试启用跨源隔离，请联系部署方。'
+  if (!window.crossOriginIsolated) {
+    if (import.meta.env.VITE_COI_WORKAROUND)
+      return '未启用跨源隔离 (COOP/COEP)。此部署已尝试通过 Service Worker 启用跨源隔离。若未生效，请尝试刷新页面。'
+    else
+      return '未启用跨源隔离 (COOP/COEP)。请联系部署方提供对应的 HTTP 响应头，或调整构建选项以启用 Service Worker 方式实现的跨源隔离。'
+  }
   return '浏览器不支持 SharedArrayBuffer。此 API 在 Chromium 68、Firefox 79、Safari 15.2 或以上版本中支持。'
 }
 const why = findWhy()
