@@ -26,7 +26,7 @@ const app = createApp(App)
 
 app.use(createPinia())
 
-const primaryColorToken = import.meta.env.VITE_BUILD_CHANNEL === 'BETA' ? 'orange' : 'emerald'
+const primaryColorToken = __APP_IS_BETA__ ? 'orange' : 'emerald'
 
 app.use(PrimeVue, {
   theme: {

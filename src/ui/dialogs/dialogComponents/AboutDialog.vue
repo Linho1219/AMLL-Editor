@@ -71,8 +71,8 @@ const keyValueFolded = ref(true)
 const appName = __APP_DISPLAY_NAME__
 const appVersion = __APP_VERSION__
 const appCommitHash = __APP_COMMIT_HASH__
-const appChannel = import.meta.env.VITE_BUILD_CHANNEL
-const isBeta = import.meta.env.VITE_BUILD_CHANNEL === 'BETA'
+const appChannel = __APP_BUILD_CHANNEL__
+const isBeta = __APP_IS_BETA__
 const buildTimestamp = __APP_BUILD_TIMESTAMP__
 const readableBuildDate = new Date(buildTimestamp).toLocaleString()
 const amllCoreVersion = __AMLL_CORE_VERSION__
