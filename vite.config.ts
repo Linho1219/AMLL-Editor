@@ -18,6 +18,7 @@ const aliasRelMap: Record<string, string> = {
   '@utils': './src/utils',
   '@states': './src/states',
   '@vendors': './src/vendors',
+  '@i18n': './src/i18n',
 }
 
 const isBeta = process.env.VITE_BUILD_CHANNEL === 'BETA'

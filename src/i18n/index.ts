@@ -2,6 +2,7 @@ import { computed, ref, watch } from 'vue'
 
 import type { Locales } from './i18n-types'
 import { i18nObject, isLocale } from './i18n-util'
+import { loadLocale } from './i18n-util.sync'
 
 export type { Locales } from './i18n-types'
 
@@ -19,6 +20,7 @@ function getStoredLocale(): Locales | null {
 }
 
 const currentLocale = getStoredLocale() ?? detectEnvLocale()
+loadLocale(currentLocale)
 export const t = i18nObject(currentLocale)
 export const localeOpt = ref<Locales>(currentLocale)
 export const localeOptNotMatch = computed(() => localeOpt.value !== currentLocale)

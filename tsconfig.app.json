@@ -16,7 +16,8 @@
       "@ui/*": ["./src/ui/*"],
       "@utils/*": ["./src/utils/*"],
       "@states/*": ["./src/states/*"],
-      "@vendors/*": ["./src/vendors/*"]
+      "@vendors/*": ["./src/vendors/*"],
+      "@i18n": ["./src/i18n/"]
     }
   }
 }

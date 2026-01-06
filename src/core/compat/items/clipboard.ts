@@ -1,14 +1,18 @@
+import { t } from '@i18n'
+
 import type { Compatibility as CP } from '..'
+
+const tClip = t.compat.clipboard
 
 const clipboardInfo = {
   key: 'clipboard',
-  name: '剪贴板 API',
-  description: '剪贴板 API (Clipboard API) 允许网页在用户授权后读写系统剪贴板的内容。',
+  name: tClip.name(),
+  description: tClip.description(),
   referenceUrls: [
     { label: 'Can I Use: async-clipboard', url: 'https://caniuse.com/async-clipboard' },
   ],
   severity: 'warn',
-  effect: '复制和粘贴 TTML 功能不可用。',
+  effect: tClip.effect(),
 } as const satisfies CP.CompatibilityInfo
 
 const meet =
@@ -19,8 +23,8 @@ const meet =
 
 function findWhy(): string | undefined {
   if (meet) return undefined
-  if (!window.isSecureContext) return '未在安全上下文中运行。需要 HTTPS 或从本地回环访问。'
-  return '浏览器不支持剪贴板相关的 API。此 API 在 Chromium 66、Firefox 125、Safari 13.1 或以上版本中支持。'
+  if (!window.isSecureContext) return t.compat.sharedReasons.insecureContext()
+  return tClip.apiNotSupported()
 }
 const why = findWhy()
 
