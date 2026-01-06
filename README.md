@@ -2,6 +2,15 @@
 
 # AMLL Editor
 
+![Version](https://img.shields.io/github/package-json/v/Linho1219/AMLL-Editor?label=Version&color=white)
+[![Vite Version](https://img.shields.io/github/package-json/dependency-version/Linho1219/AMLL-Editor/dev/vite?label=Vite&color=646CFF&logo=vite&logoColor=white)](https://vite.dev/)
+[![Vue Version](https://img.shields.io/github/package-json/dependency-version/Linho1219/AMLL-Editor/vue?label=Vue&color=4FC08D&logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+[![PrimeVue Version](https://img.shields.io/github/package-json/dependency-version/Linho1219/AMLL-Editor/primevue?label=PrimeVue&color=41B883&logo=primevue&logoColor=white)](https://primevue.org/)
+[![AMLL Core Version](https://img.shields.io/github/package-json/dependency-version/Linho1219/AMLL-Editor/%40applemusic-like-lyrics%2Fcore?label=AMLL%20Core&color=FA243C&logo=applemusic&logoColor=white)](https://amll.dev)  
+[![Cloudflare Pages: STABLE](https://img.shields.io/website?url=https%3A%2F%2Feditor.amll.dev%2F&logo=cloudflare&logoColor=white&label=Pages%2fSTABLE)](https://editor.amll.dev/)
+[![Cloudflare Pages: BETA](https://img.shields.io/website?url=https%3A%2F%2Fbeta-editor.amll.dev%2F&logo=cloudflare&logoColor=white&label=Pages%2fBETA)](https://beta-editor.amll.dev/)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Linho1219/AMLL-Editor)
+
 基于 Vue 的开源逐音节歌词编辑器。  
 目标成为 [AMLL TTML Tool](https://github.com/Steve-xmh/amll-ttml-tool) 的继任者，可与 [AMLL](https://github.com/Steve-xmh/applemusic-like-lyrics) 生态协作。
 
