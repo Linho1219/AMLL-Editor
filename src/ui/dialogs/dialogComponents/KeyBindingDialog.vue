@@ -1,21 +1,21 @@
 <template>
   <Dialog
     v-model:visible="visible"
-    header="按键绑定"
+    :header="t.hotkey.dialogHeader()"
     class="key-binding-dialog"
     disable-global-hotkeys
   >
     <div class="list-shell" v-for="(group, index) in groupedCmdList">
       <Divider v-if="index !== 0" />
-      <div class="title">{{ group.title }}</div>
+      <div class="title">{{ t.hotkey.groupTitles[group.title] }}</div>
       <div class="list">
         <template v-for="command in group.commands" :key="command">
-          <label :for="command">{{ hotkeyCommandNames[command] }}</label>
+          <label :for="command">{{ t.hotkey.commands[command]() }}</label>
           <HotKeyGroupInput
             v-model="prefStore.hotkeyMap[command]"
             :id="command"
             @click="(e: MouseEvent) => handleFieldClick(e, command)"
-            placeholder="未绑定"
+            :placeholder="t.hotkey.notBinded()"
           />
         </template>
       </div>
@@ -27,9 +27,9 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { nextTick, ref, useTemplateRef } from 'vue'
 
-import { hotkeyCommandNames } from '@core/hotkey'
 import type { HotKey } from '@core/hotkey/types'
 
 import { usePrefStore } from '@states/stores'
@@ -58,15 +58,15 @@ function handleFieldClick(e: MouseEvent, command: HotKey.Command) {
 
 const groupedCmdList = [
   {
-    title: '文件操作',
+    title: 'file',
     commands: ['open', 'save', 'saveAs', 'new', 'exportToClipboard', 'importFromClipboard'],
   },
   {
-    title: '视图与界面',
+    title: 'view',
     commands: ['switchToContent', 'switchToTiming', 'switchToPreview', 'preferences'],
   },
   {
-    title: '编辑操作',
+    title: 'editing',
     commands: [
       'batchSplitText',
       'batchTimeShift',
@@ -85,7 +85,7 @@ const groupedCmdList = [
     ],
   },
   {
-    title: '时轴',
+    title: 'timing',
     commands: [
       'markBegin',
       'markEndBegin',
@@ -100,7 +100,7 @@ const groupedCmdList = [
     ],
   },
   {
-    title: '音频控制',
+    title: 'audio',
     commands: [
       'chooseMedia',
       'seekBackward',
@@ -110,7 +110,10 @@ const groupedCmdList = [
       'volumeDown',
     ],
   },
-] as const satisfies { title: string; commands: HotKey.Command[] }[]
+] as const satisfies {
+  title: keyof (typeof t)['hotkey']['groupTitles']
+  commands: HotKey.Command[]
+}[]
 type _Check = Expect<Equal<(typeof groupedCmdList)[number]['commands'][number], HotKey.Command>>
 </script>
 

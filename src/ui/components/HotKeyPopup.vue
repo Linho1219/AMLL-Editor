@@ -7,23 +7,31 @@
         size="small"
         severity="secondary"
         @click="innerList.splice(index, 1)"
+        v-tooltip="t.hotkey.btns.del()"
       ></Button>
     </div>
     <div class="hotkey-popup-item add">
       <Button
-        label="添加"
+        :label="t.hotkey.btns.add()"
         icon="pi pi-plus"
         size="small"
         fluid
         severity="secondary"
         @click="innerList.push(null)"
       />
-      <Button icon="pi pi-sync" size="small" severity="secondary" @click="handleReset"></Button>
+      <Button
+        icon="pi pi-sync"
+        size="small"
+        severity="secondary"
+        @click="handleReset"
+        v-tooltip="t.hotkey.btns.reset()"
+      ></Button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import stableStringify from 'json-stable-stringify'
 import { cloneDeep } from 'lodash-es'
 import { ref, toRaw, watch } from 'vue'

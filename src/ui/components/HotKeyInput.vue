@@ -3,13 +3,14 @@
     readonly
     :value="displayValue"
     size="small"
-    placeholder="未绑定"
+    :placeholder="t.hotkey.notBinded()"
     @keydown.prevent.stop="handleKeyDown"
     @blur="handleBlur"
   />
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { computed } from 'vue'
 
 import { type HotKey as HK, hotkeyToString, parseKeyEvent } from '@core/hotkey'

@@ -7,7 +7,7 @@ import { hotkeyInputBlockList } from './schema'
 import type { HotKey as HK } from './types'
 
 export type { HotKey } from './types'
-export { getDefaultHotkeyMap, hotkeyCommandNames } from './schema'
+export { getDefaultHotkeyMap, hotkeyCommandList } from './schema'
 
 const globalKeyboardEmit = mitt<{ [K in HK.Command]: undefined }>()
 export function useGlobalKeyboard(command: HK.Command, handler: () => void) {

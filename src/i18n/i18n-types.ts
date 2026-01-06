@@ -270,6 +270,214 @@ type RootTranslation = {
 			detail: RequiredParams<'0'>
 		}
 	}
+	hotkey: {
+		/**
+		 * 按​键​绑​定
+		 */
+		dialogHeader: string
+		/**
+		 * 未​绑​定
+		 */
+		notBinded: string
+		btns: {
+			/**
+			 * 添​加
+			 */
+			add: string
+			/**
+			 * 移​除
+			 */
+			del: string
+			/**
+			 * 重​置​为​默​认
+			 */
+			reset: string
+		}
+		groupTitles: {
+			/**
+			 * 文​件​操​作
+			 */
+			file: string
+			/**
+			 * 视​图​与​界​面
+			 */
+			view: string
+			/**
+			 * 编​辑​操​作
+			 */
+			editing: string
+			/**
+			 * 时​轴
+			 */
+			timing: string
+			/**
+			 * 音​频​控​制
+			 */
+			audio: string
+		}
+		commands: {
+			/**
+			 * 打​开
+			 */
+			open: string
+			/**
+			 * 保​存
+			 */
+			save: string
+			/**
+			 * 另​存​为
+			 */
+			saveAs: string
+			/**
+			 * 新​建​空​项​目
+			 */
+			'new': string
+			/**
+			 * 导​出​到​剪​贴​板
+			 */
+			exportToClipboard: string
+			/**
+			 * 从​剪​贴​板​导​入
+			 */
+			importFromClipboard: string
+			/**
+			 * 切​换​到​内​容​视​图
+			 */
+			switchToContent: string
+			/**
+			 * 切​换​到​时​轴​视​图
+			 */
+			switchToTiming: string
+			/**
+			 * 切​换​到​预​览​视​图
+			 */
+			switchToPreview: string
+			/**
+			 * 偏​好​设​置
+			 */
+			preferences: string
+			/**
+			 * 批​量​断​字
+			 */
+			batchSplitText: string
+			/**
+			 * 元​数​据
+			 */
+			metadata: string
+			/**
+			 * 批​量​时​移
+			 */
+			batchTimeShift: string
+			/**
+			 * 撤​销
+			 */
+			undo: string
+			/**
+			 * 重​做
+			 */
+			redo: string
+			/**
+			 * 书​签
+			 */
+			bookmark: string
+			/**
+			 * 查​找
+			 */
+			find: string
+			/**
+			 * 替​换
+			 */
+			replace: string
+			/**
+			 * 删​除
+			 */
+			'delete': string
+			/**
+			 * 全​选​所​有​行
+			 */
+			selectAllLines: string
+			/**
+			 * 全​选​所​有​音​节
+			 */
+			selectAllSyls: string
+			/**
+			 * 拆​分​行
+			 */
+			breakLine: string
+			/**
+			 * 设​为​对​唱​行
+			 */
+			duet: string
+			/**
+			 * 设​为​背​景​行
+			 */
+			background: string
+			/**
+			 * 上​一​行
+			 */
+			goPrevLine: string
+			/**
+			 * 上​一​音​节
+			 */
+			goPrevSyl: string
+			/**
+			 * 上​一​音​节​并​播​放
+			 */
+			goPrevSylnPlay: string
+			/**
+			 * 下​一​行
+			 */
+			goNextLine: string
+			/**
+			 * 下​一​音​节
+			 */
+			goNextSyl: string
+			/**
+			 * 下​一​音​节​并​播​放
+			 */
+			goNextSylnPlay: string
+			/**
+			 * 播​放​当​前​音​节
+			 */
+			playCurrSyl: string
+			/**
+			 * 标​记​开​始​时​间
+			 */
+			markBegin: string
+			/**
+			 * 标​记​连​缀​时​间
+			 */
+			markEndBegin: string
+			/**
+			 * 标​记​结​束​时​间
+			 */
+			markEnd: string
+			/**
+			 * 选​择​媒​体
+			 */
+			chooseMedia: string
+			/**
+			 * 快​退
+			 */
+			seekBackward: string
+			/**
+			 * 增​大​音​量
+			 */
+			volumeUp: string
+			/**
+			 * 播​放​/​暂​停​音​频
+			 */
+			playPauseAudio: string
+			/**
+			 * 快​进
+			 */
+			seekForward: string
+			/**
+			 * 减​小​音​量
+			 */
+			volumeDown: string
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -526,6 +734,214 @@ export type TranslationFunctions = {
 			 * 共替换了 {0} 处匹配项。
 			 */
 			detail: (arg0: number) => LocalizedString
+		}
+	}
+	hotkey: {
+		/**
+		 * 按键绑定
+		 */
+		dialogHeader: () => LocalizedString
+		/**
+		 * 未绑定
+		 */
+		notBinded: () => LocalizedString
+		btns: {
+			/**
+			 * 添加
+			 */
+			add: () => LocalizedString
+			/**
+			 * 移除
+			 */
+			del: () => LocalizedString
+			/**
+			 * 重置为默认
+			 */
+			reset: () => LocalizedString
+		}
+		groupTitles: {
+			/**
+			 * 文件操作
+			 */
+			file: () => LocalizedString
+			/**
+			 * 视图与界面
+			 */
+			view: () => LocalizedString
+			/**
+			 * 编辑操作
+			 */
+			editing: () => LocalizedString
+			/**
+			 * 时轴
+			 */
+			timing: () => LocalizedString
+			/**
+			 * 音频控制
+			 */
+			audio: () => LocalizedString
+		}
+		commands: {
+			/**
+			 * 打开
+			 */
+			open: () => LocalizedString
+			/**
+			 * 保存
+			 */
+			save: () => LocalizedString
+			/**
+			 * 另存为
+			 */
+			saveAs: () => LocalizedString
+			/**
+			 * 新建空项目
+			 */
+			'new': () => LocalizedString
+			/**
+			 * 导出到剪贴板
+			 */
+			exportToClipboard: () => LocalizedString
+			/**
+			 * 从剪贴板导入
+			 */
+			importFromClipboard: () => LocalizedString
+			/**
+			 * 切换到内容视图
+			 */
+			switchToContent: () => LocalizedString
+			/**
+			 * 切换到时轴视图
+			 */
+			switchToTiming: () => LocalizedString
+			/**
+			 * 切换到预览视图
+			 */
+			switchToPreview: () => LocalizedString
+			/**
+			 * 偏好设置
+			 */
+			preferences: () => LocalizedString
+			/**
+			 * 批量断字
+			 */
+			batchSplitText: () => LocalizedString
+			/**
+			 * 元数据
+			 */
+			metadata: () => LocalizedString
+			/**
+			 * 批量时移
+			 */
+			batchTimeShift: () => LocalizedString
+			/**
+			 * 撤销
+			 */
+			undo: () => LocalizedString
+			/**
+			 * 重做
+			 */
+			redo: () => LocalizedString
+			/**
+			 * 书签
+			 */
+			bookmark: () => LocalizedString
+			/**
+			 * 查找
+			 */
+			find: () => LocalizedString
+			/**
+			 * 替换
+			 */
+			replace: () => LocalizedString
+			/**
+			 * 删除
+			 */
+			'delete': () => LocalizedString
+			/**
+			 * 全选所有行
+			 */
+			selectAllLines: () => LocalizedString
+			/**
+			 * 全选所有音节
+			 */
+			selectAllSyls: () => LocalizedString
+			/**
+			 * 拆分行
+			 */
+			breakLine: () => LocalizedString
+			/**
+			 * 设为对唱行
+			 */
+			duet: () => LocalizedString
+			/**
+			 * 设为背景行
+			 */
+			background: () => LocalizedString
+			/**
+			 * 上一行
+			 */
+			goPrevLine: () => LocalizedString
+			/**
+			 * 上一音节
+			 */
+			goPrevSyl: () => LocalizedString
+			/**
+			 * 上一音节并播放
+			 */
+			goPrevSylnPlay: () => LocalizedString
+			/**
+			 * 下一行
+			 */
+			goNextLine: () => LocalizedString
+			/**
+			 * 下一音节
+			 */
+			goNextSyl: () => LocalizedString
+			/**
+			 * 下一音节并播放
+			 */
+			goNextSylnPlay: () => LocalizedString
+			/**
+			 * 播放当前音节
+			 */
+			playCurrSyl: () => LocalizedString
+			/**
+			 * 标记开始时间
+			 */
+			markBegin: () => LocalizedString
+			/**
+			 * 标记连缀时间
+			 */
+			markEndBegin: () => LocalizedString
+			/**
+			 * 标记结束时间
+			 */
+			markEnd: () => LocalizedString
+			/**
+			 * 选择媒体
+			 */
+			chooseMedia: () => LocalizedString
+			/**
+			 * 快退
+			 */
+			seekBackward: () => LocalizedString
+			/**
+			 * 增大音量
+			 */
+			volumeUp: () => LocalizedString
+			/**
+			 * 播放/暂停音频
+			 */
+			playPauseAudio: () => LocalizedString
+			/**
+			 * 快进
+			 */
+			seekForward: () => LocalizedString
+			/**
+			 * 减小音量
+			 */
+			volumeDown: () => LocalizedString
 		}
 	}
 }

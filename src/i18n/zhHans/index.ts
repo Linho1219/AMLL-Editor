@@ -105,6 +105,70 @@ const zhHans = {
       detail: '共替换了 {0:number} 处匹配项。',
     },
   },
+  hotkey: {
+    dialogHeader: '按键绑定',
+    notBinded: '未绑定',
+    btns: {
+      add: '添加',
+      del: '移除',
+      reset: '重置为默认',
+    },
+    groupTitles: {
+      file: '文件操作',
+      view: '视图与界面',
+      editing: '编辑操作',
+      timing: '时轴',
+      audio: '音频控制',
+    },
+    commands: {
+      open: '打开',
+      save: '保存',
+      saveAs: '另存为',
+
+      new: '新建空项目',
+      exportToClipboard: '导出到剪贴板',
+      importFromClipboard: '从剪贴板导入',
+
+      switchToContent: '切换到内容视图',
+      switchToTiming: '切换到时轴视图',
+      switchToPreview: '切换到预览视图',
+
+      preferences: '偏好设置',
+      batchSplitText: '批量断字',
+      metadata: '元数据',
+
+      batchTimeShift: '批量时移',
+      undo: '撤销',
+      redo: '重做',
+      bookmark: '书签',
+      find: '查找',
+      replace: '替换',
+      delete: '删除',
+      selectAllLines: '全选所有行',
+      selectAllSyls: '全选所有音节',
+      breakLine: '拆分行',
+      duet: '设为对唱行',
+      background: '设为背景行',
+
+      goPrevLine: '上一行',
+      goPrevSyl: '上一音节',
+      goPrevSylnPlay: '上一音节并播放',
+      goNextLine: '下一行',
+      goNextSyl: '下一音节',
+      goNextSylnPlay: '下一音节并播放',
+      playCurrSyl: '播放当前音节',
+      markBegin: '标记开始时间',
+      markEndBegin: '标记连缀时间',
+      markEnd: '标记结束时间',
+
+      chooseMedia: '选择媒体',
+      seekBackward: '快退',
+      volumeUp: '增大音量',
+      playPauseAudio: '播放/暂停音频',
+      seekForward: '快进',
+      volumeDown: '减小音量',
+    },
+  },
 } satisfies BaseTranslation
 
 export default zhHans
