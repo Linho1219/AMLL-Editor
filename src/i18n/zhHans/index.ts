@@ -1,4 +1,4 @@
-import type { BaseTranslation } from '../i18n-types.js'
+import type { BaseTranslation } from '../i18n-types'
 
 const zhHans = {
   compat: {
@@ -73,6 +73,20 @@ const zhHans = {
       name: '椒盐音乐逐字',
       description:
         '椒盐音乐的私有格式，基于 LRC 扩展，支持行时间戳和逐字时间戳，并支持翻译。由于规则繁杂，可能不完全可用。',
+    },
+  },
+  file: {
+    allSupportedFormats: '所有支持的格式',
+    untitled: '未命名',
+    loaded: '成功加载文件',
+    failedToRead: '读取文件失败',
+    typeNotSupported: '不支持的文件类型：{0}',
+    noHandleProvided: '未提供文件句柄',
+    unableToGetFile: '无法获取提供的文件',
+    dataDropConfirm: {
+      header: '您有未保存的工作',
+      message: '如果继续，所有未保存的更改将会丢失。此操作不可撤销。',
+      acceptLabel: '继续',
     },
   },
 } satisfies BaseTranslation

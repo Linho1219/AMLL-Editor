@@ -1,7 +1,4 @@
-import { portFormatRegister } from '.'
-import { lrcReg } from './formats/lrc'
-import { lrcA2Reg } from './formats/lrca2'
-import { splReg } from './formats/spl'
+import { portFormatRegister, portFormatRegisterMap } from '.'
 import type { Convert } from './types'
 
 export function detectFormat(extension: string, content: string): Convert.Format {
@@ -16,8 +13,8 @@ export function detectFormat(extension: string, content: string): Convert.Format
 
 function detectLrcVariants(content: string): Convert.Format {
   const hasSylLevel = /(?<!^(\[[^\]+]\])*)[<[][>\]]/.test(content)
-  if (!hasSylLevel) return lrcReg
+  if (!hasSylLevel) return portFormatRegisterMap.lrc
   const sqBracketEnding = /(?<!\])\[\d{1,3}:\d{1,2}\.\d{1,3}\d{0,3}\]$/.test(content)
-  if (sqBracketEnding) return splReg
-  return lrcA2Reg
+  if (sqBracketEnding) return portFormatRegisterMap.spl
+  return portFormatRegisterMap.lrcA2
 }

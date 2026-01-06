@@ -1,8 +1,14 @@
+import { t } from '@i18n'
 import { readonly, ref } from 'vue'
 
 import { audioEngine } from '@core/audio'
 import { compatibilityMap } from '@core/compat'
-import { type Convert as CV, detectFormat, portFormatRegister } from '@core/convert'
+import {
+  type Convert as CV,
+  type PortFormat,
+  detectFormat,
+  portFormatRegister,
+} from '@core/convert'
 import { parseTTML, stringifyTTML } from '@core/convert/formats/ttml'
 import FORMAT_MANIFEST from '@core/convert/manifest.json'
 import type { Persist } from '@core/types'
@@ -47,21 +53,22 @@ const allSupportedExt = new Set([
   '.ttml',
   ...portFormatRegister.map((f) => f.accept).flat(),
 ]) as Set<string>
-const manifest2formats = (mItem: CV.FormatManifest): FilePickerAcceptType => ({
-  description: mItem.name,
+type AllFormat = 'alp' | 'ttml' | PortFormat
+const manifest2formats = (key: AllFormat, mItem: CV.FormatManifest): FilePickerAcceptType => ({
+  description: t.formats[key].name(),
   accept: { [mItem.mime]: mItem.accept },
 })
 const allSupportedExtArr = [...allSupportedExt]
-const alpPickerType: FilePickerAcceptType[] = [manifest2formats(FORMAT_MANIFEST.alp)]
-const ttmlPickerType: FilePickerAcceptType[] = [manifest2formats(FORMAT_MANIFEST.ttml)]
+const alpPickerType: FilePickerAcceptType[] = [manifest2formats('alp', FORMAT_MANIFEST.alp)]
+const ttmlPickerType: FilePickerAcceptType[] = [manifest2formats('ttml', FORMAT_MANIFEST.ttml)]
 const allPickerTypes: FilePickerAcceptType[] = [
   {
-    description: '所有支持的格式',
+    description: t.file.allSupportedFormats(),
     accept: { 'application/x-amll-editor-allsupported': allSupportedExtArr },
   },
   ...alpPickerType,
   ...ttmlPickerType,
-  ...portFormatRegister.map(manifest2formats),
+  ...portFormatRegister.map(({ key, accept, mime }) => manifest2formats(key, { accept, mime })),
 ]
 
 let currHandle: FileHandle | null = null
@@ -84,7 +91,7 @@ function setFileState(state: Partial<FileState> | null) {
   currHandle = state.handle ?? null
   currBackingFmt = state.currBackingFmt ?? currBackingFmt
   createdAtRef.value = state.createdAt ?? null
-  displayFilenameRef.value = state.displayFilename ?? '未命名.alp'
+  displayFilenameRef.value = state.displayFilename ?? t.file.untitled()
   readonlyRef.value = state.isReadonly ?? true
   savedAtRef.value = state.savedAt ?? null
 }
@@ -98,13 +105,17 @@ function useDefaultFormat(basename: string) {
   }
 }
 
+const throwUserAbort = () => {
+  throw new Error('The user aborted a request.')
+}
+
 /**
  * Handle opening of any known file format.
  * @throws User cancel; unsupported format; parsing errors.
  * @returns Filename
  */
 async function openFile() {
-  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
+  if (!(await checkDataDropConfirm())) throwUserAbort()
   const result = await fileBackend.read('amll-ttml-tool-file-open', allPickerTypes)
   await handleFile(result)
   return result.filename
@@ -115,7 +126,7 @@ async function openFile() {
  * @returns Filename
  */
 async function openProjFile() {
-  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
+  if (!(await checkDataDropConfirm())) throwUserAbort()
   const result = await fileBackend.read('amll-ttml-tool-file-open', alpPickerType)
   await handleProjFile(result)
   return result.filename
@@ -126,7 +137,7 @@ async function openProjFile() {
  * @returns Filename
  */
 async function openTTMLFile() {
-  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
+  if (!(await checkDataDropConfirm())) throwUserAbort()
   const result = await fileBackend.read('amll-ttml-tool-file-open', ttmlPickerType)
   await handleTTMLFile(result)
   return result.filename
@@ -138,7 +149,7 @@ const askForWrite = async (handle: FileHandle) => {
 }
 async function handleFile(result: FileReadResult) {
   const [, ext] = breakExtension(result.filename)
-  if (!allSupportedExt.has(`.${ext}`)) throw new Error('不支持的文件类型')
+  if (!allSupportedExt.has(`.${ext}`)) throw new Error(t.file.typeNotSupported(ext))
   if (ext === 'alp') await handleProjFile(result)
   else if (ext === 'ttml') await handleTTMLFile(result)
   else await handleMiscFile(result)
@@ -182,8 +193,8 @@ async function handleMiscFile(result: FileReadResult) {
     ...useDefaultFormat(name),
   })
 }
-async function importPersist(data: Persist, name: string = '未命名') {
-  if (!(await checkDataDropConfirm())) throw new Error('The user aborted a request.')
+async function importPersist(data: Persist, name: string = t.file.untitled()) {
+  if (!(await checkDataDropConfirm())) throwUserAbort()
   applyPersist(data)
   setFileState({
     createdAt: new Date(),
@@ -221,7 +232,7 @@ async function saveFile() {
 
 function suggestName() {
   const [displayName] = breakExtension(displayFilenameRef.value)
-  if (!displayName.startsWith('未命名')) return displayName
+  if (!displayName.startsWith(t.file.untitled())) return displayName
   const coreStore = useCoreStore()
   const title = (coreStore.metadata.musicName ?? coreStore.metadata.ti)?.[0]
   if (title) return title
@@ -337,17 +348,17 @@ function initDragListener(notifier: Notifier) {
       return
     }
     if (!allSupportedExt.has(`.${ext}`))
-      return notifier('文件打开失败', `不支持的文件类型: .${ext}`, 'error')
+      return notifier(t.file.failedToRead(), t.file.typeNotSupported(ext), 'error')
 
     getFileBackendAdapter(fileBackend)
       .dragDrop(e)
       .then(async (result) => {
-        if (!result) throw new Error('无法获取拖放的文件')
+        if (!result) throw new Error(t.file.failedToRead())
         await handleFile(result)
-        notifier('成功加载文件', file.name, 'success')
+        notifier(t.file.loaded(), file.name, 'success')
       })
       .catch((err) => {
-        notifier('文件打开失败', String(err), 'error')
+        notifier(t.file.failedToRead(), String(err), 'error')
       })
   })
 }
@@ -356,15 +367,15 @@ function initPwaLaunch(notifier: Notifier) {
   if (!('launchQueue' in window)) return
   window.launchQueue.setConsumer(async (launchParams) => {
     const [file] = launchParams.files.filter((f) => f instanceof FileSystemFileHandle)
-    if (!file) return notifier('文件打开失败', '未提供文件句柄', 'error')
+    if (!file) return notifier(t.file.failedToRead(), t.file.noHandleProvided(), 'error')
     const result = await getFileBackendAdapter(fileBackend).fsHandle(file)
-    if (!result) return notifier('文件打开失败', '无法获取提供的文件', 'error')
+    if (!result) return notifier(t.file.failedToRead(), t.file.unableToGetFile(), 'error')
     if (editHistory.isDirty && !(await checkDataDropConfirm())) return
     try {
       await handleFile(result)
-      notifier('成功加载文件', result.filename, 'success')
+      notifier(t.file.loaded(), result.filename, 'success')
     } catch (err) {
-      notifier('文件打开失败', String(err), 'error')
+      notifier(t.file.failedToRead(), String(err), 'error')
     }
   })
 }
@@ -372,7 +383,7 @@ function initPwaLaunch(notifier: Notifier) {
 function init(notifier: Notifier) {
   setFileState({
     createdAt: new Date(),
-    ...useDefaultFormat('未命名'),
+    ...useDefaultFormat(t.file.untitled()),
   })
   initDragListener(notifier)
   initPwaLaunch(notifier)

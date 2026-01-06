@@ -24,21 +24,31 @@ const portFormatHandlers: Record<PortFormat, CV.FormatHandler> = {
 } as const
 
 const tRefs = t.formats.sharedReferences
-const formatReferemces: Partial<Record<PortFormat, CV.FormatCaption['reference']>> = {
+const formatReferences: Partial<Record<PortFormat, CV.FormatCaption['reference']>> = {
   lrc: [{ name: tRefs.wikipedia(), url: 'https://wikipedia.org/wiki/LRC_(file_format)' }],
   lrcA2: [{ name: tRefs.wikipedia(), url: 'https://en.wikipedia.org/wiki/LRC_(file_format)' }],
   spl: [{ name: tRefs.officialDoc(), url: 'https://moriafly.com/standards/spl.html' }],
 }
 
-export const portFormatRegister: CV.Format[] = (
+type FormatWithKey = { key: PortFormat } & CV.Format
+export const portFormatRegister: FormatWithKey[] = (
   [...Object.entries(portFormatHandlers)] as [PortFormat, CV.FormatHandler][]
 ).map(([key, handler]) => {
   const manifestItem: CV.FormatManifest = MANIFEST[key]
   return {
+    key,
     name: t.formats[key].name(),
     description: t.formats[key].description(),
-    reference: formatReferemces[key],
+    reference: formatReferences[key],
     ...manifestItem,
     ...handler,
   }
 })
+
+export const portFormatRegisterMap: Record<PortFormat, FormatWithKey> = portFormatRegister.reduce(
+  (acc, format) => {
+    acc[format.key] = format
+    return acc
+  },
+  {} as Record<PortFormat, FormatWithKey>,
+)

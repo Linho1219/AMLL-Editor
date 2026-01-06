@@ -1,3 +1,4 @@
+import { t } from '@i18n'
 import saveFile from 'save-file'
 
 import { compatibilityMap } from '@core/compat'
@@ -12,7 +13,7 @@ interface TextFileResult {
 
 function simpleChooseFile(
   dotExts: string[],
-  description: string = '所有支持的文件',
+  description: string = t.file.allSupportedFormats(),
   id?: string,
 ): Promise<File | null> {
   if (!fsApiAvaliable) return simpleChooseFileLegacy(dotExts.join(','))
@@ -63,7 +64,7 @@ function simpleChooseFileLegacy(accept: string): Promise<File | null> {
 
 export async function simpleChooseTextFile(
   dotExts: string[],
-  description: string = '所有支持的文件',
+  description: string = t.file.allSupportedFormats(),
   id?: string,
 ): Promise<TextFileResult | null> {
   return new Promise(async (resolve) => {
@@ -88,7 +89,7 @@ export async function simpleSaveFile(
   content: File | Blob,
   suggestedName: string,
   dotExts: string[],
-  description: string = '所有支持的文件',
+  description: string = t.file.allSupportedFormats(),
   id?: string,
 ): Promise<boolean> {
   const blob = content instanceof Blob ? content : new Blob([content])
@@ -126,7 +127,7 @@ export async function simpleSaveTextFile(
   content: string,
   suggestedName: string,
   dotExts: string[],
-  description: string = '所有支持的文件',
+  description: string = t.file.allSupportedFormats(),
   id?: string,
 ): Promise<boolean> {
   const blob = new Blob([content], { type: 'text/plain;charset=utf-8' })
