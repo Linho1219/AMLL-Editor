@@ -89,6 +89,22 @@ const zhHans = {
       acceptLabel: '继续',
     },
   },
+  find: {
+    infLoopErr: {
+      summary: '搜索失败',
+      detail: '发生死循环。请前往反馈此问题。',
+    },
+    noResultWarn: {
+      summary: '找不到结果',
+      detailEmpty: '在所选范围内文档为空。',
+      detailNoMatch: '全文搜索完毕，未找到匹配项。',
+      detailNoMatchEnd: '已到达文档末端，无匹配项。\n启用循环搜索可从头开始继续搜索。',
+    },
+    replaceSuccess: {
+      summary: '替换成功',
+      detail: '共替换了 {0:number} 处匹配项。',
+    },
+  },
 } satisfies BaseTranslation
 
 export default zhHans

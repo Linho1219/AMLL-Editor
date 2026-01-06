@@ -1,3 +1,4 @@
+import { t } from '@i18n'
 import { type Reactive, computed, nextTick, shallowRef, watch } from 'vue'
 
 import { View } from '@core/types'
@@ -12,6 +13,8 @@ import type { FindReplace as FR } from './types'
 export type { FindReplace } from './types'
 
 const MAX_SEARCH_STEPS = 100000
+
+const tFind = t.find
 
 const PF = {
   Whole: 'WHOLE',
@@ -316,8 +319,8 @@ export function useFindReplaceEngine(
         if (stepCount++ > MAX_SEARCH_STEPS) {
           notifier({
             severity: 'error',
-            summary: '搜索失败',
-            detail: '发生死循环。请前往反馈此问题。',
+            summary: tFind.infLoopErr.summary(),
+            detail: tFind.infLoopErr.detail(),
           })
           throw new Error('Exceeded maximum search steps in getRangedJumpPos, aborting.')
         }
@@ -527,8 +530,8 @@ export function useFindReplaceEngine(
       if (!noAlert)
         notifier({
           severity: 'warn',
-          summary: '找不到结果',
-          detail: '在所选范围内文档为空。',
+          summary: tFind.noResultWarn.summary(),
+          detail: tFind.noResultWarn.detailEmpty(),
         })
       return
     }
@@ -551,10 +554,10 @@ export function useFindReplaceEngine(
     if (!noAlert)
       notifier({
         severity: 'warn',
-        summary: '找不到结果',
+        summary: tFind.noResultWarn.summary(),
         detail: state.wrapSearch
-          ? '全文搜索完毕，未找到匹配项。'
-          : '已到达文档末端，无匹配项。\n启用循环搜索可从头开始继续搜索。',
+          ? tFind.noResultWarn.detailNoMatch()
+          : tFind.noResultWarn.detailNoMatchEnd(),
       })
   }
   function handleFindNext() {
@@ -592,14 +595,14 @@ export function useFindReplaceEngine(
     if (counter)
       notifier({
         severity: 'success',
-        summary: '全部替换完成',
-        detail: `共替换了 ${counter} 个匹配项。`,
+        summary: tFind.replaceSuccess.summary(),
+        detail: tFind.replaceSuccess.detail(counter),
       })
     else
       notifier({
         severity: 'warn',
-        summary: '找不到结果',
-        detail: '全文搜索完毕，未找到匹配项。',
+        summary: tFind.noResultWarn.summary(),
+        detail: tFind.noResultWarn.detailNoMatch(),
       })
   }
 

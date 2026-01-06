@@ -228,6 +228,48 @@ type RootTranslation = {
 			acceptLabel: string
 		}
 	}
+	find: {
+		infLoopErr: {
+			/**
+			 * 搜​索​失​败
+			 */
+			summary: string
+			/**
+			 * 发​生​死​循​环​。​请​前​往​反​馈​此​问​题​。
+			 */
+			detail: string
+		}
+		noResultWarn: {
+			/**
+			 * 找​不​到​结​果
+			 */
+			summary: string
+			/**
+			 * 在​所​选​范​围​内​文​档​为​空​。
+			 */
+			detailEmpty: string
+			/**
+			 * 全​文​搜​索​完​毕​，​未​找​到​匹​配​项​。
+			 */
+			detailNoMatch: string
+			/**
+			 * 已​到​达​文​档​末​端​，​无​匹​配​项​。​
+		​启​用​循​环​搜​索​可​从​头​开​始​继​续​搜​索​。
+			 */
+			detailNoMatchEnd: string
+		}
+		replaceSuccess: {
+			/**
+			 * 替​换​成​功
+			 */
+			summary: string
+			/**
+			 * 共​替​换​了​ ​{​0​}​ ​处​匹​配​项​。
+			 * @param {number} 0
+			 */
+			detail: RequiredParams<'0'>
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -443,6 +485,47 @@ export type TranslationFunctions = {
 			 * 继续
 			 */
 			acceptLabel: () => LocalizedString
+		}
+	}
+	find: {
+		infLoopErr: {
+			/**
+			 * 搜索失败
+			 */
+			summary: () => LocalizedString
+			/**
+			 * 发生死循环。请前往反馈此问题。
+			 */
+			detail: () => LocalizedString
+		}
+		noResultWarn: {
+			/**
+			 * 找不到结果
+			 */
+			summary: () => LocalizedString
+			/**
+			 * 在所选范围内文档为空。
+			 */
+			detailEmpty: () => LocalizedString
+			/**
+			 * 全文搜索完毕，未找到匹配项。
+			 */
+			detailNoMatch: () => LocalizedString
+			/**
+			 * 已到达文档末端，无匹配项。
+		启用循环搜索可从头开始继续搜索。
+			 */
+			detailNoMatchEnd: () => LocalizedString
+		}
+		replaceSuccess: {
+			/**
+			 * 替换成功
+			 */
+			summary: () => LocalizedString
+			/**
+			 * 共替换了 {0} 处匹配项。
+			 */
+			detail: (arg0: number) => LocalizedString
 		}
 	}
 }
