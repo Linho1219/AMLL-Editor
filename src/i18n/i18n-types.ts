@@ -185,6 +185,79 @@ type RootTranslation = {
 			reloadAmll: string
 		}
 	}
+	player: {
+		/**
+		 * 选​择​音​频​文​件
+		 */
+		chooseAudioFile: string
+		/**
+		 * 播​放​选​项
+		 */
+		playOptions: string
+		/**
+		 * 音​量
+		 */
+		volume: string
+		/**
+		 * 速​率
+		 */
+		rate: string
+		/**
+		 * 重​置​到​ ​{​0​}
+		 * @param {unknown} 0
+		 */
+		resetTo: RequiredParams<'0'>
+		/**
+		 * 播​放
+		 */
+		play: string
+		/**
+		 * 暂​停
+		 */
+		pause: string
+		/**
+		 * 显​示​频​谱​图
+		 */
+		showSpectrogram: string
+		/**
+		 * 隐​藏​频​谱​图
+		 */
+		hideSpectrogram: string
+		/**
+		 * 频​谱​图​不​可​用
+		 */
+		spectrogramUnavailable: string
+		/**
+		 * 所​有​支​持​的​音​频​格​式
+		 */
+		allSupportedFormats: string
+		failedToLoadAudio: {
+			/**
+			 * 加​载​音​频​失​败
+			 */
+			summary: string
+			/**
+			 * 文​件​访​问​被​用​户​或​平​台​拒​绝
+			 */
+			detailAborted: string
+		}
+		/**
+		 * 成​功​加​载​音​频
+		 */
+		loadAudioSuccess: string
+	}
+	spectrogram: {
+		emptyTip: {
+			/**
+			 * 没​有​音​频​数​据
+			 */
+			title: string
+			/**
+			 * 加​载​音​频​文​件​后​将​渲​染​频​谱​图
+			 */
+			detail: string
+		}
+	}
 	compat: {
 		dialog: {
 			/**
@@ -1277,6 +1350,78 @@ export type TranslationFunctions = {
 			 * 重载 AMLL
 			 */
 			reloadAmll: () => LocalizedString
+		}
+	}
+	player: {
+		/**
+		 * 选择音频文件
+		 */
+		chooseAudioFile: () => LocalizedString
+		/**
+		 * 播放选项
+		 */
+		playOptions: () => LocalizedString
+		/**
+		 * 音量
+		 */
+		volume: () => LocalizedString
+		/**
+		 * 速率
+		 */
+		rate: () => LocalizedString
+		/**
+		 * 重置到 {0}
+		 */
+		resetTo: (arg0: unknown) => LocalizedString
+		/**
+		 * 播放
+		 */
+		play: () => LocalizedString
+		/**
+		 * 暂停
+		 */
+		pause: () => LocalizedString
+		/**
+		 * 显示频谱图
+		 */
+		showSpectrogram: () => LocalizedString
+		/**
+		 * 隐藏频谱图
+		 */
+		hideSpectrogram: () => LocalizedString
+		/**
+		 * 频谱图不可用
+		 */
+		spectrogramUnavailable: () => LocalizedString
+		/**
+		 * 所有支持的音频格式
+		 */
+		allSupportedFormats: () => LocalizedString
+		failedToLoadAudio: {
+			/**
+			 * 加载音频失败
+			 */
+			summary: () => LocalizedString
+			/**
+			 * 文件访问被用户或平台拒绝
+			 */
+			detailAborted: () => LocalizedString
+		}
+		/**
+		 * 成功加载音频
+		 */
+		loadAudioSuccess: () => LocalizedString
+	}
+	spectrogram: {
+		emptyTip: {
+			/**
+			 * 没有音频数据
+			 */
+			title: () => LocalizedString
+			/**
+			 * 加载音频文件后将渲染频谱图
+			 */
+			detail: () => LocalizedString
 		}
 	}
 	compat: {

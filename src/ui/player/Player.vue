@@ -10,20 +10,20 @@
           :disabled="loading"
           severity="secondary"
           @click="() => handleSelectFile()"
-          v-tooltip="tipHotkey('选择音频文件', 'chooseMedia')"
+          v-tooltip="tipHotkey(tt.chooseAudioFile(), 'chooseMedia')"
         />
         <Button
           icon="pi pi-sliders-v"
           severity="secondary"
           @click="tooglePopover"
-          v-tooltip="'播放选项'"
+          v-tooltip="tt.playOptions()"
         />
         <Popover ref="popover"> <PopoverPane /> </Popover>
         <Button
           :icon="playingComputed ? 'pi pi-pause' : 'pi pi-play'"
           @click="audioEngine.togglePlay()"
           :disabled="!activatedRef"
-          v-tooltip="tipHotkey(playingComputed ? '暂停' : '播放', 'playPauseAudio')"
+          v-tooltip="tipHotkey(playingComputed ? tt.pause() : tt.play(), 'playPauseAudio')"
           ref="playPauseButton"
         />
         <div class="audio-progress-canvas-wrapper" ref="audioProgressWrapperEl">
@@ -55,10 +55,10 @@
           @click="showSpectrogram = !showSpectrogram"
           v-tooltip="
             !compatibilityMap.sharedArrayBuffer
-              ? '频谱图功能不可用'
+              ? tt.spectrogramUnavailable()
               : showSpectrogram
-                ? '隐藏频谱图'
-                : '显示频谱图'
+                ? tt.hideSpectrogram()
+                : tt.showSpectrogram()
           "
           :disabled="!compatibilityMap.sharedArrayBuffer"
         />
@@ -68,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { useDark } from '@vueuse/core'
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 
@@ -86,6 +87,8 @@ import Spectrogram from './Spectrogram.vue'
 import Waveform from './Waveform.vue'
 import { Button, Card, Popover, useToast } from 'primevue'
 
+const tt = t.player
+
 const { amendedProgressComputed, lengthComputed, playingComputed, activatedRef } = audioEngine
 const playPauseButton = useTemplateRef('playPauseButton')
 
@@ -103,17 +106,22 @@ async function handleSelectFile() {
     loading.value = true
     const result = await fileBackend.read(
       'amll-editor-audio',
-      [{ description: '所有支持的音频', accept: { 'audio/*': ['.mp3', '.flac', '.wav', '.ncm'] } }],
+      [
+        {
+          description: tt.allSupportedFormats(),
+          accept: { 'audio/*': ['.mp3', '.flac', '.wav', '.ncm'] },
+        },
+      ],
       'music',
     )
     audioEngine.mount(new File([result.blob], result.filename))
     // loading will be set to false on audio loaded event
   } catch (e) {
     loading.value = false
-    const detail = isUserAbortError(e) ? '文件访问被用户或平台拒绝' : String(e)
+    const detail = isUserAbortError(e) ? tt.failedToLoadAudio.detailAborted() : String(e)
     toast.add({
       severity: 'error',
-      summary: '加载音频文件失败',
+      summary: tt.failedToLoadAudio.summary(),
       detail: detail,
       life: 3000,
     })
@@ -131,7 +139,7 @@ audioEngine.onLoaded(() => {
   loading.value = false
   toast.add({
     severity: 'success',
-    summary: '成功加载音频',
+    summary: tt.loadAudioSuccess(),
     detail: audioEngine.filenameComputed.value,
     life: 3000,
   })

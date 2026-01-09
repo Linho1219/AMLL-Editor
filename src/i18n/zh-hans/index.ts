@@ -82,6 +82,30 @@ const zhHans = {
       reloadAmll: '重载 AMLL',
     },
   },
+  player: {
+    chooseAudioFile: '选择音频文件',
+    playOptions: '播放选项',
+    volume: '音量',
+    rate: '速率',
+    resetTo: '重置到 {0}',
+    play: '播放',
+    pause: '暂停',
+    showSpectrogram: '显示频谱图',
+    hideSpectrogram: '隐藏频谱图',
+    spectrogramUnavailable: '频谱图不可用',
+    allSupportedFormats: '所有支持的音频格式',
+    failedToLoadAudio: {
+      summary: '加载音频失败',
+      detailAborted: '文件访问被用户或平台拒绝',
+    },
+    loadAudioSuccess: '成功加载音频',
+  },
+  spectrogram: {
+    emptyTip: {
+      title: '没有音频数据',
+      detail: '加载音频文件后将渲染频谱图',
+    },
+  },
   compat: {
     dialog: {
       header: '兼容性报告',

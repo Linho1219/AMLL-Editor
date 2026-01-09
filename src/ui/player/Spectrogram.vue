@@ -25,14 +25,15 @@
     <EmptyTip
       v-if="!audioEngine.audioBuffer"
       icon="pi pi-volume-off"
-      title="没有音频数据"
-      tip="加载音频文件后将渲染频谱图"
+      :title="tt.emptyTip.title()"
+      :tip="tt.emptyTip.detail()"
       compact
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { ref, watch } from 'vue'
 
 import { audioEngine } from '@core/audio/index.ts'
@@ -44,6 +45,8 @@ import { useSpectrogramTiles } from '@core/spectrogram/useSpectrogramTiles'
 
 import SpectrogramTile from './SpectrogramTile.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
+
+const tt = t.spectrogram
 
 const containerEl = ref<HTMLElement | null>(null)
 const { audioBufferComputed } = audioEngine

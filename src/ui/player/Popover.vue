@@ -1,8 +1,8 @@
 <template>
   <div class="audio-popover-pane">
     <span class="audio-popover-label">
-      <i class="pi pi-volume-down audio-popover-icon"></i> 音量
-    </span>
+      <i class="pi pi-volume-down audio-popover-icon"></i>{{ tt.volume() }}</span
+    >
     <Slider class="audio-popover-slider" :max="100" :min="0" v-model="volumeInputRef" />
     <InputGroup>
       <InputNumber
@@ -24,11 +24,14 @@
           size="small"
           fluid
           @click="volumeInputRef = 100"
+          v-tooltip="tt.resetTo('100%')"
         />
       </InputGroupAddon>
     </InputGroup>
 
-    <span class="audio-popover-label"> <i class="pi pi-forward audio-popover-icon"></i> 速率 </span>
+    <span class="audio-popover-label">
+      <i class="pi pi-forward audio-popover-icon"></i>{{ tt.rate() }}</span
+    >
     <Slider
       class="audio-popover-slider from-middle"
       :min="-DOMAIN"
@@ -57,6 +60,7 @@
           size="small"
           fluid
           @click="rateInputRef = 1"
+          v-tooltip="tt.resetTo('1.00')"
         />
       </InputGroupAddon>
     </InputGroup>
@@ -64,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { computed, ref, watch } from 'vue'
 
 import { audioEngine } from '@core/audio'
@@ -71,6 +76,8 @@ import { audioEngine } from '@core/audio'
 import { Button, InputGroup, InputGroupAddon, InputNumber, Slider } from 'primevue'
 
 const { volumeRef, playbackRateRef } = audioEngine
+
+const tt = t.player
 
 const volumeInputRef = ref<number | undefined>(Math.round(volumeRef.value * 100))
 const rateInputRef = ref<number | undefined>(parseFloat(playbackRateRef.value.toFixed(2)))
@@ -123,6 +130,9 @@ const rateSliderRef = computed({
 }
 .audio-popover-label {
   font-size: 1.1rem;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
 }
 .audio-popover-icon {
   color: var(--p-navigation-item-icon-focus-color);
