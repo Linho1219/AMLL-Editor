@@ -286,10 +286,10 @@ type RootTranslation = {
 			 */
 			permissionNotGranted: string
 			/**
-			 * 已​保​存​于​ ​{​0​|​t​i​m​e​}
+			 * 已​保​存​于​ ​{​0​}
 			 * @param {Date} 0
 			 */
-			savedAt: RequiredParams<'0|time'>
+			savedAt: RequiredParams<'0'>
 		}
 	}
 	ribbon: {
@@ -470,6 +470,451 @@ type RootTranslation = {
 			 * 帧​速​率
 			 */
 			frameRate: string
+		}
+	}
+	sidebar: {
+		syllabify: {
+			/**
+			 * 批​量​断​字
+			 */
+			header: string
+			/**
+			 * 选​择​断​字​引​擎
+			 */
+			enginePlaceholder: string
+			/**
+			 * 断​字​引​擎
+			 */
+			engine: string
+			/**
+			 * 推​荐
+			 */
+			recommended: string
+			/**
+			 * 不​推​荐
+			 */
+			notRecommended: string
+			/**
+			 * 展​开
+			 */
+			expandDesc: string
+			/**
+			 * 收​起
+			 */
+			collapseDesc: string
+			/**
+			 * 自​定​义​规​则
+			 */
+			customRules: string
+			/**
+			 * 区​分​大​小​写
+			 */
+			caseSensitive: string
+			/**
+			 * 原​始​文​本
+			 */
+			originalTextPlaceholder: string
+			/**
+			 * 添​加​规​则
+			 */
+			addRule: string
+			/**
+			 * 现​有​音​节​属​性​将​丢​失​，​时​长​按​实​义​字​符​线​性​插​值
+			 */
+			sylDataLossWarn: string
+			/**
+			 * 应​用​到​选​定​行
+			 */
+			applyToSelectedLines: string
+			/**
+			 * 应​用​到​选​定​行​及​之​后
+			 */
+			applyToLinesAndAfter: string
+			/**
+			 * 应​用​到​所​有​行
+			 */
+			applyToAll: string
+		}
+		metadata: {
+			/**
+			 * 元​数​据
+			 */
+			header: string
+			/**
+			 * 不​使​用​模​板
+			 */
+			templatePlaceholder: string
+			/**
+			 * 元​数​据​字​段​模​板
+			 */
+			templateLabel: string
+			templates: {
+				lrc: {
+					/**
+					 * L​R​C​ ​元​数​据​模​板
+					 */
+					label: string
+					/**
+					 * 标​题
+					 */
+					ti: string
+					/**
+					 * 艺​术​家
+					 */
+					ar: string
+					/**
+					 * 专​辑
+					 */
+					al: string
+					/**
+					 * 作​者
+					 */
+					au: string
+					/**
+					 * 作​词
+					 */
+					lr: string
+					/**
+					 * 歌​词​创​建​者
+					 */
+					by: string
+					/**
+					 * 歌​词​创​建​工​具
+					 */
+					re: string
+					/**
+					 * 音​频​长​度
+					 */
+					len: string
+					/**
+					 * 长​度​格​式​应​为​ ​m​m​:​s​s​ ​或​ ​m​m​:​s​s​.​s​s​s
+					 */
+					lenValidationMsg: string
+				}
+				amll: {
+					/**
+					 * A​M​L​L​ ​T​T​M​L​ ​元​数​据​模​板
+					 */
+					label: string
+					/**
+					 * 歌​曲​名​称
+					 */
+					musicName: string
+					/**
+					 * 艺​术​家
+					 */
+					artists: string
+					/**
+					 * 专​辑​名
+					 */
+					album: string
+					/**
+					 * 网​易​云​音​乐​ ​I​D
+					 */
+					ncmMusicId: string
+					/**
+					 * Q​Q​ ​音​乐​ ​I​D
+					 */
+					qqMusicId: string
+					/**
+					 * S​p​o​t​i​f​y​ ​音​乐​ ​I​D
+					 */
+					spotifyId: string
+					/**
+					 * A​p​p​l​e​ ​M​u​s​i​c​ ​音​乐​ ​I​D
+					 */
+					appleMusicId: string
+					/**
+					 * I​S​R​C​ ​号
+					 */
+					isrc: string
+					/**
+					 * T​T​M​L​ ​作​者​ ​G​i​t​H​u​b​ ​U​I​D
+					 */
+					ttmlAuthorGithub: string
+					/**
+					 * T​T​M​L​ ​作​者​ ​G​i​t​H​u​b​ ​用​户​名
+					 */
+					ttmlAuthorGithubLogin: string
+				}
+			}
+			/**
+			 * 文​档
+			 */
+			documentBtn: string
+			/**
+			 * 添​加​全​部​预​设
+			 */
+			addAllPresets: string
+			/**
+			 * 键​名
+			 */
+			keyPlaceholder: string
+			/**
+			 * 清​除
+			 */
+			clear: string
+			/**
+			 * 添​加​字​段
+			 */
+			addField: string
+		}
+		preference: {
+			/**
+			 * 偏​好​设​置
+			 */
+			header: string
+			resetConfirm: {
+				/**
+				 * 重​置​全​部​选​项
+				 */
+				header: string
+				/**
+				 * 确​定​要​将​所​有​选​项​恢​复​为​默​认​值​吗​？​此​操​作​不​可​撤​销​。
+				 */
+				message: string
+				/**
+				 * 重​置
+				 */
+				action: string
+			}
+			groups: {
+				/**
+				 * 数​据
+				 */
+				data: string
+				/**
+				 * 按​键
+				 */
+				key: string
+				/**
+				 * 内​容
+				 */
+				content: string
+				/**
+				 * 时​轴
+				 */
+				timing: string
+				/**
+				 * 频​谱​图
+				 */
+				spectrogram: string
+				/**
+				 * 兼​容​性
+				 */
+				compatibility: string
+				/**
+				 * 重​置
+				 */
+				reset: string
+				/**
+				 * 关​于
+				 */
+				about: string
+			}
+			/**
+			 * 实​验​性​选​项​，​可​能​不​稳​定
+			 */
+			experimentalWarning: string
+			items: {
+				/**
+				 * 自​动​保​存
+				 */
+				autoSaveEnabled: string
+				/**
+				 * 授​予​写​入​权​限​后​，​定​时​保​存​至​文​件​系​统
+				 */
+				autoSaveEnabledDesc: string
+				/**
+				 * 自​动​保​存​间​隔
+				 */
+				autoSaveIntervalMinutes: string
+				/**
+				 * 自​动​保​存​触​发​的​时​间​间​隔​ ​(​分​钟​)
+				 */
+				autoSaveIntervalMinutesDesc: string
+				/**
+				 * 历​史​记​录​快​照​数
+				 */
+				maxUndoSteps: string
+				/**
+				 * 允​许​撤​销​的​最​大​操​作​步​数
+				 */
+				maxUndoStepsDesc: string
+				/**
+				 * 将​音​频​嵌​入​项​目​文​件
+				 */
+				packAudioToProject: string
+				/**
+				 * 将​音​频​文​件​打​包​在​项​目​文​件​中​，​以​便​归​档​或​分​享
+				 */
+				packAudioToProjectDesc: string
+				/**
+				 * 以​ ​T​T​M​L​ ​为​默​认​格​式
+				 */
+				ttmlAsDefault: string
+				/**
+				 * 新​建​和​保​存​文​档​时​默​认​使​用​ ​T​T​M​L​ ​而​非​ ​A​L​P​ ​格​式
+				 */
+				ttmlAsDefaultDesc: string
+				/**
+				 * 按​键​绑​定
+				 */
+				keyBinding: string
+				/**
+				 * 打​开​快​捷​键​设​置​窗​口
+				 */
+				keyBindingDesc: string
+				/**
+				 * 设​置
+				 */
+				keyBindingAction: string
+				/**
+				 * m​a​c​O​S​ ​风​格​组​合​键
+				 */
+				macStyleShortcuts: string
+				/**
+				 * 使​用​ ​⌘​、​⌥​ ​等​符​号​展​示​组​合​键
+				 */
+				macStyleShortcutsDesc: string
+				/**
+				 * 音​频​按​键​跳​转​步​长
+				 */
+				audioSeekingStepMs: string
+				/**
+				 * 按​键​快​进​或​快​退​时​跳​转​的​时​长​ ​(​毫​秒​)
+				 */
+				audioSeekingStepMsDesc: string
+				/**
+				 * 交​换​翻​译​与​音​译​框​位​置
+				 */
+				swapTranslateRoman: string
+				/**
+				 * 在​内​容​视​图​将​音​译​框​置​于​左​侧​，​并​影​响​查​找​顺​序
+				 */
+				swapTranslateRomanDesc: string
+				/**
+				 * 启​用​逐​字​音​译
+				 */
+				sylRomanEnabled: string
+				/**
+				 * 在​音​节​框​下​方​显​示​逐​字​音​译​，​并​支​持​查​找​替​换
+				 */
+				sylRomanEnabledDesc: string
+				/**
+				 * 全​局​延​时​补​偿
+				 */
+				globalLatencyMs: string
+				/**
+				 * 正​值​表​示​实​际​音​频​落​后​ ​(​毫​秒​)
+				 */
+				globalLatencyMsDesc: string
+				/**
+				 * 始​终​忽​略​背​景​行
+				 */
+				alwaysIgnoreBackground: string
+				/**
+				 * 在​时​轴​页​上​始​终​跳​过​背​景​行
+				 */
+				alwaysIgnoreBackgroundDesc: string
+				/**
+				 * 隐​藏​行​时​间​戳
+				 */
+				hideLineTiming: string
+				/**
+				 * 自​动​从​音​节​生​成​行​时​间​戳
+				 */
+				hideLineTimingDesc: string
+				/**
+				 * 自​动​连​接​行​时​间
+				 */
+				autoConnectLineTimes: string
+				/**
+				 * 自​动​连​接​间​隔​较​近​的​相​邻​行​时​间​戳
+				 */
+				autoConnectLineTimesDesc: string
+				/**
+				 * 行​时​间​自​动​连​接​阈​值
+				 */
+				autoConnectThresholdMs: string
+				/**
+				 * 连​接​相​邻​行​时​允​许​的​最​大​间​隔​ ​(​毫​秒​)
+				 */
+				autoConnectThresholdMsDesc: string
+				/**
+				 * 随​播​放​自​动​滚​动
+				 */
+				scrollWithPlayback: string
+				/**
+				 * 时​轴​视​图​中​随​播​放​进​度​自​动​滚​动
+				 */
+				scrollWithPlaybackDesc: string
+				/**
+				 * 兼​容​性​报​告
+				 */
+				compatibilityReport: string
+				/**
+				 * 打​开​兼​容​性​报​告​窗​口
+				 */
+				compatibilityReportDesc: string
+				/**
+				 * 打​开
+				 */
+				compatibilityReportAction: string
+				/**
+				 * 启​动​时​报​告​兼​容​性​问​题
+				 */
+				notifyCompatIssuesOnStartup: string
+				/**
+				 * 在​启​动​时​若​发​现​问​题​，​显​示​兼​容​性​报​告​对​话​框
+				 */
+				notifyCompatIssuesOnStartupDesc: string
+				/**
+				 * 重​置​全​部​选​项
+				 */
+				resetAll: string
+				/**
+				 * 将​所​有​选​项​恢​复​为​默​认​值
+				 */
+				resetAllDesc: string
+				/**
+				 * 重​置
+				 */
+				resetAllAction: string
+				/**
+				 * 关​于​ ​{​0​}
+				 * @param {unknown} 0
+				 */
+				aboutApp: RequiredParams<'0'>
+				/**
+				 * 打​开​软​件​版​本​信​息​窗​口
+				 */
+				aboutAppDesc: string
+				/**
+				 * 关​于
+				 */
+				aboutAppAction: string
+				/**
+				 * G​i​t​H​u​b​ ​仓​库
+				 */
+				githubRepo: string
+				/**
+				 * 访​问​源​代​码​仓​库​页​面
+				 */
+				githubRepoDesc: string
+				/**
+				 * 前​往
+				 */
+				githubRepoAction: string
+				/**
+				 * 侧​边​栏​宽​度
+				 */
+				sidebarWidth: string
+				/**
+				 * 侧​边​栏​的​默​认​宽​度​ ​(​像​素​)
+				 */
+				sidebarWidthDesc: string
+			}
 		}
 	}
 	player: {
@@ -1524,7 +1969,7 @@ type RootTranslation = {
 	 * ╭​─​─​─​─​─​─​─​─​─​─​╮​ ​ ​ ​ ​ ​ ​ ​╶​╴​ ​ ​ ​ ​┌​─​╴​ ​ ​╶​─​┐​┌​─​┐​ ​ ​ ​ ​┌​─​┐​ ​ ​ ​ ​ ​ ​┌​─​─​─​─​─​┐​ ​ ​ ​ ​┌​─​┐​┌​─​┐​
 ​│​ ​━​━​━​━​━​━​ ​ ​ ​│​ ​ ​ ​ ​ ​ ​╱​ ​ ​╲​ ​ ​ ​│​ ​ ​╲​╱​ ​ ​│​│​ ​│​ ​ ​ ​ ​│​ ​│​ ​ ​ ​ ​ ​ ​│​ ​┌​─​─​─​┘​ ​ ​ ​ ​│​ ​│​└​─​┘​┌​─​┐​
 ​│​ ​ ​ ​━​━​━​━​━​ ​ ​│​ ​ ​ ​ ​ ​╱​ ​╱​╲​ ​╲​ ​ ​│​ ​╷​ ​ ​╷​ ​│​│​ ​│​ ​ ​ ​ ​│​ ​│​ ​ ​ ​ ​ ​ ​│​ ​└​─​─​┐​ ​╭​─​─​─​┘​ ​│​┌​─​┐​│​ ​└​┐​╭​─​─​─​─​─​╮​╭​─​─​─​┐​
-​│​ ​|​>​ ​━​━​━​ ​•​ ​│​ ​ ​ ​ ​╱​ ​╶​─​─​╴​ ​╲​ ​│​ ​│​╲​╱​│​ ​│​│​ ​│​ ​ ​ ​ ​│​ ​│​ ​ ​ ​ ​ ​ ​│​ ​┌​─​─​┘​ ​│​ ​╭​─​╮​ ​│​│​ ​│​│​ ​┌​┘​│​ ​╭​─​╮​ ​│​│​ ​┌​─​┘​
+​│​ ​:​"​"​,​>​ ​━​━​━​ ​•​ ​│​ ​ ​ ​ ​╱​ ​╶​─​─​╴​ ​╲​ ​│​ ​│​╲​╱​│​ ​│​│​ ​│​ ​ ​ ​ ​│​ ​│​ ​ ​ ​ ​ ​ ​│​ ​┌​─​─​┘​ ​│​ ​╭​─​╮​ ​│​│​ ​│​│​ ​┌​┘​│​ ​╭​─​╮​ ​│​│​ ​┌​─​┘​
 ​│​ ​ ​ ​━​━​━​━​━​ ​ ​│​ ​ ​ ​╱​ ​╱​ ​ ​ ​ ​╲​ ​╲​│​ ​│​ ​ ​│​ ​│​│​ ​└​─​─​─​┐​│​ ​└​─​─​─​┐​ ​ ​│​ ​└​─​─​─​┐​│​ ​╰​─​╯​ ​│​│​ ​│​│​ ​└​┐​│​ ​╰​─​╯​ ​│​│​ ​│​
 ​╰​─​─​─​─​─​─​─​─​─​─​╯​ ​ ​ ​─​╴​ ​ ​ ​ ​ ​ ​╶​─​└​─​┘​ ​ ​└​─​┘​└​─​─​─​─​─​┘​└​─​─​─​─​─​┘​ ​ ​└​─​─​─​─​─​┘​╰​─​─​─​─​─​┘​└​─​┘​╰​─​─​┘​╰​─​─​─​─​─​╯​└​─​┘​
 ​
@@ -1816,7 +2261,7 @@ export type TranslationFunctions = {
 			 */
 			permissionNotGranted: () => LocalizedString
 			/**
-			 * 已保存于 {0|time}
+			 * 已保存于 {0}
 			 */
 			savedAt: (arg0: Date) => LocalizedString
 		}
@@ -1999,6 +2444,450 @@ export type TranslationFunctions = {
 			 * 帧速率
 			 */
 			frameRate: () => LocalizedString
+		}
+	}
+	sidebar: {
+		syllabify: {
+			/**
+			 * 批量断字
+			 */
+			header: () => LocalizedString
+			/**
+			 * 选择断字引擎
+			 */
+			enginePlaceholder: () => LocalizedString
+			/**
+			 * 断字引擎
+			 */
+			engine: () => LocalizedString
+			/**
+			 * 推荐
+			 */
+			recommended: () => LocalizedString
+			/**
+			 * 不推荐
+			 */
+			notRecommended: () => LocalizedString
+			/**
+			 * 展开
+			 */
+			expandDesc: () => LocalizedString
+			/**
+			 * 收起
+			 */
+			collapseDesc: () => LocalizedString
+			/**
+			 * 自定义规则
+			 */
+			customRules: () => LocalizedString
+			/**
+			 * 区分大小写
+			 */
+			caseSensitive: () => LocalizedString
+			/**
+			 * 原始文本
+			 */
+			originalTextPlaceholder: () => LocalizedString
+			/**
+			 * 添加规则
+			 */
+			addRule: () => LocalizedString
+			/**
+			 * 现有音节属性将丢失，时长按实义字符线性插值
+			 */
+			sylDataLossWarn: () => LocalizedString
+			/**
+			 * 应用到选定行
+			 */
+			applyToSelectedLines: () => LocalizedString
+			/**
+			 * 应用到选定行及之后
+			 */
+			applyToLinesAndAfter: () => LocalizedString
+			/**
+			 * 应用到所有行
+			 */
+			applyToAll: () => LocalizedString
+		}
+		metadata: {
+			/**
+			 * 元数据
+			 */
+			header: () => LocalizedString
+			/**
+			 * 不使用模板
+			 */
+			templatePlaceholder: () => LocalizedString
+			/**
+			 * 元数据字段模板
+			 */
+			templateLabel: () => LocalizedString
+			templates: {
+				lrc: {
+					/**
+					 * LRC 元数据模板
+					 */
+					label: () => LocalizedString
+					/**
+					 * 标题
+					 */
+					ti: () => LocalizedString
+					/**
+					 * 艺术家
+					 */
+					ar: () => LocalizedString
+					/**
+					 * 专辑
+					 */
+					al: () => LocalizedString
+					/**
+					 * 作者
+					 */
+					au: () => LocalizedString
+					/**
+					 * 作词
+					 */
+					lr: () => LocalizedString
+					/**
+					 * 歌词创建者
+					 */
+					by: () => LocalizedString
+					/**
+					 * 歌词创建工具
+					 */
+					re: () => LocalizedString
+					/**
+					 * 音频长度
+					 */
+					len: () => LocalizedString
+					/**
+					 * 长度格式应为 mm:ss 或 mm:ss.sss
+					 */
+					lenValidationMsg: () => LocalizedString
+				}
+				amll: {
+					/**
+					 * AMLL TTML 元数据模板
+					 */
+					label: () => LocalizedString
+					/**
+					 * 歌曲名称
+					 */
+					musicName: () => LocalizedString
+					/**
+					 * 艺术家
+					 */
+					artists: () => LocalizedString
+					/**
+					 * 专辑名
+					 */
+					album: () => LocalizedString
+					/**
+					 * 网易云音乐 ID
+					 */
+					ncmMusicId: () => LocalizedString
+					/**
+					 * QQ 音乐 ID
+					 */
+					qqMusicId: () => LocalizedString
+					/**
+					 * Spotify 音乐 ID
+					 */
+					spotifyId: () => LocalizedString
+					/**
+					 * Apple Music 音乐 ID
+					 */
+					appleMusicId: () => LocalizedString
+					/**
+					 * ISRC 号
+					 */
+					isrc: () => LocalizedString
+					/**
+					 * TTML 作者 GitHub UID
+					 */
+					ttmlAuthorGithub: () => LocalizedString
+					/**
+					 * TTML 作者 GitHub 用户名
+					 */
+					ttmlAuthorGithubLogin: () => LocalizedString
+				}
+			}
+			/**
+			 * 文档
+			 */
+			documentBtn: () => LocalizedString
+			/**
+			 * 添加全部预设
+			 */
+			addAllPresets: () => LocalizedString
+			/**
+			 * 键名
+			 */
+			keyPlaceholder: () => LocalizedString
+			/**
+			 * 清除
+			 */
+			clear: () => LocalizedString
+			/**
+			 * 添加字段
+			 */
+			addField: () => LocalizedString
+		}
+		preference: {
+			/**
+			 * 偏好设置
+			 */
+			header: () => LocalizedString
+			resetConfirm: {
+				/**
+				 * 重置全部选项
+				 */
+				header: () => LocalizedString
+				/**
+				 * 确定要将所有选项恢复为默认值吗？此操作不可撤销。
+				 */
+				message: () => LocalizedString
+				/**
+				 * 重置
+				 */
+				action: () => LocalizedString
+			}
+			groups: {
+				/**
+				 * 数据
+				 */
+				data: () => LocalizedString
+				/**
+				 * 按键
+				 */
+				key: () => LocalizedString
+				/**
+				 * 内容
+				 */
+				content: () => LocalizedString
+				/**
+				 * 时轴
+				 */
+				timing: () => LocalizedString
+				/**
+				 * 频谱图
+				 */
+				spectrogram: () => LocalizedString
+				/**
+				 * 兼容性
+				 */
+				compatibility: () => LocalizedString
+				/**
+				 * 重置
+				 */
+				reset: () => LocalizedString
+				/**
+				 * 关于
+				 */
+				about: () => LocalizedString
+			}
+			/**
+			 * 实验性选项，可能不稳定
+			 */
+			experimentalWarning: () => LocalizedString
+			items: {
+				/**
+				 * 自动保存
+				 */
+				autoSaveEnabled: () => LocalizedString
+				/**
+				 * 授予写入权限后，定时保存至文件系统
+				 */
+				autoSaveEnabledDesc: () => LocalizedString
+				/**
+				 * 自动保存间隔
+				 */
+				autoSaveIntervalMinutes: () => LocalizedString
+				/**
+				 * 自动保存触发的时间间隔 (分钟)
+				 */
+				autoSaveIntervalMinutesDesc: () => LocalizedString
+				/**
+				 * 历史记录快照数
+				 */
+				maxUndoSteps: () => LocalizedString
+				/**
+				 * 允许撤销的最大操作步数
+				 */
+				maxUndoStepsDesc: () => LocalizedString
+				/**
+				 * 将音频嵌入项目文件
+				 */
+				packAudioToProject: () => LocalizedString
+				/**
+				 * 将音频文件打包在项目文件中，以便归档或分享
+				 */
+				packAudioToProjectDesc: () => LocalizedString
+				/**
+				 * 以 TTML 为默认格式
+				 */
+				ttmlAsDefault: () => LocalizedString
+				/**
+				 * 新建和保存文档时默认使用 TTML 而非 ALP 格式
+				 */
+				ttmlAsDefaultDesc: () => LocalizedString
+				/**
+				 * 按键绑定
+				 */
+				keyBinding: () => LocalizedString
+				/**
+				 * 打开快捷键设置窗口
+				 */
+				keyBindingDesc: () => LocalizedString
+				/**
+				 * 设置
+				 */
+				keyBindingAction: () => LocalizedString
+				/**
+				 * macOS 风格组合键
+				 */
+				macStyleShortcuts: () => LocalizedString
+				/**
+				 * 使用 ⌘、⌥ 等符号展示组合键
+				 */
+				macStyleShortcutsDesc: () => LocalizedString
+				/**
+				 * 音频按键跳转步长
+				 */
+				audioSeekingStepMs: () => LocalizedString
+				/**
+				 * 按键快进或快退时跳转的时长 (毫秒)
+				 */
+				audioSeekingStepMsDesc: () => LocalizedString
+				/**
+				 * 交换翻译与音译框位置
+				 */
+				swapTranslateRoman: () => LocalizedString
+				/**
+				 * 在内容视图将音译框置于左侧，并影响查找顺序
+				 */
+				swapTranslateRomanDesc: () => LocalizedString
+				/**
+				 * 启用逐字音译
+				 */
+				sylRomanEnabled: () => LocalizedString
+				/**
+				 * 在音节框下方显示逐字音译，并支持查找替换
+				 */
+				sylRomanEnabledDesc: () => LocalizedString
+				/**
+				 * 全局延时补偿
+				 */
+				globalLatencyMs: () => LocalizedString
+				/**
+				 * 正值表示实际音频落后 (毫秒)
+				 */
+				globalLatencyMsDesc: () => LocalizedString
+				/**
+				 * 始终忽略背景行
+				 */
+				alwaysIgnoreBackground: () => LocalizedString
+				/**
+				 * 在时轴页上始终跳过背景行
+				 */
+				alwaysIgnoreBackgroundDesc: () => LocalizedString
+				/**
+				 * 隐藏行时间戳
+				 */
+				hideLineTiming: () => LocalizedString
+				/**
+				 * 自动从音节生成行时间戳
+				 */
+				hideLineTimingDesc: () => LocalizedString
+				/**
+				 * 自动连接行时间
+				 */
+				autoConnectLineTimes: () => LocalizedString
+				/**
+				 * 自动连接间隔较近的相邻行时间戳
+				 */
+				autoConnectLineTimesDesc: () => LocalizedString
+				/**
+				 * 行时间自动连接阈值
+				 */
+				autoConnectThresholdMs: () => LocalizedString
+				/**
+				 * 连接相邻行时允许的最大间隔 (毫秒)
+				 */
+				autoConnectThresholdMsDesc: () => LocalizedString
+				/**
+				 * 随播放自动滚动
+				 */
+				scrollWithPlayback: () => LocalizedString
+				/**
+				 * 时轴视图中随播放进度自动滚动
+				 */
+				scrollWithPlaybackDesc: () => LocalizedString
+				/**
+				 * 兼容性报告
+				 */
+				compatibilityReport: () => LocalizedString
+				/**
+				 * 打开兼容性报告窗口
+				 */
+				compatibilityReportDesc: () => LocalizedString
+				/**
+				 * 打开
+				 */
+				compatibilityReportAction: () => LocalizedString
+				/**
+				 * 启动时报告兼容性问题
+				 */
+				notifyCompatIssuesOnStartup: () => LocalizedString
+				/**
+				 * 在启动时若发现问题，显示兼容性报告对话框
+				 */
+				notifyCompatIssuesOnStartupDesc: () => LocalizedString
+				/**
+				 * 重置全部选项
+				 */
+				resetAll: () => LocalizedString
+				/**
+				 * 将所有选项恢复为默认值
+				 */
+				resetAllDesc: () => LocalizedString
+				/**
+				 * 重置
+				 */
+				resetAllAction: () => LocalizedString
+				/**
+				 * 关于 {0}
+				 */
+				aboutApp: (arg0: unknown) => LocalizedString
+				/**
+				 * 打开软件版本信息窗口
+				 */
+				aboutAppDesc: () => LocalizedString
+				/**
+				 * 关于
+				 */
+				aboutAppAction: () => LocalizedString
+				/**
+				 * GitHub 仓库
+				 */
+				githubRepo: () => LocalizedString
+				/**
+				 * 访问源代码仓库页面
+				 */
+				githubRepoDesc: () => LocalizedString
+				/**
+				 * 前往
+				 */
+				githubRepoAction: () => LocalizedString
+				/**
+				 * 侧边栏宽度
+				 */
+				sidebarWidth: () => LocalizedString
+				/**
+				 * 侧边栏的默认宽度 (像素)
+				 */
+				sidebarWidthDesc: () => LocalizedString
+			}
 		}
 	}
 	player: {
@@ -3049,7 +3938,7 @@ export type TranslationFunctions = {
 	 * ╭──────────╮       ╶╴    ┌─╴  ╶─┐┌─┐    ┌─┐      ┌─────┐    ┌─┐┌─┐
 │ ━━━━━━   │      ╱  ╲   │  ╲╱  ││ │    │ │      │ ┌───┘    │ │└─┘┌─┐
 │   ━━━━━  │     ╱ ╱╲ ╲  │ ╷  ╷ ││ │    │ │      │ └──┐ ╭───┘ │┌─┐│ └┐╭─────╮╭───┐
-│ |> ━━━ • │    ╱ ╶──╴ ╲ │ │╲╱│ ││ │    │ │      │ ┌──┘ │ ╭─╮ ││ ││ ┌┘│ ╭─╮ ││ ┌─┘
+│ :"",> ━━━ • │    ╱ ╶──╴ ╲ │ │╲╱│ ││ │    │ │      │ ┌──┘ │ ╭─╮ ││ ││ ┌┘│ ╭─╮ ││ ┌─┘
 │   ━━━━━  │   ╱ ╱    ╲ ╲│ │  │ ││ └───┐│ └───┐  │ └───┐│ ╰─╯ ││ ││ └┐│ ╰─╯ ││ │
 ╰──────────╯   ─╴      ╶─└─┘  └─┘└─────┘└─────┘  └─────┘╰─────┘└─┘╰──┘╰─────╯└─┘
 
@@ -3067,6 +3956,4 @@ export type TranslationFunctions = {
 	consoleArt: () => LocalizedString
 }
 
-export type Formatters = {
-	time: (value: Date) => unknown
-}
+export type Formatters = {}

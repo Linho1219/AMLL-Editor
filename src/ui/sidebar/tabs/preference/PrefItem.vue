@@ -6,7 +6,7 @@
         }}<i
           v-if="props.experimental"
           class="pi pi-filter exp-icon"
-          v-tooltip="'实验性选项，可能不稳定'"
+          v-tooltip="tt.experimentalWarning()"
         ></i>
       </div>
       <div v-if="props.desc" class="description">{{ props.desc }}</div>
@@ -18,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
+
 const props = defineProps<{
   label: string
   desc?: string
@@ -25,6 +27,8 @@ const props = defineProps<{
   experimental?: boolean
   for?: string
 }>()
+
+const tt = t.sidebar.preference
 </script>
 
 <style lang="scss">

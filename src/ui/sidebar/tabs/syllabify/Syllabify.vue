@@ -9,7 +9,7 @@
           optionGroupLabel="label"
           optionGroupChildren="items"
           optionLabel="name"
-          placeholder="选择断字引擎"
+          :placeholder="tt.enginePlaceholder()"
           scrollHeight="20rem"
           checkmark
           fluid
@@ -23,7 +23,7 @@
             </div>
           </template>
         </Select>
-        <label for="splitEngine">断字引擎</label>
+        <label for="splitEngine">{{ tt.engine() }}</label>
       </IftaLabel>
       <div
         class="description"
@@ -32,16 +32,16 @@
       >
         <span class="description-text">{{ selectedEngine.description }}</span>
         <span class="description-button" @click="descriptionCollapsed = !descriptionCollapsed">
-          {{ descriptionCollapsed ? '展开' : '收起' }}
+          {{ descriptionCollapsed ? tt.expandDesc() : tt.collapseDesc() }}
         </span>
       </div>
     </div>
     <div class="group" style="height: 0; flex: 1">
       <div class="subtitle">
-        <div class="subtitle-text">自定义规则</div>
+        <div class="subtitle-text">{{ tt.customRules() }}</div>
         <div class="kvgrid" style="width: fit-content">
           <Checkbox v-model="caseSensitive" binary input-id="caseSensitive" size="small" />
-          <label for="caseSensitive">区分大小写</label>
+          <label for="caseSensitive">{{ tt.caseSensitive() }}</label>
         </div>
       </div>
       <div
@@ -53,7 +53,12 @@
       >
         <div class="rewrite-field-inner">
           <div v-for="(item, index) in customRewrites" class="rewrite-item">
-            <InputText placeholder="原始文本" type="text" v-model.lazy.trim="item.target" fluid />
+            <InputText
+              :placeholder="tt.originalTextPlaceholder()"
+              type="text"
+              v-model.lazy.trim="item.target"
+              fluid
+            />
             <i class="pi pi-arrow-right"></i>
             <SplitTextRewriteEditor :original="item.target" v-model="item.indices" />
             <Button
@@ -65,7 +70,7 @@
             />
           </div>
           <Button
-            label="添加规则"
+            :label="tt.addRule()"
             icon="pi pi-plus"
             @click="customRewrites.push({ target: '', indices: [] })"
             variant="text"
@@ -76,9 +81,9 @@
       </div>
     </div>
     <div class="action">
-      <div class="warn">现有音节属性将丢失，时长按实义字符线性插值</div>
+      <div class="warn">{{ tt.sylDataLossWarn() }}</div>
       <Button
-        label="应用到选定行"
+        :label="tt.applyToSelectedLines()"
         icon="pi pi-angle-right"
         fluid
         severity="secondary"
@@ -87,7 +92,7 @@
         @click="applyToSelectedLines"
       />
       <Button
-        label="应用到选定行及之后"
+        :label="tt.applyToLinesAndAfter()"
         icon="pi pi-angle-double-right"
         fluid
         severity="secondary"
@@ -96,7 +101,7 @@
         @click="applyToSelectedLinesAndAfter"
       />
       <Button
-        label="应用到所有行"
+        :label="tt.applyToAll()"
         icon="pi pi-angle-double-right"
         fluid
         severity="secondary"
@@ -109,6 +114,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { reactive, ref } from 'vue'
 
 import engines, { type Syllabify as SL } from '@core/syllabify'
@@ -120,14 +126,16 @@ import SplitTextRewriteEditor from './SyllabifyRewriteEditor.vue'
 import InputText from '@ui/components/InputText.vue'
 import { Button, Checkbox, IftaLabel, Select } from 'primevue'
 
+const tt = t.sidebar.syllabify
+
 const displayEngines: { label: string; hideLabel?: boolean; items: SL.Engine[] }[] = [
   {
-    label: '推荐',
+    label: tt.recommended(),
     hideLabel: true,
     items: engines.filter((e) => !e.notRecommend),
   },
   {
-    label: '不推荐',
+    label: tt.notRecommended(),
     items: engines.filter((e) => e.notRecommend),
   },
 ]

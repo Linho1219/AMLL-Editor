@@ -4,19 +4,19 @@
       <Select
         v-model="currentTemplate"
         :options="metadataTemplates"
-        placeholder="不使用模板"
+        :placeholder="tt.templatePlaceholder()"
         optionLabel="name"
         fluid
         checkmark
         showClear
         id="metadataTemplate"
       />
-      <label for="metadataTemplate">元数据字段模板</label>
+      <label for="metadataTemplate">{{ tt.templateLabel() }}</label>
     </IftaLabel>
     <div class="top-buttons" v-if="currentTemplate">
       <Button
         v-if="currentTemplate.docUrl"
-        label="文档"
+        :label="tt.documentBtn()"
         icon="pi pi-external-link"
         fluid
         severity="secondary"
@@ -24,7 +24,7 @@
         style="flex: 1"
       />
       <Button
-        label="添加全部预设"
+        :label="tt.addAllPresets()"
         icon="pi pi-plus"
         fluid
         severity="secondary"
@@ -40,7 +40,7 @@
           <AutoComplete
             v-if="currentTemplate"
             class="meta-key-autocomplete"
-            placeholder="键名"
+            :placeholder="tt.keyPlaceholder()"
             v-model="field.key"
             :suggestions="currentSuggestions"
             fluid
@@ -61,7 +61,7 @@
           <InputText
             v-else
             class="meta-key-autocomplete"
-            placeholder="键名"
+            :placeholder="tt.keyPlaceholder()"
             v-model="field.key"
             fluid
             :invalid="isKeyInvalid(field.key)"
@@ -87,7 +87,7 @@
     </div>
     <div class="add-field">
       <Button
-        label="清除"
+        :label="tt.clear()"
         icon="pi pi-ban"
         fluid
         severity="secondary"
@@ -97,7 +97,7 @@
       />
       <Button
         class="add-field-btn"
-        label="添加字段"
+        :label="tt.addField()"
         icon="pi pi-plus"
         severity="secondary"
         fluid
@@ -109,6 +109,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import stableStringify from 'json-stable-stringify'
 import { computed, onMounted, ref, shallowRef, useTemplateRef, watch } from 'vue'
 
@@ -118,6 +119,8 @@ import MultiInputText from '@ui/components/MultiInputText.vue'
 import { AutoComplete, Button, Divider, IftaLabel, InputText, Select } from 'primevue'
 
 import { type MetadataTemplate, amllMetaTemplate, lrcMetaTemplate } from './templates'
+
+const tt = t.sidebar.metadata
 
 const metadataTemplates: Readonly<MetadataTemplate>[] = [amllMetaTemplate, lrcMetaTemplate]
 const currentTemplate = shallowRef<Readonly<MetadataTemplate> | undefined>(metadataTemplates[0])

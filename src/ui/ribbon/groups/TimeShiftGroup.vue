@@ -15,7 +15,7 @@
         fluid
         size="small"
         placeholder="0"
-        v-model="prefStore.globalLatency"
+        v-model="prefStore.globalLatencyMs"
         :use-grouping="false"
         :max="5000"
         :min="-5000"

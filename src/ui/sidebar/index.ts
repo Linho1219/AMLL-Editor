@@ -1,3 +1,4 @@
+import { t } from '@i18n'
 import type { Component } from 'vue'
 
 import type { ValueOf } from '@utils/types'
@@ -5,6 +6,8 @@ import type { ValueOf } from '@utils/types'
 import MetadataTab from './tabs/metadata/MetadataTab.vue'
 import PreferenceTab from './tabs/preference/PreferenceTab.vue'
 import SplitTextTab from './tabs/syllabify/Syllabify.vue'
+
+const tt = t.sidebar
 
 export const SidebarKey = {
   SplitText: 'SplitText',
@@ -22,17 +25,17 @@ interface SidebarTab {
 export const sidebarRegs = {
   [SidebarKey.SplitText]: {
     key: SidebarKey.SplitText,
-    title: '批量断字',
+    title: tt.syllabify.header(),
     component: SplitTextTab,
   },
   [SidebarKey.Metadata]: {
     key: SidebarKey.Metadata,
-    title: '元数据',
+    title: tt.metadata.header(),
     component: MetadataTab,
   },
   [SidebarKey.Preference]: {
     key: SidebarKey.Preference,
-    title: '偏好设置',
+    title: tt.preference.header(),
     component: PreferenceTab,
   },
 } as const satisfies Record<SidebarKey, SidebarTab>

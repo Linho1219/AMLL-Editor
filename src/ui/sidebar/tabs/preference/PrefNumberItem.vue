@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { t } from '@i18n'
 import { clamp } from 'lodash-es'
 import { computed } from 'vue'
 
@@ -11,14 +12,14 @@ import type { Maybe } from '@utils/types'
 import PrefItem from './PrefItem.vue'
 import { InputNumber } from 'primevue'
 
+const tt = t.sidebar.preference.items
+
 type NumberKeys = {
   [K in keyof PreferenceSchema]: PreferenceSchema[K] extends number ? K : never
 }[keyof PreferenceSchema]
 
 const props = defineProps<{
   prefKey: NumberKeys
-  label: string
-  desc?: string
   min?: number
   max?: number
   disabled?: boolean
@@ -36,6 +37,9 @@ const model = computed({
     else prefStore[props.prefKey] = clamp(value, props.min ?? -Infinity, props.max ?? Infinity)
   },
 })
+
+const label = tt[props.prefKey]()
+const desc = tt[`${props.prefKey}Desc`]()
 </script>
 
 <template>
