@@ -158,7 +158,7 @@ function parseMetadata(ttmlDoc: XMLDocument): MetadataMap {
 }
 
 function findMainAgentId(ttmlDoc: XMLDocument): string {
-  for (const agent of Array.from(ttmlDoc.querySelectorAll('ttm\\:agent'))) {
+  for (const agent of ttmlDoc.querySelectorAll('ttm\\:agent')) {
     if (agent.getAttribute('type') !== 'person') continue
     const id = agent.getAttribute('xml:id')
     if (id) return id
