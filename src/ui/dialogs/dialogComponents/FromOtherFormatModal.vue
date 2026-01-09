@@ -2,7 +2,7 @@
   <Dialog
     v-model:visible="visible"
     modal
-    header="从其他歌词格式导入"
+    :header="tt.header()"
     class="from-other-fmt-modal"
     maximizable
   >
@@ -20,11 +20,13 @@
     </Listbox>
     <div class="format-details">
       <template v-if="selectedFormat">
-        <div class="description">{{ selectedFormat.description || '未提供说明' }}</div>
+        <div class="description">
+          {{ selectedFormat.description || tt.noDescriptionProvided() }}
+        </div>
         <div class="references" v-if="selectedFormat.reference || selectedFormat.example">
           <Button
             v-if="selectedFormat.example"
-            label="显示示例"
+            :label="tt.showExamples()"
             size="small"
             icon="pi pi-align-left"
             :severity="showExample ? undefined : 'secondary'"
@@ -40,34 +42,46 @@
             @click="openUrl(item.url)"
           />
         </div>
-        <div class="example monospace" v-if="selectedFormat.example && showExample">
-          {{ selectedFormat.example }}
+        <div class="example" v-if="selectedFormat.example && showExample">
+          <div class="example-label">{{ tt.exampleLabel() }}</div>
+          <pre class="example-pre monospace">{{ selectedFormat.example }}</pre>
         </div>
         <hr />
         <CodeMirror class="input-cm" showLineNumbers v-model:content="inputText" />
         <div class="action-buttons">
           <Button
-            label="从文件打开"
+            :label="tt.fromFile()"
             icon="pi pi-paperclip"
             severity="secondary"
             @click="handleOpenFromFile"
           />
           <div style="flex: 1"></div>
-          <Button label="取消" icon="pi pi-times" severity="secondary" @click="visible = false" />
           <Button
-            label="导入"
+            :label="tt.cancel()"
+            icon="pi pi-times"
+            severity="secondary"
+            @click="visible = false"
+          />
+          <Button
+            :label="tt.import()"
             icon="pi pi-arrow-right"
             :disabled="!inputText"
             @click="handleImport"
           />
         </div>
       </template>
-      <EmptyTip v-else class="require-select-tip" title="请在左侧选择格式" icon="pi-file" />
+      <EmptyTip
+        v-else
+        class="require-select-tip"
+        :title="tt.requireSelectFormat()"
+        icon="pi-file"
+      />
     </div>
   </Dialog>
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { ref } from 'vue'
 
 import { type Convert as CV, portFormatRegister } from '@core/convert'
@@ -76,6 +90,8 @@ import { fileState as FS, simpleChooseTextFile } from '@core/file'
 import CodeMirror from '@ui/components/CodeMirror.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
 import { Button, Dialog, Listbox } from 'primevue'
+
+const tt = t.importFromOtherFormats
 
 const [visible] = defineModel<boolean>({ required: true })
 
@@ -157,12 +173,14 @@ function openUrl(url: string) {
       background-color: var(--p-listbox-background);
       border: 1px solid var(--p-listbox-border-color);
       border-radius: var(--p-listbox-border-radius);
-      &::before {
+      .example-label {
         font-family: var(--font-main);
-        content: '示例格式';
         display: block;
         opacity: 0.7;
         margin-bottom: 0.2rem;
+      }
+      .example-pre {
+        margin: 0;
       }
     }
   }

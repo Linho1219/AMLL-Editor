@@ -290,6 +290,16 @@ const zhHans = {
     cancel: '取消',
     action: '导入',
   },
+  importFromOtherFormats: {
+    header: '从其他歌词格式导入',
+    noDescriptionProvided: '未提供说明',
+    showExamples: '显示示例',
+    fromFile: '从文件打开',
+    exampleLabel: '示例格式',
+    cancel: '取消',
+    import: '导入',
+    requireSelectFormat: '请在左侧选择格式',
+  },
   about: {
     header: '关于',
     version: '版本',

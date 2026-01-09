@@ -803,6 +803,40 @@ type RootTranslation = {
 		 */
 		action: string
 	}
+	importFromOtherFormats: {
+		/**
+		 * 从​其​他​歌​词​格​式​导​入
+		 */
+		header: string
+		/**
+		 * 未​提​供​说​明
+		 */
+		noDescriptionProvided: string
+		/**
+		 * 显​示​示​例
+		 */
+		showExamples: string
+		/**
+		 * 从​文​件​打​开
+		 */
+		fromFile: string
+		/**
+		 * 示​例​格​式
+		 */
+		exampleLabel: string
+		/**
+		 * 取​消
+		 */
+		cancel: string
+		/**
+		 * 导​入
+		 */
+		'import': string
+		/**
+		 * 请​在​左​侧​选​择​格​式
+		 */
+		requireSelectFormat: string
+	}
 	about: {
 		/**
 		 * 关​于
@@ -1667,6 +1701,40 @@ export type TranslationFunctions = {
 		 * 导入
 		 */
 		action: () => LocalizedString
+	}
+	importFromOtherFormats: {
+		/**
+		 * 从其他歌词格式导入
+		 */
+		header: () => LocalizedString
+		/**
+		 * 未提供说明
+		 */
+		noDescriptionProvided: () => LocalizedString
+		/**
+		 * 显示示例
+		 */
+		showExamples: () => LocalizedString
+		/**
+		 * 从文件打开
+		 */
+		fromFile: () => LocalizedString
+		/**
+		 * 示例格式
+		 */
+		exampleLabel: () => LocalizedString
+		/**
+		 * 取消
+		 */
+		cancel: () => LocalizedString
+		/**
+		 * 导入
+		 */
+		'import': () => LocalizedString
+		/**
+		 * 请在左侧选择格式
+		 */
+		requireSelectFormat: () => LocalizedString
 	}
 	about: {
 		/**
