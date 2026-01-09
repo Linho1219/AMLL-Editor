@@ -37,7 +37,7 @@
             icon="pi pi-plus"
             severity="secondary"
             @click="appendWord(line)"
-            v-tooltip="'插入音节'"
+            v-tooltip="tt.line.addSyllable()"
           />
         </Line>
         <LineInsertIndicator :index="lineIndex + 1" @contextmenu="handleLineInsertContext" />

@@ -211,12 +211,12 @@ function handleContext(e: MouseEvent) {
 const secondaryFields = [
   {
     key: 'translation',
-    label: '行翻译',
+    label: tt.fields.trans(),
     model: 'translation',
   },
   {
     key: 'roman',
-    label: '行音译',
+    label: tt.fields.roman(),
     model: 'romanization',
   },
 ] as const

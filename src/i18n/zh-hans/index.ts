@@ -68,6 +68,11 @@ const zhHans = {
       startTime: '行起始时间',
       endTime: '行结束时间',
       continueToNextLine: '连缀结束时间至下一行',
+      addSyllable: '添加音节',
+      fields: {
+        trans: '行翻译',
+        roman: '行音译',
+      },
     },
     syllable: {
       startTime: '音节起始时间',

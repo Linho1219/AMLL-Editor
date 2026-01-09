@@ -153,6 +153,20 @@ type RootTranslation = {
 			 * 连​缀​结​束​时​间​至​下​一​行
 			 */
 			continueToNextLine: string
+			/**
+			 * 添​加​音​节
+			 */
+			addSyllable: string
+			fields: {
+				/**
+				 * 行​翻​译
+				 */
+				trans: string
+				/**
+				 * 行​音​译
+				 */
+				roman: string
+			}
 		}
 		syllable: {
 			/**
@@ -1233,6 +1247,20 @@ export type TranslationFunctions = {
 			 * 连缀结束时间至下一行
 			 */
 			continueToNextLine: () => LocalizedString
+			/**
+			 * 添加音节
+			 */
+			addSyllable: () => LocalizedString
+			fields: {
+				/**
+				 * 行翻译
+				 */
+				trans: () => LocalizedString
+				/**
+				 * 行音译
+				 */
+				roman: () => LocalizedString
+			}
 		}
 		syllable: {
 			/**
