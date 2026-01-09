@@ -1,5 +1,25 @@
 import type { BaseTranslation } from '../i18n-types'
 
+const consoleArt = `
+╭──────────╮       ╶╴    ┌─╴  ╶─┐┌─┐    ┌─┐      ┌─────┐    ┌─┐┌─┐
+│ ━━━━━━   │      ╱  ╲   │  ╲╱  ││ │    │ │      │ ┌───┘    │ │└─┘┌─┐
+│   ━━━━━  │     ╱ ╱╲ ╲  │ ╷  ╷ ││ │    │ │      │ └──┐ ╭───┘ │┌─┐│ └┐╭─────╮╭───┐
+│ |> ━━━ • │    ╱ ╶──╴ ╲ │ │╲╱│ ││ │    │ │      │ ┌──┘ │ ╭─╮ ││ ││ ┌┘│ ╭─╮ ││ ┌─┘
+│   ━━━━━  │   ╱ ╱    ╲ ╲│ │  │ ││ └───┐│ └───┐  │ └───┐│ ╰─╯ ││ ││ └┐│ ╰─╯ ││ │
+╰──────────╯   ─╴      ╶─└─┘  └─┘└─────┘└─────┘  └─────┘╰─────┘└─┘╰──┘╰─────╯└─┘
+
+喜欢您来！
+
+项目地址: https://github.com/Linho1219/AMLL-Editor
+　　　　  以 AGPLv3 only 许可证开源
+
+友情链接: AMLL Homepage  https://amll.dev/
+　　　　  AMLL TTML DB   https://db.amll.dev/
+　　　　  AMLL TTML Tool https://tool.amll.dev/
+
+另请注意: DevTools、插件、用户脚本均可能对性能有显著负面影响。
+`.trim()
+
 const zhHans = {
   editor: {
     context: {
@@ -380,6 +400,7 @@ const zhHans = {
     applyToLine: '应用到选定行',
     applyToAll: '应用到全文',
   },
+  consoleArt,
 } satisfies BaseTranslation
 
 export default zhHans

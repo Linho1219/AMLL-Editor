@@ -1,3 +1,4 @@
+import { t } from '@i18n'
 import FloatingVue from 'floating-vue'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
@@ -13,14 +14,13 @@ import FocusTrap from 'primevue/focustrap'
 import KeyFilter from 'primevue/keyfilter'
 import ToastService from 'primevue/toastservice'
 
-import consoleArt from '@assets/consoleArt.txt?raw'
 import '@assets/fonts/index.scss'
 import '@ui/styles/common.scss'
 import '@ui/styles/rewrites.scss'
 import 'floating-vue/dist/style.css'
 import 'primeicons/primeicons.css'
 
-console.log(consoleArt)
+console.log(t.consoleArt())
 
 const app = createApp(App)
 
