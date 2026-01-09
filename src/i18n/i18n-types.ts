@@ -3,10 +3,10 @@
 import type { BaseTranslation as BaseTranslationType, LocalizedString, RequiredParams } from 'typesafe-i18n'
 
 export type BaseTranslation = BaseTranslationType
-export type BaseLocale = 'zhHans'
+export type BaseLocale = 'zh-hans'
 
 export type Locales =
-	| 'zhHans'
+	| 'zh-hans'
 
 export type Translation = RootTranslation
 

@@ -5,10 +5,10 @@ import { initFormatters } from './formatters.js'
 import type { Locales, Translations } from './i18n-types.js'
 import { loadedFormatters, loadedLocales, locales } from './i18n-util.js'
 
-import zhHans from './zhHans/index.js'
+import zh_hans from './zh-hans/index.js'
 
 const localeTranslations = {
-	zhHans,
+	'zh-hans': zh_hans,
 }
 
 export const loadLocale = (locale: Locales): void => {

@@ -10,7 +10,7 @@ const STORE_KEY = 'amll_editor:locale'
 
 function detectEnvLocale(): Locales {
   // pending implementation
-  return 'zhHans'
+  return 'zh-hans'
 }
 const envLocale = detectEnvLocale()
 
