@@ -856,6 +856,28 @@ type RootTranslation = {
 			notSpecified: string
 		}
 	}
+	batchTimeShift: {
+		/**
+		 * 批​量​时​移
+		 */
+		header: string
+		/**
+		 * 推​迟​为​正​，​提​前​为​负
+		 */
+		signHint: string
+		/**
+		 * 应​用​到​选​定​音​节
+		 */
+		applyToSyl: string
+		/**
+		 * 应​用​到​选​定​行
+		 */
+		applyToLine: string
+		/**
+		 * 应​用​到​全​文
+		 */
+		applyToAll: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -1698,6 +1720,28 @@ export type TranslationFunctions = {
 			 */
 			notSpecified: () => LocalizedString
 		}
+	}
+	batchTimeShift: {
+		/**
+		 * 批量时移
+		 */
+		header: () => LocalizedString
+		/**
+		 * 推迟为正，提前为负
+		 */
+		signHint: () => LocalizedString
+		/**
+		 * 应用到选定音节
+		 */
+		applyToSyl: () => LocalizedString
+		/**
+		 * 应用到选定行
+		 */
+		applyToLine: () => LocalizedString
+		/**
+		 * 应用到全文
+		 */
+		applyToAll: () => LocalizedString
 	}
 }
 

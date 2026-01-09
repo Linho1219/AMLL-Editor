@@ -1,7 +1,7 @@
 <template>
-  <Dialog class="thin-padding" v-model:visible="visible" header="批量时移">
+  <Dialog class="thin-padding" v-model:visible="visible" :header="tt.header()">
     <div class="timeshift-content" v-focustrap>
-      <div class="timeshift-description">推迟为正，提前为负</div>
+      <div class="timeshift-description">{{ tt.signHint() }}</div>
       <InputNumber
         v-model="shiftMs"
         class="timeshift-ms-input"
@@ -20,7 +20,7 @@
         </template>
       </InputNumber>
       <Button
-        label="应用到选定音节"
+        :label="tt.applyToSyl()"
         icon="pi pi-ellipsis-h"
         fluid
         severity="secondary"
@@ -28,7 +28,7 @@
         @click="handleApplyToSelectedWords"
       />
       <Button
-        label="应用到选定行"
+        :label="tt.applyToLine()"
         icon="pi pi-bars"
         fluid
         severity="secondary"
@@ -36,7 +36,7 @@
         @click="handleApplyToSelectedLines"
       />
       <Button
-        label="应用到全文"
+        :label="tt.applyToAll()"
         icon="pi pi-file"
         fluid
         severity="secondary"
@@ -48,6 +48,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { ref } from 'vue'
 
 import type { LyricLine, LyricSyllable } from '@core/types'
@@ -55,6 +56,8 @@ import type { LyricLine, LyricSyllable } from '@core/types'
 import { useCoreStore, useRuntimeStore } from '@states/stores'
 
 import { Button, Dialog, InputNumber } from 'primevue'
+
+const tt = t.batchTimeShift
 
 const [visible] = defineModel<boolean>({ required: true })
 

@@ -307,6 +307,13 @@ const zhHans = {
       notSpecified: '未指定',
     },
   },
+  batchTimeShift: {
+    header: '批量时移',
+    signHint: '推迟为正，提前为负',
+    applyToSyl: '应用到选定音节',
+    applyToLine: '应用到选定行',
+    applyToAll: '应用到全文',
+  },
 } satisfies BaseTranslation
 
 export default zhHans
