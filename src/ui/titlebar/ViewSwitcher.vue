@@ -38,5 +38,13 @@ watch(
     optionLabel="name"
     optionDisabled="disabled"
     size="large"
+    class="view-switcher"
   />
 </template>
+
+<style lang="scss">
+.view-switcher.view-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+</style>

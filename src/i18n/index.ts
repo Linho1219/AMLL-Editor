@@ -11,7 +11,8 @@ export type { Locales } from './i18n-types'
 const STORE_KEY = 'amll_editor:locale'
 
 function detectEnvLocale(): Locales {
-  // pending implementation
+  const lang = navigator.language.toLowerCase()
+  if (lang.startsWith('en')) return 'en'
   return 'zh-hans'
 }
 const envLocale = detectEnvLocale()

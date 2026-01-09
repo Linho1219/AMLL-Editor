@@ -29,13 +29,6 @@
           binary
         />
         <label for="ribbon-ignoretime">{{ tt.ignoreInTiming() }}</label>
-        <Checkbox
-          input-id="ribbon-alwaysignorebg"
-          size="small"
-          v-model="prefStore.alwaysIgnoreBackground"
-          binary
-        />
-        <label for="ribbon-alwaysignorebg">{{ tt.alwaysIgnoreBackground() }}</label>
       </div>
       <div class="kvgrid" v-if="!prefStore.hideLineTiming">
         <span>{{ tt.startTime() }}</span>

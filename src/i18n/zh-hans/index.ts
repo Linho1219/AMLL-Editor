@@ -131,7 +131,6 @@ const zhHans = {
       duet: '对唱行',
       background: '背景行',
       ignoreInTiming: '时轴中忽略',
-      alwaysIgnoreBackground: '始终忽略背景行',
       startTime: '开始时间',
       endTime: '结束时间',
       duration: '持续时长',

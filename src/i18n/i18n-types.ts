@@ -342,10 +342,6 @@ type RootTranslation = {
 			 */
 			ignoreInTiming: string
 			/**
-			 * 始​终​忽​略​背​景​行
-			 */
-			alwaysIgnoreBackground: string
-			/**
 			 * 开​始​时​间
 			 */
 			startTime: string
@@ -2327,10 +2323,6 @@ export type TranslationFunctions = {
 			 * 时轴中忽略
 			 */
 			ignoreInTiming: () => LocalizedString
-			/**
-			 * 始终忽略背景行
-			 */
-			alwaysIgnoreBackground: () => LocalizedString
 			/**
 			 * 开始时间
 			 */
