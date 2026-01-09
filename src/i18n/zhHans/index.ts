@@ -210,6 +210,45 @@ const zhHans = {
       },
     },
   },
+  components: {
+    confirmDialog: {
+      cancel: '取消',
+      continue: '继续',
+    },
+    emptyTipDefault: '当前视图无内容可显示',
+  },
+  importFromText: {
+    header: '从纯文本导入',
+    modes: {
+      separate: '分别输入',
+      separateDesc: '歌词原文、翻译、音译分别在不同的文本框中输入。相同位置的行为一组。',
+      interleaved: '交错行',
+      interleavedDesc: '歌词原文与翻译、音译行混合交错排列。每连续的数行为一组。',
+    },
+    fields: {
+      original: '原文',
+      keepCurrentLinesTip: '（保留现有行）',
+      trans: '翻译',
+      roman: '音译',
+      atLeastProvideOne: '至少提供一项',
+    },
+    toolBtns: {
+      removeTimestamps: '移除时间戳',
+      normalizeSpaces: '规范化空格',
+      capitalizeFirstLetter: '首字母大写',
+      removeTrailingPunc: '去除尾标点',
+    },
+    lineOrder: {
+      header: '行顺序设置',
+      cycleLengthHint: '当前循环节共 {0:number} 行',
+      original: '原文行',
+      trans: '翻译行',
+      roman: '音译行',
+      emptyLineCount: '组间空行数',
+    },
+    cancel: '取消',
+    action: '导入',
+  },
 } satisfies BaseTranslation
 
 export default zhHans

@@ -1,5 +1,5 @@
 <template>
-  <Dialog v-model:visible="visible" modal header="从纯文本导入" class="from-text-modal" maximizable>
+  <Dialog v-model:visible="visible" modal :header="tt.header()" class="from-text-modal" maximizable>
     <div class="options">
       <div class="select-field">
         <Select
@@ -20,17 +20,19 @@
             binary
             :disabled="currentMode === interleaved"
           />
-          <label class="check-item-label" for="original"> 原文 </label>
+          <label class="check-item-label" for="original">{{ tt.fields.original() }}</label>
         </div>
         <div class="check-item">
           <Checkbox v-model="translationChecked" input-id="translation" name="translation" binary />
-          <label class="check-item-label" for="translation"> 翻译 </label>
+          <label class="check-item-label" for="translation">{{ tt.fields.trans() }}</label>
         </div>
         <div class="check-item">
           <Checkbox v-model="romanChecked" input-id="roman" name="roman" binary />
-          <label class="check-item-label" for="roman"> 音译 </label>
+          <label class="check-item-label" for="roman">{{ tt.fields.roman() }}</label>
         </div>
-        <div class="no-item-checked-warning" v-if="noItemChecked">至少提供一项</div>
+        <div class="no-item-checked-warning" v-if="noItemChecked">
+          {{ tt.fields.atLeastProvideOne() }}
+        </div>
       </div>
     </div>
     <div class="textfields">
@@ -44,7 +46,10 @@
       </KeepAlive>
       <div class="textfield-shell">
         <div class="textfield-label" v-if="currentMode === separate">
-          原文<span class="useoriginaltip" v-if="!originalChecked">（保留现有行）</span>
+          {{ tt.fields.original()
+          }}<span class="useoriginaltip" v-if="!originalChecked">{{
+            tt.fields.keepCurrentLinesTip()
+          }}</span>
         </div>
         <CodeMirror
           :key="1"
@@ -58,7 +63,7 @@
         />
       </div>
       <div class="textfield-shell" v-if="currentMode === separate && translationChecked">
-        <div class="textfield-label">翻译</div>
+        <div class="textfield-label">{{ tt.fields.trans() }}</div>
         <CodeMirror
           :key="2"
           class="textfield"
@@ -68,7 +73,7 @@
         />
       </div>
       <div class="textfield-shell" v-if="currentMode === separate && romanChecked">
-        <div class="textfield-label">音译</div>
+        <div class="textfield-label">{{ tt.fields.roman() }}</div>
         <CodeMirror
           :key="3"
           class="textfield"
@@ -81,33 +86,38 @@
     <div class="actions">
       <div class="quick-tools">
         <Button
-          label="去除时间戳"
+          :label="tt.toolBtns.removeTimestamps()"
           icon="pi pi-minus-circle"
           severity="secondary"
           @click="handleRemoveTimestamps"
         />
         <Button
-          label="规范化空格"
+          :label="tt.toolBtns.normalizeSpaces()"
           icon="pi pi-hammer"
           severity="secondary"
           @click="handleNormalizeSpaces"
         />
         <Button
-          label="首字母大写"
+          :label="tt.toolBtns.capitalizeFirstLetter()"
           icon="pi pi-arrow-up"
           severity="secondary"
           @click="handleCapitalizeFirstLetter"
         />
         <Button
-          label="去除尾标点"
+          :label="tt.toolBtns.removeTrailingPunc()"
           icon="pi pi-delete-left"
           severity="secondary"
           @click="handleRemoveTrailingPunctuation"
         />
       </div>
-      <Button label="取消" icon="pi pi-times" severity="secondary" @click="visible = false" />
       <Button
-        label="导入"
+        :label="tt.cancel()"
+        icon="pi pi-times"
+        severity="secondary"
+        @click="visible = false"
+      />
+      <Button
+        :label="tt.action()"
         icon="pi pi-arrow-right"
         @click="handleImportAction"
         :disabled="noItemChecked"
@@ -117,6 +127,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { type ShallowRef, computed, ref, shallowRef, useTemplateRef, watch } from 'vue'
 
 import { parseInterleavedPlainText, parseSeparatePlainText } from '@core/convert/paintext'
@@ -127,6 +138,8 @@ import { useCoreStore } from '@states/stores'
 import CodeMirror from '@ui/components/CodeMirror.vue'
 import LineOrderInput from '@ui/components/LineOrderInput.vue'
 import { Button, Checkbox, Dialog, Select } from 'primevue'
+
+const tt = t.importFromText
 
 const [visible] = defineModel<boolean>({ required: true })
 const originalInput = ref<string>('')
@@ -159,12 +172,12 @@ interface ModeSelectItem {
   description: string
 }
 const separate: ModeSelectItem = {
-  name: '分别输入',
-  description: '歌词原文、翻译、音译分别在不同的文本框中输入。相同位置的行为一组。',
+  name: tt.modes.separate(),
+  description: tt.modes.separateDesc(),
 } as const
 const interleaved: ModeSelectItem = {
-  name: '交错行',
-  description: '歌词原文与翻译、音译行混合交错排列。每连续的数行为一组。',
+  name: tt.modes.interleaved(),
+  description: tt.modes.interleavedDesc(),
 } as const
 
 const modeSelectItems = [separate, interleaved]

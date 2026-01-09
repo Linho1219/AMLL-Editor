@@ -560,6 +560,121 @@ type RootTranslation = {
 			}
 		}
 	}
+	components: {
+		confirmDialog: {
+			/**
+			 * 取​消
+			 */
+			cancel: string
+			/**
+			 * 继​续
+			 */
+			'continue': string
+		}
+		/**
+		 * 当​前​视​图​无​内​容​可​显​示
+		 */
+		emptyTipDefault: string
+	}
+	importFromText: {
+		/**
+		 * 从​纯​文​本​导​入
+		 */
+		header: string
+		modes: {
+			/**
+			 * 分​别​输​入
+			 */
+			separate: string
+			/**
+			 * 歌​词​原​文​、​翻​译​、​音​译​分​别​在​不​同​的​文​本​框​中​输​入​。​相​同​位​置​的​行​为​一​组​。
+			 */
+			separateDesc: string
+			/**
+			 * 交​错​行
+			 */
+			interleaved: string
+			/**
+			 * 歌​词​原​文​与​翻​译​、​音​译​行​混​合​交​错​排​列​。​每​连​续​的​数​行​为​一​组​。
+			 */
+			interleavedDesc: string
+		}
+		fields: {
+			/**
+			 * 原​文
+			 */
+			original: string
+			/**
+			 * （​保​留​现​有​行​）
+			 */
+			keepCurrentLinesTip: string
+			/**
+			 * 翻​译
+			 */
+			trans: string
+			/**
+			 * 音​译
+			 */
+			roman: string
+			/**
+			 * 至​少​提​供​一​项
+			 */
+			atLeastProvideOne: string
+		}
+		toolBtns: {
+			/**
+			 * 移​除​时​间​戳
+			 */
+			removeTimestamps: string
+			/**
+			 * 规​范​化​空​格
+			 */
+			normalizeSpaces: string
+			/**
+			 * 首​字​母​大​写
+			 */
+			capitalizeFirstLetter: string
+			/**
+			 * 去​除​尾​标​点
+			 */
+			removeTrailingPunc: string
+		}
+		lineOrder: {
+			/**
+			 * 行​顺​序​设​置
+			 */
+			header: string
+			/**
+			 * 当​前​循​环​节​共​ ​{​0​}​ ​行
+			 * @param {number} 0
+			 */
+			cycleLengthHint: RequiredParams<'0'>
+			/**
+			 * 原​文​行
+			 */
+			original: string
+			/**
+			 * 翻​译​行
+			 */
+			trans: string
+			/**
+			 * 音​译​行
+			 */
+			roman: string
+			/**
+			 * 组​间​空​行​数
+			 */
+			emptyLineCount: string
+		}
+		/**
+		 * 取​消
+		 */
+		cancel: string
+		/**
+		 * 导​入
+		 */
+		action: string
+	}
 }
 
 export type TranslationFunctions = {
@@ -1107,6 +1222,120 @@ export type TranslationFunctions = {
 				description: () => LocalizedString
 			}
 		}
+	}
+	components: {
+		confirmDialog: {
+			/**
+			 * 取消
+			 */
+			cancel: () => LocalizedString
+			/**
+			 * 继续
+			 */
+			'continue': () => LocalizedString
+		}
+		/**
+		 * 当前视图无内容可显示
+		 */
+		emptyTipDefault: () => LocalizedString
+	}
+	importFromText: {
+		/**
+		 * 从纯文本导入
+		 */
+		header: () => LocalizedString
+		modes: {
+			/**
+			 * 分别输入
+			 */
+			separate: () => LocalizedString
+			/**
+			 * 歌词原文、翻译、音译分别在不同的文本框中输入。相同位置的行为一组。
+			 */
+			separateDesc: () => LocalizedString
+			/**
+			 * 交错行
+			 */
+			interleaved: () => LocalizedString
+			/**
+			 * 歌词原文与翻译、音译行混合交错排列。每连续的数行为一组。
+			 */
+			interleavedDesc: () => LocalizedString
+		}
+		fields: {
+			/**
+			 * 原文
+			 */
+			original: () => LocalizedString
+			/**
+			 * （保留现有行）
+			 */
+			keepCurrentLinesTip: () => LocalizedString
+			/**
+			 * 翻译
+			 */
+			trans: () => LocalizedString
+			/**
+			 * 音译
+			 */
+			roman: () => LocalizedString
+			/**
+			 * 至少提供一项
+			 */
+			atLeastProvideOne: () => LocalizedString
+		}
+		toolBtns: {
+			/**
+			 * 移除时间戳
+			 */
+			removeTimestamps: () => LocalizedString
+			/**
+			 * 规范化空格
+			 */
+			normalizeSpaces: () => LocalizedString
+			/**
+			 * 首字母大写
+			 */
+			capitalizeFirstLetter: () => LocalizedString
+			/**
+			 * 去除尾标点
+			 */
+			removeTrailingPunc: () => LocalizedString
+		}
+		lineOrder: {
+			/**
+			 * 行顺序设置
+			 */
+			header: () => LocalizedString
+			/**
+			 * 当前循环节共 {0} 行
+			 */
+			cycleLengthHint: (arg0: number) => LocalizedString
+			/**
+			 * 原文行
+			 */
+			original: () => LocalizedString
+			/**
+			 * 翻译行
+			 */
+			trans: () => LocalizedString
+			/**
+			 * 音译行
+			 */
+			roman: () => LocalizedString
+			/**
+			 * 组间空行数
+			 */
+			emptyLineCount: () => LocalizedString
+		}
+		/**
+		 * 取消
+		 */
+		cancel: () => LocalizedString
+		/**
+		 * 导入
+		 */
+		action: () => LocalizedString
 	}
 }
 

@@ -1,12 +1,14 @@
 <template>
   <div class="empty-tip" :class="{ compact: props.compact }">
     <i class="pi empty-tip-icon" :class="props.icon || 'pi-asterisk'"></i>
-    <div class="empty-tip-title">{{ props.title || '当前视图无内容可显示' }}</div>
+    <div class="empty-tip-title">{{ props.title || t.components.emptyTipDefault() }}</div>
     <div class="empty-tip-tip" v-if="props.tip">{{ props.tip }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
+
 const props = defineProps<{
   title?: string
   tip?: string

@@ -1,8 +1,8 @@
 <template>
   <div class="line-order-input">
     <div class="line-order-input-state-info">
-      <div class="title">行顺序设置</div>
-      <div class="count">当前循环节共 {{ cycleLength }} 行</div>
+      <div class="title">{{ tt.header() }}</div>
+      <div class="count">{{ tt.cycleLengthHint(cycleLength) }}</div>
     </div>
     <hr class="line-order-hr" />
     <VueDraggable v-model="listItems" :animation="200">
@@ -17,7 +17,7 @@
     </VueDraggable>
     <hr class="line-order-hr" />
     <div class="line-order-empty-line">
-      组间空行数
+      {{ tt.emptyLineCount() }}
       <InputNumber
         class="line-order-empty-line-input"
         v-model="emptyLineCountModel"
@@ -32,10 +32,13 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@i18n'
 import { computed, ref, watch } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
 
 import { InputNumber } from 'primevue'
+
+const tt = t.importFromText.lineOrder
 
 const props = defineProps<{
   transEnabled: boolean
@@ -48,16 +51,16 @@ interface ListItem {
   classname?: string
 }
 const original: ListItem = {
-  caption: '原文行',
+  caption: tt.original(),
   key: 0,
 }
 const translation: ListItem = {
-  caption: '翻译行',
+  caption: tt.trans(),
   key: 1,
   classname: 'translation',
 }
 const romanization: ListItem = {
-  caption: '音译行',
+  caption: tt.roman(),
   key: 2,
   classname: 'romanization',
 }
