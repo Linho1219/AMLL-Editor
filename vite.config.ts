@@ -7,7 +7,7 @@ import { defineConfig } from 'vite'
 
 import packageJSON from './package.json'
 import { coiPlugin } from './pipelines/coi/plugin'
-import { iconSetPlugin } from './pipelines/iconSet/plugin'
+import { faviconPlugin } from './pipelines/favicon/plugin'
 import { viteStaticCopyPyodide } from './pipelines/pyodide/plugin'
 import { manifestPlugin } from './pipelines/webManifest/plugin'
 
@@ -46,7 +46,7 @@ console.log(`Current channel: ${channelColors[channel]?.(channel) || channel}\n`
 export default defineConfig(({ mode }) => ({
   plugins: [
     manifestPlugin(),
-    iconSetPlugin(),
+    faviconPlugin(),
     coiPlugin(),
     viteStaticCopyPyodide(mode === 'development'),
     vue(),

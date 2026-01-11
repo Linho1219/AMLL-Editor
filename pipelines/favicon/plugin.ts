@@ -3,16 +3,16 @@ import { join } from 'node:path'
 import { normalizePath } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-export function iconSetPlugin() {
-  const iconSetDir = join(
+export function faviconPlugin() {
+  const faviconDir = join(
     process.cwd(),
-    'icons',
+    'favicons',
     process.env.VITE_BUILD_CHANNEL === 'BETA' ? 'beta' : 'normal',
   )
   return viteStaticCopy({
     targets: [
       {
-        src: [normalizePath(join(iconSetDir, '*'))],
+        src: [normalizePath(join(faviconDir, '*'))],
         dest: '.',
       },
     ],
