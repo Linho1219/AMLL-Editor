@@ -9,4 +9,4 @@ const transformIconKey = (key: string) =>
 
 export const i = Object.fromEntries(
   Object.entries(MANIFEST).map(([key, value]) => [key, transformIconKey(value)]),
-) as IconClassMap
+) as Readonly<IconClassMap>

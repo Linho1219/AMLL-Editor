@@ -3,9 +3,10 @@
   width: 1em;
   height: 1em;
   background-color: currentColor;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
+  -webkit-mask: no-repeat center / 100%;
+  mask: no-repeat center / 100%;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
   transform: scale(1.2);
   vertical-align: -0.15em;
 }

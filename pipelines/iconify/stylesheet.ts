@@ -11,7 +11,7 @@ const wrapSvg = (viewBox: string, body: string) =>
   /* html */ `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">${body}</svg>`
 
 const wrapStyleBlock = (selector: string, svg: string) =>
-  /* css */ `${selector} { mask-image: url("data:image/svg+xml,${encodeURIComponent(svg)}") }`
+  /* css */ `${selector} { --svg: url("data:image/svg+xml,${encodeURIComponent(svg)}") }`
 
 const makeBlock = (iconKey: string) => {
   const [set, iconName] = iconKey.split(':')

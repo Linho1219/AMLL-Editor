@@ -2,6 +2,6 @@
   "undo": "fluent:arrow-undo-16-filled",
   "redo": "fluent:arrow-redo-16-filled",
   "experiment": "fluent:beaker-16-regular",
-  "upline": "fluent:arrow-collapse-all-16-regular",
-  "downline": "fluent:arrow-expand-all-16-regular"
+  "upline": "fluent:arrow-collapse-all-16-filled",
+  "downline": "fluent:arrow-expand-all-16-filled"
 }
