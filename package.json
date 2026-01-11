@@ -63,6 +63,8 @@
     "wavesurfer.js": "^7.12.1"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.427",
+    "@iconify/utils": "^3.1.0",
     "@trivago/prettier-plugin-sort-imports": "^6.0.1",
     "@tsconfig/node22": "^22.0.5",
     "@types/lodash-es": "^4.17.12",

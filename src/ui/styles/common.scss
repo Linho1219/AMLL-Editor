@@ -29,6 +29,7 @@ body {
   --e-bg-active-background: color-mix(in srgb, var(--p-blue-400), transparent 80%);
 
   user-select: none;
+  font-size: 14px;
   color: var(--p-text-color);
   background-color: var(--global-background);
 }

@@ -80,7 +80,7 @@
               <template v-if="f.key === 'roman' && prefStore.sylRomanEnabled">
                 <InputGroupAddon>
                   <Button
-                    icon="pi pi-sort-amount-up"
+                    :icon="i.upline"
                     severity="secondary"
                     @click="handleRomanApply"
                     v-tooltip="tt.applyRomanToSyl()"
@@ -88,7 +88,7 @@
                 </InputGroupAddon>
                 <InputGroupAddon>
                   <Button
-                    icon="pi pi-sort-amount-down"
+                    :icon="i.downline"
                     severity="secondary"
                     @click="handleRomanGenerate"
                     v-tooltip="tt.generateRomanFromSyl()"
@@ -117,6 +117,8 @@ import { forceOutsideBlur } from '@utils/forceOutsideBlur'
 import { tipMultiLine } from '@utils/generateTooltip'
 import { sortIndex } from '@utils/sortLineSyls'
 import type { TimeoutHandle } from '@utils/types'
+
+import { i } from '@ui/icon'
 
 import InputText from '@ui/components/InputText.vue'
 import { Button, FloatLabel, InputGroup, InputGroupAddon } from 'primevue'

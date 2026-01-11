@@ -8,6 +8,7 @@ import { defineConfig } from 'vite'
 import packageJSON from './package.json'
 import { coiPlugin } from './pipelines/coi/plugin'
 import { faviconPlugin } from './pipelines/favicon/plugin'
+import { iconifyPlugin } from './pipelines/iconify/plugin'
 import { viteStaticCopyPyodide } from './pipelines/pyodide/plugin'
 import { manifestPlugin } from './pipelines/webManifest/plugin'
 
@@ -48,6 +49,7 @@ export default defineConfig(({ mode }) => ({
     manifestPlugin(),
     faviconPlugin(),
     coiPlugin(),
+    iconifyPlugin(),
     viteStaticCopyPyodide(mode === 'development'),
     vue(),
     visualizer({
