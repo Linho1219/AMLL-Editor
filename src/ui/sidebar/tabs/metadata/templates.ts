@@ -57,5 +57,5 @@ export const amllMetaTemplate = {
     label: tt.amll[key](),
   })),
   docUrl:
-    'https://github.com/Steve-xmh/amll-ttml-tool/wiki/%E6%AD%8C%E8%AF%8D%E5%85%83%E6%95%B0%E6%8D%AE',
+    'https://github.com/amll-dev/amll-ttml-tool/wiki/%E6%AD%8C%E8%AF%8D%E5%85%83%E6%95%B0%E6%8D%AE',
 } as const satisfies MetadataTemplate

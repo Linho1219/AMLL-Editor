@@ -10,7 +10,7 @@ const consoleArt = `
 
 喜欢您来！
 
-项目地址: https://github.com/Linho1219/AMLL-Editor
+项目地址: https://github.com/amll-dev/amll-editor
 　　　　  以 AGPLv3 only 许可证开源
 
 友情链接: AMLL Homepage  https://amll.dev/

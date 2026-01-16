@@ -7,7 +7,7 @@ import { str2ms as nullableStr2ms } from '@utils/formatTime'
 import type { Maybe } from '@utils/types'
 
 // Frontend TTML parser, following AMLL TTML Lyric Format
-// Derived from: https://github.com/Steve-xmh/amll-ttml-tool , Licensed under GPLv3
+// Derived from: https://github.com/amll-dev/amll-ttml-tool , Licensed under GPLv3
 // See also https://www.w3.org/TR/2018/REC-ttml1-20181108/
 
 interface RomanWord {

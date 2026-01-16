@@ -10,7 +10,7 @@ const consoleArt = `
 
 Welcome to AMLL Editor!
 
-Project URL: https://github.com/Linho1219/AMLL-Editor
+Project URL: https://github.com/amll-dev/amll-editor
              Licensed under AGPLv3 only
 
 Related projects: AMLL Homepage  https://amll.dev/
