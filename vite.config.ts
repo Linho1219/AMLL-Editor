@@ -59,6 +59,12 @@ export default defineConfig(({ mode }) => ({
       filename: 'chunk-analysis.html',
     }),
   ],
+  clearScreen: false,
+  server: {
+    port: 8080,
+    strictPort: true,
+  },
+  envPrefix: ['VITE_', 'TAURI_'],
   worker: { format: 'es' },
   resolve: {
     alias: Object.fromEntries(
