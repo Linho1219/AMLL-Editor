@@ -10,7 +10,7 @@ export interface ProjManifest_0_0 {
   createdAt: string
   modifiedAt: string
 
-  dataVersion: 'ALDv0.0' | 'ALDv0.1'
+  dataVersion: 'ALDv0.0' | 'ALDv0.1' | 'ALDv0.2'
   dataFilename: string
 
   mediaFilename?: string
