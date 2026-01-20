@@ -67,7 +67,10 @@ const zhHans = {
       generateRomanFromSyl: '从逐字音译生成',
       startTime: '行起始时间',
       endTime: '行结束时间',
+      endTimeClickToConnect: '点击以切换连缀结束时间',
+      endTimeDbClickToEdit: '双击以编辑',
       continueToNextLine: '连缀结束时间至下一行',
+      connectNext: '连缀结束时间至下行',
       addSyllable: '添加音节',
       fields: {
         trans: '行翻译',

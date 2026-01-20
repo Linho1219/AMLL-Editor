@@ -41,7 +41,7 @@
           v-tooltip="tt.background()"
         />
       </div>
-      <div class="tline-head-timestamps">
+      <div class="tline-head-timestamps" :class="{ 'time-hidden': prefStore.hideLineTiming }">
         <Timestamp
           begin
           v-model="props.line.startTime"
@@ -54,11 +54,25 @@
           v-tooltip="tipMultiLine(tt.index(), tt.indexDbClickToToogleIgnore())"
           >{{ props.index + 1 }}</span
         >
-        <Timestamp
-          end
+
+        <TimeConnectSwitch
           v-model="props.line.endTime"
-          v-tooltip="tt.endTime()"
+          v-model:connect="props.line.connectNext"
+          v-tooltip="
+            tipMultiLine(tt.endTime(), tt.endTimeClickToConnect(), tt.endTimeDbClickToEdit())
+          "
           v-if="!prefStore.hideLineTiming"
+        />
+        <Button
+          v-else
+          class="tline-connect-button"
+          :severity="props.line.connectNext ? 'danger' : 'secondary'"
+          variant="text"
+          size="small"
+          icon="pi pi-link"
+          :class="{ active: props.line.connectNext }"
+          @click.stop="props.line.connectNext = !props.line.connectNext"
+          v-tooltip="tt.connectNext()"
         />
       </div>
     </div>
@@ -79,6 +93,7 @@ import { usePrefStore, useRuntimeStore } from '@states/stores'
 import { forceOutsideBlur } from '@utils/forceOutsideBlur'
 import { tipMultiLine } from '@utils/generateTooltip'
 
+import TimeConnectSwitch from './TimeConnectSwitch.vue'
 import Timestamp from './Timestamp.vue'
 import { Button } from 'primevue'
 
@@ -138,11 +153,6 @@ function handleMouseDown() {
   border-right: 1px solid transparent;
   --tline-head-background: color-mix(in srgb, var(--t-border-color), var(--global-background) 40%);
   background-color: var(--tline-head-background);
-}
-.tline-head-btns {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   --p-button-text-secondary-color: color-mix(
     in srgb,
     var(--p-form-field-placeholder-color),
@@ -153,6 +163,12 @@ function handleMouseDown() {
     var(--t-border-color),
     transparent 40%
   );
+}
+.tline-head-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   .tline-tag {
     &-duet {
       --p-button-text-primary-color: var(--e-duet-text-color);
@@ -170,7 +186,13 @@ function handleMouseDown() {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: var(--timestamp-space) 0;
+  position: relative;
+  &.time-hidden {
+    justify-content: center;
+    margin-left: -0.3rem;
+  }
 }
 .tline-index {
   font-size: 1.3rem;
@@ -178,20 +200,17 @@ function handleMouseDown() {
   font-family: var(--font-monospace);
   position: relative;
 
-  height: 0;
-  flex: 1;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: content-box;
   padding: 0 0.3rem;
-  margin-left: -0.3rem;
   min-width: 2ch;
 
   --ignore-line-bg: currentColor;
 
-  .tline-head-timestamps + & {
+  .timestamp + & {
     padding: 0.6em 0.5rem;
     width: fit-content;
     margin: 0 auto;
@@ -216,6 +235,10 @@ function handleMouseDown() {
     box-shadow: 0 0 0 0.1rem var(--tline-head-background);
     border-radius: 0.1rem;
   }
+}
+.tline-head-timestamps .tline-connect-button {
+  position: absolute;
+  bottom: 0.3rem;
 }
 .tline-content {
   flex: 1;

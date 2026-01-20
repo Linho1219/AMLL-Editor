@@ -70,6 +70,9 @@ const en = {
       generateRomanFromSyl: 'Generate from syllable romanization',
       startTime: 'Line start time',
       endTime: 'Line end time',
+      endTimeClickToConnect: 'Click to toggle connect end time',
+      endTimeDbClickToEdit: 'Double-click to edit',
+      connectNext: 'Connect end time to next line',
       continueToNextLine: 'Extend end time to next line',
       addSyllable: 'Add syllable',
       fields: {

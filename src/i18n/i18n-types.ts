@@ -151,9 +151,21 @@ type RootTranslation = {
 			 */
 			endTime: string
 			/**
+			 * 点​击​以​切​换​连​缀​结​束​时​间
+			 */
+			endTimeClickToConnect: string
+			/**
+			 * 双​击​以​编​辑
+			 */
+			endTimeDbClickToEdit: string
+			/**
 			 * 连​缀​结​束​时​间​至​下​一​行
 			 */
 			continueToNextLine: string
+			/**
+			 * 连​缀​结​束​时​间​至​下​行
+			 */
+			connectNext: string
 			/**
 			 * 添​加​音​节
 			 */
@@ -2122,9 +2134,21 @@ export type TranslationFunctions = {
 			 */
 			endTime: () => LocalizedString
 			/**
+			 * 点击以切换连缀结束时间
+			 */
+			endTimeClickToConnect: () => LocalizedString
+			/**
+			 * 双击以编辑
+			 */
+			endTimeDbClickToEdit: () => LocalizedString
+			/**
 			 * 连缀结束时间至下一行
 			 */
 			continueToNextLine: () => LocalizedString
+			/**
+			 * 连缀结束时间至下行
+			 */
+			connectNext: () => LocalizedString
 			/**
 			 * 添加音节
 			 */
