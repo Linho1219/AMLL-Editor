@@ -82,6 +82,7 @@ const groupedCmdList = [
       'breakLine',
       'duet',
       'background',
+      'connectNextLine',
     ],
   },
   {

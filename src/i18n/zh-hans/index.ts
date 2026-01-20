@@ -546,6 +546,7 @@ const zhHans = {
       breakLine: '拆分行',
       duet: '设为对唱行',
       background: '设为背景行',
+      connectNextLine: '续至下行',
 
       goPrevLine: '上一行',
       goPrevSyl: '上一音节',

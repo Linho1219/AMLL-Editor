@@ -5,14 +5,14 @@ import type { PreferenceSchema } from '@core/pref'
 
 import { usePrefStore } from '@states/stores'
 
+import type { PickTypeKeys } from '@utils/types'
+
 import PrefItem from './PrefItem.vue'
 import { ToggleSwitch } from 'primevue'
 
 const tt = t.sidebar.preference.items
 
-type BooleanKeys = {
-  [K in keyof PreferenceSchema]: PreferenceSchema[K] extends boolean ? K : never
-}[keyof PreferenceSchema]
+type BooleanKeys = PickTypeKeys<PreferenceSchema, boolean>
 
 const props = defineProps<{
   prefKey: BooleanKeys

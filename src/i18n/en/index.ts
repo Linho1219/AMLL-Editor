@@ -564,6 +564,7 @@ const en = {
       breakLine: 'Split Line',
       duet: 'Toggle Duet Line',
       background: 'Toggle Background Line',
+      connectNextLine: 'Toggle Sibling Line Connection',
 
       goPrevLine: 'Previous Line',
       goPrevSyl: 'Previous Syllable',

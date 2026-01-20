@@ -7,16 +7,14 @@ import { type PreferenceSchema, getDefaultPref } from '@core/pref'
 
 import { usePrefStore } from '@states/stores'
 
-import type { Maybe } from '@utils/types'
+import type { Maybe, PickTypeKeys } from '@utils/types'
 
 import PrefItem from './PrefItem.vue'
 import { InputNumber } from 'primevue'
 
 const tt = t.sidebar.preference.items
 
-type NumberKeys = {
-  [K in keyof PreferenceSchema]: PreferenceSchema[K] extends number ? K : never
-}[keyof PreferenceSchema]
+type NumberKeys = PickTypeKeys<PreferenceSchema, number>
 
 const props = defineProps<{
   prefKey: NumberKeys

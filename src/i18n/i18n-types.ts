@@ -1605,6 +1605,10 @@ type RootTranslation = {
 			 */
 			background: string
 			/**
+			 * 续​至​下​行
+			 */
+			connectNextLine: string
+			/**
 			 * 上​一​行
 			 */
 			goPrevLine: string
@@ -3582,6 +3586,10 @@ export type TranslationFunctions = {
 			 * 设为背景行
 			 */
 			background: () => LocalizedString
+			/**
+			 * 续至下行
+			 */
+			connectNextLine: () => LocalizedString
 			/**
 			 * 上一行
 			 */

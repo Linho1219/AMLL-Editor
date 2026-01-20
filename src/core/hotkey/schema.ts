@@ -33,6 +33,7 @@ export const hotkeyCommandList = [
   'breakLine',
   'duet',
   'background',
+  'connectNextLine',
 
   'goPrevLine',
   'goPrevSyl',
@@ -87,6 +88,7 @@ export const getDefaultHotkeyMap = () =>
     replace: [k(Ctrl, 'h'), k(Ctrl, Shift, 'f')],
     delete: k('Delete'),
     bookmark: k(Ctrl, 'd'),
+    connectNextLine: k(Ctrl, 'g'),
     preferences: k(Ctrl, 'Comma'),
     chooseMedia: k(Ctrl, 'm'),
     metadata: k(Ctrl, 'i'),
