@@ -19,7 +19,6 @@ const newLine = (attrs: Partial<LyricLine> = {}) =>
     romanization: '',
     background: false,
     duet: false,
-    connectNext: false,
     ...attrs,
     id: nanoid(),
   })

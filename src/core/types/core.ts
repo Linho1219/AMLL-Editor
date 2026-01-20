@@ -25,8 +25,6 @@ export interface LyricLine {
   ignoreInTiming: boolean
   /** 已添加书签 */
   bookmarked: boolean
-  /** 将结束时间延长到下一行的开始时间 */
-  connectNext: boolean
 }
 
 /** 单词 */
