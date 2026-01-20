@@ -29,6 +29,15 @@
           binary
         />
         <label for="ribbon-ignoretime">{{ tt.ignoreInTiming() }}</label>
+        <Checkbox
+          input-id="ribbon-connectnext"
+          size="small"
+          :disabled="lineSelectedEmpty"
+          :indeterminate="connectNextIndeterminate"
+          v-model="connectNextChecked"
+          binary
+        />
+        <label for="ribbon-connectnext">{{ tt.connectNext() }}</label>
       </div>
       <div class="kvgrid" v-if="!prefStore.hideLineTiming">
         <span>{{ tt.startTime() }}</span>
@@ -95,6 +104,10 @@ const { checked: duetChecked, indeterminate: duetIndeterminate } = attrCheckbox(
 const { checked: ignoreTimingChecked, indeterminate: ignoreTimingIndeterminate } = attrCheckbox(
   runtimeStore.selectedLines,
   'ignoreInTiming',
+)
+const { checked: connectNextChecked, indeterminate: connectNextIndeterminate } = attrCheckbox(
+  runtimeStore.selectedLines,
+  'connectNext',
 )
 
 const {

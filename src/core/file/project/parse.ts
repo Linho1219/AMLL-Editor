@@ -1,6 +1,6 @@
 import JSZip from 'jszip'
 
-import type { Persist } from '@core/types'
+import type { LyricLine, Persist } from '@core/types'
 
 import type { ProjPayload } from '.'
 import {
@@ -53,8 +53,9 @@ export async function parseProjectFile(file: Blob): Promise<ProjPayload> {
 function parseProjectData(data: SupportedProjData): Persist {
   const latestData = migrateToLatestProjData(data)
   const { metadata } = latestData
-  const persistLines = latestData.lines.map((line) => ({
+  const persistLines: LyricLine[] = latestData.lines.map((line) => ({
     ...line,
+    connectNext: line.connectNext ?? false,
     syllables: line.syllables.map((syllable) => ({
       ...syllable,
       currentplaceholdingBeat: 0,

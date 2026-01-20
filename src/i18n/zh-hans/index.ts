@@ -10,7 +10,7 @@ const consoleArt = `
 
 喜欢您来！
 
-项目地址: https://github.com/Linho1219/AMLL-Editor
+项目地址: https://github.com/amll-dev/amll-editor
 　　　　  以 AGPLv3 only 许可证开源
 
 友情链接: AMLL Homepage  https://amll.dev/
@@ -67,7 +67,10 @@ const zhHans = {
       generateRomanFromSyl: '从逐字音译生成',
       startTime: '行起始时间',
       endTime: '行结束时间',
+      endTimeClickToConnect: '点击以切换连缀结束时间',
+      endTimeDbClickToEdit: '双击以编辑',
       continueToNextLine: '连缀结束时间至下一行',
+      connectNext: '连缀结束时间至下行',
       addSyllable: '添加音节',
       fields: {
         trans: '行翻译',
@@ -131,6 +134,7 @@ const zhHans = {
       duet: '对唱行',
       background: '背景行',
       ignoreInTiming: '时轴中忽略',
+      connectNext: '续至下行',
       startTime: '开始时间',
       endTime: '结束时间',
       duration: '持续时长',
@@ -275,10 +279,10 @@ const zhHans = {
         alwaysIgnoreBackgroundDesc: '在时轴页上始终跳过背景行',
         hideLineTiming: '隐藏行时间戳',
         hideLineTimingDesc: '自动从音节生成行时间戳',
-        autoConnectLineTimes: '自动连接行时间',
-        autoConnectLineTimesDesc: '自动连接间隔较近的相邻行时间戳',
-        autoConnectThresholdMs: '行时间自动连接阈值',
-        autoConnectThresholdMsDesc: '连接相邻行时允许的最大间隔 (毫秒)',
+        // autoConnectLineTimes: '自动连接行时间',
+        // autoConnectLineTimesDesc: '自动连接间隔较近的相邻行时间戳',
+        // autoConnectThresholdMs: '行时间自动连接阈值',
+        // autoConnectThresholdMsDesc: '连接相邻行时允许的最大间隔 (毫秒)',
         scrollWithPlayback: '随播放自动滚动',
         scrollWithPlaybackDesc: '时轴视图中随播放进度自动滚动',
         compatibilityReport: '兼容性报告',
@@ -542,6 +546,7 @@ const zhHans = {
       breakLine: '拆分行',
       duet: '设为对唱行',
       background: '设为背景行',
+      connectNextLine: '续至下行',
 
       goPrevLine: '上一行',
       goPrevSyl: '上一音节',

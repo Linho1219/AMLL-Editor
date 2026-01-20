@@ -3,7 +3,7 @@ import type { LyricLine, LyricSyllable, Persist } from '@core/types'
 import { ms2str } from '@utils/formatTime'
 
 // Frontend TTML stringifier, following AMLL TTML Lyric Format
-// Derived from: https://github.com/Steve-xmh/amll-ttml-tool , Licensed under GPLv3
+// Derived from: https://github.com/amll-dev/amll-ttml-tool , Licensed under GPLv3
 // See also https://www.w3.org/TR/2018/REC-ttml1-20181108/
 
 export function stringifyTTML(ttmlLyric: Persist): string {

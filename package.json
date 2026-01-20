@@ -8,7 +8,7 @@
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
-  "repository": "https://github.com/Linho1219/AMLL-Editor",
+  "repository": "https://github.com/amll-dev/amll-editor",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

@@ -38,6 +38,7 @@ import { type LyricLine, type LyricSyllable, View } from '@core/types'
 
 import { usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
 
+import { forceOutsideBlur } from '@utils/forceOutsideBlur'
 import { tryRaf } from '@utils/tryRaf'
 
 import Timestamp from './Timestamp.vue'
@@ -52,6 +53,7 @@ const props = defineProps<{
 const runtimeStore = useRuntimeStore()
 const prefStore = usePrefStore()
 function handleMouseDown() {
+  forceOutsideBlur()
   runtimeStore.selectLineSyl(props.parent, props.syllable)
 }
 const isSelected = computed(() => {

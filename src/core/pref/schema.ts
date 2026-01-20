@@ -17,8 +17,8 @@ export interface PreferenceSchema {
   globalLatencyMs: number
   alwaysIgnoreBackground: boolean
   hideLineTiming: boolean
-  autoConnectLineTimes: boolean
-  autoConnectThresholdMs: number
+  // autoConnectLineTimes: boolean
+  // autoConnectThresholdMs: number
   // Roman
   sylRomanEnabled: boolean
   swapTranslateRoman: boolean
@@ -40,8 +40,8 @@ export const getDefaultPref = (): PreferenceSchema => ({
   globalLatencyMs: 0,
   alwaysIgnoreBackground: false,
   hideLineTiming: false,
-  autoConnectLineTimes: false,
-  autoConnectThresholdMs: 100,
+  // autoConnectLineTimes: false,
+  // autoConnectThresholdMs: 100,
   sylRomanEnabled: false,
   swapTranslateRoman: false,
   notifyCompatIssuesOnStartup: true,

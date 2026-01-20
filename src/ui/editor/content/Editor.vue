@@ -94,6 +94,7 @@ import EmptyTip from '@ui/components/EmptyTip.vue'
 import TieredMenuItem from '@ui/components/TieredMenuItem.vue'
 import { Button, ContextMenu } from 'primevue'
 
+import { toogleAttr } from '../shared'
 import { useContentCtxItems } from './context'
 
 const tt = t.editor
@@ -134,7 +135,7 @@ const contextSylIndex = ref<number | undefined>(undefined)
 
 const menu = useTemplateRef('menu')
 
-const { menuItemsMap, toggleBackground, toggleDuet } = useContentCtxItems({
+const menuItemsMap = useContentCtxItems({
   lineIndex: contextLineIndex,
   sylIndex: contextSylIndex,
 })
@@ -177,8 +178,9 @@ useGlobalKeyboard('breakLine', () => {
   }
   runtimeStore.selectSyllable(...syls)
 })
-useGlobalKeyboard('duet', toggleDuet)
-useGlobalKeyboard('background', toggleBackground)
+useGlobalKeyboard('duet', () => toogleAttr('duet'))
+useGlobalKeyboard('background', () => toogleAttr('background'))
+useGlobalKeyboard('connectNextLine', () => toogleAttr('connectNext'))
 
 // onBeforeUnmounted instead of onUnmounted: vscroll quits at unmounted phase
 onBeforeUnmount(() => {

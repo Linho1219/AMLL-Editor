@@ -10,7 +10,7 @@ const consoleArt = `
 
 Welcome to AMLL Editor!
 
-Project URL: https://github.com/Linho1219/AMLL-Editor
+Project URL: https://github.com/amll-dev/amll-editor
              Licensed under AGPLv3 only
 
 Related projects: AMLL Homepage  https://amll.dev/
@@ -70,6 +70,9 @@ const en = {
       generateRomanFromSyl: 'Generate from syllable romanization',
       startTime: 'Line start time',
       endTime: 'Line end time',
+      endTimeClickToConnect: 'Click to toggle connect end time',
+      endTimeDbClickToEdit: 'Double-click to edit',
+      connectNext: 'Connect end time to next line',
       continueToNextLine: 'Extend end time to next line',
       addSyllable: 'Add syllable',
       fields: {
@@ -135,6 +138,7 @@ const en = {
       duet: 'Duet',
       background: 'Background',
       ignoreInTiming: 'Ignore in Timing',
+      connectNext: 'End time to next',
       startTime: 'Start',
       endTime: 'End',
       duration: 'Dur',
@@ -283,10 +287,10 @@ const en = {
         alwaysIgnoreBackgroundDesc: 'Always skip background lines in the timeline view',
         hideLineTiming: 'Hide line timestamps',
         hideLineTimingDesc: 'Automatically generate line timestamps from syllables',
-        autoConnectLineTimes: 'Auto connect line times',
-        autoConnectLineTimesDesc: 'Automatically connect timestamps of adjacent lines when close',
-        autoConnectThresholdMs: 'Auto connect threshold',
-        autoConnectThresholdMsDesc: 'Maximum allowed gap between lines to auto-connect (ms)',
+        // autoConnectLineTimes: 'Auto connect line times',
+        // autoConnectLineTimesDesc: 'Automatically connect timestamps of adjacent lines when close',
+        // autoConnectThresholdMs: 'Auto connect threshold',
+        // autoConnectThresholdMsDesc: 'Maximum allowed gap between lines to auto-connect (ms)',
         scrollWithPlayback: 'Auto-scroll with playback',
         scrollWithPlaybackDesc: 'Timeline view automatically scrolls following playback position',
         compatibilityReport: 'Compatibility report',
@@ -560,6 +564,7 @@ const en = {
       breakLine: 'Split Line',
       duet: 'Toggle Duet Line',
       background: 'Toggle Background Line',
+      connectNextLine: 'Toggle Sibling Line Connection',
 
       goPrevLine: 'Previous Line',
       goPrevSyl: 'Previous Syllable',

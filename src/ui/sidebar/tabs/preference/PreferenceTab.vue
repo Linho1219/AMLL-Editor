@@ -85,7 +85,7 @@ watch(selectedLanguageItem, (val) => {
       <PrefNumberItem pref-key="globalLatencyMs" placeholder="0" :min="-5000" :max="5000" />
       <PrefSwitchItem pref-key="alwaysIgnoreBackground" />
       <PrefSwitchItem pref-key="hideLineTiming" experimental />
-      <PrefSwitchItem
+      <!-- <PrefSwitchItem
         pref-key="autoConnectLineTimes"
         :disabled="!prefStore.hideLineTiming"
         experimental
@@ -95,7 +95,7 @@ watch(selectedLanguageItem, (val) => {
         :min="0"
         :max="5000"
         :disabled="!prefStore.hideLineTiming || !prefStore.autoConnectLineTimes"
-      />
+      /> -->
     </div>
     <!-- <div class="pref-group">
       <div class="pref-group-title">{{ tt.groups.spectrogram() }}</div>

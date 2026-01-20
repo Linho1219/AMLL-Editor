@@ -1,6 +1,6 @@
 <template>
   <div class="timestamp" ref="timestampEl" :class="{ begin: props.begin, end: props.end }">
-    <div class="timestamp-caption" v-if="!showInput" @dblclick="showInput = true">
+    <div class="timestamp-caption" v-if="!showInput" @dblclick="handleDbClick">
       {{ ms2str(upstream) }}
     </div>
     <InputText
@@ -25,6 +25,7 @@ import InputText from '@ui/components/InputText.vue'
 const props = defineProps<{
   begin?: boolean
   end?: boolean
+  passiveActive?: boolean
 }>()
 
 const upstream = defineModel<number>({ required: true })
@@ -41,6 +42,12 @@ watch(showInput, (v) => {
   if (v) nextTick(() => input.value?.input?.select())
 })
 
+function handleDbClick() {
+  if (!props.passiveActive) {
+    showInput.value = true
+  }
+}
+
 const timestampEl = useTemplateRef('timestampEl')
 watch(upstream, () => {
   if (!timestampEl.value) return
@@ -48,6 +55,13 @@ watch(upstream, () => {
   timestampEl.value.classList.remove('flashing')
   void timestampEl.value.offsetWidth
   timestampEl.value.classList.add('flashing')
+})
+
+defineExpose({
+  showInput,
+  activate: () => {
+    showInput.value = true
+  },
 })
 </script>
 

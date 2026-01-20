@@ -5,10 +5,13 @@ import type { ProjDataTill_0_0 } from './0_0'
 /**
  * Data version 0.1
  *
- * CHANELOG (v0.0 -> v0.1):
+ * CHANGELOG (v0.0 -> v0.1):
  * - Rename "words" to "syllables"
  * - Rename "lyricLines" to "lines"
  * - Remove "currentplaceholdingBeat" from syllables
+ *
+ * CHANGELOG (v0.1 -> v0.1.1):
+ * - Add "connectNext" to lines
  */
 export interface ProjData_0_1 {
   dataVersion: 'ALDv0.1'
@@ -33,6 +36,7 @@ export interface ProjData_0_1 {
     }[]
     ignoreInTiming: boolean
     bookmarked: boolean
+    connectNext?: boolean
   }[]
 }
 

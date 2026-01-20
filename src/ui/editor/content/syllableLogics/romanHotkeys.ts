@@ -4,7 +4,7 @@ import type { LyricLine } from '@core/types'
 
 import { useCoreStore, useStaticStore } from '@states/stores'
 
-import type { SyllableState } from './shared'
+import { type SyllableState, triggerInputEvent } from './shared'
 
 export function handleSylRomanInputKeydown(event: KeyboardEvent, state: SyllableState) {
   const coreStore = useCoreStore()
@@ -15,88 +15,89 @@ export function handleSylRomanInputKeydown(event: KeyboardEvent, state: Syllable
       // Focus syllable input
       event.preventDefault()
       nextTick(() => state.inputEl?.select())
-      return
+      break
     }
     case 'ArrowLeft': {
       // If at start, focus previous syllable's romanization
-      if (el.selectionStart !== 0) return
+      if (el.selectionStart !== 0) break
       event.preventDefault()
       const prevSyl = findPrevSolidSyl()
-      if (!prevSyl) return
+      if (!prevSyl) break
       nextTick(() => staticStore.syllableHooks.get(prevSyl.id)?.focusRomanInput(-1))
-      return
+      break
     }
     case 'ArrowRight': {
       // If at end, focus next syllable's romanization
-      if (el.selectionStart !== el.value.length) return
+      if (el.selectionStart !== el.value.length) break
       event.preventDefault()
       const nextSyl = findNextSolidSyl()
-      if (!nextSyl) return
+      if (!nextSyl) break
       nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusRomanInput(0))
-      return
+      break
     }
     case 'Tab': {
       // Focus next/prev syllable's romanization
       event.preventDefault()
       const nextSyl = event.shiftKey ? findPrevSolidSyl() : findNextSolidSyl()
-      if (!nextSyl) return
+      if (!nextSyl) break
       nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusRomanInput())
-      return
+      break
     }
     case 'Space': {
-      if (el.value.split(' ').length <= state.syllable.placeholdingBeat) return
+      if (el.value.split(' ').length <= state.syllable.placeholdingBeat) break
       const cursorPos = el.selectionStart || 0
-      if (cursorPos !== el.value.length) return
+      if (cursorPos !== el.value.length) break
       event.preventDefault()
       if (cursorPos === el.value.length) {
         const nextSyl = findNextSolidSyl()
-        if (!nextSyl) return
+        if (!nextSyl) break
         nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusRomanInput())
       }
     }
     case 'Backspace': {
-      if (state.index === 0) return
-      if (el.selectionStart !== 0 || el.selectionEnd !== 0) return
+      if (state.index === 0) break
+      if (el.selectionStart !== 0 || el.selectionEnd !== 0) break
       const prevSyl = findPrevSolidSyl(true)
-      if (!prevSyl) return
+      if (!prevSyl) break
       event.preventDefault()
       const shiftedRoman = shiftRoman(state.parent, state.index)
-      if (!shiftedRoman) return
+      if (!shiftedRoman) break
       prevSyl.romanization += shiftedRoman
       nextTick(() =>
         staticStore.syllableHooks.get(prevSyl.id)?.focusRomanInput(-shiftedRoman.length - 1),
       )
-      return
+      break
     }
     case 'Delete': {
-      if (el.selectionStart !== el.value.length || el.selectionEnd !== el.value.length) return
+      if (el.selectionStart !== el.value.length || el.selectionEnd !== el.value.length) break
       const nextSyl = findNextSolidSyl(true)
-      if (!nextSyl) return
+      if (!nextSyl) break
       event.preventDefault()
       const cursorPos = el.selectionStart
       const shiftedRoman = shiftRoman(state.parent, state.index + 1)
-      if (!shiftedRoman) return
+      if (!shiftedRoman) break
       el.value += shiftedRoman
       el.selectionStart = el.selectionEnd = cursorPos
-      return
+      break
     }
     case 'Backquote': {
       event.preventDefault()
       const cursorPos = el.selectionStart || 0
       const romanToUnshift = el.value.slice(cursorPos)
       const nextSyl = findNextSolidSyl(true)
-      if (!nextSyl) return
+      if (!nextSyl) break
       unshiftRoman(state.parent, state.index + 1, romanToUnshift)
       el.value = el.value.slice(0, cursorPos).trim()
       nextTick(() => staticStore.syllableHooks.get(nextSyl.id)?.focusRomanInput(0))
-      return
+      break
     }
     case 'Escape': {
       event.preventDefault()
       el.blur()
-      return
+      break
     }
   }
+  triggerInputEvent(el)
 
   function findNextSolidSyl(sameLine = false) {
     let lineIndex = state.lineIndex

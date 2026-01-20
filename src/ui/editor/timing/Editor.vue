@@ -50,11 +50,14 @@ import { type LyricLine, type LyricSyllable, View } from '@core/types'
 import { useCoreStore, usePrefStore, useRuntimeStore, useStaticStore } from '@states/stores'
 import type { EditorComponentActions } from '@states/stores/static'
 
+import { forceOutsideBlur } from '@utils/forceOutsideBlur'
 import { tryRaf } from '@utils/tryRaf'
 
 import Line from './Line.vue'
 import Syllable from './Syllable.vue'
 import EmptyTip from '@ui/components/EmptyTip.vue'
+
+import { toogleAttr } from '../shared'
 
 const tt = t.editor
 
@@ -267,8 +270,12 @@ useGlobalKeyboard('playCurrSyl', () => {
   const syl = runtimeStore.getFirstSelectedSyl()
   if (syl && syl.startTime) audioEngine.seek(syl.startTime)
 })
+useGlobalKeyboard('duet', () => toogleAttr('duet'))
+useGlobalKeyboard('background', () => toogleAttr('background'))
+useGlobalKeyboard('connectNextLine', () => toogleAttr('connectNext'))
 
 function handleMouseDown(e: MouseEvent) {
+  forceOutsideBlur()
   if (e.button !== 0) return
   runtimeStore.clearSelection()
 }

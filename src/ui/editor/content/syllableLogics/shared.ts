@@ -18,7 +18,14 @@ export function hijackCompositionBackquote(e: CompositionEvent) {
   const pos = el.selectionStart || 0
   const lastChar = el.value.charAt(pos - 1)
   if (lastChar === '·') {
+    e.preventDefault()
     el.value = el.value.slice(0, pos - 1) + el.value.slice(pos)
+    triggerInputEvent(el)
     nextTick(() => el.setSelectionRange(pos - 1, pos - 1))
   }
+}
+
+export function triggerInputEvent(el: HTMLElement) {
+  const event = new Event('input', { bubbles: true })
+  el.dispatchEvent(event)
 }
