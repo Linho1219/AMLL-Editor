@@ -342,6 +342,10 @@ type RootTranslation = {
 			 */
 			ignoreInTiming: string
 			/**
+			 * 续​至​下​行
+			 */
+			connectNext: string
+			/**
 			 * 开​始​时​间
 			 */
 			startTime: string
@@ -826,22 +830,6 @@ type RootTranslation = {
 				 * 自​动​从​音​节​生​成​行​时​间​戳
 				 */
 				hideLineTimingDesc: string
-				/**
-				 * 自​动​连​接​行​时​间
-				 */
-				autoConnectLineTimes: string
-				/**
-				 * 自​动​连​接​间​隔​较​近​的​相​邻​行​时​间​戳
-				 */
-				autoConnectLineTimesDesc: string
-				/**
-				 * 行​时​间​自​动​连​接​阈​值
-				 */
-				autoConnectThresholdMs: string
-				/**
-				 * 连​接​相​邻​行​时​允​许​的​最​大​间​隔​ ​(​毫​秒​)
-				 */
-				autoConnectThresholdMsDesc: string
 				/**
 				 * 随​播​放​自​动​滚​动
 				 */
@@ -1984,7 +1972,7 @@ type RootTranslation = {
 ​
 ​喜​欢​您​来​！​
 ​
-​项​目​地​址​:​ ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​L​i​n​h​o​1​2​1​9​/​A​M​L​L​-​E​d​i​t​o​r​
+​项​目​地​址​:​ ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​a​m​l​l​-​d​e​v​/​a​m​l​l​-​e​d​i​t​o​r​
 ​　​　​　​　​ ​ ​以​ ​A​G​P​L​v​3​ ​o​n​l​y​ ​许​可​证​开​源​
 ​
 ​友​情​链​接​:​ ​A​M​L​L​ ​H​o​m​e​p​a​g​e​ ​ ​h​t​t​p​s​:​/​/​a​m​l​l​.​d​e​v​/​
@@ -2323,6 +2311,10 @@ export type TranslationFunctions = {
 			 * 时轴中忽略
 			 */
 			ignoreInTiming: () => LocalizedString
+			/**
+			 * 续至下行
+			 */
+			connectNext: () => LocalizedString
 			/**
 			 * 开始时间
 			 */
@@ -2808,22 +2800,6 @@ export type TranslationFunctions = {
 				 * 自动从音节生成行时间戳
 				 */
 				hideLineTimingDesc: () => LocalizedString
-				/**
-				 * 自动连接行时间
-				 */
-				autoConnectLineTimes: () => LocalizedString
-				/**
-				 * 自动连接间隔较近的相邻行时间戳
-				 */
-				autoConnectLineTimesDesc: () => LocalizedString
-				/**
-				 * 行时间自动连接阈值
-				 */
-				autoConnectThresholdMs: () => LocalizedString
-				/**
-				 * 连接相邻行时允许的最大间隔 (毫秒)
-				 */
-				autoConnectThresholdMsDesc: () => LocalizedString
 				/**
 				 * 随播放自动滚动
 				 */

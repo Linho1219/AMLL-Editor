@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash-es'
 import { reactive, toRaw } from 'vue'
 
-import type { LyricLine, Persist } from '@core/types'
+import type { Persist } from '@core/types'
 
 import { useCoreStore, usePrefStore, useRuntimeStore } from '@states/stores'
 
@@ -27,27 +27,8 @@ export function collectPersist(): Persist {
   const lines = cloneDeep(toRaw(coreStore.lyricLines))
   const metadata = cloneDeep(toRaw(coreStore.metadata))
   if (prefStore.hideLineTiming) lines.forEach((line) => alignLineTime(line))
-  if (prefStore.autoConnectLineTimes) connectLineTimes(lines, prefStore.autoConnectThresholdMs)
+  // if (prefStore.autoConnectLineTimes) connectLineTimes(lines, prefStore.autoConnectThresholdMs)
+  for (const [prev, next] of pairwise(lines)) if (prev.connectNext) prev.endTime = next.startTime
   const outputData: Persist = { metadata, lines }
   return outputData
-}
-
-function connectLineTimes(lines: LyricLine[], thresMs: number) {
-  function classifyLines(lines: LyricLine[]) {
-    type Groups = [normal: LyricLine[], duet: LyricLine[], bg: LyricLine[], duetBg: LyricLine[]]
-    const groups: Groups = [[], [], [], []]
-    const classifier = (line: LyricLine): 0 | 1 | 2 | 3 => {
-      if (line.duet && line.background) return 3
-      if (line.duet) return 1
-      if (line.background) return 2
-      return 0
-    }
-    lines.forEach((l) => groups[classifier(l)].push(l))
-    return groups
-  }
-  function connectLines(lines: LyricLine[]) {
-    for (const [prev, curr] of pairwise(lines))
-      if (curr.startTime - prev.endTime <= thresMs) prev.endTime = curr.startTime
-  }
-  classifyLines(lines).forEach((group) => connectLines(group))
 }
