@@ -3,6 +3,12 @@
   --p-border-radius-lg: 6px;
   --p-border-radius-xl: 6px;
   --p-select-checkmark-gutter-start: -0.2rem;
+  @media screen and (prefers-color-scheme: dark) {
+    --p-overlay-popover-shadow:
+      0 8px 20px -1px rgba(0, 0, 0, 0.8), 0 2px 4px -2px rgba(0, 0, 0, 0.7);
+    --p-overlay-modal-shadow:
+      0 18px 35px -5px rgba(0, 0, 0, 0.8), 0 8px 10px -6px rgba(0, 0, 0, 0.7);
+  }
 }
 
 .p-select-option-blank-icon {
