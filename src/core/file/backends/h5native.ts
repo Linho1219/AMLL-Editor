@@ -72,8 +72,5 @@ export const h5NativeBackend = defineFileBackend<H5NativeFileHandle>({
         blob: file,
       }
     },
-    async fsHandle(_handle: FileSystemHandle) {
-      return null
-    },
   },
 })

@@ -56,15 +56,6 @@ export const fileSystemBackend = defineFileBackend<FileSystemFileHandle>({
         blob: file,
       }
     },
-    async fsHandle(handle: FileSystemHandle) {
-      if (!(handle instanceof FileSystemFileHandle)) return null
-      const file = await handle.getFile()
-      return {
-        handle,
-        filename: handle.name,
-        blob: file,
-      }
-    },
   },
   launchFile: new Promise((resolve, reject) => {
     if (!('launchQueue' in window)) return

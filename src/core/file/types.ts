@@ -22,7 +22,6 @@ interface __FileReadResult<BackendFileHandle> {
 /** Adapter entry parameters for various sources */
 interface AdapterEntryParams {
   dragDrop: [e: DragEvent]
-  fsHandle: [handle: FileSystemHandle]
 }
 type __AdapterEntry<ImplementHandle> = {
   [K in keyof AdapterEntryParams]: (
