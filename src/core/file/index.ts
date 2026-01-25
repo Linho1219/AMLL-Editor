@@ -16,15 +16,23 @@ import type { TimeoutHandle, ValueOf } from '@utils/types'
 
 import { fileSystemBackend } from './backends/filesystem'
 import { h5NativeBackend } from './backends/h5native'
+import { tauriFileBackend } from './backends/tauri'
 import { collectProjectData, makeProjectFile, mountProjectData, parseProjectFile } from './project'
 import { breakExtension, checkDataDropConfirm } from './shared'
-import { type FileBackend, type FileHandle, type FileReadResult } from './types'
+import {
+  type FileBackend,
+  type FileBackendPickerAccept,
+  type FileHandle,
+  type FileReadResult,
+} from './types'
 
 export { simpleChooseTextFile, simpleSaveTextFile } from './simple'
 
-export const fileBackend: FileBackend = compatibilityMap.fileSystem
-  ? fileSystemBackend
-  : h5NativeBackend
+export const fileBackend: FileBackend = __IS_TAURI__
+  ? tauriFileBackend
+  : compatibilityMap.fileSystem
+    ? fileSystemBackend
+    : h5NativeBackend
 
 // Native format (*.alp) and TTML format (*.ttml) are the first-class supported formats
 // When save, they are written directly by default
@@ -49,14 +57,14 @@ const allSupportedExt = new Set([
 const manifest2formats = (
   key: CV.AllFormatKey,
   mItem: CV.FormatManifest,
-): FilePickerAcceptType => ({
+): FileBackendPickerAccept => ({
   description: t.formats[key].name(),
   accept: { [mItem.mime]: mItem.accept },
 })
 const allSupportedExtArr = [...allSupportedExt]
-const alpPickerType: FilePickerAcceptType[] = [manifest2formats('alp', FORMAT_MANIFEST.alp)]
-const ttmlPickerType: FilePickerAcceptType[] = [manifest2formats('ttml', FORMAT_MANIFEST.ttml)]
-const allPickerTypes: FilePickerAcceptType[] = [
+const alpPickerType: FileBackendPickerAccept[] = [manifest2formats('alp', FORMAT_MANIFEST.alp)]
+const ttmlPickerType: FileBackendPickerAccept[] = [manifest2formats('ttml', FORMAT_MANIFEST.ttml)]
+const allPickerTypes: FileBackendPickerAccept[] = [
   {
     description: tt.allSupportedFormats(),
     accept: { 'application/x-amll-editor-allsupported': allSupportedExtArr },
@@ -246,7 +254,7 @@ function suggestName() {
  * @throws User cancel; write errors.
  * @returns Filename
  */
-async function __saveAsFile(types: FilePickerAcceptType[]) {
+async function __saveAsFile(types: FileBackendPickerAccept[]) {
   const { handle, filename } = await fileBackend.writeAs(
     'amll-ttml-tool-file-save-as',
     types,
@@ -304,7 +312,7 @@ type Notifier = (
   severity?: 'info' | 'warn' | 'error' | 'success',
 ) => void
 
-const possibleAudioExts = new Set([
+export const possibleAudioExts = [
   'mp3',
   'wav',
   'flac',
@@ -319,7 +327,7 @@ const possibleAudioExts = new Set([
   'aiff',
   'wma',
   'au',
-])
+]
 let dragListenerInitialized = false
 function initDragListener(notifier: Notifier) {
   if (dragListenerInitialized) return
@@ -338,7 +346,7 @@ function initDragListener(notifier: Notifier) {
     if (el.closest('.cm-editor')) return // Skip if dropping on editor
     e.preventDefault()
     const [, ext] = breakExtension(file.name)
-    if (possibleAudioExts.has(ext)) {
+    if (possibleAudioExts.includes(ext)) {
       audioEngine.mount(file)
       return
     }
@@ -352,7 +360,7 @@ function initDragListener(notifier: Notifier) {
     fileBackend.adapters
       .dragDrop(e)
       .then(async (result) => {
-        if (!result) throw new Error(tt.failedToReadErr.summary())
+        if (!result) return
         await handleFile(result)
         notifier(tt.loaded(), file.name, 'success')
       })

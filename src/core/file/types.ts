@@ -29,6 +29,11 @@ type __AdapterEntry<ImplementHandle> = {
   ) => Promise<__FileReadResult<ImplementHandle> | null>
 }
 
+export interface FileBackendPickerAccept {
+  description: string
+  accept: Record<string, string[]>
+}
+
 /**
  * Abstract file backend interface.
  * Will be implemented with private FileHandle type, not exposed outside
@@ -41,7 +46,7 @@ interface __FileBackend<BackendFileHandle> {
    */
   read(
     id: string,
-    types: FilePickerAcceptType[],
+    types: FileBackendPickerAccept[],
     startIn?: WellKnownDirectory,
   ): Promise<__FileReadResult<BackendFileHandle>>
   /**
@@ -62,7 +67,7 @@ interface __FileBackend<BackendFileHandle> {
    */
   writeAs(
     id: string,
-    types: FilePickerAcceptType[],
+    types: FileBackendPickerAccept[],
     suggestedBaseName: string,
     blobGenerator: (filename: string) => Promise<Blob>,
     startIn?: WellKnownDirectory,
