@@ -3,6 +3,8 @@ import { t } from '@i18n'
 import { editHistory } from '@states/services/history'
 import { useStaticStore } from '@states/stores'
 
+import type { FileBackendPickerAccept } from './types'
+
 const staticStore = useStaticStore()
 const tt = t.file.dataDropConfirm
 
@@ -26,3 +28,10 @@ export function breakExtension(filename: string): [name: string, extension: stri
   const extension = filename.slice(lastDotIndex + 1).toLowerCase()
   return [name, extension]
 }
+
+export const extractMIMEs = (...types: FileBackendPickerAccept[]): string[] =>
+  types.flatMap(({ accept }) =>
+    !accept ? [] : [...Object.entries(accept)].map(([mime, dotExts]) => [mime, ...dotExts]).flat(),
+  )
+export const extractDotExts = (...types: FileBackendPickerAccept[]): string[] =>
+  extractMIMEs(...types).filter((s) => s.startsWith('.'))

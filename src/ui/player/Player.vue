@@ -74,7 +74,7 @@ import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch 
 
 import { audioEngine } from '@core/audio'
 import { compatibilityMap } from '@core/compat'
-import { fileBackend } from '@core/file'
+import { fileBackend, possibleAudioExts } from '@core/file'
 import { useGlobalKeyboard } from '@core/hotkey'
 
 import { usePrefStore } from '@states/stores'
@@ -109,7 +109,7 @@ async function handleSelectFile() {
       [
         {
           description: tt.allSupportedFormats(),
-          accept: { 'audio/*': ['.mp3', '.flac', '.wav', '.ncm'] },
+          accept: { 'audio/*': possibleAudioExts.map((ext) => `.${ext}`) },
         },
       ],
       'music',

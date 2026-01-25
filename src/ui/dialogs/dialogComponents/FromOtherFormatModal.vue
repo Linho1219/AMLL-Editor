@@ -107,7 +107,7 @@ async function handleOpenFromFile() {
     'from-other-format',
   )
   if (!file) return
-  inputText.value = file.content || ''
+  inputText.value = file || ''
 }
 async function handleImport() {
   if (!selectedFormat.value) return
