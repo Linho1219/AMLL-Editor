@@ -91,8 +91,8 @@
                 tt.scope.sylContent()
               }}</label>
             </div>
-            <div class="findreplace-range-option-item">
-              <Checkbox v-model="findInTranslations" input-id="findInTranslations" binary />
+            <div class="findreplace-range-option-item" v-if="!prefStore.hideTranslateRoman">
+              <Checkbox v-model="findInTranslationsModel" input-id="findInTranslations" binary />
               <label for="findInTranslations" class="findreplace-range-option-label">{{
                 prefStore.sylRomanEnabled ? tt.scope.lineTrans() : tt.scope.trans()
               }}</label>
@@ -103,8 +103,8 @@
                 tt.scope.sylRoman()
               }}</label>
             </div>
-            <div class="findreplace-range-option-item">
-              <Checkbox v-model="findInRoman" input-id="findInRoman" binary />
+            <div class="findreplace-range-option-item" v-if="!prefStore.hideTranslateRoman">
+              <Checkbox v-model="findInRomanModel" input-id="findInRoman" binary />
               <label for="findInRoman" class="findreplace-range-option-label">{{
                 prefStore.sylRomanEnabled ? tt.scope.lineRoman() : tt.scope.roman()
               }}</label>
@@ -235,9 +235,13 @@ const replaceInput = ref('')
 
 const findInSyls = ref(true)
 const findInSylRomanModel = ref(false)
-const findInTranslations = ref(false)
-const findInRoman = ref(false)
+const findInTranslationsModel = ref(false)
+const findInRomanModel = ref(false)
 const findInSylRoman = computed(() => prefStore.sylRomanEnabled && findInSylRomanModel.value)
+const findInTranslations = computed(
+  () => !prefStore.hideTranslateRoman && findInTranslationsModel.value,
+)
+const findInRoman = computed(() => !prefStore.hideTranslateRoman && findInRomanModel.value)
 
 const matchCase = ref(false)
 const matchWholeWord = ref(false)
@@ -266,9 +270,8 @@ const findRangeEmpty = computed(
   () =>
     !(
       findInSyls.value ||
-      findInTranslations.value ||
-      findInRoman.value ||
-      (prefStore.sylRomanEnabled && findInSylRomanModel.value)
+      (!prefStore.hideTranslateRoman && (findInTranslations.value || findInRoman.value)) ||
+      findInSylRoman.value
     ),
 )
 const actionDisabled = computed(() => findRangeEmpty.value || !compiledPattern.value)
@@ -365,10 +368,10 @@ function applyCurrentToFind() {
         disableCrossMatch()
         inputSel ||= (activeEl as HTMLInputElement).value
       } else if (activeEl.dataset.lineFieldKey === 'translation') {
-        findInTranslations.value = true
+        findInTranslationsModel.value = true
         inputSel ||= (activeEl as HTMLInputElement).value
       } else if (activeEl.dataset.lineFieldKey === 'roman') {
-        findInRoman.value = true
+        findInRomanModel.value = true
         inputSel ||= (activeEl as HTMLInputElement).value
       }
     inputSel = inputSel?.trim()

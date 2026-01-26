@@ -432,9 +432,13 @@ type RootTranslation = {
 			 */
 			scrollWithPlayback: string
 			/**
-			 * 交​换​翻​译​音​译​框
+			 * 交​换​行​翻​译​音​译
 			 */
 			swapTranslateRoman: string
+			/**
+			 * 隐​藏​行​翻​译​音​译
+			 */
+			hideTranslateRoman: string
 		}
 		mark: {
 			/**
@@ -810,6 +814,14 @@ type RootTranslation = {
 				 * 在​内​容​视​图​将​音​译​框​置​于​左​侧​，​并​影​响​查​找​顺​序
 				 */
 				swapTranslateRomanDesc: string
+				/**
+				 * 隐​藏​翻​译​音​译​框
+				 */
+				hideTranslateRoman: string
+				/**
+				 * 隐​藏​内​容​视​图​中​的​翻​译​音​译​框
+				 */
+				hideTranslateRomanDesc: string
 				/**
 				 * 启​用​逐​字​音​译
 				 */
@@ -2414,9 +2426,13 @@ export type TranslationFunctions = {
 			 */
 			scrollWithPlayback: () => LocalizedString
 			/**
-			 * 交换翻译音译框
+			 * 交换行翻译音译
 			 */
 			swapTranslateRoman: () => LocalizedString
+			/**
+			 * 隐藏行翻译音译
+			 */
+			hideTranslateRoman: () => LocalizedString
 		}
 		mark: {
 			/**
@@ -2792,6 +2808,14 @@ export type TranslationFunctions = {
 				 * 在内容视图将音译框置于左侧，并影响查找顺序
 				 */
 				swapTranslateRomanDesc: () => LocalizedString
+				/**
+				 * 隐藏翻译音译框
+				 */
+				hideTranslateRoman: () => LocalizedString
+				/**
+				 * 隐藏内容视图中的翻译音译框
+				 */
+				hideTranslateRomanDesc: () => LocalizedString
 				/**
 				 * 启用逐字音译
 				 */

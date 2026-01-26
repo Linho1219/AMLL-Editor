@@ -78,6 +78,7 @@ watch(selectedLanguageItem, (val) => {
     <div class="pref-group">
       <div class="pref-group-title">{{ tt.groups.content() }}</div>
       <PrefSwitchItem pref-key="swapTranslateRoman" />
+      <PrefSwitchItem pref-key="hideTranslateRoman" />
       <PrefSwitchItem pref-key="sylRomanEnabled" experimental />
     </div>
     <div class="pref-group">

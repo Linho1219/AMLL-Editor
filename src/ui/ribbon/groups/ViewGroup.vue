@@ -25,6 +25,14 @@
         v-model="prefStore.swapTranslateRoman"
       />
       <label for="ribbon-swap-translate-roman">{{ tt.swapTranslateRoman() }}</label>
+      <Checkbox
+        input-id="ribbon-hide-translate-roman"
+        value="hide-translate-roman"
+        size="small"
+        binary
+        v-model="prefStore.hideTranslateRoman"
+      />
+      <label for="ribbon-hide-translate-roman">{{ tt.hideTranslateRoman() }}</label>
     </div>
   </RibbonGroup>
 </template>

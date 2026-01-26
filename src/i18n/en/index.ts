@@ -164,6 +164,7 @@ const en = {
       enableSylRoman: 'Syllable Romanization',
       scrollWithPlayback: 'Scroll with Playback',
       swapTranslateRoman: 'Swap Translation',
+      hideTranslateRoman: 'Hide Translation',
     },
     mark: {
       groupLabel: 'Markers',
@@ -279,6 +280,8 @@ const en = {
         audioSeekingStepMsDesc: 'Time to jump when using hotkeys (ms)',
         swapTranslateRoman: 'Swap translation & romanization panels',
         swapTranslateRomanDesc: 'Place romanization panel on the left',
+        hideTranslateRoman: 'Hide translation & romanization panels',
+        hideTranslateRomanDesc: 'Hide translation & romanization panels in lyrics view',
         sylRomanEnabled: 'Enable syllable romanization',
         sylRomanEnabledDesc: 'Show per-syllable romanization',
         globalLatencyMs: 'Global latency compensation',

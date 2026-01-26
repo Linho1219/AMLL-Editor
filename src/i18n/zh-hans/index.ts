@@ -158,7 +158,8 @@ const zhHans = {
       groupLabel: '视图',
       enableSylRoman: '启用逐字音译',
       scrollWithPlayback: '随播放自动滚动',
-      swapTranslateRoman: '交换翻译音译框',
+      swapTranslateRoman: '交换行翻译音译',
+      hideTranslateRoman: '隐藏行翻译音译',
     },
     mark: {
       groupLabel: '标记',
@@ -271,6 +272,8 @@ const zhHans = {
         audioSeekingStepMsDesc: '按键快进或快退时跳转的时长 (毫秒)',
         swapTranslateRoman: '交换翻译与音译框位置',
         swapTranslateRomanDesc: '在内容视图将音译框置于左侧，并影响查找顺序',
+        hideTranslateRoman: '隐藏翻译音译框',
+        hideTranslateRomanDesc: '隐藏内容视图中的翻译音译框',
         sylRomanEnabled: '启用逐字音译',
         sylRomanEnabledDesc: '在音节框下方显示逐字音译，并支持查找替换',
         globalLatencyMs: '全局延时补偿',
