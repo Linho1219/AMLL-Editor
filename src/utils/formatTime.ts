@@ -26,11 +26,14 @@ export function ms2str(num: number): string {
 
 export function ms2strShort(num: number): string {
   if (num < 0) num = 0
-  const m = Math.floor(num / 60000)
-    .toString()
-    .padStart(2, '0')
+  const m = Math.floor(num / 60000).toString()
   const s = Math.floor((num % 60000) / 1000)
     .toString()
     .padStart(2, '0')
+  const msNum = Math.floor(num) % 1000
+  if (msNum > 0) {
+    const ms = (msNum / 1000).toString().slice(1)
+    return `${m}:${s}${ms}`
+  }
   return `${m}:${s}`
 }

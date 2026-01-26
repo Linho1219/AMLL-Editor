@@ -83,11 +83,13 @@ import { ms2str } from '@utils/formatTime'
 import { tipHotkey } from '@utils/generateTooltip'
 
 import PopoverPane from './Popover.vue'
-import Spectrogram from './Spectrogram.vue'
 import Waveform from './Waveform.vue'
+import Spectrogram from './spectrogram/Spectrogram.vue'
 import { Button, Card, Popover, useToast } from 'primevue'
 
 const tt = t.player
+
+const isDark = useDark()
 
 const { amendedProgressComputed, lengthComputed, playingComputed, activatedRef } = audioEngine
 const playPauseButton = useTemplateRef('playPauseButton')
@@ -200,9 +202,8 @@ onMounted(async () => {
   }
 })
 onUnmounted(() => revokeListeners?.())
-watch([amendedProgressComputed, lengthComputed], () => drawProgress())
+watch([amendedProgressComputed, lengthComputed, isDark], () => drawProgress())
 
-const isDark = useDark()
 // Where sizes from:
 // Primary:   00:00.000      <- 9 ch
 // Secondary: 100% 00:00.000 <- 13 ch + space (use 0.6ch)
